@@ -2,30 +2,57 @@ const leadForm = document.querySelector("#leadForm");
 const formStatus = document.querySelector("#formStatus");
 
 if (leadForm && formStatus) {
-  leadForm.addEventListener("submit", function (event) {
+  leadForm.addEventListener("submit", async function (event) {
     event.preventDefault();
 
     const formData = new FormData(leadForm);
-    const name = String(formData.get("name") || "").trim();
-    const email = String(formData.get("email") || "").trim();
+    const name    = String(formData.get("name")    || "").trim();
+    const email   = String(formData.get("email")   || "").trim();
     const project = String(formData.get("project") || "").trim();
 
     if (!name || !email || !project) {
       formStatus.textContent = "Preencha nome, e-mail e uma breve descrição do projeto.";
+      formStatus.style.color = "var(--danger)";
       return;
     }
 
-    const subject = encodeURIComponent("Projeto freelance com Robson Svicero");
-    const body = encodeURIComponent(
-      `Olá Robson,\n\nMeu nome é ${name}.\nMeu e-mail é ${email}.\n\nQuero conversar sobre este projeto:\n${project}\n\nObrigado.`
-    );
+    const submitBtn = leadForm.querySelector("button[type='submit']");
+    submitBtn.disabled = true;
+    submitBtn.textContent = "Enviando...";
+    formStatus.textContent = "";
+    formStatus.style.color = "var(--muted)";
 
-    formStatus.textContent = "Mensagem preparada. Seu cliente de e-mail será aberto agora.";
-    window.location.href = `mailto:ola@robsonsvicero.com.br?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch(leadForm.action, {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "Mensagem enviada! Entrarei em contato em breve.";
+        formStatus.style.color = "var(--success)";
+        leadForm.reset();
+      } else {
+        const data = await response.json();
+        const errorMsg = data?.errors?.map((e) => e.message).join(", ")
+          || "Erro ao enviar. Tente novamente.";
+        formStatus.textContent = errorMsg;
+        formStatus.style.color = "var(--danger)";
+      }
+    } catch (err) {
+      formStatus.textContent = "Sem conexão. Verifique sua internet e tente novamente.";
+      formStatus.style.color = "var(--danger)";
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Enviar mensagem";
+    }
   });
 }
 
-const topnav = document.querySelector(".topnav");
+/* ─── Menu hambúrguer ─────────────────────────────── */
+
+const topnav     = document.querySelector(".topnav");
 const menuToggle = document.querySelector(".menu-toggle");
 const primaryNav = document.querySelector("#primary-nav");
 
