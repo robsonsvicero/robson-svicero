@@ -655,8 +655,19 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
     width: 100%;
     margin-inline: 0;
     padding-inline: var(--container-gutter-tablet);
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 12px;
+  }
+
+  .topnav.open {
+    width: 100vw;
+    left: 0;
+    right: 0;
+  }
+
+  .topnav.open .topnav-inner {
+    max-width: 100%;
+    width: 100%;
   }
 
   .logo { font-size: 20px; line-height: 0.9; }
@@ -670,12 +681,21 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
   /* Esconde nav e CTA desktop */
   .topnav nav {
     display: none;
-    width: 100%;
-    order: 3;
+    position: fixed;
+    top: calc(74px + env(safe-area-inset-top));
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: calc(100dvh - 58px - env(safe-area-inset-top));
     flex-direction: column;
     align-items: center;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border-soft);
+    box-shadow: var(--elev-raised);
+    overflow-y: auto;
     gap: 14px;
-    padding: 20px 0 16px;
+    padding: 20px var(--container-gutter-tablet) 16px;
   }
   .topnav nav a {
     font-size: var(--text-xl);
@@ -751,13 +771,17 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
   /* Header */
   .topnav { padding-block: 6px; }
-  .topnav-inner { padding-inline: var(--container-gutter-phone); }
+  .topnav-inner { padding-inline: var(--container-gutter-phone); height: 100%; }
+  .topnav.open { width: 100vw; }
   .menu-toggle {
     display: inline-flex !important;
     width: 42px;
     height: 42px;
     min-width: 42px;
     min-height: 42px;
+  }
+  .topnav nav {
+    padding-inline: var(--container-gutter-phone);
   }
   .topnav nav a { font-size: var(--text-lg); }
 
