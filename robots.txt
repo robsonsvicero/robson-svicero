@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /assets/
 
 Sitemap: https://robsonsvicero.com.br/sitemap.xml
