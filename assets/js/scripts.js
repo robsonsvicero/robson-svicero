@@ -30,9 +30,7 @@ if (leadForm && formStatus) {
       });
 
       if (response.ok) {
-        formStatus.textContent = "Mensagem enviada! Entrarei em contato em breve.";
-        formStatus.style.color = "var(--success)";
-        leadForm.reset();
+        window.location.href = "/obrigado.html";
       } else {
         const data = await response.json();
         const errorMsg = data?.errors?.map((e) => e.message).join(", ")
@@ -79,3 +77,25 @@ if (topnav && menuToggle && primaryNav) {
     if (!topnav.contains(event.target)) closeMenu();
   });
 }
+
+/* ─── Cookie Consent Banner ────────────────────────── */
+
+document.addEventListener("DOMContentLoaded", () => {
+  if (!localStorage.getItem("cookieConsent")) {
+    const banner = document.createElement("div");
+    banner.className = "cookie-banner";
+    banner.innerHTML = `
+      <div class="cookie-content">
+        <p>Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao continuar navegando, você concorda com a nossa <a href="/privacidade.html">Política de Privacidade</a>.</p>
+        <button class="btn btn-primary btn-cookie" id="acceptCookies">Entendi e Aceito</button>
+      </div>
+    `;
+    document.body.appendChild(banner);
+
+    document.getElementById("acceptCookies").addEventListener("click", () => {
+      localStorage.setItem("cookieConsent", "true");
+      banner.classList.add("cookie-hide");
+      setTimeout(() => banner.remove(), 500);
+    });
+  }
+});

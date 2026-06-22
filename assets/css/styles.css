@@ -605,6 +605,10 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
 /* ─── Rodapé ─────────────────────────────────────────── */
 
+.content {
+  margin-inline: 8%;
+  padding-inline: var(--container-gutter-desktop);
+}
 .pagefoot {
   padding-block: var(--space-12);
   border-top: 1px solid var(--border-soft);
@@ -814,4 +818,76 @@ h1, h2, h3 { text-wrap: balance; margin: 0; }
 
   /* Rodapé */
   .pagefoot { padding-block: 28px; }
+}
+
+/* ─── Cookie Banner ──────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--fg);
+  color: #fff;
+  padding: 16px;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.cookie-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  gap: 24px;
+}
+
+.cookie-content p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--border-soft);
+  line-height: 1.5;
+}
+
+.cookie-content a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.cookie-content a:hover {
+  color: var(--accent);
+}
+
+.btn-cookie {
+  white-space: nowrap;
+  background-color: #fff;
+  color: var(--fg);
+  border: none;
+}
+
+.btn-cookie:hover {
+  background-color: var(--surface);
+  color: var(--fg);
+  border: none;
+}
+
+.cookie-hide {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .cookie-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+  .btn-cookie {
+    width: 100%;
+  }
 }
