@@ -99,3 +99,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+/* ─── Voltar ao topo ────────────────────────────────── */
+
+const backToTopBtn = document.querySelector("#backToTopBtn");
+
+if (backToTopBtn) {
+  const toggleBackToTop = () => {
+    const shouldShow = window.scrollY > 420;
+    backToTopBtn.classList.toggle("is-visible", shouldShow);
+  };
+
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  });
+
+  window.addEventListener("scroll", toggleBackToTop, { passive: true });
+  toggleBackToTop();
+}
