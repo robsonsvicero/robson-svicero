@@ -1053,15 +1053,21 @@ h3 {
   display: block;
 }
 
+.partner-item p {
+  text-align: center;
+}
+
 @media (max-width: 640px) {
   .partners-section {
     padding-block: var(--space-8);
     gap: var(--space-6);
   }
 
-  /* .partners-logos {
-    flex-direction: column;
-  } */
+  .partners-logos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
 
   .partner-item {
     padding: var(--space-4) 20px;
@@ -1073,6 +1079,12 @@ h3 {
 
   .partner-item img {
     height: 48px;
+  }
+
+  .partner-item p {
+    font-size: var(--text-sm);
+    font-weight: var(--weight-bold);
+    margin-top: var(--space-2);
   }
 }
 
