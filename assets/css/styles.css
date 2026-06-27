@@ -962,6 +962,107 @@ h3 {
   font-size: var(--text-sm);
 }
 
+/* ─── Parceiros ──────────────────────────────────────── */
+
+.partners-section {
+  padding-block: var(--space-12);
+  border-top: 1px solid var(--border-soft);
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--surface);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.partners-header {
+  text-align: center;
+}
+
+.partners-header .eyebrow {
+  margin: 0;
+}
+
+.partners-track-wrapper {
+  width: 100%;
+  overflow: hidden;
+  /* Fade nas bordas via máscara */
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    #000 12%,
+    #000 88%,
+    transparent 100%
+  );
+}
+
+.partners-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 80px);
+  width: max-content;
+  animation: partners-scroll 18s linear infinite;
+}
+
+.partners-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes partners-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-33.333%); }
+}
+
+.partner-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.55;
+  transition: opacity var(--motion-base) var(--ease-standard),
+              filter var(--motion-base) var(--ease-standard),
+              transform var(--motion-base) var(--ease-standard);
+  filter: grayscale(1);
+}
+
+.partner-item:hover {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.06);
+}
+
+.partner-item img {
+  height: clamp(36px, 5vw, 52px);
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .partners-section {
+    padding-block: var(--space-8);
+    gap: var(--space-6);
+  }
+
+  .partner-item img {
+    height: 32px;
+  }
+
+  .partners-track {
+    gap: 32px;
+    animation-duration: 12s;
+  }
+}
+
 /* ─── Rodapé ─────────────────────────────────────────── */
 
 .content {
