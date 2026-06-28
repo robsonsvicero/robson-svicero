@@ -503,7 +503,7 @@ h3 {
   width: 100%;
   margin-bottom: var(--space-5);
   color: var(--bg);
-  font-size: clamp(56px, 6.2vw, 92px);
+  font-size: clamp(44px, 4.9vw, 72px);
   line-height: 0.92;
   letter-spacing: -0.04em;
   text-wrap: balance;
@@ -902,6 +902,88 @@ h3 {
   margin-top: var(--space-5);
 }
 
+/* ─── FAQ ────────────────────────────────────────────── */
+
+.faq-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: var(--space-12);
+  align-items: start;
+}
+
+.faq-intro {
+  max-width: 420px;
+}
+
+.faq-list {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.faq-item {
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.faq-item summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 68px;
+  padding: var(--space-5) 56px var(--space-5) var(--space-5);
+  color: var(--fg);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  line-height: 1.18;
+  letter-spacing: var(--tracking-display);
+  cursor: pointer;
+  list-style: none;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  position: absolute;
+  top: 50%;
+  right: var(--space-5);
+  width: 28px;
+  height: 28px;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
+}
+
+.faq-item summary:focus-visible {
+  outline: none;
+  box-shadow: inset var(--focus-ring);
+}
+
+.faq-answer {
+  padding: 0 var(--space-5) var(--space-5);
+}
+
+.faq-answer p {
+  margin: 0;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
 /* ─── Contato ────────────────────────────────────────── */
 
 .contact-panel {
@@ -1197,6 +1279,7 @@ h3 {
   .grid-2-1,
   .grid-1-2,
   .comparison,
+  .faq-layout,
   .contact-panel {
     grid-template-columns: 1fr;
   }
@@ -1440,6 +1523,7 @@ h3 {
 
   /* Cards e contato */
   .card,
+  .faq-item,
   .contact-panel {
     border-radius: 22px;
   }
