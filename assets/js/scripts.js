@@ -100,6 +100,90 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+/* ─── Cartão digital: copiar / vCard ───────────────── */
+
+const cardCopyStatus = document.querySelector("#cardCopyStatus");
+const copyButtons = document.querySelectorAll("[data-copy-value]");
+const vcardButtons = document.querySelectorAll("[data-vcard-download]");
+
+const setCardFeedback = (message, isError = false) => {
+  if (!cardCopyStatus) return;
+
+  cardCopyStatus.textContent = message;
+  cardCopyStatus.style.color = isError ? "var(--danger)" : "rgba(255, 255, 255, 0.72)";
+};
+
+const copyToClipboard = async (value) => {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(value);
+    return;
+  }
+
+  const textarea = document.createElement("textarea");
+  textarea.value = value;
+  textarea.setAttribute("readonly", "true");
+  textarea.style.position = "absolute";
+  textarea.style.left = "-9999px";
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand("copy");
+  textarea.remove();
+};
+
+copyButtons.forEach((button) => {
+  const originalLabel = button.dataset.copyLabel || button.textContent.trim();
+
+  button.addEventListener("click", async () => {
+    const value = button.dataset.copyValue || "";
+
+    try {
+      await copyToClipboard(value);
+      button.textContent = "Copiado";
+      setCardFeedback(`${originalLabel} copiado para a área de transferência.`);
+    } catch (error) {
+      button.textContent = originalLabel;
+      setCardFeedback("Não foi possível copiar agora. Use um dos links abaixo.", true);
+      return;
+    }
+
+    window.clearTimeout(button._copyResetTimer);
+    button._copyResetTimer = window.setTimeout(() => {
+      button.textContent = originalLabel;
+    }, 1600);
+  });
+});
+
+vcardButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const vcard = [
+      "BEGIN:VCARD",
+      "VERSION:3.0",
+      "FN:Robson Svicero",
+      "N:Svicero;Robson;;;",
+      "ORG:Robson Svicero",
+      "TITLE:Desenvolvedor React.js",
+      "TEL;TYPE=CELL:+55 11 96493-2007",
+      "EMAIL;TYPE=WORK:ola@robsonsvicero.com.br",
+      "URL:https://robsonsvicero.com.br/",
+      "ADR;TYPE=WORK:;;São Paulo;SP;Brasil",
+      "END:VCARD",
+    ].join("\n");
+
+    const blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+    const link = document.createElement("a");
+    const objectUrl = URL.createObjectURL(blob);
+
+    link.href = objectUrl;
+    link.download = "robson-svicero-contato.vcf";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
+    URL.revokeObjectURL(objectUrl);
+
+    setCardFeedback("vCard baixado. Pronto para salvar no celular.");
+  });
+});
+
 /* ─── Voltar ao topo ────────────────────────────────── */
 
 const backToTopBtn = document.querySelector("#backToTopBtn");
