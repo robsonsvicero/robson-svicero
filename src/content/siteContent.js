@@ -46,7 +46,6 @@ export const heroContent = {
   note:
     "Para empresas e profissionais que precisam vender melhor uma oferta digital sem separar estratégia, design e implementação.",
   media: {
-    poster: "/assets/images/og-image.jpg",
     sources: [
       { src: "/assets/videos/hero-loop.mp4", type: "video/mp4" },
     ],

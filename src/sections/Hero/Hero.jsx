@@ -18,7 +18,6 @@ export default function Hero() {
           loop
           playsInline
           preload="metadata"
-          poster={media.poster}
         >
           {media.sources.map((source) => (
             <source key={source.src} src={source.src} type={source.type} />
