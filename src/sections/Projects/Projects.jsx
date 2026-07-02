@@ -3,14 +3,12 @@ import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
 import { projectsContent } from "../../content/siteContent.js";
-import { cases } from "../../data/cases.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 
 export default function Projects() {
   const { items: projects } = useSupabaseList({
     table: "projects",
-    fallback: cases,
     mapper: mapProject,
     orderBy: "created_at",
   });

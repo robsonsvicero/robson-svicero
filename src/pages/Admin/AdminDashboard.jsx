@@ -1,10 +1,28 @@
 import { useEffect, useMemo, useState } from "react";
+import { FileText, FolderKanban, LayoutDashboard } from "lucide-react";
+import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
+import { sanitizeRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
 
 const resourceKeys = Object.keys(adminResources);
+const adminNavigation = [
+  { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { key: "posts", label: adminResources.posts.label, icon: FileText },
+  { key: "projects", label: adminResources.projects.label, icon: FolderKanban },
+];
+
+function slugify(value) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
 
 function normalizeFormValue(field, value) {
   if (field.type !== "json") return value || "";
@@ -19,6 +37,8 @@ function parsePayload(fields, formValues) {
     const value = formValues[field.name];
     if (field.type === "json") {
       payload[field.name] = value ? JSON.parse(value) : [];
+    } else if (field.type === "richtext") {
+      payload[field.name] = value ? sanitizeRichText(value) : null;
     } else {
       payload[field.name] = value || null;
     }
@@ -27,32 +47,86 @@ function parsePayload(fields, formValues) {
   return payload;
 }
 
+function createProjectSeoPayload(formValues) {
+  return {
+    seo_title: formValues.title || null,
+    seo_description:
+      formValues.meta_description || formValues.description || formValues.full_description || null,
+  };
+}
+
 export default function AdminDashboard() {
-  const [activeResource, setActiveResource] = useState("posts");
+  const [activeResource, setActiveResource] = useState("dashboard");
   const resource = adminResources[activeResource];
   const emptyRecord = useMemo(
-    () => getEmptyRecord(resource.fields),
-    [resource.fields],
+    () => (resource ? getEmptyRecord(resource.fields) : {}),
+    [resource],
   );
   const [items, setItems] = useState([]);
   const [selectedId, setSelectedId] = useState(null);
   const [formValues, setFormValues] = useState(emptyRecord);
+  const [dashboardStats, setDashboardStats] = useState([]);
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+  const [imageLoadingFields, setImageLoadingFields] = useState([]);
+  const [showPostsList, setShowPostsList] = useState(false);
 
   const selectedItem = items.find((item) => item.id === selectedId);
+  const isPostsResource = activeResource === "posts";
 
   useEffect(() => {
     setSelectedId(null);
     setFormValues(emptyRecord);
     setStatus("");
-    loadItems();
-  }, [activeResource]);
+    setShowPostsList(false);
+    if (resource) {
+      loadItems();
+    } else {
+      setItems([]);
+      loadDashboardStats();
+    }
+  }, [activeResource, emptyRecord, resource]);
+
+  async function loadDashboardStats() {
+    if (!isSupabaseConfigured) {
+      setStatus("Supabase ainda não está configurado nas variáveis de ambiente.");
+      return;
+    }
+
+    setIsLoading(true);
+    const stats = await Promise.all(
+      resourceKeys.map(async (key) => {
+        const currentResource = adminResources[key];
+        const { count, error } = await supabase
+          .from(currentResource.table)
+          .select("id", { count: "exact", head: true });
+
+        return {
+          key,
+          label: currentResource.label,
+          singular: currentResource.singular,
+          count: error ? null : count,
+          error,
+        };
+      }),
+    );
+    setIsLoading(false);
+
+    const failedStat = stats.find((stat) => stat.error);
+    if (failedStat) {
+      setStatus(`Erro ao carregar dashboard: ${failedStat.error.message}`);
+      return;
+    }
+
+    setDashboardStats(stats);
+  }
 
   async function loadItems() {
+    if (!resource) return;
+
     if (!isSupabaseConfigured) {
-      setStatus("Supabase ainda nao esta configurado nas variaveis de ambiente.");
+      setStatus("Supabase ainda não está configurado nas variáveis de ambiente.");
       return;
     }
 
@@ -72,12 +146,14 @@ export default function AdminDashboard() {
   }
 
   function startCreate() {
+    if (!resource) return;
     setSelectedId(null);
     setFormValues(emptyRecord);
     setStatus("");
   }
 
   function startEdit(item) {
+    if (!resource) return;
     const nextValues = {};
     for (const field of resource.fields) {
       nextValues[field.name] = normalizeFormValue(field, item[field.name]);
@@ -88,12 +164,53 @@ export default function AdminDashboard() {
   }
 
   function updateField(name, value) {
-    setFormValues((current) => ({ ...current, [name]: value }));
+    setFormValues((current) => {
+      const nextValues = { ...current, [name]: value };
+
+      const currentSlug = current.slug || "";
+      const currentTitleSlug = slugify(current.title || "");
+      const shouldUpdateSlug =
+        ["posts", "projects"].includes(activeResource) &&
+        name === "title" &&
+        !selectedId &&
+        (!currentSlug || currentSlug === currentTitleSlug);
+
+      if (shouldUpdateSlug) {
+        nextValues.slug = slugify(value);
+      }
+
+      return nextValues;
+    });
+  }
+
+  function handleImageFile(fieldName, file) {
+    if (!file) return;
+
+    setImageLoadingFields((current) => [...new Set([...current, fieldName])]);
+    setStatus("Carregando imagem no formulário...");
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      updateField(fieldName, reader.result || "");
+      setImageLoadingFields((current) => current.filter((name) => name !== fieldName));
+      setStatus("Imagem carregada. Agora clique em Salvar para gravar no Supabase.");
+    };
+    reader.onerror = () => {
+      setImageLoadingFields((current) => current.filter((name) => name !== fieldName));
+      setStatus("Não foi possível carregar a imagem selecionada.");
+    };
+    reader.readAsDataURL(file);
   }
 
   async function handleSubmit(event) {
     event.preventDefault();
     setStatus("");
+    if (!resource) return;
+
+    if (imageLoadingFields.length > 0) {
+      setStatus("Aguarde a imagem terminar de carregar antes de salvar.");
+      return;
+    }
 
     if (!isSupabaseConfigured) {
       setStatus("Configure o Supabase antes de salvar.");
@@ -103,8 +220,11 @@ export default function AdminDashboard() {
     let payload;
     try {
       payload = parsePayload(resource.fields, formValues);
+      if (activeResource === "projects") {
+        payload = { ...payload, ...createProjectSeoPayload(formValues) };
+      }
     } catch (_error) {
-      setStatus("Revise os campos em JSON. O formato precisa ser valido.");
+      setStatus("Revise os campos em JSON. O formato precisa ser válido.");
       return;
     }
 
@@ -120,13 +240,13 @@ export default function AdminDashboard() {
       return;
     }
 
-    const savedItem = data?.[0];
     setStatus(`${resource.singular} salvo com sucesso.`);
     await loadItems();
-    if (savedItem) startEdit(savedItem);
+    startCreate();
   }
 
   async function handleDelete(item) {
+    if (!resource) return;
     const confirmed = window.confirm(`Excluir "${item.title}"?`);
     if (!confirmed) return;
 
@@ -138,7 +258,7 @@ export default function AdminDashboard() {
       return;
     }
 
-    setStatus(`${resource.singular} excluido com sucesso.`);
+    setStatus(`${resource.singular} excluído com sucesso.`);
     startCreate();
     await loadItems();
   }
@@ -151,25 +271,26 @@ export default function AdminDashboard() {
     <>
       <SEO
         title="Painel administrativo"
-        description="Painel administrativo para gerenciar conteudos."
+        description="Painel administrativo para gerenciar conteúdos."
         path="/admin"
         robots="noindex, nofollow"
       />
       <main className="admin-shell">
-        <aside className="admin-sidebar" aria-label="Navegacao administrativa">
+        <aside className="admin-sidebar" aria-label="Navegação administrativa">
           <div>
             <p className="eyebrow">Admin</p>
             <h1>Painel</h1>
           </div>
           <nav className="admin-tabs">
-            {resourceKeys.map((key) => (
+            {adminNavigation.map(({ key, label, icon: Icon }) => (
               <button
                 className={key === activeResource ? "is-active" : ""}
                 key={key}
                 type="button"
                 onClick={() => setActiveResource(key)}
               >
-                {adminResources[key].label}
+                <Icon aria-hidden="true" />
+                <span>{label}</span>
               </button>
             ))}
           </nav>
@@ -179,44 +300,93 @@ export default function AdminDashboard() {
         </aside>
 
         <section className="admin-main" aria-labelledby="admin-resource-title">
-          <div className="admin-header">
-            <div>
-              <p className="eyebrow">Conteudo</p>
-              <h2 id="admin-resource-title">{resource.label}</h2>
-              <p>{resource.description}</p>
+          {activeResource === "dashboard" ? (
+            <div className="admin-header">
+              <div>
+                <p className="eyebrow">Visão geral</p>
+                <h2 id="admin-resource-title">Dashboard</h2>
+                <p>Acompanhe os conteúdos cadastrados e acesse rapidamente cada área.</p>
+              </div>
             </div>
-            <Button as="button" type="button" onClick={startCreate}>
-              Novo {resource.singular}
-            </Button>
-          </div>
+          ) : (
+            <div className="admin-header">
+              <div>
+                <p className="eyebrow">Conteúdo</p>
+                <h2 id="admin-resource-title">{resource.label}</h2>
+                <p>{resource.description}</p>
+              </div>
+              <div className="stack" style={{ gap: "var(--space-2)" }}>
+                <Button as="button" type="button" onClick={startCreate}>
+                  Novo {resource.singular}
+                </Button>
+                {isPostsResource && (
+                  <Button
+                    as="button"
+                    variant="secondary"
+                    type="button"
+                    onClick={() => setShowPostsList((current) => !current)}
+                  >
+                    {showPostsList ? "Ocultar artigos cadastrados" : "Ver artigos cadastrados"}
+                  </Button>
+                )}
+              </div>
+            </div>
+          )}
 
           {status && <p className="admin-status">{status}</p>}
 
-          <div className="admin-grid">
-            <div className="admin-list" aria-label={`Lista de ${resource.label}`}>
-              {isLoading && <p className="meta">Carregando...</p>}
-              {!isLoading && items.length === 0 && (
-                <p className="meta">Nenhum registro encontrado.</p>
-              )}
-              {items.map((item) => (
-                <article
-                  className={`admin-list-item ${item.id === selectedId ? "is-active" : ""}`.trim()}
-                  key={item.id}
-                >
-                  <button type="button" onClick={() => startEdit(item)}>
-                    <strong>{item.title || "Sem titulo"}</strong>
-                    <span>{item.slug}</span>
-                  </button>
-                  <button
-                    className="admin-delete"
-                    type="button"
-                    onClick={() => handleDelete(item)}
-                  >
-                    Excluir
-                  </button>
-                </article>
-              ))}
+          {activeResource === "dashboard" ? (
+            <div className="admin-dashboard-grid">
+              {isLoading && <p className="meta">Carregando indicadores...</p>}
+              {!isLoading &&
+                dashboardStats.map((stat) => {
+                  const Icon = stat.key === "posts" ? FileText : FolderKanban;
+
+                  return (
+                    <article className="admin-dashboard-card" key={stat.key}>
+                      <Icon aria-hidden="true" />
+                      <span>{stat.label}</span>
+                      <strong>{stat.count ?? 0}</strong>
+                      <Button
+                        as="button"
+                        variant="secondary"
+                        type="button"
+                        onClick={() => setActiveResource(stat.key)}
+                      >
+                        Gerenciar {stat.singular}
+                      </Button>
+                    </article>
+                  );
+                })}
             </div>
+          ) : (
+            <div className="admin-grid">
+            {(!isPostsResource || showPostsList) && (
+              <div className="admin-list" aria-label={`Lista de ${resource.label}`}>
+                {isLoading && <p className="meta">Carregando...</p>}
+                {!isLoading && items.length === 0 && (
+                  <p className="meta">Nenhum registro encontrado.</p>
+                )}
+                {items.map((item) => (
+                  <article
+                    className={`admin-list-item ${item.id === selectedId ? "is-active" : ""}`.trim()}
+                    key={item.id}
+                  >
+                    <button type="button" onClick={() => startEdit(item)}>
+                      <strong>{item.title || "Sem título"}</strong>
+                      <span>{item.slug}</span>
+                    </button>
+                    <button
+                      className="admin-delete"
+                      type="button"
+                      onClick={() => handleDelete(item)}
+                    >
+                      Excluir
+                    </button>
+                  </article>
+                ))}
+              </div>
+            )}
 
             <form className="admin-editor" onSubmit={handleSubmit}>
               <div className="admin-editor-title">
@@ -230,7 +400,71 @@ export default function AdminDashboard() {
                     <label htmlFor={`${activeResource}-${field.name}`}>
                       {field.label}
                     </label>
-                    {field.type === "textarea" || field.type === "json" ? (
+                    {field.type === "image" || field.type === "imageUpload" ? (
+                      <div className="admin-image-field">
+                        {field.type === "image" && (
+                          <input
+                            className="input"
+                            id={`${activeResource}-${field.name}`}
+                            name={field.name}
+                            type="text"
+                            value={formValues[field.name] || ""}
+                            placeholder="https://... ou /assets/images/imagem.jpg"
+                            onChange={(event) => updateField(field.name, event.target.value)}
+                            required={field.required}
+                          />
+                        )}
+                        <input
+                          className="input"
+                          id={
+                            field.type === "imageUpload"
+                              ? `${activeResource}-${field.name}`
+                              : `${activeResource}-${field.name}-file`
+                          }
+                          type="file"
+                          accept="image/*"
+                          onChange={(event) =>
+                            handleImageFile(field.name, event.target.files?.[0])
+                          }
+                        />
+                        {formValues[field.name] && (
+                          <>
+                            <img
+                              className="admin-image-preview"
+                              src={formValues[field.name]}
+                              alt="Preview da imagem cadastrada"
+                            />
+                            <p className="meta">
+                              Imagem pronta para salvar no campo {field.name}.
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    ) : field.type === "richtext" ? (
+                      <RichTextEditor
+                        id={`${activeResource}-${field.name}`}
+                        name={field.name}
+                        value={formValues[field.name] || ""}
+                        onChange={(value) => updateField(field.name, value)}
+                        required={field.required}
+                      />
+                    ) : field.type === "select" ? (
+                      <select
+                        className="input"
+                        id={`${activeResource}-${field.name}`}
+                        name={field.name}
+                        value={formValues[field.name] || ""}
+                        onChange={(event) => updateField(field.name, event.target.value)}
+                        required={field.required}
+                      >
+                        <option value="">Selecione...</option>
+                        {field.options?.map((option) => (
+                          <option key={option} value={option}>
+                            {option}
+                          </option>
+                        ))}
+                      </select>
+                    ) : field.type === "textarea" || field.type === "json" || field.type === "markdown" ? (
                       <textarea
                         className="textarea"
                         id={`${activeResource}-${field.name}`}
@@ -248,6 +482,8 @@ export default function AdminDashboard() {
                         type={field.type}
                         value={formValues[field.name] || ""}
                         onChange={(event) => updateField(field.name, event.target.value)}
+                        readOnly={Boolean(field.autoGenerated)}
+                        placeholder={field.autoGenerated ? "Gerado automaticamente ao preencher o título" : undefined}
                         required={field.required}
                       />
                     )}
@@ -256,8 +492,12 @@ export default function AdminDashboard() {
               </div>
 
               <div className="admin-actions">
-                <Button as="button" type="submit" disabled={isSaving}>
-                  {isSaving ? "Salvando..." : "Salvar"}
+                <Button as="button" type="submit" disabled={isSaving || imageLoadingFields.length > 0}>
+                  {isSaving
+                    ? "Salvando..."
+                    : imageLoadingFields.length > 0
+                      ? "Carregando imagem..."
+                      : "Salvar"}
                 </Button>
                 <Button as="button" variant="secondary" type="button" onClick={startCreate}>
                   Limpar
@@ -265,6 +505,7 @@ export default function AdminDashboard() {
               </div>
             </form>
           </div>
+          )}
         </section>
       </main>
     </>

@@ -4,6 +4,8 @@ create table if not exists public.blog_posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
   slug text not null unique,
+  image text,
+  author text,
   category text,
   excerpt text,
   seo_title text,
@@ -11,10 +13,15 @@ create table if not exists public.blog_posts (
   published_at date,
   reading_time text,
   intro text,
+  content text,
   sections jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table public.blog_posts add column if not exists image text;
+alter table public.blog_posts add column if not exists author text;
+alter table public.blog_posts add column if not exists content text;
 
 create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),

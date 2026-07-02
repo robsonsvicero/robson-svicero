@@ -3,14 +3,21 @@ import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
-import { posts } from "../../data/blog.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapBlogPost } from "../../lib/contentMappers.js";
+
+function formatPostDate(date) {
+  if (!date) return "";
+
+  const [year, month, day] = date.split("T")[0].split("-");
+  if (!year || !month || !day) return date;
+
+  return `${day}/${month}/${year}`;
+}
 
 export default function Blog() {
   const { items: blogPosts } = useSupabaseList({
     table: "blog_posts",
-    fallback: posts,
     mapper: mapBlogPost,
     orderBy: "published_at",
   });
@@ -23,25 +30,28 @@ export default function Blog() {
         path="/blog"
       />
       <Layout>
-        <section className="section" aria-labelledby="blog-title">
-          <div className="container stack" style={{ gap: "var(--space-12)" }}>
-            <div className="stack" style={{ gap: "var(--space-5)", maxWidth: 780 }}>
+        <section className="section blog-page" aria-labelledby="blog-title">
+          <div className="container stack blog-page-stack" style={{ gap: "var(--space-12)" }}>
+            <div className="stack blog-page-header" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Conteúdo</p>
-              <h1 id="blog-title">Blog sobre UX, React, SEO e presença digital</h1>
-              <p className="lead">
-                Artigos para transformar conhecimento de design, desenvolvimento e estratégia
-                digital em páginas mais claras, encontráveis e eficientes.
+              <h1 id="blog-title">Observatório Digital</h1>
+              <p className="lead">Onde estratégia, experiência e tecnologia se encontram.</p>
+              <p className="lead page-description">
+                Artigos, análises e reflexões sobre websites, branding, experiência digital e estratégias para empresas que desejam fortalecer sua presença online.
               </p>
             </div>
 
-            <div className="grid-3">
+            <div className="blog-grid">
               {blogPosts.map((post) => (
-                <Card className="feature" key={post.slug}>
+                <Card className="feature blog-card" key={post.slug}>
+                  {post.image && (
+                    <img className="blog-card-image" src={post.image} alt="" aria-hidden="true" />
+                  )}
                   <p className="eyebrow">{post.category}</p>
                   <h2>{post.title}</h2>
                   <p>{post.excerpt}</p>
                   <p className="meta">
-                    {post.publishedAt} - {post.readingTime}
+                    {formatPostDate(post.publishedAt)} - {post.readingTime}
                   </p>
                   <Button className="btn-arrow" variant="ghost" as={Link} to={post.path}>
                     Ler artigo

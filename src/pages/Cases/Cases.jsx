@@ -3,14 +3,12 @@ import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
-import { cases } from "../../data/cases.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 
 export default function Cases() {
   const { items: projects } = useSupabaseList({
     table: "projects",
-    fallback: cases,
     mapper: mapProject,
     orderBy: "created_at",
   });
@@ -37,16 +35,18 @@ export default function Cases() {
             <div className="grid-2">
               {projects.map((project) => (
                 <Card className="case-card" key={project.slug}>
-                  <div className="case-visual">
-                    <img
-                      src={project.image}
-                      alt={project.alt}
-                      loading="lazy"
-                      decoding="async"
-                      width="800"
-                      height="264"
-                    />
-                  </div>
+                  {project.image && (
+                    <figure className="case-card-media">
+                      <img
+                        src={project.image}
+                        alt={project.alt || project.title}
+                        loading="lazy"
+                        decoding="async"
+                        width="800"
+                        height="500"
+                      />
+                    </figure>
+                  )}
                   <h2>{project.title}</h2>
                   <p>{project.description}</p>
                   <Button className="btn-arrow" variant="ghost" as={Link} to={project.path}>

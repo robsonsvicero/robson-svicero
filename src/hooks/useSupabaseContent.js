@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
 
-export function useSupabaseList({ table, fallback, mapper, orderBy }) {
+export function useSupabaseList({ table, fallback = [], mapper, orderBy }) {
   const [items, setItems] = useState(fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured));
 
@@ -34,7 +34,7 @@ export function useSupabaseList({ table, fallback, mapper, orderBy }) {
   return { items, isLoading };
 }
 
-export function useSupabaseItem({ table, slug, fallback, mapper }) {
+export function useSupabaseItem({ table, slug, fallback = null, mapper }) {
   const [item, setItem] = useState(fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured));
 

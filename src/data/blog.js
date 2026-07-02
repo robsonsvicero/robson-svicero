@@ -8,6 +8,8 @@ export const posts = [
     seoTitle: "O que uma landing page precisa ter para converter melhor",
     seoDescription:
       "Entenda os elementos essenciais de uma landing page com foco em conversão: promessa clara, hierarquia, provas, objeções e chamada para ação.",
+    image: "/assets/images/og-image.jpg",
+    author: "Robson Svicero",
     category: "Landing Pages",
     publishedAt: "2026-06-28",
     readingTime: "4 min",
@@ -40,6 +42,8 @@ export const posts = [
     seoTitle: "Como UI/UX Design melhora sites institucionais",
     seoDescription:
       "Veja como UI/UX Design melhora sites institucionais ao organizar informação, hierarquia visual, jornadas e percepção de valor.",
+    image: "/assets/images/og-image.jpg",
+    author: "Robson Svicero",
     category: "UI/UX Design",
     publishedAt: "2026-06-28",
     readingTime: "3 min",
@@ -72,6 +76,8 @@ export const posts = [
     seoTitle: "React e SEO em sites modernos",
     seoDescription:
       "Entenda os cuidados de SEO em sites React: metadados por página, estrutura semântica, performance, sitemap e linkagem interna.",
+    image: "/assets/images/og-image.jpg",
+    author: "Robson Svicero",
     category: "React.js",
     publishedAt: "2026-06-28",
     readingTime: "5 min",
