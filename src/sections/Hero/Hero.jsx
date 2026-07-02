@@ -17,7 +17,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
         >
           {media.sources.map((source) => (
             <source key={source.src} src={source.src} type={source.type} />
