@@ -14,6 +14,7 @@ create table if not exists public.blog_posts (
   reading_time text,
   intro text,
   content text,
+  canonical_url text,
   sections jsonb not null default '[]'::jsonb,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
@@ -22,6 +23,7 @@ create table if not exists public.blog_posts (
 alter table public.blog_posts add column if not exists image text;
 alter table public.blog_posts add column if not exists author text;
 alter table public.blog_posts add column if not exists content text;
+alter table public.blog_posts add column if not exists canonical_url text;
 
 create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),
@@ -33,11 +35,20 @@ create table if not exists public.projects (
   seo_title text,
   seo_description text,
   image text,
+  image_2 text,
+  image_3 text,
+  image_4 text,
+  image_5 text,
   alt text,
   external_url text,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+alter table public.projects add column if not exists image_2 text;
+alter table public.projects add column if not exists image_3 text;
+alter table public.projects add column if not exists image_4 text;
+alter table public.projects add column if not exists image_5 text;
 
 create or replace function public.set_updated_at()
 returns trigger as $$
