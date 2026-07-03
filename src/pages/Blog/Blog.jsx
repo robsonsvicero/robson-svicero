@@ -20,6 +20,7 @@ export default function Blog() {
     table: "blog_posts",
     mapper: mapBlogPost,
     orderBy: "published_at",
+    select: "slug,title,excerpt,seo_title,seo_description,image,author,category,published_at,reading_time,intro",
   });
 
   return (

@@ -1,8 +1,13 @@
 import Button from "../../components/ui/Button/Button.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
 import { contactContent } from "../../content/siteContent.js";
+import { useContactForm } from "../../hooks/useContactForm.js";
 
 export default function Contact() {
+  const { status, statusType, isSubmitting, handleSubmit } = useContactForm({
+    formAction: contactContent.formAction,
+  });
+
   return (
     <Section
       id="contato"
@@ -35,6 +40,7 @@ export default function Contact() {
         id="leadForm"
         action={contactContent.formAction}
         method="POST"
+        onSubmit={handleSubmit}
         noValidate
         aria-label="Formulário de contato"
       >
@@ -64,10 +70,20 @@ export default function Contact() {
             placeholder="Conte em poucas linhas o que você precisa construir."
           />
         </div>
-        <Button as="button" variant="dark" type="submit">
-          Enviar mensagem
+        <Button as="button" variant="dark" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Enviando..." : "Enviar mensagem"}
         </Button>
-        <div className="status" id="formStatus" role="status" aria-live="polite" />
+        {status && (
+          <p
+            className="status"
+            id="formStatus"
+            role="status"
+            aria-live="polite"
+            style={{ color: statusType === "error" ? "var(--danger)" : statusType === "success" ? "var(--success)" : "var(--muted)" }}
+          >
+            {status}
+          </p>
+        )}
       </form>
     </Section>
   );

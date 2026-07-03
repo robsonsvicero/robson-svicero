@@ -11,6 +11,7 @@ export default function Projects() {
     table: "projects",
     mapper: mapProject,
     orderBy: "created_at",
+    select: "slug,title,description,meta_description,seo_title,seo_description,image,alt,external_url",
   });
 
   return (

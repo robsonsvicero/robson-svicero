@@ -2,11 +2,16 @@ import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import { contactContent } from "../../content/siteContent.js";
+import { useContactForm } from "../../hooks/useContactForm.js";
 
 const emailLink = contactContent.links.find((link) => link.href.startsWith("mailto:"));
 const whatsappLink = contactContent.links.find((link) => link.label.includes("WhatsApp"));
 
 export default function Contact() {
+  const { status, statusType, isSubmitting, handleSubmit } = useContactForm({
+    formAction: contactContent.formAction,
+  });
+
   return (
     <>
       <SEO
@@ -49,6 +54,8 @@ export default function Contact() {
               className="contact-page-form"
               action={contactContent.formAction}
               method="POST"
+              onSubmit={handleSubmit}
+              noValidate
               aria-label="Formulário de contato"
             >
               <input type="hidden" name="_subject" value="Novo contato pelo site" />
@@ -115,9 +122,19 @@ export default function Contact() {
                 />
               </div>
 
-              <Button as="button" variant="dark" type="submit">
-                Enviar mensagem
+              <Button as="button" variant="dark" type="submit" disabled={isSubmitting}>
+                {isSubmitting ? "Enviando..." : "Enviar mensagem"}
               </Button>
+              {status && (
+                <p
+                  className="status"
+                  role="status"
+                  aria-live="polite"
+                  style={{ color: statusType === "error" ? "var(--danger)" : statusType === "success" ? "var(--success)" : "var(--muted)" }}
+                >
+                  {status}
+                </p>
+              )}
             </form>
 
             <aside className="contact-aside" aria-label="Resumo dos canais de contato">

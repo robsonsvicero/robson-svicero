@@ -1,7 +1,14 @@
 import { useEffect, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
 
-export function useSupabaseList({ table, fallback = [], mapper, orderBy }) {
+export function useSupabaseList({
+  table,
+  fallback = [],
+  mapper,
+  orderBy,
+  select = "*",
+  limit,
+}) {
   const [items, setItems] = useState(fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured));
 
@@ -14,13 +21,25 @@ export function useSupabaseList({ table, fallback = [], mapper, orderBy }) {
         return;
       }
 
-      const { data, error } = await supabase
+      setIsLoading(true);
+
+      let query = supabase
         .from(table)
-        .select("*")
+        .select(select)
         .order(orderBy, { ascending: false });
 
+      if (typeof limit === "number") {
+        query = query.limit(limit);
+      }
+
+      const { data, error } = await query;
+
       if (!isMounted) return;
-      if (!error && data?.length) setItems(data.map(mapper));
+
+      if (!error) {
+        setItems((data || []).map(mapper));
+      }
+
       setIsLoading(false);
     }
 
@@ -29,7 +48,7 @@ export function useSupabaseList({ table, fallback = [], mapper, orderBy }) {
     return () => {
       isMounted = false;
     };
-  }, [fallback, mapper, orderBy, table]);
+  }, [limit, mapper, orderBy, select, table]);
 
   return { items, isLoading };
 }
