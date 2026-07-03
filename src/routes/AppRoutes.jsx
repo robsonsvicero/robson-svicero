@@ -19,6 +19,8 @@ const IdentityVisual = lazy(() => import("../pages/Services/IdentityVisual.jsx")
 const LandingPages = lazy(() => import("../pages/Services/LandingPages.jsx"));
 const Services = lazy(() => import("../pages/Services/Services.jsx"));
 const SiteCreationPage = lazy(() => import("../pages/Services/SiteCreationPage.jsx"));
+const SiteInstitucional = lazy(() => import("../pages/Services/SiteInstitucional.jsx"));
+const SiteOnePage = lazy(() => import("../pages/Services/SiteOnePage.jsx"));
 const UIUX = lazy(() => import("../pages/Services/UIUX.jsx"));
 
 function ScrollToTop() {
@@ -38,6 +40,9 @@ export default function AppRoutes() {
           <Route path="/servicos/ui-ux-design" element={<UIUX />} />
           <Route path="/servicos/front-end-react" element={<Frontend />} />
           <Route path="/servicos/landing-pages" element={<LandingPages />} />
+          <Route path="/servicos/site-one-page" element={<SiteOnePage />} />
+          <Route path="/servicos/site-institucional" element={<SiteInstitucional />} />
+          <Route path="/servicos/sites-institucionais" element={<SiteInstitucional />} />
           <Route path="/criacao-de-sites" element={<SiteCreationPage />} />
           <Route path="/criacao-de-sites/:slug" element={<SiteCreationPage />} />
           <Route path="/cases" element={<Cases />} />
