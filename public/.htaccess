@@ -2,6 +2,18 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 RewriteBase /
+
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\.robsonsvicero\.com\.br$ [NC]
+RewriteRule ^ https://robsonsvicero.com.br%{REQUEST_URI} [R=301,L]
+
+RewriteRule ^index\.html$ / [R=301,L]
+RewriteRule ^agenda\.html$ /agendamentos [R=301,L]
+RewriteRule ^servico-ui-design\.html$ /servicos/ui-ux-design [R=301,L]
+RewriteRule ^servico-front-end\.html$ /servicos/front-end-react [R=301,L]
+RewriteRule ^servico-identidade-visual\.html$ /servicos/identidade-visual [R=301,L]
+RewriteRule ^src/docs/Roberto\ Robson\ Svicero\ -\ Frontend\.pdf$ /sobre [R=301,L,NE]
+
 RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]

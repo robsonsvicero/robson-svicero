@@ -56,6 +56,15 @@ export default function CaseDetail() {
             </div>
           </header>
 
+          <section className="section" aria-label="Descrição do projeto">
+            <div className="container">
+              <div className="stack" style={{ gap: "var(--space-4)", maxWidth: 820 }}>
+                <span className="meta">Descrição completa</span>
+                <RichTextContent>{project.fullDescription}</RichTextContent>
+              </div>
+            </div>
+          </section>
+
           {project.galleryImages?.length > 0 && (
             <div className="case-gallery-strip" aria-label="Galeria do projeto">
               {project.galleryImages.map((image, index) => (
@@ -70,15 +79,6 @@ export default function CaseDetail() {
               ))}
             </div>
           )}
-
-          <section className="section" aria-label="Descrição do projeto">
-            <div className="container">
-              <div className="stack" style={{ gap: "var(--space-4)", maxWidth: 820 }}>
-                <span className="meta">Descrição completa</span>
-                <RichTextContent>{project.fullDescription}</RichTextContent>
-              </div>
-            </div>
-          </section>
         </article>
       </Layout>
     </>

@@ -1040,7 +1040,8 @@ h3 {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
+  gap: 1px;
+  background: var(--border-soft);
 }
 
 .case-gallery-strip-item {
@@ -1053,7 +1054,8 @@ h3 {
 .case-gallery-strip-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  background: var(--surface);
 }
 
 .rich-content {
@@ -2231,6 +2233,10 @@ h3 {
 /* ─── Rodapé ─────────────────────────────────────────── */
 
 @media (max-width: 920px) {
+  .case-gallery-strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .blog-hero {
     min-height: 68svh;
   }
@@ -2245,6 +2251,14 @@ h3 {
 }
 
 @media (max-width: 640px) {
+  .case-gallery-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .case-gallery-strip-item {
+    aspect-ratio: 16 / 10;
+  }
+
   .blog-hero {
     min-height: 76svh;
   }
