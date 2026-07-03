@@ -1158,8 +1158,8 @@ h3 {
 /* ─── About ──────────────────────────────────────────── */
 
 .about-page .about-hero {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: clamp(var(--space-8), 5vw, calc(var(--space-12) + var(--space-4)));
   align-items: start;
   justify-items: center;
@@ -1179,7 +1179,7 @@ h3 {
 
 .about-portrait {
   margin: 0;
-  width: min(100%, 360px);
+  height: max(100%, 420px);
   overflow: hidden;
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
@@ -1187,10 +1187,9 @@ h3 {
   box-shadow: var(--elev-raised);
 }
 
-.about-portrait img {
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  height: auto;
+.about-portrait img {  
+  height: 100%;
+  aspect-ratio: 16 / 9;
   object-fit: cover;
 }
 

@@ -46,10 +46,10 @@ export default function About() {
               </div>
               <figure className="about-portrait">
                 <img
-                  src="/assets/images/sobre-robson-svicero.png"
+                  src="/assets/images/sobre-robson.webp"
                   alt="Robson Svicero"
-                  width="640"
-                  height="760"
+                  width="840"
+                  height="420"
                   loading="eager"
                   decoding="async"
                 />
