@@ -1,5 +1,19 @@
 create extension if not exists pgcrypto;
 
+insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+values (
+  'site-media',
+  'site-media',
+  true,
+  10485760,
+  array['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+)
+on conflict (id) do update
+set
+  public = excluded.public,
+  file_size_limit = excluded.file_size_limit,
+  allowed_mime_types = excluded.allowed_mime_types;
+
 create table if not exists public.blog_posts (
   id uuid primary key default gen_random_uuid(),
   title text not null,
@@ -10,6 +24,7 @@ create table if not exists public.blog_posts (
   excerpt text,
   seo_title text,
   seo_description text,
+  thumbnail text,
   published_at date,
   reading_time text,
   intro text,
@@ -22,6 +37,7 @@ create table if not exists public.blog_posts (
 
 alter table public.blog_posts add column if not exists image text;
 alter table public.blog_posts add column if not exists author text;
+alter table public.blog_posts add column if not exists thumbnail text;
 alter table public.blog_posts add column if not exists content text;
 alter table public.blog_posts add column if not exists canonical_url text;
 
@@ -37,6 +53,7 @@ create table if not exists public.projects (
   meta_description text,
   seo_title text,
   seo_description text,
+  thumbnail text,
   image text,
   image_2 text,
   image_3 text,
@@ -49,6 +66,7 @@ create table if not exists public.projects (
 );
 
 alter table public.projects add column if not exists image_2 text;
+alter table public.projects add column if not exists thumbnail text;
 alter table public.projects add column if not exists image_3 text;
 alter table public.projects add column if not exists image_4 text;
 alter table public.projects add column if not exists image_5 text;
@@ -76,6 +94,31 @@ for each row execute function public.set_updated_at();
 
 alter table public.blog_posts enable row level security;
 alter table public.projects enable row level security;
+
+drop policy if exists "Public can read site media" on storage.objects;
+create policy "Public can read site media"
+on storage.objects for select
+to anon, authenticated
+using (bucket_id = 'site-media');
+
+drop policy if exists "Authenticated users upload site media" on storage.objects;
+create policy "Authenticated users upload site media"
+on storage.objects for insert
+to authenticated
+with check (bucket_id = 'site-media');
+
+drop policy if exists "Authenticated users update site media" on storage.objects;
+create policy "Authenticated users update site media"
+on storage.objects for update
+to authenticated
+using (bucket_id = 'site-media')
+with check (bucket_id = 'site-media');
+
+drop policy if exists "Authenticated users delete site media" on storage.objects;
+create policy "Authenticated users delete site media"
+on storage.objects for delete
+to authenticated
+using (bucket_id = 'site-media');
 
 drop policy if exists "Public can read blog posts" on public.blog_posts;
 create policy "Public can read blog posts"

@@ -23,7 +23,7 @@ export default function Projects() {
     table: "projects",
     mapper: mapProject,
     orderBy: "created_at",
-    select: "slug,title,description,meta_description,seo_title,seo_description,image,alt,external_url",
+    select: "slug,title,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 3,
   });
   const shouldShowSkeletons = isLoading && projects.length === 0;
@@ -63,7 +63,7 @@ export default function Projects() {
           >
             <div className="case-visual">
               <img
-                src={project.image}
+                src={project.thumbnail}
                 alt={project.alt}
                 loading="lazy"
                 decoding="async"

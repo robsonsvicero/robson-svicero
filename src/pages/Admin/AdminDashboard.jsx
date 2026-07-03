@@ -7,6 +7,7 @@ import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 import { sanitizeRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
 
+const mediaBucket = "site-media";
 const resourceKeys = Object.keys(adminResources);
 const adminNavigation = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
@@ -53,6 +54,18 @@ function createProjectSeoPayload(formValues) {
     seo_description:
       formValues.meta_description || formValues.description || formValues.full_description || null,
   };
+}
+
+function getFileExtension(fileName = "") {
+  const extension = fileName.split(".").pop()?.toLowerCase();
+  return extension && extension !== fileName ? extension : "webp";
+}
+
+function createStoragePath({ activeResource, fieldName, formValues, file }) {
+  const slug = slugify(formValues.slug || formValues.title || "arquivo");
+  const extension = getFileExtension(file.name);
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  return `${activeResource}/${slug}/${fieldName}-${timestamp}.${extension}`;
 }
 
 export default function AdminDashboard() {
@@ -183,23 +196,42 @@ export default function AdminDashboard() {
     });
   }
 
-  function handleImageFile(fieldName, file) {
+  async function handleImageFile(fieldName, file) {
     if (!file) return;
 
-    setImageLoadingFields((current) => [...new Set([...current, fieldName])]);
-    setStatus("Carregando imagem no formulário...");
+    if (!isSupabaseConfigured) {
+      setStatus("Configure o Supabase antes de enviar imagens.");
+      return;
+    }
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      updateField(fieldName, reader.result || "");
+    setImageLoadingFields((current) => [...new Set([...current, fieldName])]);
+    setStatus("Enviando imagem para o Supabase Storage...");
+
+    const storagePath = createStoragePath({
+      activeResource,
+      fieldName,
+      formValues,
+      file,
+    });
+
+    const { error } = await supabase.storage
+      .from(mediaBucket)
+      .upload(storagePath, file, {
+        cacheControl: "31536000",
+        contentType: file.type,
+        upsert: false,
+      });
+
+    if (error) {
       setImageLoadingFields((current) => current.filter((name) => name !== fieldName));
-      setStatus("Imagem carregada. Agora clique em Salvar para gravar no Supabase.");
-    };
-    reader.onerror = () => {
-      setImageLoadingFields((current) => current.filter((name) => name !== fieldName));
-      setStatus("Não foi possível carregar a imagem selecionada.");
-    };
-    reader.readAsDataURL(file);
+      setStatus(`Não foi possível enviar a imagem: ${error.message}`);
+      return;
+    }
+
+    const { data } = supabase.storage.from(mediaBucket).getPublicUrl(storagePath);
+    updateField(fieldName, data.publicUrl || "");
+    setImageLoadingFields((current) => current.filter((name) => name !== fieldName));
+    setStatus("Imagem enviada. Agora clique em Salvar para gravar a URL no conteúdo.");
   }
 
   async function handleSubmit(event) {
@@ -409,7 +441,7 @@ export default function AdminDashboard() {
                             name={field.name}
                             type="text"
                             value={formValues[field.name] || ""}
-                            placeholder="https://... ou /assets/images/imagem.jpg"
+                            placeholder="https://... ou /assets/images/imagem.webp"
                             onChange={(event) => updateField(field.name, event.target.value)}
                             required={field.required}
                           />

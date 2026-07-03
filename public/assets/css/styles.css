@@ -1644,7 +1644,7 @@ h3 {
   }
 
   .hero-media {
-    background: #000 url("/assets/images/og-image.jpg") center/cover no-repeat;
+    background: #000 url("/assets/images/og-image.webp") center/cover no-repeat;
   }
 
   .hero-inner {

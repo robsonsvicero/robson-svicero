@@ -20,7 +20,7 @@ function createServiceSchema(page) {
         "@id": providerId,
         name: "Robson Svicero",
         url: absoluteUrl("/"),
-        image: absoluteUrl("/assets/images/og-image.jpg"),
+        image: absoluteUrl("/assets/images/og-image.webp"),
         telephone: "+55 11 96493-2007",
         email: "ola@robsonsvicero.com.br",
         areaServed: ["São Paulo", "Brasil"],

@@ -23,7 +23,7 @@ export default function Cases() {
     table: "projects",
     mapper: mapProject,
     orderBy: "created_at",
-    select: "slug,title,description,meta_description,seo_title,seo_description,image,alt,external_url",
+    select: "slug,title,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 12,
   });
   const shouldShowSkeletons = isLoading && projects.length === 0;
@@ -52,10 +52,10 @@ export default function Cases() {
                 Array.from({ length: 4 }, (_, index) => <CaseCardSkeleton key={index} />)}
               {projects.map((project) => (
                 <Card className="case-card" key={project.slug}>
-                  {project.image && (
+                  {project.thumbnail && (
                     <figure className="case-card-media">
                       <img
-                        src={project.image}
+                        src={project.thumbnail}
                         alt={project.alt || project.title}
                         loading="lazy"
                         decoding="async"

@@ -33,7 +33,7 @@ export default function Blog() {
     table: "blog_posts",
     mapper: mapBlogPost,
     orderBy: "published_at",
-    select: "slug,title,excerpt,seo_title,seo_description,image,author,category,published_at,reading_time,intro",
+    select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,reading_time,intro",
     limit: 12,
   });
   const shouldShowSkeletons = isLoading && blogPosts.length === 0;
@@ -62,10 +62,10 @@ export default function Blog() {
                 Array.from({ length: 4 }, (_, index) => <BlogCardSkeleton key={index} />)}
               {blogPosts.map((post) => (
                 <Card className="feature blog-card" key={post.slug}>
-                  {post.image && (
+                  {post.thumbnail && (
                     <img
                       className="blog-card-image"
-                      src={post.image}
+                      src={post.thumbnail}
                       alt=""
                       aria-hidden="true"
                       loading="lazy"
