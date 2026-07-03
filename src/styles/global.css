@@ -468,6 +468,9 @@ h3 {
   position: absolute;
   inset: 0;
   z-index: 0;
+  background-color: #000;
+  background-position: center;
+  background-size: cover;
 }
 
 .hero-video {
@@ -475,6 +478,12 @@ h3 {
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0;
+  transition: opacity 700ms var(--ease-standard);
+}
+
+.hero-video.is-ready {
+  opacity: 1;
 }
 
 .hero-overlay {
@@ -703,6 +712,86 @@ h3 {
   aspect-ratio: 16 / 10;
   object-fit: cover;
   background: var(--surface);
+}
+
+.card-skeleton {
+  pointer-events: none;
+}
+
+.card-skeleton:hover {
+  transform: none;
+  box-shadow: var(--elev-flat);
+}
+
+.skeleton-block,
+.skeleton-line {
+  display: block;
+  border-radius: var(--radius-sm);
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--surface), transparent 8%) 0%,
+      color-mix(in oklab, var(--border-soft), transparent 12%) 48%,
+      color-mix(in oklab, var(--surface), transparent 8%) 100%
+    );
+  background-size: 220% 100%;
+  animation: skeleton-shimmer 1.2s var(--ease-standard) infinite;
+}
+
+.skeleton-line {
+  width: calc(100% - (var(--space-6) * 2));
+  height: 14px;
+  margin-inline: var(--space-6);
+}
+
+.case-card .skeleton-line {
+  width: 100%;
+  margin-inline: 0;
+}
+
+.skeleton-line-short {
+  width: 28%;
+}
+
+.skeleton-line-medium {
+  width: 62%;
+}
+
+.skeleton-line-title {
+  height: 28px;
+  width: 78%;
+}
+
+.skeleton-line-button {
+  width: 112px;
+  height: 18px;
+  margin-bottom: var(--space-6);
+}
+
+.case-card .skeleton-line-button {
+  margin-bottom: 0;
+}
+
+.dark-band .skeleton-block,
+.dark-band .skeleton-line {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in oklab, var(--bg), transparent 92%) 0%,
+      color-mix(in oklab, var(--bg), transparent 84%) 48%,
+      color-mix(in oklab, var(--bg), transparent 92%) 100%
+    );
+  background-size: 220% 100%;
+}
+
+@keyframes skeleton-shimmer {
+  from {
+    background-position: 120% 0;
+  }
+
+  to {
+    background-position: -120% 0;
+  }
 }
 
 .blog-page {

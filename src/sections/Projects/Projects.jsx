@@ -6,13 +6,27 @@ import { projectsContent } from "../../content/siteContent.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 
+function ProjectCardSkeleton() {
+  return (
+    <Card className="case-card card-skeleton" aria-hidden="true">
+      <div className="case-visual skeleton-block" />
+      <span className="skeleton-line skeleton-line-title" />
+      <span className="skeleton-line" />
+      <span className="skeleton-line skeleton-line-medium" />
+      <span className="skeleton-line skeleton-line-button" />
+    </Card>
+  );
+}
+
 export default function Projects() {
-  const { items: projects } = useSupabaseList({
+  const { items: projects, isLoading } = useSupabaseList({
     table: "projects",
     mapper: mapProject,
     orderBy: "created_at",
     select: "slug,title,description,meta_description,seo_title,seo_description,image,alt,external_url",
+    limit: 3,
   });
+  const shouldShowSkeletons = isLoading && projects.length === 0;
 
   return (
     <Section
@@ -38,6 +52,8 @@ export default function Projects() {
       </div>
 
       <div className="grid-3">
+        {shouldShowSkeletons &&
+          Array.from({ length: 3 }, (_, index) => <ProjectCardSkeleton key={index} />)}
         {projects.map((project) => (
           <Card
             className="case-card"

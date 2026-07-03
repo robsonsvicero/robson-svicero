@@ -25,6 +25,9 @@ alter table public.blog_posts add column if not exists author text;
 alter table public.blog_posts add column if not exists content text;
 alter table public.blog_posts add column if not exists canonical_url text;
 
+create index if not exists blog_posts_published_at_idx
+on public.blog_posts (published_at desc);
+
 create table if not exists public.projects (
   id uuid primary key default gen_random_uuid(),
   title text not null,
@@ -49,6 +52,9 @@ alter table public.projects add column if not exists image_2 text;
 alter table public.projects add column if not exists image_3 text;
 alter table public.projects add column if not exists image_4 text;
 alter table public.projects add column if not exists image_5 text;
+
+create index if not exists projects_created_at_idx
+on public.projects (created_at desc);
 
 create or replace function public.set_updated_at()
 returns trigger as $$

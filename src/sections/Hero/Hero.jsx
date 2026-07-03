@@ -1,8 +1,10 @@
+import { useState } from "react";
 import Button from "../../components/ui/Button/Button.jsx";
 import { heroContent } from "../../content/siteContent.js";
 
 export default function Hero() {
   const { eyebrow, title, lead, note, media, primaryCta, secondaryCta } = heroContent;
+  const [isVideoReady, setIsVideoReady] = useState(false);
 
   return (
     <section
@@ -10,14 +12,20 @@ export default function Hero() {
       data-od-id="hero"
       aria-label="Apresentação principal - Desenvolvedor React, UX/UI Designer, Robson Svicero"
     >
-      <div className="hero-media" aria-hidden="true">
+      <div
+        className="hero-media"
+        style={{ backgroundImage: `url(${media.poster})` }}
+        aria-hidden="true"
+      >
         <video
-          className="hero-video"
+          className={`hero-video${isVideoReady ? " is-ready" : ""}`}
           autoPlay
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
+          poster={media.poster}
+          onCanPlay={() => setIsVideoReady(true)}
         >
           {media.sources.map((source) => (
             <source key={source.src} src={source.src} type={source.type} />

@@ -1,6 +1,13 @@
 import { useEffect, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
 
+const listCache = new Map();
+const listRequests = new Map();
+
+function getListCacheKey({ table, orderBy, select, limit }) {
+  return JSON.stringify({ table, orderBy, select, limit });
+}
+
 export function useSupabaseList({
   table,
   fallback = [],
@@ -9,8 +16,10 @@ export function useSupabaseList({
   select = "*",
   limit,
 }) {
-  const [items, setItems] = useState(fallback);
-  const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured));
+  const cacheKey = getListCacheKey({ table, orderBy, select, limit });
+  const cachedItems = listCache.get(cacheKey);
+  const [items, setItems] = useState(cachedItems || fallback);
+  const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured && !cachedItems));
 
   useEffect(() => {
     let isMounted = true;
@@ -21,23 +30,43 @@ export function useSupabaseList({
         return;
       }
 
-      setIsLoading(true);
-
-      let query = supabase
-        .from(table)
-        .select(select)
-        .order(orderBy, { ascending: false });
-
-      if (typeof limit === "number") {
-        query = query.limit(limit);
+      const cached = listCache.get(cacheKey);
+      if (cached) {
+        setItems(cached);
+        setIsLoading(false);
+        return;
       }
 
-      const { data, error } = await query;
+      setIsLoading(true);
+
+      let request = listRequests.get(cacheKey);
+
+      if (!request) {
+        let query = supabase
+          .from(table)
+          .select(select)
+          .order(orderBy, { ascending: false });
+
+        if (typeof limit === "number") {
+          query = query.limit(limit);
+        }
+
+        request = query.then(({ data, error }) => {
+          if (error) return null;
+          return (data || []).map(mapper);
+        });
+
+        listRequests.set(cacheKey, request);
+      }
+
+      const mappedItems = await request;
+      listRequests.delete(cacheKey);
 
       if (!isMounted) return;
 
-      if (!error) {
-        setItems((data || []).map(mapper));
+      if (mappedItems) {
+        listCache.set(cacheKey, mappedItems);
+        setItems(mappedItems);
       }
 
       setIsLoading(false);
@@ -48,7 +77,7 @@ export function useSupabaseList({
     return () => {
       isMounted = false;
     };
-  }, [limit, mapper, orderBy, select, table]);
+  }, [cacheKey, limit, mapper, orderBy, select, table]);
 
   return { items, isLoading };
 }

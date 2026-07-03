@@ -15,13 +15,28 @@ function formatPostDate(date) {
   return `${day}/${month}/${year}`;
 }
 
+function BlogCardSkeleton() {
+  return (
+    <Card className="feature blog-card card-skeleton" aria-hidden="true">
+      <div className="blog-card-image skeleton-block" />
+      <span className="skeleton-line skeleton-line-short" />
+      <span className="skeleton-line skeleton-line-title" />
+      <span className="skeleton-line" />
+      <span className="skeleton-line skeleton-line-medium" />
+      <span className="skeleton-line skeleton-line-button" />
+    </Card>
+  );
+}
+
 export default function Blog() {
-  const { items: blogPosts } = useSupabaseList({
+  const { items: blogPosts, isLoading } = useSupabaseList({
     table: "blog_posts",
     mapper: mapBlogPost,
     orderBy: "published_at",
     select: "slug,title,excerpt,seo_title,seo_description,image,author,category,published_at,reading_time,intro",
+    limit: 12,
   });
+  const shouldShowSkeletons = isLoading && blogPosts.length === 0;
 
   return (
     <>
@@ -43,10 +58,21 @@ export default function Blog() {
             </div>
 
             <div className="blog-grid">
+              {shouldShowSkeletons &&
+                Array.from({ length: 4 }, (_, index) => <BlogCardSkeleton key={index} />)}
               {blogPosts.map((post) => (
                 <Card className="feature blog-card" key={post.slug}>
                   {post.image && (
-                    <img className="blog-card-image" src={post.image} alt="" aria-hidden="true" />
+                    <img
+                      className="blog-card-image"
+                      src={post.image}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      decoding="async"
+                      width="800"
+                      height="500"
+                    />
                   )}
                   <p className="eyebrow">{post.category}</p>
                   <h2>{post.title}</h2>
