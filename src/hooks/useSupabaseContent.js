@@ -4,8 +4,8 @@ import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
 const listCache = new Map();
 const listRequests = new Map();
 
-function getListCacheKey({ table, orderBy, select, limit }) {
-  return JSON.stringify({ table, orderBy, select, limit });
+function getListCacheKey({ table, orderBy, ascending, select, limit }) {
+  return JSON.stringify({ table, orderBy, ascending, select, limit });
 }
 
 export function useSupabaseList({
@@ -13,10 +13,11 @@ export function useSupabaseList({
   fallback = [],
   mapper,
   orderBy,
+  ascending = false,
   select = "*",
   limit,
 }) {
-  const cacheKey = getListCacheKey({ table, orderBy, select, limit });
+  const cacheKey = getListCacheKey({ table, orderBy, ascending, select, limit });
   const cachedItems = listCache.get(cacheKey);
   const [items, setItems] = useState(cachedItems || fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured && !cachedItems));
@@ -45,7 +46,7 @@ export function useSupabaseList({
         let query = supabase
           .from(table)
           .select(select)
-          .order(orderBy, { ascending: false });
+          .order(orderBy, { ascending });
 
         if (typeof limit === "number") {
           query = query.limit(limit);
@@ -77,7 +78,7 @@ export function useSupabaseList({
     return () => {
       isMounted = false;
     };
-  }, [cacheKey, limit, mapper, orderBy, select, table]);
+  }, [ascending, cacheKey, limit, mapper, orderBy, select, table]);
 
   return { items, isLoading };
 }

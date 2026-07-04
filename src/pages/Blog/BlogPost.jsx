@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FacebookComments from "../../components/FacebookComments/FacebookComments.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
@@ -5,8 +6,12 @@ import RichTextContent from "../../components/RichTextContent/RichTextContent.js
 import SEO from "../../components/seo/SEO.jsx";
 import { useSupabaseItem } from "../../hooks/useSupabaseContent.js";
 import { mapBlogPost } from "../../lib/contentMappers.js";
+import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
+import LatestArticles from "../../sections/LatestArticles/LatestArticles.jsx";
 import { absoluteUrl } from "../../utils/seo.js";
 import NotFound from "../NotFound/NotFound.jsx";
+
+const BLOG_VISITOR_KEY_STORAGE = "od_blog_visitor_key";
 
 function getPostParagraphs(post) {
   if (post.content) {
@@ -32,6 +37,29 @@ function formatPostDate(date) {
   return `${day}/${month}/${year}`;
 }
 
+function formatViewsCount(viewsCount) {
+  const safeViews = Number.isFinite(Number(viewsCount)) ? Number(viewsCount) : 0;
+  return new Intl.NumberFormat("pt-BR").format(safeViews);
+}
+
+function getOrCreateVisitorKey() {
+  if (typeof window === "undefined") return null;
+
+  try {
+    const existingKey = window.localStorage.getItem(BLOG_VISITOR_KEY_STORAGE);
+    if (existingKey) return existingKey;
+
+    const createdKey = window.crypto?.randomUUID
+      ? window.crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+
+    window.localStorage.setItem(BLOG_VISITOR_KEY_STORAGE, createdKey);
+    return createdKey;
+  } catch {
+    return null;
+  }
+}
+
 export default function BlogPost() {
   const { slug } = useParams();
   const { item: post, isLoading } = useSupabaseItem({
@@ -39,6 +67,39 @@ export default function BlogPost() {
     slug,
     mapper: mapBlogPost,
   });
+  const [viewsCount, setViewsCount] = useState(0);
+
+  useEffect(() => {
+    setViewsCount(post?.viewsCount ?? 0);
+  }, [post?.slug, post?.viewsCount]);
+
+  useEffect(() => {
+    if (!isSupabaseConfigured || !post?.slug) return;
+
+    const visitorKey = getOrCreateVisitorKey();
+    if (!visitorKey) return;
+
+    let isMounted = true;
+
+    async function registerView() {
+      const { data, error } = await supabase.rpc("register_blog_post_view", {
+        p_post_slug: post.slug,
+        p_visitor_key: visitorKey,
+      });
+
+      if (error || !isMounted) return;
+
+      if (Number.isFinite(Number(data))) {
+        setViewsCount(Number(data));
+      }
+    }
+
+    registerView();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [post?.slug]);
 
   if (!post && isLoading) return null;
   if (!post) return <NotFound />;
@@ -63,7 +124,7 @@ export default function BlogPost() {
               {post.seoDescription && <p className="lead">{post.seoDescription}</p>}
               <p className="blog-hero-meta">
                 Publicação: {formatPostDate(post.publishedAt)} / Autor:{" "}
-                {post.author || "Robson Svicero"} / Leitura: {post.readingTime}
+                {post.author || "Robson Svicero"} / Leitura: {post.readingTime} / Visualizações: {formatViewsCount(viewsCount)}
               </p>
             </div>
           </header>
@@ -85,6 +146,7 @@ export default function BlogPost() {
               </div>
             </div>
           </div>
+          <LatestArticles excludeSlug={post.slug} showCta={false} className="blog-latest-articles" />
           <div className="container blog-comments-container">
             <FacebookComments url={commentsUrl} />
           </div>

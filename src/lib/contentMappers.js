@@ -12,6 +12,7 @@ export function mapBlogPost(row) {
     author: row.author,
     category: row.category,
     publishedAt: row.published_at,
+    viewsCount: row.views_count ?? 0,
     readingTime: row.reading_time,
     intro: row.intro,
     content: row.content,

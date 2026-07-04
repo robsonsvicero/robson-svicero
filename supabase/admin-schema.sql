@@ -26,6 +26,7 @@ create table if not exists public.blog_posts (
   seo_description text,
   thumbnail text,
   published_at date,
+  views_count bigint not null default 0,
   reading_time text,
   intro text,
   content text,
@@ -40,6 +41,54 @@ alter table public.blog_posts add column if not exists author text;
 alter table public.blog_posts add column if not exists thumbnail text;
 alter table public.blog_posts add column if not exists content text;
 alter table public.blog_posts add column if not exists canonical_url text;
+alter table public.blog_posts add column if not exists views_count bigint not null default 0;
+
+create table if not exists public.blog_post_views (
+  id bigserial primary key,
+  post_slug text not null references public.blog_posts(slug) on delete cascade,
+  visitor_key text not null,
+  viewed_at timestamptz not null default now(),
+  unique (post_slug, visitor_key)
+);
+
+create index if not exists blog_post_views_post_slug_idx
+on public.blog_post_views (post_slug);
+
+create or replace function public.register_blog_post_view(p_post_slug text, p_visitor_key text)
+returns bigint
+language plpgsql
+security definer
+set search_path = public
+as $$
+declare
+  current_views bigint;
+begin
+  if p_post_slug is null or p_visitor_key is null then
+    return null;
+  end if;
+
+  insert into public.blog_post_views (post_slug, visitor_key)
+  values (p_post_slug, p_visitor_key)
+  on conflict (post_slug, visitor_key) do nothing;
+
+  if found then
+    update public.blog_posts
+    set views_count = coalesce(views_count, 0) + 1
+    where slug = p_post_slug
+    returning views_count into current_views;
+  else
+    select views_count
+    into current_views
+    from public.blog_posts
+    where slug = p_post_slug;
+  end if;
+
+  return coalesce(current_views, 0);
+end;
+$$;
+
+revoke all on function public.register_blog_post_view(text, text) from public;
+grant execute on function public.register_blog_post_view(text, text) to anon, authenticated;
 
 create index if not exists blog_posts_published_at_idx
 on public.blog_posts (published_at desc);
@@ -94,6 +143,7 @@ for each row execute function public.set_updated_at();
 
 alter table public.blog_posts enable row level security;
 alter table public.projects enable row level security;
+alter table public.blog_post_views enable row level security;
 
 drop policy if exists "Public can read site media" on storage.objects;
 create policy "Public can read site media"

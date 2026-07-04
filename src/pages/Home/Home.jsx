@@ -12,6 +12,7 @@ import Hero from "../../sections/Hero/Hero.jsx";
 import Partners from "../../sections/Partners/Partners.jsx";
 import Process from "../../sections/Process/Process.jsx";
 import Projects from "../../sections/Projects/Projects.jsx";
+import LatestArticles from "../../sections/LatestArticles/LatestArticles.jsx";
 import Services from "../../sections/Services/Services.jsx";
 import Testimonials from "../../sections/Testimonials/Testimonials.jsx";
 
@@ -33,6 +34,7 @@ export default function Home() {
         <Differentiator />
         <Services />
         <Projects />
+        <LatestArticles />
         <Process />
         <Testimonials />
         <Faq />

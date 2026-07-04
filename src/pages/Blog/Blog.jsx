@@ -15,6 +15,11 @@ function formatPostDate(date) {
   return `${day}/${month}/${year}`;
 }
 
+function formatViewsCount(viewsCount) {
+  const safeViews = Number.isFinite(Number(viewsCount)) ? Number(viewsCount) : 0;
+  return new Intl.NumberFormat("pt-BR").format(safeViews);
+}
+
 function BlogCardSkeleton() {
   return (
     <Card className="feature blog-card card-skeleton" aria-hidden="true">
@@ -33,7 +38,8 @@ export default function Blog() {
     table: "blog_posts",
     mapper: mapBlogPost,
     orderBy: "published_at",
-    select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,reading_time,intro",
+    ascending: true,
+    select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,views_count,reading_time,intro",
     limit: 12,
   });
   const shouldShowSkeletons = isLoading && blogPosts.length === 0;
@@ -78,7 +84,7 @@ export default function Blog() {
                   <h2>{post.title}</h2>
                   <p>{post.excerpt}</p>
                   <p className="meta">
-                    {formatPostDate(post.publishedAt)} - {post.readingTime}
+                    {formatPostDate(post.publishedAt)} - {post.readingTime} - {formatViewsCount(post.viewsCount)} visualizações
                   </p>
                   <Button className="btn-arrow" variant="ghost" as={Link} to={post.path}>
                     Ler artigo
