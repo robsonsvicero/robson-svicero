@@ -343,6 +343,7 @@ export const footerContent = {
       href: "mailto:ola@robsonsvicero.com.br?subject=Informações%20sobre%20projeto",
     },
     { label: "WhatsApp", href: contactLinks.whatsapp },
+    { label: "Instagram", href: "https://www.instagram.com/robson.svicero" },
     { label: "GitHub", href: "https://github.com/robsonsvicero" },
     { label: "Behance", href: "https://www.behance.net/robsonsvicero" },
   ],
