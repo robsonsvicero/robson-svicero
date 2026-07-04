@@ -1,35 +1,34 @@
-import { Eye } from "lucide-react";
-import { Link } from "react-router-dom";
+import BlogArticleCard from "../../components/BlogArticleCard/BlogArticleCard.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapBlogPost } from "../../lib/contentMappers.js";
 
-function formatPostDate(date) {
-  if (!date) return "";
-
-  const [year, month, day] = date.split("T")[0].split("-");
-  if (!year || !month || !day) return date;
-
-  return `${day}/${month}/${year}`;
-}
-
-function formatViewsCount(viewsCount) {
-  const safeViews = Number.isFinite(Number(viewsCount)) ? Number(viewsCount) : 0;
-  return new Intl.NumberFormat("pt-BR").format(safeViews);
-}
-
 function BlogCardSkeleton() {
   return (
-    <Card className="feature blog-card card-skeleton" aria-hidden="true">
+    <Card className="blog-card card-skeleton" aria-hidden="true">
       <div className="blog-card-image skeleton-block" />
-      <span className="skeleton-line skeleton-line-short" />
-      <span className="skeleton-line skeleton-line-title" />
-      <span className="skeleton-line" />
-      <span className="skeleton-line skeleton-line-medium" />
-      <span className="skeleton-line skeleton-line-button" />
+      <div className="blog-card-body">
+        <span className="skeleton-line skeleton-line-short" />
+        <span className="skeleton-line skeleton-line-title" />
+        <span className="skeleton-line skeleton-line-button" />
+      </div>
+    </Card>
+  );
+}
+
+function BlogFeaturedCardSkeleton() {
+  return (
+    <Card className="blog-card blog-card-featured card-skeleton" aria-hidden="true">
+      <div className="blog-card-image skeleton-block" />
+      <div className="blog-card-body">
+        <span className="skeleton-line skeleton-line-short" />
+        <span className="skeleton-line skeleton-line-title" />
+        <span className="skeleton-line" />
+        <span className="skeleton-line skeleton-line-medium" />
+        <span className="skeleton-line skeleton-line-button" />
+      </div>
     </Card>
   );
 }
@@ -39,11 +38,12 @@ export default function Blog() {
     table: "blog_posts",
     mapper: mapBlogPost,
     orderBy: "published_at",
-    ascending: true,
+    ascending: false,
     select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,views_count,reading_time,intro",
     limit: 12,
   });
   const shouldShowSkeletons = isLoading && blogPosts.length === 0;
+  const [featuredPost, ...remainingPosts] = blogPosts;
 
   return (
     <>
@@ -64,39 +64,22 @@ export default function Blog() {
               </p>
             </div>
 
+            {shouldShowSkeletons ? (
+              <BlogFeaturedCardSkeleton />
+            ) : featuredPost ? (
+              <BlogArticleCard
+                className="blog-featured-card"
+                featured
+                post={featuredPost}
+                titleAs="h2"
+              />
+            ) : null}
+
             <div className="blog-grid">
               {shouldShowSkeletons &&
-                Array.from({ length: 4 }, (_, index) => <BlogCardSkeleton key={index} />)}
-              {blogPosts.map((post) => (
-                <Card className="feature blog-card" key={post.slug}>
-                  {post.thumbnail && (
-                    <img
-                      className="blog-card-image"
-                      src={post.thumbnail}
-                      alt=""
-                      aria-hidden="true"
-                      loading="lazy"
-                      decoding="async"
-                      width="800"
-                      height="500"
-                    />
-                  )}
-                  <p className="eyebrow">{post.category}</p>
-                  <h2>{post.title}</h2>
-                  <p>{post.excerpt}</p>
-                  <p className="meta blog-card-meta">
-                    <span>{formatPostDate(post.publishedAt)}</span>
-                    <span>{post.readingTime}</span>
-                    <span className="blog-meta-item">
-                      <Eye aria-hidden="true" />
-                      <span className="visually-hidden">Visualizacoes:</span>
-                      {formatViewsCount(post.viewsCount)}
-                    </span>
-                  </p>
-                  <Button className="btn-arrow" variant="ghost" as={Link} to={post.path}>
-                    Ler artigo
-                  </Button>
-                </Card>
+                Array.from({ length: 3 }, (_, index) => <BlogCardSkeleton key={index} />)}
+              {remainingPosts.map((post) => (
+                <BlogArticleCard key={post.slug} post={post} />
               ))}
             </div>
           </div>
