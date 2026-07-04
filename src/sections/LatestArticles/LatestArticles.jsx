@@ -43,7 +43,7 @@ export default function LatestArticles({
     table: "blog_posts",
     mapper: mapBlogPost,
     orderBy: "published_at",
-    ascending: false,
+    ascending: true,
     select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,views_count,reading_time,intro",
     limit: queryLimit,
   });
