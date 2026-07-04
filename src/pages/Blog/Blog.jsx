@@ -1,3 +1,4 @@
+import { Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -83,8 +84,14 @@ export default function Blog() {
                   <p className="eyebrow">{post.category}</p>
                   <h2>{post.title}</h2>
                   <p>{post.excerpt}</p>
-                  <p className="meta">
-                    {formatPostDate(post.publishedAt)} - {post.readingTime} - {formatViewsCount(post.viewsCount)} visualizações
+                  <p className="meta blog-card-meta">
+                    <span>{formatPostDate(post.publishedAt)}</span>
+                    <span>{post.readingTime}</span>
+                    <span className="blog-meta-item">
+                      <Eye aria-hidden="true" />
+                      <span className="visually-hidden">Visualizacoes:</span>
+                      {formatViewsCount(post.viewsCount)}
+                    </span>
                   </p>
                   <Button className="btn-arrow" variant="ghost" as={Link} to={post.path}>
                     Ler artigo

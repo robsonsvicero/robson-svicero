@@ -1,3 +1,4 @@
+import { CalendarDays, Clock, Eye, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import FacebookComments from "../../components/FacebookComments/FacebookComments.jsx";
@@ -155,8 +156,26 @@ export default function BlogPost() {
               <h1 id="post-title">{post.title}</h1>
               {post.seoDescription && <p className="lead">{post.seoDescription}</p>}
               <p className="blog-hero-meta">
-                Publicação: {formatPostDate(post.publishedAt)} / Autor:{" "}
-                {post.author || "Robson Svicero"} / Leitura: {post.readingTime} / Visualizações: {formatViewsCount(viewsCount)}
+                <span className="blog-meta-item">
+                  <CalendarDays aria-hidden="true" />
+                  <span className="visually-hidden">Publicacao:</span>
+                  {formatPostDate(post.publishedAt)}
+                </span>
+                <span className="blog-meta-item">
+                  <UserRound aria-hidden="true" />
+                  <span className="visually-hidden">Autor:</span>
+                  {post.author || "Robson Svicero"}
+                </span>
+                <span className="blog-meta-item">
+                  <Clock aria-hidden="true" />
+                  <span className="visually-hidden">Leitura:</span>
+                  {post.readingTime}
+                </span>
+                <span className="blog-meta-item">
+                  <Eye aria-hidden="true" />
+                  <span className="visually-hidden">Visualizacoes:</span>
+                  {formatViewsCount(viewsCount)}
+                </span>
               </p>
             </div>
           </header>

@@ -1,3 +1,4 @@
+import { Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
@@ -95,8 +96,14 @@ export default function LatestArticles({
             <p className="eyebrow">{post.category}</p>
             <h3>{post.title}</h3>
             <p>{post.excerpt}</p>
-            <p className="meta">
-              {formatPostDate(post.publishedAt)} - {post.readingTime} - {formatViewsCount(post.viewsCount)} visualizações
+            <p className="meta blog-card-meta">
+              <span>{formatPostDate(post.publishedAt)}</span>
+              <span>{post.readingTime}</span>
+              <span className="blog-meta-item">
+                <Eye aria-hidden="true" />
+                <span className="visually-hidden">Visualizacoes:</span>
+                {formatViewsCount(post.viewsCount)}
+              </span>
             </p>
             <Button className="btn-arrow" variant="ghost" as={Link} to={post.path}>
               Ler artigo
