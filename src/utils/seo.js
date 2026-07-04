@@ -1,6 +1,7 @@
 export const siteSeo = {
   siteName: "Robson Svicero",
   baseUrl: "https://robsonsvicero.com.br",
+  defaultImage: "https://robsonsvicero.com.br/assets/images/og-image.webp",
   defaultTitle:
     "Desenvolvedor React.js | Landing Pages, Sites Institucionais e One Page | Robson Svicero",
   defaultDescription:
@@ -18,11 +19,40 @@ export function absoluteUrl(path = "/") {
   return `${siteSeo.baseUrl}${path.startsWith("/") ? path : `/${path}`}`;
 }
 
-export function createPageSeo({ title, description, path = "/", robots = "index, follow" }) {
+export function createPageSeo({
+  title,
+  description,
+  path = "/",
+  canonical,
+  image,
+  type = "website",
+  robots = "index, follow",
+  twitterCard = "summary_large_image",
+}) {
+  const canonicalUrl = canonical ? absoluteUrl(canonical) : absoluteUrl(path);
+  const resolvedTitle = formatTitle(title);
+  const resolvedDescription = description || siteSeo.defaultDescription;
+  const resolvedImage = absoluteUrl(image || siteSeo.defaultImage);
+
   return {
-    title: formatTitle(title),
-    description: description || siteSeo.defaultDescription,
-    canonical: absoluteUrl(path),
+    title: resolvedTitle,
+    description: resolvedDescription,
+    canonical: canonicalUrl,
     robots,
+    openGraph: {
+      type,
+      url: canonicalUrl,
+      title: resolvedTitle,
+      description: resolvedDescription,
+      image: resolvedImage,
+      siteName: siteSeo.siteName,
+      locale: "pt_BR",
+    },
+    twitter: {
+      card: twitterCard,
+      title: resolvedTitle,
+      description: resolvedDescription,
+      image: resolvedImage,
+    },
   };
 }

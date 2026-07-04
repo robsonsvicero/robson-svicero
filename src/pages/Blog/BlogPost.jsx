@@ -8,7 +8,7 @@ import { useSupabaseItem } from "../../hooks/useSupabaseContent.js";
 import { mapBlogPost } from "../../lib/contentMappers.js";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 import LatestArticles from "../../sections/LatestArticles/LatestArticles.jsx";
-import { absoluteUrl } from "../../utils/seo.js";
+import { absoluteUrl, siteSeo } from "../../utils/seo.js";
 import NotFound from "../NotFound/NotFound.jsx";
 
 const BLOG_VISITOR_KEY_STORAGE = "od_blog_visitor_key";
@@ -105,17 +105,49 @@ export default function BlogPost() {
   if (!post) return <NotFound />;
 
   const paragraphs = getPostParagraphs(post);
-  const commentsUrl = post.canonicalUrl || absoluteUrl(post.path);
+  const canonicalUrl = post.canonicalUrl || absoluteUrl(post.path);
+  const commentsUrl = canonicalUrl;
   const hasRichContent = hasHtmlContent(post.content);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.seoDescription || post.excerpt,
+    image: post.image || post.thumbnail,
+    author: {
+      "@type": "Person",
+      name: post.author || "Robson Svicero",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: siteSeo.siteName,
+      logo: {
+        "@type": "ImageObject",
+        url: absoluteUrl("/assets/images/logo.png"),
+      },
+    },
+    datePublished: post.publishedAt,
+    mainEntityOfPage: canonicalUrl,
+    articleSection: post.category,
+    url: canonicalUrl,
+  };
 
   return (
     <>
-      <SEO title={post.seoTitle} description={post.seoDescription} path={post.path} />
+      <SEO
+        title={post.seoTitle || post.title}
+        description={post.seoDescription || post.excerpt}
+        path={post.path}
+        canonical={canonicalUrl}
+        image={post.image || post.thumbnail}
+        type="article"
+        structuredData={structuredData}
+      />
       <Layout>
         <article className="blog-article" aria-labelledby="post-title">
           <header className="blog-hero">
             {post.image && (
-              <img className="blog-hero-image" src={post.image} alt="" aria-hidden="true" />
+              <img className="blog-hero-image" src={post.image} alt={post.title} />
             )}
             <div className="blog-hero-overlay" />
             <div className="container blog-hero-content">

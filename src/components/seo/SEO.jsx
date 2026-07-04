@@ -13,6 +13,18 @@ function setMetaByName(name, content) {
   meta.setAttribute("content", content);
 }
 
+function setMetaByProperty(property, content) {
+  let meta = document.querySelector(`meta[property="${property}"]`);
+
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("property", property);
+    document.head.appendChild(meta);
+  }
+
+  meta.setAttribute("content", content);
+}
+
 function setCanonical(href) {
   let link = document.querySelector('link[rel="canonical"]');
 
@@ -44,16 +56,46 @@ function setStructuredData(data) {
   script.textContent = JSON.stringify(data);
 }
 
-export default function SEO({ title, description, path, robots, structuredData }) {
+export default function SEO({
+  title,
+  description,
+  path,
+  canonical,
+  image,
+  type,
+  twitterCard,
+  robots,
+  structuredData,
+}) {
   useEffect(() => {
-    const seo = createPageSeo({ title, description, path, robots });
+    const seo = createPageSeo({
+      title,
+      description,
+      path,
+      canonical,
+      image,
+      type,
+      twitterCard,
+      robots,
+    });
 
     document.title = seo.title;
     setMetaByName("description", seo.description);
     setMetaByName("robots", seo.robots);
+    setMetaByProperty("og:type", seo.openGraph.type);
+    setMetaByProperty("og:url", seo.openGraph.url);
+    setMetaByProperty("og:title", seo.openGraph.title);
+    setMetaByProperty("og:description", seo.openGraph.description);
+    setMetaByProperty("og:image", seo.openGraph.image);
+    setMetaByProperty("og:site_name", seo.openGraph.siteName);
+    setMetaByProperty("og:locale", seo.openGraph.locale);
+    setMetaByName("twitter:card", seo.twitter.card);
+    setMetaByName("twitter:title", seo.twitter.title);
+    setMetaByName("twitter:description", seo.twitter.description);
+    setMetaByName("twitter:image", seo.twitter.image);
     setCanonical(seo.canonical);
     setStructuredData(structuredData);
-  }, [title, description, path, robots, structuredData]);
+  }, [title, description, path, canonical, image, type, twitterCard, robots, structuredData]);
 
   return null;
 }
