@@ -12,15 +12,19 @@ const BlogPost = lazy(() => import("../pages/Blog/BlogPost.jsx"));
 const CaseDetail = lazy(() => import("../pages/Cases/CaseDetail.jsx"));
 const Cases = lazy(() => import("../pages/Cases/Cases.jsx"));
 const Contact = lazy(() => import("../pages/Contact/Contact.jsx"));
+const DesignSystem = lazy(() => import("../pages/DesignSystem/DesignSystem.jsx"));
 const NotFound = lazy(() => import("../pages/NotFound/NotFound.jsx"));
 const Schedule = lazy(() => import("../pages/Schedule/Schedule.jsx"));
 const Frontend = lazy(() => import("../pages/Services/Frontend.jsx"));
 const IdentityVisual = lazy(() => import("../pages/Services/IdentityVisual.jsx"));
 const LandingPages = lazy(() => import("../pages/Services/LandingPages.jsx"));
+const DigitalCard = lazy(() => import("../pages/DigitalCard/DigitalCard.jsx"));
 const Services = lazy(() => import("../pages/Services/Services.jsx"));
 const SiteCreationPage = lazy(() => import("../pages/Services/SiteCreationPage.jsx"));
 const SiteInstitucional = lazy(() => import("../pages/Services/SiteInstitucional.jsx"));
 const SiteOnePage = lazy(() => import("../pages/Services/SiteOnePage.jsx"));
+const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
+const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
 const UIUX = lazy(() => import("../pages/Services/UIUX.jsx"));
 
 function ScrollToTop() {
@@ -52,6 +56,9 @@ export default function AppRoutes() {
           <Route path="/sobre" element={<About />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/agendamentos" element={<Schedule />} />
+          <Route path="/obrigado" element={<ThankYou />} />
+          <Route path="/privacidade" element={<Privacy />} />
+          <Route path="/cartao" element={<DigitalCard />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"

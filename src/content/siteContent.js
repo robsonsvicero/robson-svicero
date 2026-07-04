@@ -7,7 +7,7 @@ export const routes = {
   contact: "/contato",
   schedule: "/agendamentos",
   homeProjects: "/#projetos",
-  privacy: "/privacidade.html",
+  privacy: "/privacidade",
 };
 
 export const contactLinks = {

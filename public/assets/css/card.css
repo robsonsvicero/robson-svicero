@@ -2,6 +2,7 @@
   --bg: #f5f1eb;
   --card: #6f2cf3;
   --card-2: #5c23cf;
+  --accent: #8234E9;
   --fg: #2a2a2f;
   --muted: rgba(255, 255, 255, 0.78);
   --soft: rgba(255, 255, 255, 0.18);
@@ -158,7 +159,10 @@ a {
   transition: transform 150ms ease, background 150ms ease;
 }
 
-.whatsapp-btn:hover {
+.whatsapp-btn:hover,
+.email-btn:hover,
+.website-btn:hover,
+.instagram-btn:hover {
   transform: translateY(-1px);
   background: #f3edf8;
 }
