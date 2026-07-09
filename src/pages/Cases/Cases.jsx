@@ -22,8 +22,8 @@ export default function Cases() {
   const { items: projects, isLoading } = useSupabaseList({
     table: "projects",
     mapper: mapProject,
-    orderBy: "created_at",
-    select: "slug,title,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
+    orderBy: "published_at",
+    select: "slug,title,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 12,
   });
   const shouldShowSkeletons = isLoading && projects.length === 0;

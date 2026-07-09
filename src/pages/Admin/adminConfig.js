@@ -37,7 +37,7 @@ export const adminResources = {
     label: "Projetos",
     singular: "projeto",
     description: "Gerencie os cases e projetos exibidos no site.",
-    orderBy: "created_at",
+    orderBy: "published_at",
     fields: [
       { name: "title", label: "Título", type: "text", required: true },
       { name: "slug", label: "Slug", type: "text", required: true },
@@ -55,6 +55,7 @@ export const adminResources = {
       { name: "image_4", label: "Imagem complementar 3", type: "imageUpload" },
       { name: "image_5", label: "Imagem complementar 4", type: "imageUpload" },
       { name: "alt", label: "Texto alternativo", type: "text" },
+      { name: "published_at", label: "Data de publicação", type: "date", required: true },
       { name: "external_url", label: "URL externa", type: "url" },
     ],
   },
