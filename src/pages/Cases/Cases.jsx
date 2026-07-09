@@ -47,7 +47,7 @@ export default function Cases() {
               </p>
             </div>
 
-            <div className="grid-2">
+            <div className="grid-3">
               {shouldShowSkeletons &&
                 Array.from({ length: 4 }, (_, index) => <CaseCardSkeleton key={index} />)}
               {projects.map((project) => (
@@ -64,7 +64,7 @@ export default function Cases() {
                       />
                     </figure>
                   )}
-                  <h2>{project.title}</h2>
+                  <h3>{project.title}</h3>
                   <p>{project.description}</p>
                   <Button className="btn-arrow" variant="ghost" as={Link} to={project.path}>
                     Ver case

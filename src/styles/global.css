@@ -59,7 +59,7 @@
   --motion-fast: 150ms;
   --motion-base: 220ms;
   --ease-standard: cubic-bezier(0.28, 0, 0.22, 1);
-  --container-max: 1024px;
+  --container-max: 1440px;
   --container-gutter-desktop: 22px;
   --container-gutter-tablet: 18px;
   --container-gutter-phone: 16px;
@@ -737,6 +737,7 @@ h3 {
 .blog-card-title {
   margin: 0;
   color: var(--fg);
+  font-family: var(--font-body);
   font-size: clamp(20px, 1.45vw, 23px);
   font-weight: 800;
   line-height: 1.28;
