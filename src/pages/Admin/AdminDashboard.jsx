@@ -26,6 +26,9 @@ function slugify(value) {
 }
 
 function normalizeFormValue(field, value) {
+  if (field.type === "date" && value) {
+    return String(value).split("T")[0];
+  }
   if (field.type !== "json") return value || "";
   if (typeof value === "string") return value;
   return JSON.stringify(value || [], null, 2);
