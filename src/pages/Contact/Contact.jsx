@@ -16,7 +16,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contato | Robson Svicero"
-        description="Entre em contato para conversar sobre landing pages, sites institucionais, UX/UI Design e desenvolvimento front-end React."
+        description="Entre em contato para conversar sobre criação de sites institucionais, landing pages e UX/UI Design."
         path="/contato"
       />
       <Layout>

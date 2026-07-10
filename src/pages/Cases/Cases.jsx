@@ -31,8 +31,8 @@ export default function Cases() {
   return (
     <>
       <SEO
-        title="Cases de UX, UI e Desenvolvimento React"
-        description="Projetos e cases de UX/UI Design, landing pages, sites institucionais e desenvolvimento front-end com foco em clareza, performance e conversão."
+        title="Cases | Criação de sites"
+        description="Projetos e cases de Criação de sites institucionas, landing pages e UX/UI Design com foco em clareza, performance e conversão."
         path="/cases"
       />
       <Layout>

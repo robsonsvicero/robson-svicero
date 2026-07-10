@@ -2202,7 +2202,7 @@ h3 {
 }
 
 .digital-card {
-  width: min(100%, 420px);
+  width: min(100%, 460px);
   min-height: 660px;
   padding: 28px 28px 22px;
   border-radius: 34px;
@@ -2243,8 +2243,8 @@ h3 {
 }
 
 .digital-card-avatar {
-  width: 94px;
-  height: 94px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   object-fit: cover;
   background: #241b39;
@@ -3190,7 +3190,7 @@ h3 {
   }
 
   .digital-card {
-    width: min(100%, 330px);
+    min-width: 100%;
     min-height: 620px;
     padding: 24px 22px 20px;
     border-radius: 30px;

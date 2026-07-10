@@ -10,8 +10,8 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Serviços de UX, UI e Desenvolvimento React"
-        description="Serviços de UX/UI Design, desenvolvimento front-end React, landing pages e sites institucionais com foco em performance, SEO e conversão."
+        title="Serviços de criação de sites, landing pages"
+        description="Serviços de criação de sites institucionais, landing pages com técnicas de UX/UI Design e com foco em performance, SEO e conversão."
         path="/servicos"
       />
       <Layout>

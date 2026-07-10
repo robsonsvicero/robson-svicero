@@ -22,8 +22,8 @@ export default function Home() {
   return (
     <>
       <SEO
-        title="Desenvolvedor React.js | Landing Pages, Sites Institucionais e One Page | Robson Svicero"
-        description="Desenvolvedor React.js em São Paulo especializado em Landing Pages, Sites Institucionais, Sites One Page e interfaces para produtos digitais com foco em performance, SEO e conversão."
+        title="Criação de Landing Pages, Sites Institucionais e One Page | Robson Svicero"
+        description="Desenvolvedor web em São Paulo especializado em Landing Pages, Sites Institucionais, Sites One Page e interfaces para produtos digitais com foco em performance, SEO e conversão."
         path="/"
       />
       <Layout mainProps={{ id: "inicio" }}>

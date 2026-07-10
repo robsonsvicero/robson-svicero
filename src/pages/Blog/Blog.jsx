@@ -48,8 +48,8 @@ export default function Blog() {
   return (
     <>
       <SEO
-        title="Blog sobre UX, React, SEO e Landing Pages"
-        description="Artigos sobre UX Design, React.js, SEO técnico, landing pages, interfaces digitais e estratégia para presença digital."
+        title="Blog sobre Criação de sites, UX, SEO e Landing Pages"
+        description="Artigos sobre Criação de SItes, UX Design, SEO técnico, landing pages, interfaces digitais e estratégia para presença digital."
         path="/blog"
       />
       <Layout>
