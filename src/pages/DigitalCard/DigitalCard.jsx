@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import SEO from "../../components/seo/SEO.jsx";
 
 const links = [
@@ -34,6 +35,39 @@ const links = [
 ];
 
 export default function DigitalCard() {
+  const cardRef = useRef(null);
+  const [isGenerating, setIsGenerating] = useState(false);
+
+  async function handleDownloadPDF() {
+    if (!cardRef.current || isGenerating) return;
+    setIsGenerating(true);
+
+    try {
+      const html2pdf = (await import("html2pdf.js")).default;
+      const options = {
+        margin: 0,
+        filename: "cartao-robson-svicero.pdf",
+        image: { type: "jpeg", quality: 0.98 },
+        html2canvas: {
+          scale: 3,
+          useCORS: true,
+          backgroundColor: null,
+        },
+        jsPDF: {
+          unit: "px",
+          format: [460, 660],
+          orientation: "portrait",
+        },
+      };
+
+      await html2pdf().set(options).from(cardRef.current).save();
+    } catch (err) {
+      console.error("Erro ao gerar PDF:", err);
+    } finally {
+      setIsGenerating(false);
+    }
+  }
+
   return (
     <>
       <SEO
@@ -42,7 +76,27 @@ export default function DigitalCard() {
         path="/cartao"
       />
       <main className="digital-card-page">
-        <article className="digital-card" aria-label="Cartao digital interativo">
+        <article className="digital-card" ref={cardRef} aria-label="Cartao digital interativo">
+          <button
+            className="digital-card-pdf-btn"
+            onClick={handleDownloadPDF}
+            aria-label="Baixar cartão como PDF"
+            title="Baixar como PDF"
+            disabled={isGenerating}
+          >
+            {isGenerating ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ animation: "spin 1s linear infinite" }}>
+                <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+              </svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+            )}
+          </button>
+
           <img
             className="digital-card-avatar"
             src="/assets/images/Robson_Svicero_1x1.webp"
@@ -71,3 +125,4 @@ export default function DigitalCard() {
     </>
   );
 }
+
