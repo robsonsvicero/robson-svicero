@@ -26,6 +26,7 @@ const SiteOnePage = lazy(() => import("../pages/Services/SiteOnePage.jsx"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
 const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
 const UIUX = lazy(() => import("../pages/Services/UIUX.jsx"));
+const ShortLinkRedirect = lazy(() => import("../pages/ShortLink/ShortLinkRedirect.jsx"));
 
 function ScrollToTop() {
   useScrollToTop();
@@ -59,6 +60,7 @@ export default function AppRoutes() {
           <Route path="/obrigado" element={<ThankYou />} />
           <Route path="/privacidade" element={<Privacy />} />
           <Route path="/cartao" element={<DigitalCard />} />
+          <Route path="/r/:slug" element={<ShortLinkRedirect />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route
             path="/admin"

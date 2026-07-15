@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { FileText, FolderKanban, LayoutDashboard } from "lucide-react";
+import { FileText, FolderKanban, LayoutDashboard, Link as LinkIcon } from "lucide-react";
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -11,6 +11,7 @@ const mediaBucket = "site-media";
 const resourceKeys = Object.keys(adminResources);
 const adminNavigation = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { key: "links", label: adminResources.links.label, icon: LinkIcon },
   { key: "posts", label: adminResources.posts.label, icon: FileText },
   { key: "projects", label: adminResources.projects.label, icon: FolderKanban },
 ];
@@ -57,6 +58,27 @@ function createProjectSeoPayload(formValues) {
     seo_description:
       formValues.meta_description || formValues.description || formValues.full_description || null,
   };
+}
+
+function createShortLinkPayload(formValues) {
+  const linkType = formValues.link_type || "url";
+  const phone = String(formValues.whatsapp_phone || "").replace(/\D/g, "");
+
+  if (linkType === "whatsapp") {
+    if (!phone) throw new Error("Informe o WhatsApp com DDI e DDD.");
+    const message = String(formValues.whatsapp_message || "").trim();
+    return {
+      ...formValues,
+      link_type: linkType,
+      whatsapp_phone: phone,
+      destination_url: `https://wa.me/${phone}${message ? `?text=${encodeURIComponent(message)}` : ""}`,
+    };
+  }
+
+  if (!/^https?:\/\//i.test(formValues.destination_url || "")) {
+    throw new Error("Informe uma URL de destino iniciada por http:// ou https://.");
+  }
+  return { ...formValues, link_type: linkType, whatsapp_phone: null, whatsapp_message: null };
 }
 
 function getFileExtension(fileName = "") {
@@ -186,7 +208,7 @@ export default function AdminDashboard() {
       const currentSlug = current.slug || "";
       const currentTitleSlug = slugify(current.title || "");
       const shouldUpdateSlug =
-        ["posts", "projects"].includes(activeResource) &&
+        ["posts", "projects", "links"].includes(activeResource) &&
         name === "title" &&
         !selectedId &&
         (!currentSlug || currentSlug === currentTitleSlug);
@@ -254,12 +276,15 @@ export default function AdminDashboard() {
 
     let payload;
     try {
-      payload = parsePayload(resource.fields, formValues);
+      const preparedValues = activeResource === "links"
+        ? createShortLinkPayload(formValues)
+        : formValues;
+      payload = parsePayload(resource.fields, preparedValues);
       if (activeResource === "projects") {
         payload = { ...payload, ...createProjectSeoPayload(formValues) };
       }
-    } catch (_error) {
-      setStatus("Revise os campos em JSON. O formato precisa ser válido.");
+    } catch (error) {
+      setStatus(error.message || "Revise os campos informados.");
       return;
     }
 
@@ -375,7 +400,7 @@ export default function AdminDashboard() {
               {isLoading && <p className="meta">Carregando indicadores...</p>}
               {!isLoading &&
                 dashboardStats.map((stat) => {
-                  const Icon = stat.key === "posts" ? FileText : FolderKanban;
+                  const Icon = stat.key === "posts" ? FileText : stat.key === "links" ? LinkIcon : FolderKanban;
 
                   return (
                     <article className="admin-dashboard-card" key={stat.key}>
@@ -494,8 +519,11 @@ export default function AdminDashboard() {
                       >
                         <option value="">Selecione...</option>
                         {field.options?.map((option) => (
-                          <option key={option} value={option}>
-                            {option}
+                          <option
+                            key={typeof option === "string" ? option : option.value}
+                            value={typeof option === "string" ? option : option.value}
+                          >
+                            {typeof option === "string" ? option : option.label}
                           </option>
                         ))}
                       </select>

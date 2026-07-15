@@ -123,6 +123,40 @@ alter table public.projects add column if not exists image_5 text;
 create index if not exists projects_created_at_idx
 on public.projects (created_at desc);
 
+create table if not exists public.short_links (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  slug text not null unique,
+  link_type text not null default 'url' check (link_type in ('url', 'whatsapp')),
+  destination_url text not null,
+  whatsapp_phone text,
+  whatsapp_message text,
+  clicks_count bigint not null default 0,
+  created_at timestamptz not null default now(),
+  updated_at timestamptz not null default now()
+);
+
+create index if not exists short_links_created_at_idx
+on public.short_links (created_at desc);
+
+create or replace function public.resolve_short_link(p_slug text)
+returns table (destination_url text)
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  return query
+  update public.short_links
+  set clicks_count = clicks_count + 1
+  where slug = p_slug
+  returning short_links.destination_url;
+end;
+$$;
+
+revoke all on function public.resolve_short_link(text) from public;
+grant execute on function public.resolve_short_link(text) to anon, authenticated;
+
 create or replace function public.set_updated_at()
 returns trigger as $$
 begin
@@ -141,9 +175,15 @@ create trigger projects_set_updated_at
 before update on public.projects
 for each row execute function public.set_updated_at();
 
+drop trigger if exists short_links_set_updated_at on public.short_links;
+create trigger short_links_set_updated_at
+before update on public.short_links
+for each row execute function public.set_updated_at();
+
 alter table public.blog_posts enable row level security;
 alter table public.projects enable row level security;
 alter table public.blog_post_views enable row level security;
+alter table public.short_links enable row level security;
 
 drop policy if exists "Public can read site media" on storage.objects;
 create policy "Public can read site media"
@@ -192,6 +232,13 @@ using (true);
 drop policy if exists "Authenticated users manage projects" on public.projects;
 create policy "Authenticated users manage projects"
 on public.projects for all
+to authenticated
+using (true)
+with check (true);
+
+drop policy if exists "Authenticated users manage short links" on public.short_links;
+create policy "Authenticated users manage short links"
+on public.short_links for all
 to authenticated
 using (true)
 with check (true);
