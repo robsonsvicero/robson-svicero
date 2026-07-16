@@ -112,6 +112,30 @@ export default function AdminDashboard() {
 
   const selectedItem = items.find((item) => item.id === selectedId);
   const isPostsResource = activeResource === "posts";
+  const isLinksResource = activeResource === "links";
+  const shortUrl = isLinksResource && formValues.slug
+    ? `${window.location.origin}/r/${formValues.slug}`
+    : "";
+
+  function shouldShowField(fieldName) {
+    if (!isLinksResource) return true;
+    const linkType = formValues.link_type;
+    if (fieldName === "destination_url") return linkType !== "whatsapp";
+    if (["whatsapp_phone", "whatsapp_message"].includes(fieldName)) {
+      return linkType === "whatsapp";
+    }
+    return true;
+  }
+
+  async function copyShortUrl() {
+    if (!shortUrl) return;
+    try {
+      await navigator.clipboard.writeText(shortUrl);
+      setStatus("URL encurtada copiada.");
+    } catch (_error) {
+      setStatus("Não foi possível copiar automaticamente. Selecione e copie a URL.");
+    }
+  }
 
   useEffect(() => {
     setSelectedId(null);
@@ -455,7 +479,7 @@ export default function AdminDashboard() {
               </div>
 
               <div className="admin-form-grid">
-                {resource.fields.map((field) => (
+                {resource.fields.filter((field) => shouldShowField(field.name)).map((field) => (
                   <div className="field" key={field.name}>
                     <label htmlFor={`${activeResource}-${field.name}`}>
                       {field.label}
@@ -552,6 +576,26 @@ export default function AdminDashboard() {
                     )}
                   </div>
                 ))}
+                {isLinksResource && shortUrl && (
+                  <div className="field admin-short-link">
+                    <label htmlFor="links-short-url">URL encurtada</label>
+                    <div className="admin-short-link-row">
+                      <input
+                        className="input"
+                        id="links-short-url"
+                        type="url"
+                        value={shortUrl}
+                        readOnly
+                      />
+                      <Button as="button" variant="secondary" type="button" onClick={copyShortUrl}>
+                        Copiar
+                      </Button>
+                    </div>
+                    {!selectedItem && (
+                      <p className="meta">O endereço começará a funcionar depois que o link for salvo.</p>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="admin-actions">

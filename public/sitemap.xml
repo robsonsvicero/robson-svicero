@@ -110,9 +110,15 @@
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog</loc>
-    <lastmod>2026-07-14</lastmod>
+    <lastmod>2026-07-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://robsonsvicero.com.br/blog/metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais</loc>
+    <lastmod>2026-07-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog/todo-site-comeca-como-uma-folha-em-branco</loc>

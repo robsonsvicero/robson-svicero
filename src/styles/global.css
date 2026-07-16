@@ -1670,6 +1670,34 @@ h3 {
   min-height: 132px;
 }
 
+.admin-short-link {
+  padding: var(--space-4);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.admin-short-link-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.admin-short-link-row .input {
+  flex: 1;
+  min-width: 0;
+}
+
+.admin-short-link .meta {
+  margin: var(--space-2) 0 0;
+}
+
+@media (max-width: 560px) {
+  .admin-short-link-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
 .admin-image-field {
   display: grid;
   gap: var(--space-3);
