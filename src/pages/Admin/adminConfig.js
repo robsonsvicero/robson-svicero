@@ -43,6 +43,7 @@ export const adminResources = {
         options: [
           "UX & Conversão",
           "Websites",
+          "Método C.L.A.R.O.",
           "Branding & Identidade Visual",
           "Marketing Digital",
           "Estudos de Caso",
