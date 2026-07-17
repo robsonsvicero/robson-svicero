@@ -161,7 +161,7 @@ vcardButtons.forEach((button) => {
       "FN:Robson Svicero",
       "N:Svicero;Robson;;;",
       "ORG:Robson Svicero",
-      "TITLE:Desenvolvedor React.js",
+      "TITLE:Criação de Sites",
       "TEL;TYPE=CELL:+55 11 96493-2007",
       "EMAIL;TYPE=WORK:ola@robsonsvicero.com.br",
       "URL:https://robsonsvicero.com.br/",

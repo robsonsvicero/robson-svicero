@@ -52,6 +52,32 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
+function createSocialHtml(indexHtml, { title, description, image, url, type = "website" }) {
+  let html = indexHtml;
+
+  html = html.replace(/<title>.*?<\/title>/s, `<title>${title}</title>`);
+  html = html.replace(/<meta\s+(?:name|property)=["'](?:description|og:[^"']+|twitter:[^"']+)["'][^>]*>\s*/gi, "");
+  html = html.replace(/<link\s+rel=["']canonical["'][^>]*>\s*/gi, "");
+
+  const metaTags = `
+  <meta name="description" content="${description}" />
+  <link rel="canonical" href="${url}" />
+  <meta property="og:type" content="${type}" />
+  <meta property="og:url" content="${url}" />
+  <meta property="og:title" content="${title}" />
+  <meta property="og:description" content="${description}" />
+  <meta property="og:image" content="${image}" />
+  <meta property="og:site_name" content="Robson Svicero" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+  <meta name="twitter:image" content="${image}" />
+  `;
+
+  return html.replace("</head>", `${metaTags}\n</head>`);
+}
+
 async function fetchBlogPosts(supabaseUrl, supabaseAnonKey) {
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
   const { data, error } = await supabase
@@ -87,6 +113,19 @@ async function generateBlogHtmls() {
 
   const posts = await fetchBlogPosts(supabaseUrl, supabaseAnonKey);
 
+  // A pasta /blog passa a existir quando os HTMLs dos posts sao gerados. Sem
+  // um index.html nela, o LiteSpeed bloqueia a listagem do diretorio com 403 e
+  // nao chega ao fallback da SPA definido no .htaccess.
+  const blogDirPath = path.join(DIST_PATH, "blog");
+  await mkdir(blogDirPath, { recursive: true });
+  const blogHtml = createSocialHtml(indexHtml, {
+    title: "Blog sobre Criação de sites, UX, SEO e Landing Pages | Robson Svicero",
+    description: "Artigos sobre criação de sites, UX Design, SEO técnico, landing pages, interfaces digitais e estratégia para presença digital.",
+    image: `${siteUrl}/assets/images/og-image.webp`,
+    url: `${siteUrl}/blog/`,
+  });
+  await writeFile(path.join(blogDirPath, "index.html"), blogHtml, "utf-8");
+
   for (const post of posts) {
     if (!post.slug) continue;
 
@@ -95,31 +134,13 @@ async function generateBlogHtmls() {
     const image = escapeHtml(post.image);
     const url = `${siteUrl}/blog/${post.slug}`;
 
-    let postHtml = indexHtml;
-
-    // Replace <title>
-    postHtml = postHtml.replace(/<title>(.*?)<\/title>/, `<title>${title}</title>`);
-    
-    // Remove default OG and Twitter meta tags to prevent duplicates
-    postHtml = postHtml.replace(/<meta property="og:[^>]*>/g, "");
-    postHtml = postHtml.replace(/<meta name="twitter:[^>]*>/g, "");
-    postHtml = postHtml.replace(/<meta name="description"[^>]*>/g, "");
-
-    // Add OG and Twitter tags just before </head>
-    const metaTags = `
-    <meta name="description" content="${description}" />
-    <meta property="og:title" content="${title}" />
-    <meta property="og:description" content="${description}" />
-    <meta property="og:image" content="${image}" />
-    <meta property="og:url" content="${url}" />
-    <meta property="og:type" content="article" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${title}" />
-    <meta name="twitter:description" content="${description}" />
-    <meta name="twitter:image" content="${image}" />
-    `;
-
-    postHtml = postHtml.replace("</head>", `${metaTags}\n  </head>`);
+    const postHtml = createSocialHtml(indexHtml, {
+      title,
+      description,
+      image,
+      url,
+      type: "article",
+    });
 
     const dirPath = path.join(DIST_PATH, "blog", post.slug);
     await mkdir(dirPath, { recursive: true });

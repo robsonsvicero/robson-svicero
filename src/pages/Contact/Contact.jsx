@@ -107,7 +107,7 @@ export default function Contact() {
                   <option>Site institucional</option>
                   <option>Site One Page</option>
                   <option>UX/UI Design</option>
-                  <option>Desenvolvimento React</option>
+                  <option>Identidade Visual</option>
                 </select>
               </div>
 

@@ -3,9 +3,9 @@ export const siteSeo = {
   baseUrl: "https://robsonsvicero.com.br",
   defaultImage: "https://robsonsvicero.com.br/assets/images/og-image.webp",
   defaultTitle:
-    "Desenvolvedor React.js | Landing Pages, Sites Institucionais e One Page | Robson Svicero",
+    "Criação de Sites Institucionais, Landing Pages e One Page | Robson Svicero",
   defaultDescription:
-    "Desenvolvedor React.js em São Paulo especializado na criação de Landing Pages, Sites Institucionais, Sites One Page e interfaces para produtos digitais.",
+    "Desenvolvedor web em São Paulo especializado na criação de Landing Pages, Sites Institucionais, Sites One Page e interfaces para produtos digitais.",
 };
 
 export function formatTitle(title) {

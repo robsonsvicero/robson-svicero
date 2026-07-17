@@ -103,9 +103,6 @@ export default function FacebookComments({ url }) {
   const commentsRef = useRef(null);
   const [status, setStatus] = useState("loading");
   const appId = import.meta.env.VITE_FACEBOOK_APP_ID;
-  const commentsEnabled = import.meta.env.VITE_FACEBOOK_COMMENTS_ENABLED !== "false";
-
-  if (!commentsEnabled) return null;
 
   useEffect(() => {
     let isMounted = true;
@@ -140,7 +137,7 @@ export default function FacebookComments({ url }) {
     return () => {
       isMounted = false;
     };
-  }, [appId, commentsEnabled, url]);
+  }, [appId, url]);
 
   return (
     <section className="facebook-comments" aria-labelledby="facebook-comments-title">

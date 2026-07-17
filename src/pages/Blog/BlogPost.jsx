@@ -1,7 +1,7 @@
 import { CalendarDays, Clock, Eye, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import FacebookComments from "../../components/FacebookComments/FacebookComments.jsx";
+import BlogComments from "../../components/BlogComments/BlogComments.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import RichTextContent from "../../components/RichTextContent/RichTextContent.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -107,7 +107,6 @@ export default function BlogPost() {
 
   const paragraphs = getPostParagraphs(post);
   const canonicalUrl = post.canonicalUrl || absoluteUrl(post.path);
-  const commentsUrl = canonicalUrl;
   const hasRichContent = hasHtmlContent(post.content);
   const structuredData = {
     "@context": "https://schema.org",
@@ -199,7 +198,7 @@ export default function BlogPost() {
           </div>
           <LatestArticles excludeSlug={post.slug} showCta={false} className="blog-latest-articles" />
           <div className="container blog-comments-container">
-            <FacebookComments url={commentsUrl} />
+            <BlogComments postSlug={post.slug} />
           </div>
         </article>
       </Layout>

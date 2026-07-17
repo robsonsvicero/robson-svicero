@@ -1027,47 +1027,9 @@ h3 {
   color: color-mix(in oklab, var(--bg), transparent 32%);
 }
 
-/* ─── Diferencial ────────────────────────────────────── */
-
 .split-title {
   max-width: 700px;
   margin-bottom: var(--space-12);
-}
-
-.comparison {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-5);
-}
-
-.problem-list,
-.solution-list {
-  display: grid;
-  gap: var(--space-3);
-  margin-top: var(--space-5);
-}
-
-.compare-row {
-  display: flex;
-  gap: var(--space-3);
-  align-items: flex-start;
-  min-height: 52px;
-  padding: var(--space-4);
-  border-radius: var(--radius-lg);
-  background: var(--surface-warm);
-  border: 1px solid var(--border-soft);
-  color: var(--fg-2);
-}
-
-.compare-row strong {
-  color: var(--fg);
-}
-
-.symbol {
-  width: 24px;
-  flex: 0 0 auto;
-  font-family: var(--font-mono);
-  color: var(--muted);
 }
 
 /* ─── Timeline ───────────────────────────────────────── */
@@ -2495,6 +2457,63 @@ h3 {
   text-align: center;
 }
 
+/* ─── Método C.L.A.R.O. ──────────────────────────────── */
+
+.claro-method-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.claro-method-copy {
+  display: grid;
+  justify-items: start;
+  gap: var(--space-5);
+}
+
+.claro-method-copy .eyebrow,
+.claro-method-copy .lead {
+  margin: 0;
+}
+
+.claro-method-pillars {
+  display: grid;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claro-method-pillars li {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  align-items: center;
+  gap: var(--space-3);
+  padding: 10px var(--space-4);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.claro-method-pillars span {
+  display: grid;
+  width: 36px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.claro-method-pillars strong {
+  color: var(--fg);
+  font-size: var(--text-base);
+}
+
 /* Service landing pages */
 
 .service-hero {
@@ -2690,9 +2709,9 @@ h3 {
   padding-bottom: var(--section-y-desktop);
 }
 
-.facebook-comments {
+.blog-comments {
   display: grid;
-  gap: var(--space-5);
+  gap: var(--space-8);
   max-width: 1040px;
   margin-inline: auto;
   padding: clamp(var(--space-5), 4vw, var(--space-8));
@@ -2701,25 +2720,86 @@ h3 {
   background: var(--surface);
 }
 
-.facebook-comments-header {
+.blog-comments-header {
   display: grid;
   gap: var(--space-2);
 }
 
-.facebook-comments-header .eyebrow {
+.blog-comments-header .eyebrow {
   margin: 0;
 }
 
-.facebook-comments-frame {
-  width: 100%;
-  min-height: 180px;
-  overflow: hidden;
+.blog-comments-form {
+  display: grid;
+  gap: var(--space-5);
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--border-soft);
 }
 
-.facebook-comments .fb-comments,
-.facebook-comments .fb-comments span,
-.facebook-comments .fb-comments iframe {
-  width: 100% !important;
+.blog-comments-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+
+.blog-comments-message .textarea {
+  min-height: 140px;
+}
+
+.blog-comments-message .meta {
+  align-self: flex-end;
+}
+
+.blog-comments-submit {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.blog-comments-submit .meta {
+  flex: 1 1 280px;
+}
+
+.blog-comments-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.blog-comments-list {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.blog-comment {
+  display: grid;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.blog-comment-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.blog-comment-heading time {
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+.blog-comment p {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 @media (max-width: 640px) {
@@ -2796,6 +2876,15 @@ h3 {
 
   .blog-comments-container {
     padding-bottom: var(--section-y-phone);
+  }
+
+  .blog-comments-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-comment-heading {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .blog-page-header {
@@ -2947,9 +3036,9 @@ h3 {
   .grid-2-1,
   .grid-1-2,
   .service-hero-grid,
+  .claro-method-layout,
   .contact-page-hero,
   .contact-page-grid,
-  .comparison,
   .faq-layout,
   .contact-panel {
     grid-template-columns: 1fr;

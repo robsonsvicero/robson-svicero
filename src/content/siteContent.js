@@ -19,7 +19,7 @@ export const headerContent = {
   logo: {
     href: "#inicio",
     src: "/assets/images/logo.png",
-    alt: "Robson Svicero - UX/UI Designer e Desenvolvedor React",
+    alt: "Robson Svicero - Criação de Sites e UX/UI Design",
     width: 91,
     height: 64,
   },
@@ -40,7 +40,7 @@ export const headerContent = {
 
 export const heroContent = {
   eyebrow: "React.js - UX Design",
-  title: "Desenvolvedor React.js especializado em Landing Pages e Interfaces para Produtos Digitais.",
+  title: "Criação de Sites Institucionais, Landing Pages e One Page.",
   lead:
     "Crio Landing Pages, Sites Institucionais e Sites One Page desenvolvidos em React.js, com foco em performance, SEO e experiência do usuário. Atendo empresas da Zona Norte de São Paulo e clientes em todo o Brasil.",
   note:
@@ -106,6 +106,24 @@ export const partnersContent = {
   ],
 };
 
+export const claroMethodContent = {
+  eyebrow: "Método C.L.A.R.O.",
+  title: "Menos dúvidas. Mais confiança para decidir.",
+  description:
+    "Um diagnóstico estratégico da sua presença digital para identificar barreiras, reduzir incertezas e orientar melhorias que aproximem visitantes dos objetivos do negócio.",
+  pillars: [
+    { initial: "C", label: "Clareza" },
+    { initial: "L", label: "Legitimidade" },
+    { initial: "A", label: "Acessibilidade" },
+    { initial: "R", label: "Relevância" },
+    { initial: "O", label: "Orientação" },
+  ],
+  cta: {
+    label: "Solicitar diagnóstico",
+    href: "https://forms.gle/3phtkKqL2KShxSB17",
+  },
+};
+
 export const servicesContent = {
   eyebrow: "Serviços",
   title: "O que posso construir para o seu próximo passo digital.",
@@ -127,92 +145,6 @@ export const servicesContent = {
       description:
         "Sites rápidos, modernos e objetivos, desenvolvidos para apresentar sua marca com clareza, destacar sua oferta e conduzir o visitante à ação.",
       iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
-    },
-  ],
-};
-
-export const credibilityContent = {
-  eyebrow: "Credibilidade",
-  title: "Experiência para transformar intenção em uma presença digital mais clara.",
-  lead:
-    "A página certa não é apenas bonita. Ela organiza a proposta de valor, remove ruído da decisão e conduz o visitante até uma conversa comercial mais qualificada.",
-  description:
-    "A atuação combina diagnóstico, arquitetura da informação, UX/UI Design e desenvolvimento front-end. Menos repasse entre especialistas, mais coerência entre estratégia, tela e código.",
-};
-
-export const differentiatorContent = {
-  eyebrow: "O diferencial",
-  title: "Design e desenvolvimento em uma única entrega.",
-  columns: [
-    {
-      meta: "O problema comum",
-      className: "problem-list",
-      items: [
-        {
-          symbol: "-",
-          title: "Designer que não programa.",
-          description:
-            "O conceito visual chega bonito, mas perde intenção quando vira implementação.",
-        },
-        {
-          symbol: "-",
-          title: "Desenvolvedor que não pensa na experiência.",
-          description:
-            "A interface funciona, mas não conduz o usuário com clareza comercial.",
-        },
-      ],
-    },
-    {
-      meta: "A entrega proposta",
-      className: "solution-list",
-      items: [
-        {
-          symbol: "01",
-          title: "Estratégia UX.",
-          description: "Estrutura da mensagem, jornada e hierarquia antes da tela.",
-        },
-        {
-          symbol: "02",
-          title: "Interface UI.",
-          description:
-            "Visual refinado, responsivo e alinhado à percepção de valor.",
-        },
-        {
-          symbol: "03",
-          title: "Desenvolvimento React.",
-          description:
-            "Front-end pronto para evoluir com React, Tailwind CSS e boas práticas.",
-        },
-      ],
-    },
-  ],
-  timeline: [
-    {
-      number: "01",
-      title: "Descoberta",
-      description:
-        "Entendimento do negócio, oferta, público e gargalos de conversão.",
-    },
-    {
-      number: "02",
-      title: "UX",
-      description: "Mapa da página, narrativa e priorização do que precisa ser dito.",
-    },
-    {
-      number: "03",
-      title: "UI",
-      description: "Interface, ritmo visual, componentes e adaptação responsiva.",
-    },
-    {
-      number: "04",
-      title: "Dev",
-      description:
-        "Implementação front-end com atenção à performance e manutenção.",
-    },
-    {
-      number: "05",
-      title: "Entrega",
-      description: "Ajustes finais, publicação orientada e acompanhamento inicial.",
     },
   ],
 };

@@ -10,7 +10,7 @@ export default function Hero() {
     <section
       className="section hero hero-editorial"
       data-od-id="hero"
-      aria-label="Apresentação principal - Desenvolvedor React, UX/UI Designer, Robson Svicero"
+      aria-label="Apresentação principal - Criação de sites, UX/UI Designer, Robson Svicero"
     >
       <div
         className="hero-media"

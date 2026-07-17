@@ -4,9 +4,8 @@ import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import { useHomeInteractions } from "../../hooks/useHomeInteractions.js";
 import Contact from "../../sections/Contact/Contact.jsx";
-import Credibility from "../../sections/Credibility/Credibility.jsx";
+import ClaroMethod from "../../sections/ClaroMethod/ClaroMethod.jsx";
 import CredibilityBar from "../../sections/CredibilityBar/CredibilityBar.jsx";
-import Differentiator from "../../sections/Differentiator/Differentiator.jsx";
 import Faq from "../../sections/Faq/Faq.jsx";
 import Hero from "../../sections/Hero/Hero.jsx";
 import Partners from "../../sections/Partners/Partners.jsx";
@@ -28,17 +27,16 @@ export default function Home() {
       />
       <Layout mainProps={{ id: "inicio" }}>
         <Hero />
-        <CredibilityBar />
+        {/* <CredibilityBar /> */}
         <Partners />
-        <Credibility />
-        <Differentiator />
+        <ClaroMethod />
         <Services />
         <Projects />
         <LatestArticles />
         <Process />
         <Testimonials />
-        <Faq />
         <Contact />
+        <Faq />
       </Layout>
       <BackToTopButton />
       {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}
