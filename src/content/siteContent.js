@@ -200,7 +200,7 @@ export const testimonialsContent = {
   title: "Quando a entrega visual também melhora a percepção de valor.",
   reviews: [
     {
-      quote: "Nossa presença digital anterior não refletia o impacto real do Instituto Sublim, o que dificultava a atração de parceiros. O novo site profissionalizou nossa imagem e nos deu uma ferramenta clara para mostrar exatamente onde o recurso é aplicado. Trabalho impecável que superou todas as nossas expectativas.",
+      quote: "O novo site profissionalizou nossa imagem e nos deu uma ferramenta clara para mostrar exatamente onde o recurso é aplicado. Trabalho impecável que superou todas as nossas expectativas.",
       author: "Carol Andrade, Gestora de Projetos Sociais do Instituto Sublim",
     },
     {

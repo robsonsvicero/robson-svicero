@@ -69,10 +69,40 @@ export default function BlogPost() {
     mapper: mapBlogPost,
   });
   const [viewsCount, setViewsCount] = useState(0);
+  const [authorProfile, setAuthorProfile] = useState(null);
 
   useEffect(() => {
     setViewsCount(post?.viewsCount ?? 0);
   }, [post?.slug, post?.viewsCount]);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadAuthorProfile() {
+      if (!isSupabaseConfigured || (!post?.authorId && !post?.author)) {
+        if (isMounted) setAuthorProfile(null);
+        return;
+      }
+
+      let query = supabase
+        .from("blog_authors")
+        .select("id, photo, name, bio, instagram_handle, instagram_url");
+
+      query = post.authorId
+        ? query.eq("id", post.authorId)
+        : query.eq("name", post.author);
+
+      const { data, error } = await query.maybeSingle();
+      if (isMounted) setAuthorProfile(error ? null : data);
+    }
+
+    setAuthorProfile(null);
+    loadAuthorProfile();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [post?.author, post?.authorId]);
 
   useEffect(() => {
     if (!isSupabaseConfigured || !post?.slug) return;
@@ -107,6 +137,7 @@ export default function BlogPost() {
 
   const paragraphs = getPostParagraphs(post);
   const canonicalUrl = post.canonicalUrl || absoluteUrl(post.path);
+  const authorName = authorProfile?.name || post.author || "Robson Svicero";
   const hasRichContent = hasHtmlContent(post.content);
   const structuredData = {
     "@context": "https://schema.org",
@@ -116,7 +147,9 @@ export default function BlogPost() {
     image: post.image || post.thumbnail,
     author: {
       "@type": "Person",
-      name: post.author || "Robson Svicero",
+      name: authorName,
+      ...(authorProfile?.instagram_url ? { url: authorProfile.instagram_url } : {}),
+      ...(authorProfile?.photo ? { image: authorProfile.photo } : {}),
     },
     publisher: {
       "@type": "Organization",
@@ -163,7 +196,7 @@ export default function BlogPost() {
                 <span className="blog-meta-item">
                   <UserRound aria-hidden="true" />
                   <span className="visually-hidden">Autor:</span>
-                  {post.author || "Robson Svicero"}
+                  {authorName}
                 </span>
                 <span className="blog-meta-item">
                   <Clock aria-hidden="true" />
@@ -194,6 +227,23 @@ export default function BlogPost() {
                       </section>
                     ))}
               </div>
+              {authorProfile && (
+                <aside className="blog-author-card" aria-labelledby="blog-author-name">
+                  <img src={authorProfile.photo} alt={`Foto de ${authorProfile.name}`} />
+                  <div className="blog-author-card-content">
+                    <p className="eyebrow">Publicado por</p>
+                    <h2 id="blog-author-name">{authorProfile.name}</h2>
+                    <p>{authorProfile.bio}</p>
+                    <a
+                      href={authorProfile.instagram_url}
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      {authorProfile.instagram_handle}
+                    </a>
+                  </div>
+                </aside>
+              )}
             </div>
           </div>
           <LatestArticles excludeSlug={post.slug} showCta={false} className="blog-latest-articles" />

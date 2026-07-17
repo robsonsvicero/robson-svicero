@@ -65,7 +65,7 @@ export default function Testimonials() {
           </Card>
         ))}
 
-        {googleData.rating && (
+        {/* {googleData.rating && (
           <div className="google-rating-badge" style={{ display: "inline-flex", alignItems: "center", gap: "8px", marginTop: "16px", padding: "8px 16px", backgroundColor: "#fff", borderRadius: "100px", border: "1px solid var(--border-soft)", boxShadow: "0 2px 8px rgba(0,0,0,0.05)" }}>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="20px" height="20px">
               <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
@@ -77,7 +77,7 @@ export default function Testimonials() {
             <span style={{ display: "flex", color: "#FFB300", fontSize: "14px", letterSpacing: "1px" }}>★★★★★</span>
             <span style={{ fontSize: "14px", color: "var(--muted)", marginLeft: "4px" }}>({googleData.total} avaliações)</span>
           </div>
-        )}
+        )} */}
       </div>
     </Section>
   );

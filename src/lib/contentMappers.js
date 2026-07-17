@@ -9,6 +9,7 @@ export function mapBlogPost(row) {
     seoDescription: row.seo_description,
     image: row.image,
     thumbnail: row.thumbnail || row.image,
+    authorId: row.author_id,
     author: row.author,
     category: row.category,
     publishedAt: row.published_at,

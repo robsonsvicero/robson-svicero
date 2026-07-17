@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { FileText, FolderKanban, LayoutDashboard, Link as LinkIcon } from "lucide-react";
+import { FileText, FolderKanban, LayoutDashboard, Link as LinkIcon, UserRound } from "lucide-react";
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -11,6 +11,7 @@ const mediaBucket = "site-media";
 const resourceKeys = Object.keys(adminResources);
 const adminNavigation = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { key: "authors", label: adminResources.authors.label, icon: UserRound },
   { key: "links", label: adminResources.links.label, icon: LinkIcon },
   { key: "posts", label: adminResources.posts.label, icon: FileText },
   { key: "projects", label: adminResources.projects.label, icon: FolderKanban },
@@ -87,7 +88,7 @@ function getFileExtension(fileName = "") {
 }
 
 function createStoragePath({ activeResource, fieldName, formValues, file }) {
-  const slug = slugify(formValues.slug || formValues.title || "arquivo");
+  const slug = slugify(formValues.slug || formValues.title || formValues.name || "arquivo");
   const extension = getFileExtension(file.name);
   const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
   return `${activeResource}/${slug}/${fieldName}-${timestamp}.${extension}`;
@@ -108,6 +109,7 @@ export default function AdminDashboard() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
   const [imageLoadingFields, setImageLoadingFields] = useState([]);
+  const [relationOptions, setRelationOptions] = useState({});
   const [showPostsList, setShowPostsList] = useState(false);
 
   const selectedItem = items.find((item) => item.id === selectedId);
@@ -144,8 +146,10 @@ export default function AdminDashboard() {
     setShowPostsList(false);
     if (resource) {
       loadItems();
+      loadRelationOptions();
     } else {
       setItems([]);
+      setRelationOptions({});
       loadDashboardStats();
     }
   }, [activeResource, emptyRecord, resource]);
@@ -196,7 +200,7 @@ export default function AdminDashboard() {
     const { data, error } = await supabase
       .from(resource.table)
       .select("*")
-      .order(resource.orderBy, { ascending: false });
+      .order(resource.orderBy, { ascending: resource.ascending ?? false });
     setIsLoading(false);
 
     if (error) {
@@ -205,6 +209,37 @@ export default function AdminDashboard() {
     }
 
     setItems(data || []);
+  }
+
+  async function loadRelationOptions() {
+    if (!resource || !isSupabaseConfigured) return;
+
+    const relationFields = resource.fields.filter((field) => field.type === "relationSelect");
+    if (relationFields.length === 0) {
+      setRelationOptions({});
+      return;
+    }
+
+    const entries = await Promise.all(
+      relationFields.map(async (field) => {
+        const relation = field.relation;
+        const { data, error } = await supabase
+          .from(relation.table)
+          .select(`${relation.valueField}, ${relation.labelField}`)
+          .order(relation.orderBy || relation.labelField, { ascending: true });
+
+        if (error) return [field.name, []];
+        return [
+          field.name,
+          (data || []).map((item) => ({
+            value: item[relation.valueField],
+            label: item[relation.labelField],
+          })),
+        ];
+      }),
+    );
+
+    setRelationOptions(Object.fromEntries(entries));
   }
 
   function startCreate() {
@@ -239,6 +274,11 @@ export default function AdminDashboard() {
 
       if (shouldUpdateSlug) {
         nextValues.slug = slugify(value);
+      }
+
+      if (activeResource === "authors" && name === "instagram_handle") {
+        const handle = String(value || "").trim().replace(/^@+/, "");
+        nextValues.instagram_url = handle ? `https://www.instagram.com/${handle}/` : "";
       }
 
       return nextValues;
@@ -304,8 +344,22 @@ export default function AdminDashboard() {
         ? createShortLinkPayload(formValues)
         : formValues;
       payload = parsePayload(resource.fields, preparedValues);
+      if (activeResource === "authors") {
+        const handle = String(payload.instagram_handle || "").trim().replace(/^@+/, "");
+        if (!/^[a-zA-Z0-9._]{1,30}$/.test(handle)) {
+          throw new Error("Informe um @ do Instagram válido.");
+        }
+        payload.instagram_handle = `@${handle}`;
+        payload.instagram_url = `https://www.instagram.com/${handle}/`;
+      }
       if (activeResource === "projects") {
         payload = { ...payload, ...createProjectSeoPayload(formValues) };
+      }
+      if (activeResource === "posts") {
+        const selectedAuthor = relationOptions.author_id?.find(
+          (option) => option.value === formValues.author_id,
+        );
+        payload.author = selectedAuthor?.label || null;
       }
     } catch (error) {
       setStatus(error.message || "Revise os campos informados.");
@@ -331,7 +385,8 @@ export default function AdminDashboard() {
 
   async function handleDelete(item) {
     if (!resource) return;
-    const confirmed = window.confirm(`Excluir "${item.title}"?`);
+    const itemTitle = item[resource.titleField || "title"] || "este registro";
+    const confirmed = window.confirm(`Excluir "${itemTitle}"?`);
     if (!confirmed) return;
 
     setStatus("");
@@ -424,7 +479,13 @@ export default function AdminDashboard() {
               {isLoading && <p className="meta">Carregando indicadores...</p>}
               {!isLoading &&
                 dashboardStats.map((stat) => {
-                  const Icon = stat.key === "posts" ? FileText : stat.key === "links" ? LinkIcon : FolderKanban;
+                  const Icon = stat.key === "posts"
+                    ? FileText
+                    : stat.key === "links"
+                      ? LinkIcon
+                      : stat.key === "authors"
+                        ? UserRound
+                        : FolderKanban;
 
                   return (
                     <article className="admin-dashboard-card" key={stat.key}>
@@ -457,8 +518,8 @@ export default function AdminDashboard() {
                     key={item.id}
                   >
                     <button type="button" onClick={() => startEdit(item)}>
-                      <strong>{item.title || "Sem título"}</strong>
-                      <span>{item.slug}</span>
+                      <strong>{item[resource.titleField || "title"] || "Sem título"}</strong>
+                      <span>{item[resource.subtitleField || "slug"]}</span>
                     </button>
                     <button
                       className="admin-delete"
@@ -507,6 +568,7 @@ export default function AdminDashboard() {
                           }
                           type="file"
                           accept="image/*"
+                          required={field.required && !formValues[field.name]}
                           onChange={(event) =>
                             handleImageFile(field.name, event.target.files?.[0])
                           }
@@ -532,7 +594,7 @@ export default function AdminDashboard() {
                         onChange={(value) => updateField(field.name, value)}
                         required={field.required}
                       />
-                    ) : field.type === "select" ? (
+                    ) : field.type === "select" || field.type === "relationSelect" ? (
                       <select
                         className="input"
                         id={`${activeResource}-${field.name}`}
@@ -542,7 +604,10 @@ export default function AdminDashboard() {
                         required={field.required}
                       >
                         <option value="">Selecione...</option>
-                        {field.options?.map((option) => (
+                        {(field.type === "relationSelect"
+                          ? relationOptions[field.name]
+                          : field.options
+                        )?.map((option) => (
                           <option
                             key={typeof option === "string" ? option : option.value}
                             value={typeof option === "string" ? option : option.value}
@@ -570,7 +635,10 @@ export default function AdminDashboard() {
                         value={formValues[field.name] || ""}
                         onChange={(event) => updateField(field.name, event.target.value)}
                         readOnly={Boolean(field.autoGenerated)}
-                        placeholder={field.autoGenerated ? "Gerado automaticamente ao preencher o título" : undefined}
+                        placeholder={
+                          field.placeholder ||
+                          (field.autoGenerated ? "Gerado automaticamente" : undefined)
+                        }
                         required={field.required}
                       />
                     )}
