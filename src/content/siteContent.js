@@ -200,18 +200,18 @@ export const testimonialsContent = {
   title: "Quando a entrega visual também melhora a percepção de valor.",
   reviews: [
     {
-      quote: "Eu esperava algo bonito, mas o que o Robson entregou foi muito além disso.",
-      author: "Amanda Araújo - Proprietária AMANDA store",
+      quote: "Nossa presença digital anterior não refletia o impacto real do Instituto Sublim, o que dificultava a atração de parceiros. O novo site profissionalizou nossa imagem e nos deu uma ferramenta clara para mostrar exatamente onde o recurso é aplicado. Trabalho impecável que superou todas as nossas expectativas.",
+      author: "Carol Andrade, Gestora de Projetos Sociais do Instituto Sublim",
     },
     {
       quote:
-        "O Robson não só traduziu visualmente o que eu queria, como me ajudou a organizar minha proposta de valor.",
-      author: "Marcelo Pelegrini - CEO da PowerBrain",
+        "O Robson nos ajudou a estruturar nossa proposta de valor e criou uma identidade visual que traduz inovação, inteligência e força. O novo site tornou nossa atuação mais clara e nos deu uma presença digital coerente com o mercado de energia e tecnologia.",
+      author: "Marcelo Pelegrini, CEO da PowerBrain",
     },
     {
       quote:
-        "Desde o diagnóstico inicial, o foco foi entender onde minha marca estava perdendo valor.",
-      author: "Ednaldo Brito - Isaque Moveis",
+        "Desde o diagnóstico inicial, o trabalho foi conduzido com foco em identificar onde minha marca perdia valor e como fortalecer sua presença no mercado. Hoje, minha identidade visual e minha plataforma refletem o nível de profissionalismo e confiança que sempre quis transmitir aos meus clientes.",
+      author: "André Barbosa, Corretor da André Barbosa Imóveis",
     },
   ],
 };
@@ -254,12 +254,8 @@ export const contactContent = {
   title: "Tem um projeto em mente?",
   lead: "Vamos conversar sobre sua landing page, site institucional ou produto digital.",
   links: [
-    { label: "Agendar reunião", href: routes.schedule, variant: "secondary" },
-    {
-      label: "Solicitar orçamento por e-mail",
-      href: "mailto:ola@robsonsvicero.com.br?subject=Projeto%20freelance%20com%20Robson%20Svicero",
-      variant: "primary",
-    },
+    { label: "Agendar reunião", href: routes.schedule, variant: "primary" },
+    
     { label: "Chamar no WhatsApp", href: "https://wa.me/5511964932007", variant: "secondary" },
   ],
   meta: "ola@robsonsvicero.com.br - 11 96493-2007",
