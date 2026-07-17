@@ -3259,6 +3259,11 @@ h3 {
     padding-inline: var(--container-gutter-phone);
   }
 
+  .claro-method-copy .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .section {
     padding-block: var(--section-y-phone);
   }
