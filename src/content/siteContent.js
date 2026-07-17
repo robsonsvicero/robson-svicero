@@ -39,7 +39,7 @@ export const headerContent = {
 };
 
 export const heroContent = {
-  eyebrow: "React.js - UX Design",
+  eyebrow: "Criação de sites - UX Design",
   title: "Criação de Sites Institucionais, Landing Pages e One Page.",
   lead:
     "Crio Landing Pages, Sites Institucionais e Sites One Page desenvolvidos em React.js, com foco em performance, SEO e experiência do usuário. Atendo empresas da Zona Norte de São Paulo e clientes em todo o Brasil.",
@@ -112,11 +112,11 @@ export const claroMethodContent = {
   description:
     "Um diagnóstico estratégico da sua presença digital para identificar barreiras, reduzir incertezas e orientar melhorias que aproximem visitantes dos objetivos do negócio.",
   pillars: [
-    { initial: "C", label: "Clareza" },
-    { initial: "L", label: "Legitimidade" },
-    { initial: "A", label: "Acessibilidade" },
-    { initial: "R", label: "Relevância" },
-    { initial: "O", label: "Orientação" },
+    { initial: "C", label: "Clareza - compreensão rápida e objetiva da oferta e da proposta da empresa" },
+    { initial: "L", label: "Legitimidade - transmissão de confiança por meio da presença digital da empresa" },
+    { initial: "A", label: "Acessibilidade - facilidade de acesso, compreensão e uso da experiência proposta" },
+    { initial: "R", label: "Relevância - alinhamento do conteúdo às necessidades reais do público" },
+    { initial: "O", label: "Orientação - direcionamento natural e compreensível para a próxima etapa" },
   ],
   cta: {
     label: "Solicitar diagnóstico",
