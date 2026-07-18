@@ -3226,7 +3226,7 @@ h3 {
 
 .blog-author-card {
   display: grid;
-  grid-template-columns: 88px minmax(0, 1fr);
+  grid-template-columns: 100px minmax(0, 1fr);
   gap: var(--space-5);
   align-items: center;
   margin-top: var(--space-12);
@@ -3237,7 +3237,7 @@ h3 {
 }
 
 .blog-author-card > img {
-  width: 88px;
+  width: 100px;
   aspect-ratio: 1;
   border-radius: 50%;
   object-fit: cover;
@@ -3442,13 +3442,13 @@ h3 {
   }
 
   .blog-author-card {
-    grid-template-columns: 64px minmax(0, 1fr);
+    grid-template-columns: 72px minmax(0, 1fr);
     align-items: start;
     margin-top: var(--space-8);
   }
 
   .blog-author-card > img {
-    width: 64px;
+    width: 72px;
   }
 
   .blog-comments-container {
