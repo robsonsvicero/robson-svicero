@@ -832,6 +832,24 @@ h3 {
   background: var(--surface);
 }
 
+.clickable-card {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.clickable-card:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: var(--focus-ring), var(--elev-raised);
+}
+
+.clickable-card:hover .btn-arrow::after,
+.clickable-card:focus-visible .btn-arrow::after {
+  color: var(--accent-hover);
+  transform: translateX(3px);
+}
+
 .card-dark {
   background: var(--fg);
   color: var(--bg);

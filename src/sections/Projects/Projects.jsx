@@ -56,10 +56,14 @@ export default function Projects() {
           Array.from({ length: 3 }, (_, index) => <ProjectCardSkeleton key={index} />)}
         {projects.map((project) => (
           <Card
-            className="case-card"
+            as={Link}
+            to={project.path}
+            aria-label={`Ver case: ${project.title}`}
+            className="case-card clickable-card"
             key={project.title}
             itemScope
             itemType="https://schema.org/CreativeWork"
+            itemProp="url"
           >
             <div className="case-visual">
               <img
@@ -73,15 +77,9 @@ export default function Projects() {
             </div>
             <h3 itemProp="name">{project.title}</h3>
             <p itemProp="description">{project.metaDescription}</p>
-            <Button
-              className="btn-arrow"
-              variant="ghost"
-              as={Link}
-              to={project.path}
-              itemProp="url"
-            >
+            <span className="btn btn-ghost btn-arrow">
               Ver case
-            </Button>
+            </span>
           </Card>
         ))}
       </div>

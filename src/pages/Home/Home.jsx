@@ -32,11 +32,11 @@ export default function Home() {
         <Services />
         <About />
         <Testimonials />
+        <CTA content={pageCtaContent.home} titleId="home-cta-title" />
         <ClaroMethod />
         <Partners />
         <Projects />
         <LatestArticles />
-        <CTA content={pageCtaContent.home} titleId="home-cta-title" />
         <Contact />
       </Layout>
       {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}

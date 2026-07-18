@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
@@ -53,7 +52,13 @@ export default function Cases() {
               {shouldShowSkeletons &&
                 Array.from({ length: 4 }, (_, index) => <CaseCardSkeleton key={index} />)}
               {projects.map((project) => (
-                <Card className="case-card" key={project.slug}>
+                <Card
+                  as={Link}
+                  to={project.path}
+                  aria-label={`Ver case: ${project.title}`}
+                  className="case-card clickable-card"
+                  key={project.slug}
+                >
                   {project.thumbnail && (
                     <figure className="case-card-media">
                       <img
@@ -68,9 +73,9 @@ export default function Cases() {
                   )}
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <Button className="btn-arrow" variant="ghost" as={Link} to={project.path}>
+                  <span className="btn btn-ghost btn-arrow">
                     Ver case
-                  </Button>
+                  </span>
                 </Card>
               ))}
             </div>

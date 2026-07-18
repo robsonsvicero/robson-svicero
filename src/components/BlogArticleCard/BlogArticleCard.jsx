@@ -42,7 +42,13 @@ export default function BlogArticleCard({
   const linkLabel = featured ? "Ler a matéria" : "Ler mais";
 
   return (
-    <Card className={`blog-card ${featured ? "blog-card-featured" : ""} ${className}`.trim()} key={post.slug}>
+    <Card
+      as={Link}
+      to={post.path}
+      aria-label={`${linkLabel}: ${post.title}`}
+      className={`blog-card clickable-card ${featured ? "blog-card-featured" : ""} ${className}`.trim()}
+      key={post.slug}
+    >
       {imageSource && (
         <img
           className="blog-card-image"
@@ -75,9 +81,9 @@ export default function BlogArticleCard({
             </span>
           </p>
         )}
-        <Link className="blog-card-link" to={post.path}>
+        <span className="blog-card-link">
           {linkLabel} <span aria-hidden="true">-&gt;</span>
-        </Link>
+        </span>
       </div>
     </Card>
   );
