@@ -107,8 +107,7 @@ export default function DigitalCard() {
           <h1>Robson Svicero</h1>
           <p className="digital-card-tagline">Desenvolvedor web | UX Designer</p>
           <p className="digital-card-copy">
-            Landing Pages, Sites Institucionais e interfaces que combinam estrategia,
-            velocidade e clareza.
+            Sites profissionais que combinam estratégia, velocidade, clareza e IA como apoio complementar.
           </p>
 
           <div className="digital-card-links">

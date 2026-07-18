@@ -19,38 +19,36 @@ export const headerContent = {
   logo: {
     href: "#inicio",
     src: "/assets/images/logo.png",
-    alt: "Robson Svicero - Criação de Sites e UX/UI Design",
+    alt: "Robson Svicero - Criação de sites profissionais",
     width: 91,
     height: 64,
   },
   navItems: [
     { label: "Home", to: routes.home },
-    { label: "Serviços", to: routes.services },
+    { label: "Criação de sites", to: routes.services },
+    { label: "Sobre", to: routes.about },
     { label: "Projetos", to: routes.cases },
     { label: "Blog", to: routes.blog },
-    { label: "Sobre", to: routes.about },
     { label: "Contato", to: routes.contact },
     { label: "Agendamentos", to: routes.schedule },
   ],
   cta: {
-    label: "Solicitar orçamento",
+    label: "Atendimento ao Cliente",
     href: contactLinks.whatsapp,
+    phone: "(11) 96493-2007",
   },
 };
 
 export const heroContent = {
   eyebrow: "Criação de sites - UX Design",
-  title: "Criação de Sites Institucionais, Landing Pages e One Page.",
+  title: "Criação de sites profissionais para empresas e marcas.",
   lead:
-    "Crio Landing Pages, Sites Institucionais e Sites One Page desenvolvidos em React.js, com foco em performance, SEO e experiência do usuário. Atendo empresas da Zona Norte de São Paulo e clientes em todo o Brasil.",
+    "Crio sites profissionais desenvolvidos em React.js, com foco em performance, SEO, experiência do usuário e uso de IA como apoio complementar no processo de criação. Atendo empresas da Zona Norte de São Paulo e clientes em todo o Brasil.",
   note:
-    "Para empresas e profissionais que precisam vender melhor uma oferta digital sem separar estratégia, design e implementação.",
+    "Para empresas e profissionais que precisam de uma presença digital mais clara, confiável e preparada para conversão.",
   media: {
-    poster: "/assets/images/videoframe.webp",
-    sources: [
-      { src: "/assets/videos/hero-loop.webm", type: "video/webm" },
-      { src: "/assets/videos/hero-loop.mp4", type: "video/mp4" },
-    ],
+    desktop: "/assets/images/hero_web.webp",
+    mobile: "/assets/images/hero_mobile.webp",
   },
   primaryCta: {
     label: "Solicitar orçamento",
@@ -63,16 +61,28 @@ export const heroContent = {
 };
 
 export const credibilityBarContent = {
-  label:
-    "Mais de 10 anos criando experiências digitais, incluindo trabalho conectado à Universal Music.",
-  tags: [
-    "UX Design",
-    "UI Design",
-    "Design Systems",
-    "React",
-    "Landing Pages",
-    "Sites Institucionais",
-  ],
+  highlight: "+10",
+  label: "Há mais de 10 anos criando experiências digitais que fortalecem empresas e marcas.",
+  cta: {
+    label: "Fale comigo agora",
+    href: contactLinks.whatsapp,
+  },
+};
+
+export const homeAboutContent = {
+  eyebrow: "Sobre",
+  title: "Estratégia, experiência e tecnologia em um processo integrado.",
+  description:
+    "Meu nome é Robson Svicero e atuo há mais de 10 anos criando experiências digitais que unem estratégia, design e desenvolvimento para transformar necessidades de negócio em soluções claras e relevantes.",
+  complement:
+    "Acompanho cada projeto desde o entendimento dos objetivos até a implementação da interface, garantindo consistência entre conceito, experiência e execução.",
+  highlights: ["UX e UI Design", "Criação de sites profissionais", "Desenvolvimento Front-end"],
+  image: {
+    src: "/assets/images/sobre-robson.webp",
+    alt: "Robson Svicero, designer e desenvolvedor front-end",
+  },
+  primaryCta: { label: "Conheça minha trajetória", to: routes.about },
+  secondaryCta: { label: "Vamos conversar", href: contactLinks.whatsapp },
 };
 
 export const partnersContent = {
@@ -125,25 +135,25 @@ export const claroMethodContent = {
 };
 
 export const servicesContent = {
-  eyebrow: "Serviços",
-  title: "O que posso construir para o seu próximo passo digital.",
+  eyebrow: "Sites Profissionais",
+  title: "Criação de sites profissionais do briefing à publicação.",
   items: [
     {
-      title: "Landing Pages",
+      title: "Estratégia e conteúdo",
       description:
-        "Páginas focadas em geração de leads, qualificação de demanda e conversão para ofertas específicas.",
+        "Organização da narrativa da página com apoio de IA para acelerar pesquisa, estruturação e refinamento inicial.",
       iconPath: "M4 6h16M4 12h10M4 18h7",
     },
     {
-      title: "Sites Institucionais",
+      title: "Design sob medida",
       description:
-        "Presença digital profissional, escalável e preparada para comunicar autoridade com clareza.",
+        "Interface alinhada à marca, com leitura clara, responsividade e foco em credibilidade.",
       iconPath: "M5 20V8l7-4 7 4v12M9 20v-6h6v6",
     },
     {
-      title: "Sites ONE PAGE",
+      title: "Desenvolvimento e SEO base",
       description:
-        "Sites rápidos, modernos e objetivos, desenvolvidos para apresentar sua marca com clareza, destacar sua oferta e conduzir o visitante à ação.",
+        "Entrega em React com base semântica, performance e estrutura pensada para crescer.",
       iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
     },
   ],
@@ -151,13 +161,13 @@ export const servicesContent = {
 
 export const processContent = {
   eyebrow: "Como trabalho",
-  title: "Um processo para reduzir incerteza antes de desenhar telas.",
+  title: "Um processo para tirar o site do papel com clareza.",
   steps: [
     {
       number: "01",
       title: "Entendimento do negócio",
       description:
-        "Mapeio oferta, público, objeções e o que precisa acontecer para o visitante virar contato.",
+        "Mapeio oferta, público, objeções e o que precisa acontecer para o visitante virar contato. Uso IA para acelerar pesquisa e organização de referências.",
     },
     {
       number: "02",
@@ -219,32 +229,37 @@ export const testimonialsContent = {
 export const faqContent = {
   eyebrow: "Perguntas frequentes",
   title: "Dúvidas comuns antes de tirar um projeto do papel.",
-  lead: "Alguns pontos importantes para entender escopo, tecnologia, SEO e formato de atendimento.",
+  lead: "Alguns pontos importantes para entender escopo, tecnologia, SEO, IA como apoio e formato de atendimento.",
   questions: [
     {
-      question: "Quanto custa uma Landing Page?",
+      question: "Como a IA entra no processo?",
       answer:
-        "O valor depende do objetivo, quantidade de seções, complexidade visual, integrações e prazo. Uma landing page simples costuma ter um escopo mais enxuto; já uma página com copy estruturada, design personalizado, animações, formulários e otimização avançada exige mais planejamento e desenvolvimento. O ideal é avaliar a oferta e montar um orçamento sob medida.",
+        "A IA entra como apoio complementar para pesquisa, organização de conteúdo e refinamento inicial. A estratégia, o posicionamento e a revisão final continuam sendo conduzidos por mim.",
     },
     {
-      question: "Qual a diferença entre um Site One Page e um Site Institucional?",
+      question: "O projeto já nasce preparado para SEO?",
       answer:
-        "Um Site One Page concentra toda a narrativa em uma única página, com seções organizadas em sequência para apresentar uma oferta, serviço ou profissional. Um Site Institucional normalmente possui múltiplas páginas, como sobre, serviços, cases, contato e conteúdos específicos. O One Page é direto e objetivo; o Institucional é melhor quando a marca precisa apresentar mais informações e criar uma presença digital mais completa.",
+        "Sim. A entrega inclui uma base técnica de SEO com estrutura semântica, hierarquia de títulos, descrições, URLs adequadas quando aplicável, performance e responsividade, pronta para evoluir com conteúdo.",
     },
     {
-      question: "Por que desenvolver em React.js?",
+      question: "Posso ampliar o site depois?",
       answer:
-        "React.js permite criar interfaces modernas, componentizadas e mais fáceis de manter. Isso ajuda quando o site precisa evoluir, ganhar novas seções, integrar serviços externos ou manter uma experiência consistente em diferentes telas. Também é uma tecnologia madura, amplamente utilizada no mercado e adequada para projetos que precisam unir performance, interatividade e escalabilidade.",
+        "Sim. A estrutura é pensada para permitir novas páginas, seções, integrações e ajustes de conteúdo sem precisar recomeçar o projeto do zero.",
+    },
+    {
+      question: "O painel administrativo vem incluso?",
+      answer:
+        "O painel pode ser incluído quando o projeto exige atualizações recorrentes. O escopo define quais textos, imagens e blocos poderão ser editados com autonomia.",
+    },
+    {
+      question: "O site funciona bem no celular?",
+      answer:
+        "Sim. O layout é desenvolvido de forma responsiva para preservar clareza, navegação, desempenho e facilidade de contato em celulares, tablets e computadores.",
     },
     {
       question: "Você atende apenas São Paulo?",
       answer:
         "Não. O atendimento pode ser feito de forma remota para clientes de qualquer região do Brasil. Para projetos em São Paulo, também é possível alinhar necessidades específicas da atuação local, mas todo o processo de briefing, aprovação, desenvolvimento e entrega funciona muito bem online.",
-    },
-    {
-      question: "O site já é entregue otimizado para SEO?",
-      answer:
-        "Sim. A entrega inclui uma base técnica de SEO com estrutura semântica, títulos, descrições, hierarquia de conteúdo, URLs adequadas quando aplicável, performance, responsividade e marcações importantes para mecanismos de busca. Em projetos que exigem crescimento orgânico mais forte, também é possível evoluir para uma estratégia contínua de conteúdo, palavras-chave e monitoramento.",
     },
   ],
 };
@@ -252,14 +267,101 @@ export const faqContent = {
 export const contactContent = {
   eyebrow: "Conversão",
   title: "Tem um projeto em mente?",
-  lead: "Vamos conversar sobre sua landing page, site institucional ou produto digital.",
+  lead: "Vamos conversar sobre a criação do seu site profissional, com IA como apoio complementar no processo.",
   links: [
     { label: "Agendar reunião", href: routes.schedule, variant: "primary" },
-    
+    {
+      label: "Enviar e-mail",
+      href: "mailto:ola@robsonsvicero.com.br?subject=Informações%20sobre%20projeto",
+      variant: "secondary",
+    },
     { label: "Chamar no WhatsApp", href: "https://wa.me/5511964932007", variant: "secondary" },
   ],
   meta: "ola@robsonsvicero.com.br - 11 96493-2007",
   formAction: "https://formspree.io/f/xbdevbne",
+};
+
+export const pageCtaContent = {
+  home: {
+    eyebrow: "Vamos criar seu site",
+    title: "Seu próximo passo digital pode começar hoje.",
+    lead:
+      "Se você precisa de um site profissional com clareza estratégica, performance e SEO, posso conduzir o projeto com IA como apoio complementar no processo.",
+    bandClass: "cta-home-band",
+    primaryAction: {
+      label: "Falar no WhatsApp",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver criação de sites",
+      to: routes.services,
+    },
+  },
+  cases: {
+    eyebrow: "Tem um projeto parecido?",
+    title: "Vamos transformar seu briefing em um site claro e confiável.",
+    lead:
+      "Posso aplicar o mesmo processo estratégico desses cases no seu projeto, do diagnóstico à publicação.",
+    bandClass: "cta-cases-band",
+    primaryAction: {
+      label: "Quero conversar",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Agendar conversa",
+      to: routes.schedule,
+    },
+  },
+  caseDetail: {
+    eyebrow: "Gostou deste case?",
+    title: "Seu site pode ser o próximo projeto publicado aqui.",
+    lead:
+      "Vamos conversar sobre escopo, objetivo e estratégia para construir uma presença digital forte para a sua marca.",
+    bandClass: "cta-case-detail-band",
+    primaryAction: {
+      label: "Falar no WhatsApp",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver mais cases",
+      to: routes.cases,
+    },
+  },
+  services: {
+    eyebrow: "Próximo passo",
+    title: "Se a sua marca precisa de um site profissional, este é o ponto de partida.",
+    lead:
+      "Posso estruturar a página principal da sua presença digital com foco em clareza, credibilidade e conversão.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Falar no WhatsApp",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Agendar conversa",
+      to: routes.schedule,
+    },
+  },
+  about: {
+    eyebrow: "Vamos conversar?",
+    title: "Vamos conversar sobre o seu projeto?",
+    lead:
+      "Cada negócio possui desafios diferentes. Se você busca uma solução digital que una estratégia, experiência e tecnologia, vamos entender como posso contribuir para o crescimento da sua marca.",
+    bandClass: "cta-about-band",
+    primaryAction: {
+      label: "Chamar no WhatsApp",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Agendar conversa",
+      to: routes.schedule,
+    },
+  },
 };
 
 export const footerContent = {

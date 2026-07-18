@@ -1,9 +1,8 @@
-import { Link } from "react-router-dom";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
-import { contactLinks, routes } from "../../content/siteContent.js";
+import CTA from "../../components/CTA/CTA.jsx";
+import { pageCtaContent } from "../../content/siteContent.js";
 
 const processSteps = [
   "Imersão e entendimento do projeto",
@@ -25,7 +24,7 @@ export default function About() {
     <>
       <SEO
         title="Sobre Robson Svicero"
-        description="Conheça a trajetória, experiência e forma de trabalho de Robson Svicero em estratégia, UX/UI Design, branding e desenvolvimento front-end."
+        description="Conheça a trajetória, experiência e forma de trabalho de Robson Svicero em criação de sites, UX/UI, branding, desenvolvimento front-end e uso complementar de IA."
         path="/sobre"
       />
       <Layout>
@@ -36,7 +35,7 @@ export default function About() {
                 <p className="eyebrow">Sobre</p>
                 <h1 id="about-title">
                   Estratégia, experiência e tecnologia para transformar ideias em
-                  produtos digitais.
+                  sites profissionais.
                 </h1>
                 <p className="lead">
                   Meu nome é <strong>Robson Svicero</strong> e atuo há mais de 10
@@ -60,8 +59,8 @@ export default function About() {
               <div className="about-copy">
                 <p>
                   Ao longo da minha trajetória, participei de projetos para
-                  empresas de diferentes segmentos, criando desde identidades
-                  visuais até produtos digitais completos, sempre com um
+                  empresas de diferentes segmentos, criando sites profissionais,
+                  identidades visuais de apoio e produtos digitais, sempre com um
                   objetivo em comum: transformar necessidades de negócio em
                   soluções claras, funcionais e relevantes para as pessoas.
                 </p>
@@ -91,8 +90,8 @@ export default function About() {
                 <p>
                   Durante minha carreira, tive a oportunidade de colaborar em
                   projetos para empresas e organizações de diferentes portes,
-                  desenvolvendo sites institucionais, landing pages, plataformas
-                  digitais, sistemas e identidades visuais.
+                  desenvolvendo sites profissionais, plataformas digitais,
+                  sistemas e identidades visuais de apoio.
                 </p>
                 <p>
                   Essa diversidade de experiências me permite compreender
@@ -146,10 +145,10 @@ export default function About() {
 
             <div className="about-copy">
               <p>
-                Seja no desenvolvimento de um site institucional, de uma landing
-                page, de uma identidade visual ou de um produto digital, meu
-                compromisso é criar experiências que fortaleçam a presença da
-                marca e contribuam para seus resultados.
+                Seja no desenvolvimento de um site profissional, de uma identidade
+                visual de apoio ou de um produto digital, meu compromisso é criar
+                experiências que fortaleçam a presença da marca e contribuam para
+                seus resultados.
               </p>
               <p>
                 Se você procura um profissional capaz de unir estratégia, design
@@ -157,29 +156,10 @@ export default function About() {
                 seu projeto.
               </p>
             </div>
-
-            <section className="about-cta" aria-labelledby="about-cta-title">
-              <div className="stack">
-                <p className="eyebrow">Vamos conversar?</p>
-                <h2 id="about-cta-title">Vamos conversar sobre o seu projeto?</h2>
-                <p className="lead">
-                  Cada negócio possui desafios diferentes. Se você busca uma
-                  solução digital que una estratégia, experiência e tecnologia,
-                  entre em contato e vamos entender como posso contribuir para o
-                  crescimento da sua marca.
-                </p>
-                <div className="hero-cta">
-                  <Button href={contactLinks.whatsapp} target="_blank" rel="noreferrer noopener">
-                    Chamar no WhatsApp
-                  </Button>
-                  <Button variant="secondary" as={Link} to={routes.schedule}>
-                    Agendar conversa
-                  </Button>
-                </div>
-              </div>
-            </section>
           </div>
         </section>
+
+            <CTA content={pageCtaContent.about} titleId="about-cta-title" />
       </Layout>
     </>
   );

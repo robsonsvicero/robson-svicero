@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton.jsx";
 import Home from "../pages/Home/Home.jsx";
 import useScrollToTop from "../hooks/useScrollToTop.js";
 
@@ -15,22 +16,22 @@ const Contact = lazy(() => import("../pages/Contact/Contact.jsx"));
 const DesignSystem = lazy(() => import("../pages/DesignSystem/DesignSystem.jsx"));
 const NotFound = lazy(() => import("../pages/NotFound/NotFound.jsx"));
 const Schedule = lazy(() => import("../pages/Schedule/Schedule.jsx"));
-const Frontend = lazy(() => import("../pages/Services/Frontend.jsx"));
-const IdentityVisual = lazy(() => import("../pages/Services/IdentityVisual.jsx"));
-const LandingPages = lazy(() => import("../pages/Services/LandingPages.jsx"));
 const DigitalCard = lazy(() => import("../pages/DigitalCard/DigitalCard.jsx"));
 const Services = lazy(() => import("../pages/Services/Services.jsx"));
-const SiteCreationPage = lazy(() => import("../pages/Services/SiteCreationPage.jsx"));
-const SiteInstitucional = lazy(() => import("../pages/Services/SiteInstitucional.jsx"));
-const SiteOnePage = lazy(() => import("../pages/Services/SiteOnePage.jsx"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
 const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
-const UIUX = lazy(() => import("../pages/Services/UIUX.jsx"));
 const ShortLinkRedirect = lazy(() => import("../pages/ShortLink/ShortLinkRedirect.jsx"));
 
 function ScrollToTop() {
   useScrollToTop();
   return null;
+}
+
+function GlobalWhatsAppButton() {
+  const { pathname } = useLocation();
+  const isBlogPage = pathname === "/blog" || pathname.startsWith("/blog/");
+
+  return isBlogPage ? null : <WhatsAppButton />;
 }
 
 export default function AppRoutes() {
@@ -41,15 +42,6 @@ export default function AppRoutes() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/servicos" element={<Services />} />
-          <Route path="/servicos/identidade-visual" element={<IdentityVisual />} />
-          <Route path="/servicos/ui-ux-design" element={<UIUX />} />
-          <Route path="/servicos/front-end-react" element={<Frontend />} />
-          <Route path="/servicos/landing-pages" element={<LandingPages />} />
-          <Route path="/servicos/site-one-page" element={<SiteOnePage />} />
-          <Route path="/servicos/site-institucional" element={<SiteInstitucional />} />
-          <Route path="/servicos/sites-institucionais" element={<SiteInstitucional />} />
-          <Route path="/criacao-de-sites" element={<SiteCreationPage />} />
-          <Route path="/criacao-de-sites/:slug" element={<SiteCreationPage />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/:slug" element={<CaseDetail />} />
           <Route path="/blog" element={<Blog />} />
@@ -73,6 +65,7 @@ export default function AppRoutes() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
+      <GlobalWhatsAppButton />
     </BrowserRouter>
   );
 }

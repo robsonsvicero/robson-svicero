@@ -5,6 +5,8 @@ import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
+import CTA from "../../components/CTA/CTA.jsx";
+import { pageCtaContent } from "../../content/siteContent.js";
 
 function CaseCardSkeleton() {
   return (
@@ -32,7 +34,7 @@ export default function Cases() {
     <>
       <SEO
         title="Cases | Criação de sites"
-        description="Projetos e cases de Criação de sites institucionas, landing pages e UX/UI Design com foco em clareza, performance e conversão."
+        description="Projetos e cases de criação de sites profissionais com foco em clareza, performance, conversão e uso complementar de IA no processo."
         path="/cases"
       />
       <Layout>
@@ -40,10 +42,10 @@ export default function Cases() {
           <div className="container stack" style={{ gap: "var(--space-12)" }}>
             <div className="stack" style={{ gap: "var(--space-5)", maxWidth: 780 }}>
               <p className="eyebrow">Projetos</p>
-              <h1 id="cases-title">Cases de design e desenvolvimento</h1>
+              <h1 id="cases-title">Cases de design e desenvolvimento de sites</h1>
               <p className="lead">
                 Projetos que mostram estratégia, UX/UI Design e implementação front-end
-                trabalhando juntos para tornar ofertas digitais mais claras e confiáveis.
+                trabalhando juntos para tornar sites mais claros, confiáveis e preparados para conversão.
               </p>
             </div>
 
@@ -74,6 +76,7 @@ export default function Cases() {
             </div>
           </div>
         </section>
+        <CTA content={pageCtaContent.cases} titleId="cases-cta-title" />
       </Layout>
     </>
   );

@@ -16,7 +16,7 @@ export default function Contact() {
     <>
       <SEO
         title="Contato | Robson Svicero"
-        description="Entre em contato para conversar sobre criação de sites institucionais, landing pages e UX/UI Design."
+        description="Entre em contato para conversar sobre criação de sites profissionais, com IA como apoio complementar no processo."
         path="/contato"
       />
       <Layout>
@@ -103,11 +103,9 @@ export default function Contact() {
                   <option value="" disabled>
                     Selecione uma opção
                   </option>
-                  <option>Landing Page</option>
-                  <option>Site institucional</option>
-                  <option>Site One Page</option>
-                  <option>UX/UI Design</option>
-                  <option>Identidade Visual</option>
+                  <option>Criação de site profissional</option>
+                  <option>Reformulação de site existente</option>
+                  <option>Conteúdo e estrutura da página</option>
                 </select>
               </div>
 

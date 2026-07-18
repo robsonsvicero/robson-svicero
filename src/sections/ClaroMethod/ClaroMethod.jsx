@@ -5,7 +5,7 @@ import { claroMethodContent } from "../../content/siteContent.js";
 export default function ClaroMethod() {
   return (
     <Section
-      className="claro-method-section surface-band"
+      className="claro-method-section"
       data-od-id="metodo-claro"
       aria-labelledby="metodo-claro-title"
       containerClassName="container claro-method-layout"

@@ -3,6 +3,8 @@ import Layout from "../../components/layout/Layout/Layout.jsx";
 import RichTextContent from "../../components/RichTextContent/RichTextContent.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
+import CTA from "../../components/CTA/CTA.jsx";
+import { pageCtaContent } from "../../content/siteContent.js";
 import { useSupabaseItem } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 import NotFound from "../NotFound/NotFound.jsx";
@@ -79,6 +81,8 @@ export default function CaseDetail() {
               ))}
             </div>
           )}
+
+          <CTA content={pageCtaContent.caseDetail} titleId="case-detail-cta-title" />
         </article>
       </Layout>
     </>

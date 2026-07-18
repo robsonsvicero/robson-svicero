@@ -5,6 +5,7 @@ import { servicesContent } from "../../content/siteContent.js";
 export default function Services() {
   return (
     <Section
+      className="surface-band"
       id="servicos"
       data-od-id="servicos"
       aria-labelledby="sec-servicos"

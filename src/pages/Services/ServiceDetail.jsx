@@ -20,9 +20,9 @@ export default function ServiceDetail({ service }) {
               <h1 id="service-title">{service.title}</h1>
               <p className="lead">{service.intro}</p>
               <div className="hero-cta">
-                <Button href="/#contato">Solicitar orçamento</Button>
+                <Button href="/contato">Solicitar orçamento</Button>
                 <Button variant="secondary" as={Link} to="/servicos">
-                  Ver todos os serviços
+                  Ver criação de sites
                 </Button>
               </div>
             </div>

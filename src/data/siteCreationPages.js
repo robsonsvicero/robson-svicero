@@ -39,9 +39,9 @@ export const siteCreationPages = [
           "Sim. A entrega considera hierarquia de títulos, meta tags, URL amigável, performance, responsividade, schema markup e uma estrutura pensada para expansão de conteúdo.",
       },
       {
-        question: "Também posso ter landing pages dentro do projeto?",
+        question: "Também posso ter páginas de conversão dentro do projeto?",
         answer:
-          "Sim. A página institucional pode funcionar junto com landing pages específicas para campanhas, serviços ou segmentos de maior valor.",
+          "Sim. A página principal pode funcionar junto com páginas de conversão específicas para campanhas, serviços ou segmentos de maior valor.",
       },
     ],
     relatedPages: ["landing-page", "wordpress", "para-medicos"],
@@ -50,10 +50,10 @@ export const siteCreationPages = [
     slug: "landing-page",
     path: "/criacao-de-sites/landing-page",
     eyebrow: "Landing page",
-    title: "Criação de landing page para gerar leads e vender ofertas específicas",
-    seoTitle: "Criação de Landing Page com Foco em Conversão",
+    title: "Criação de página de conversão para gerar leads e vender ofertas específicas",
+    seoTitle: "Criação de Página de Conversão com Foco em Leads",
     seoDescription:
-      "Criação de landing pages para campanhas, lançamentos e serviços com copy estruturada, UX/UI Design, performance e CTA para WhatsApp.",
+      "Criação de páginas de conversão para campanhas e ofertas específicas com copy estruturada, UX/UI Design, performance e CTA para WhatsApp.",
     intro:
       "Uma página direta, construída para explicar uma única oferta com clareza, reduzir atritos e conduzir o visitante para o contato.",
     ctaText: "Criar minha landing page",
@@ -76,9 +76,9 @@ export const siteCreationPages = [
     ],
     faq: [
       {
-        question: "Landing page é melhor que site institucional?",
+        question: "Página de conversão é melhor que site profissional?",
         answer:
-          "Depende do objetivo. Landing page é melhor para uma oferta específica ou campanha. Site institucional é melhor para apresentar a empresa de forma mais ampla.",
+          "Depende do objetivo. Página de conversão é melhor para uma oferta específica ou campanha. Site profissional é melhor para apresentar a empresa de forma mais ampla.",
       },
       {
         question: "Posso usar a landing page em anúncios?",
