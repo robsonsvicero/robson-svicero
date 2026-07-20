@@ -19,66 +19,6 @@
     <priority>0.9</priority>
   </url>
 <url>
-    <loc>https://robsonsvicero.com.br/servicos/identidade-visual</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/servicos/ui-ux-design</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/servicos/front-end-react</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/servicos/landing-pages</loc>
-    <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/servicos/site-one-page</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/servicos/site-institucional</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/criacao-de-sites</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/criacao-de-sites/landing-page</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/criacao-de-sites/wordpress</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-<url>
-    <loc>https://robsonsvicero.com.br/criacao-de-sites/para-medicos</loc>
-    <lastmod>2026-06-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-<url>
     <loc>https://robsonsvicero.com.br/cases</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -110,19 +50,25 @@
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://robsonsvicero.com.br/blog/instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes</loc>
+    <lastmod>2026-07-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://robsonsvicero.com.br/blog/metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog/todo-site-comeca-como-uma-folha-em-branco</loc>
-    <lastmod>2026-07-17</lastmod>
+    <lastmod>2026-07-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -169,7 +115,7 @@
     <priority>0.7</priority>
   </url>
 <url>
-    <loc>https://robsonsvicero.com.br/privacidade.html</loc>
+    <loc>https://robsonsvicero.com.br/privacidade</loc>
     <lastmod>2026-06-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>

@@ -30,7 +30,7 @@ if (leadForm && formStatus) {
       });
 
       if (response.ok) {
-        window.location.href = "/obrigado.html";
+        window.location.href = "/obrigado";
       } else {
         const data = await response.json();
         const errorMsg = data?.errors?.map((e) => e.message).join(", ")
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     banner.className = "cookie-banner";
     banner.innerHTML = `
       <div class="cookie-content">
-        <p>Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao continuar navegando, você concorda com a nossa <a href="/privacidade.html">Política de Privacidade</a>.</p>
+        <p>Utilizamos cookies para melhorar sua experiência e analisar o tráfego do site. Ao continuar navegando, você concorda com a nossa <a href="/privacidade">Política de Privacidade</a>.</p>
         <button class="btn btn-primary btn-cookie" id="acceptCookies">Entendi e Aceito</button>
       </div>
     `;

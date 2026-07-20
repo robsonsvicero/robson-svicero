@@ -88,10 +88,10 @@ export const adminResources = {
         required: true,
         options: [
           "UX & Conversão",
-          "Websites",
+          "Websites Estratégicos",
           "Método C.L.A.R.O.",
           "Branding & Identidade Visual",
-          "Marketing Digital",
+          "Experiência Digital",
           "Estudos de Caso",
           "UX Insights",
         ],

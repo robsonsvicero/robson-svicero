@@ -505,7 +505,9 @@ export default function AdminDashboard() {
                 })}
             </div>
           ) : (
-            <div className="admin-grid">
+            <div
+              className={`admin-grid ${isPostsResource && !showPostsList ? "admin-grid--editor-full" : ""}`.trim()}
+            >
             {(!isPostsResource || showPostsList) && (
               <div className="admin-list" aria-label={`Lista de ${resource.label}`}>
                 {isLoading && <p className="meta">Carregando...</p>}

@@ -2,6 +2,7 @@ import { CalendarDays, Clock, Eye, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BlogComments from "../../components/BlogComments/BlogComments.jsx";
+import BlogShare from "../../components/BlogShare/BlogShare.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import RichTextContent from "../../components/RichTextContent/RichTextContent.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -178,16 +179,11 @@ export default function BlogPost() {
       />
       <Layout>
         <article className="blog-article" aria-labelledby="post-title">
-          <header className="blog-hero">
-            {post.image && (
-              <img className="blog-hero-image" src={post.image} alt={post.title} />
-            )}
-            <div className="blog-hero-overlay" />
-            <div className="container blog-hero-content">
-              <p className="eyebrow">{post.category}</p>
+          <header className="blog-post-header">
+            <div className="container blog-post-header-content">
+              <span className="blog-post-category">{post.category}</span>
               <h1 id="post-title">{post.title}</h1>
-              {post.seoDescription && <p className="lead">{post.seoDescription}</p>}
-              <p className="blog-hero-meta">
+              <p className="blog-post-meta">
                 <span className="blog-meta-item">
                   <CalendarDays aria-hidden="true" />
                   <span className="visually-hidden">Publicacao:</span>
@@ -209,6 +205,9 @@ export default function BlogPost() {
                   {formatViewsCount(viewsCount)}
                 </span>
               </p>
+              {post.image && (
+                <img className="blog-post-cover" src={post.image} alt={post.title} />
+              )}
             </div>
           </header>
 
@@ -227,6 +226,7 @@ export default function BlogPost() {
                       </section>
                     ))}
               </div>
+              <BlogShare title={post.title} url={canonicalUrl} />
               {authorProfile && (
                 <aside className="blog-author-card" aria-labelledby="blog-author-name">
                   <img src={authorProfile.photo} alt={`Foto de ${authorProfile.name}`} />

@@ -50,7 +50,7 @@ export default function Testimonials() {
         {testimonialsContent.reviews.map((review) => (
           <Card key={review.author} itemScope itemType="https://schema.org/Review">
             <span itemProp="itemReviewed" itemScope itemType="https://schema.org/Person">
-              <meta itemProp="name" content="Robson Svicero - UX/UI Designer e Desenvolvedor" />
+              <meta itemProp="name" content="Robson Svicero - Criação de sites e UX/UI Designer" />
             </span>
             <span itemProp="reviewRating" itemScope itemType="https://schema.org/Rating">
               <meta itemProp="ratingValue" content="5" />

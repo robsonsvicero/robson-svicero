@@ -67,7 +67,7 @@ export default function Privacy() {
       <SEO
         title="Politica de Privacidade | Robson Svicero"
         description="Politica de Privacidade, uso de cookies e informacoes sobre LGPD no site de Robson Svicero."
-        path="/privacidade.html"
+        path="/privacidade"
       />
       <Layout>
         <section className="section legal-page" aria-labelledby="privacy-title">
