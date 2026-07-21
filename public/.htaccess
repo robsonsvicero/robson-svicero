@@ -1,13 +1,47 @@
 ErrorDocument 404 /404.html
 
+Options -Indexes
+
+# ---------------------------------------------------------------------------
+# Compressão gzip (Hostinger / Apache mod_deflate)
+# ---------------------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript
+  AddOutputFilterByType DEFLATE application/javascript application/json
+  AddOutputFilterByType DEFLATE application/xml image/svg+xml
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Cache de longo prazo para assets com hash (gerados pelo Vite)
+# ---------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html                "access plus 0 seconds"
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType image/webp               "access plus 1 week"
+  ExpiresByType image/png                "access plus 1 week"
+  ExpiresByType image/svg+xml            "access plus 1 week"
+  ExpiresByType application/json        "access plus 0 seconds"
+</IfModule>
+
+# ---------------------------------------------------------------------------
+# Redirecionamentos e roteamento SPA
+# ---------------------------------------------------------------------------
 RewriteEngine On
 RewriteBase /
 
+# Força HTTPS e remove www
 RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\.robsonsvicero\.com\.br$ [NC]
 RewriteRule ^ https://robsonsvicero.com.br%{REQUEST_URI} [R=301,L]
 
+# Redireciona /index.html → / APENAS para requisições diretas (não rewrites internos)
+# Sem este RewriteCond o Apache redirecionava /blog/slug → /index.html → / (3XX)
+RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
 RewriteRule ^index\.html$ / [R=301,L]
+
+# Redirecionamentos legados (site estático → rotas SPA)
 RewriteRule ^agenda\.html$ /agendamentos [R=301,L]
 RewriteRule ^privacidade\.html$ /privacidade [R=301,L]
 RewriteRule ^obrigado\.html$ /obrigado [R=301,L]
@@ -16,7 +50,8 @@ RewriteRule ^servico-front-end\.html$ /servicos [R=301,L]
 RewriteRule ^servico-identidade-visual\.html$ /servicos [R=301,L]
 RewriteRule ^src/docs/Roberto\ Robson\ Svicero\ -\ Frontend\.pdf$ /sobre [R=301,L,NE]
 
-RewriteCond %{REQUEST_FILENAME} -f [OR]
-RewriteCond %{REQUEST_FILENAME} -d
-RewriteRule ^ - [L]
-RewriteRule ^ index.html [L]
+# SPA fallback: serve index.html para qualquer rota que não seja arquivo ou diretório real
+# [END] impede novas passagens de reescrita, eliminando os redirecionamentos 3XX das rotas de blog
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [END]
