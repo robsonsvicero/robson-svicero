@@ -32,8 +32,8 @@ export default function Cases() {
   return (
     <>
       <SEO
-        title="Cases | Criação de sites"
-        description="Projetos e cases de criação de sites profissionais com foco em clareza, performance, conversão e uso complementar de IA no processo."
+        title="Cases de Criação de Sites em São Paulo"
+        description="Projetos e cases de criação de sites em São Paulo com foco em clareza, performance, conversão e uso complementar de IA no processo."
         path="/cases"
       />
       <Layout>

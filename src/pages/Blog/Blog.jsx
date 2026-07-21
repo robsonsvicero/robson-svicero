@@ -48,8 +48,8 @@ export default function Blog() {
   return (
     <>
       <SEO
-        title="Blog sobre Criação de sites, UX, SEO e IA"
-        description="Artigos sobre criação de sites, UX design, SEO técnico, interfaces digitais, estratégia para presença digital e uso de IA como apoio no processo."
+        title="Blog sobre Criação de Sites em São Paulo, UX, SEO e IA"
+        description="Artigos sobre criação de sites em São Paulo, UX design, SEO técnico, interfaces digitais, estratégia para presença digital e uso de IA como apoio no processo."
         path="/blog"
       />
       <Layout>
@@ -60,7 +60,7 @@ export default function Blog() {
               <h1 id="blog-title">Observatório Digital</h1>
               <p className="lead">Onde estratégia, experiência e tecnologia se encontram.</p>
               <p className="lead page-description">
-                Artigos, análises e reflexões sobre websites, branding, experiência digital, IA aplicada ao processo e estratégias para empresas que desejam fortalecer sua presença online.
+                Artigos, análises e reflexões sobre websites, branding, experiência digital, IA aplicada ao processo e estratégias para empresas que desejam fortalecer sua presença online em São Paulo e no Brasil.
               </p>
             </div>
 

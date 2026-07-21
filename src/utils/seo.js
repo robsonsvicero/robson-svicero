@@ -2,9 +2,9 @@ export const siteSeo = {
   siteName: "Robson Svicero",
   baseUrl: "https://robsonsvicero.com.br",
   defaultImage: "https://robsonsvicero.com.br/assets/images/og-image.webp",
-  defaultTitle: "Criação de Sites Profissionais | Robson Svicero",
+  defaultTitle: "Criação de Sites Profissionais em São Paulo | Robson Svicero",
   defaultDescription:
-    "Desenvolvedor web em São Paulo especializado na criação de sites profissionais com foco em performance, SEO, experiência do usuário e uso complementar de IA.",
+    "Criação de sites profissionais em São Paulo com foco em SEO, performance, conversão e experiência do usuário.",
 };
 
 export function formatTitle(title) {

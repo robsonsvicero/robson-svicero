@@ -4,9 +4,9 @@ export const siteCreationPages = [
     path: "/criacao-de-sites",
     eyebrow: "Criação de sites",
     title: "Desenvolvimento de sites profissionais focados em vendas",
-    seoTitle: "Criação de Sites Profissionais com SEO e Conversão",
+    seoTitle: "Criação de Sites Profissionais em São Paulo",
     seoDescription:
-      "Criação de sites profissionais para empresas, profissionais liberais e marcas que precisam de SEO, performance, UX/UI Design e conversão.",
+      "Criação de sites profissionais em São Paulo para empresas, profissionais liberais e marcas que precisam de SEO, performance, UX/UI Design e conversão.",
     intro:
       "Uma estrutura completa para transformar sua presença digital em um canal comercial mais claro, confiável e preparado para gerar contatos qualificados.",
     ctaText: "Quero um site profissional",
@@ -51,9 +51,9 @@ export const siteCreationPages = [
     path: "/criacao-de-sites/landing-page",
     eyebrow: "Landing page",
     title: "Criação de página de conversão para gerar leads e vender ofertas específicas",
-    seoTitle: "Criação de Página de Conversão com Foco em Leads",
+    seoTitle: "Criação de Página de Conversão em São Paulo",
     seoDescription:
-      "Criação de páginas de conversão para campanhas e ofertas específicas com copy estruturada, UX/UI Design, performance e CTA para WhatsApp.",
+      "Criação de páginas de conversão em São Paulo para campanhas e ofertas específicas com copy estruturada, UX/UI Design, performance e CTA para WhatsApp.",
     intro:
       "Uma página direta, construída para explicar uma única oferta com clareza, reduzir atritos e conduzir o visitante para o contato.",
     ctaText: "Criar minha landing page",
@@ -98,9 +98,9 @@ export const siteCreationPages = [
     path: "/criacao-de-sites/wordpress",
     eyebrow: "WordPress",
     title: "Criação de sites WordPress com estrutura profissional e foco em SEO",
-    seoTitle: "Criação de Sites WordPress Profissionais",
+    seoTitle: "Criação de Sites WordPress Profissionais em São Paulo",
     seoDescription:
-      "Criação de sites WordPress com arquitetura clara, UX/UI Design, SEO on-page, performance e estrutura para conteúdo.",
+      "Criação de sites WordPress em São Paulo com arquitetura clara, UX/UI Design, SEO on-page, performance e estrutura para conteúdo.",
     intro:
       "Uma solução indicada para quem precisa de autonomia editorial, publicação de conteúdos e uma base organizada para crescer no Google.",
     ctaText: "Quero um site WordPress",
@@ -145,9 +145,9 @@ export const siteCreationPages = [
     path: "/criacao-de-sites/para-medicos",
     eyebrow: "Sites para médicos",
     title: "Criação de sites para médicos que precisam gerar confiança e agendamentos",
-    seoTitle: "Criação de Sites para Médicos e Clínicas",
+    seoTitle: "Criação de Sites para Médicos e Clínicas em São Paulo",
     seoDescription:
-      "Criação de sites para médicos, clínicas e profissionais da saúde com foco em autoridade, SEO local, clareza de serviços e contato rápido.",
+      "Criação de sites para médicos, clínicas e profissionais da saúde em São Paulo com foco em autoridade, SEO local, clareza de serviços e contato rápido.",
     intro:
       "Uma página pensada para pacientes que precisam entender especialidade, diferenciais, localização e caminho de agendamento sem ruído.",
     ctaText: "Quero um site médico",

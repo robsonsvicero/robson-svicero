@@ -6,8 +6,8 @@ export default function ThankYou() {
   return (
     <>
       <SEO
-        title="Obrigado! | Robson Svicero"
-        description="Sua mensagem foi enviada com sucesso."
+        title="Obrigado pelo contato | Criação de Sites em São Paulo"
+        description="Sua mensagem foi enviada com sucesso. Em breve retornarei para conversar sobre o seu projeto em São Paulo."
         path="/obrigado"
         robots="noindex, follow"
       />

@@ -3,12 +3,12 @@ export const services = [
     slug: "criacao-de-sites",
     path: "/servicos",
     eyebrow: "Criação de sites",
-    title: "Criação de sites profissionais para fortalecer sua presença digital",
+    title: "Criação de sites profissionais em São Paulo para fortalecer sua presença digital",
     summary:
       "Desenvolvimento de sites profissionais modernos, responsivos e orientados para apresentar sua empresa com clareza, credibilidade e apoio de IA no processo.",
-    seoTitle: "Criação de Sites Profissionais em São Paulo",
+    seoTitle: "Criação de Sites Profissionais em São Paulo | Serviço Principal",
     seoDescription:
-      "Criação de sites profissionais em São Paulo, com design personalizado, foco em credibilidade, performance, SEO e uso complementar de IA.",
+      "Criação de sites profissionais em São Paulo com design personalizado, foco em credibilidade, performance, SEO e uso complementar de IA.",
     intro:
       "O site profissional é o principal ponto de contato digital de uma empresa. Mais do que uma vitrine, ele deve transmitir confiança, apresentar seus diferenciais e conduzir o visitante para o próximo passo, seja um contato, orçamento ou agendamento.",
     outcomes: [

@@ -31,7 +31,7 @@ export default function DesignSystem() {
     <>
       <SEO
         title="Design System | Robson Svicero"
-        description="Referencia dos padroes visuais, componentes, tipografia e tokens do site Robson Svicero."
+        description="Referência interna dos padrões visuais, componentes, tipografia e tokens do site."
         path="/design-system"
         robots="noindex, follow"
       />

@@ -105,8 +105,8 @@ export default function Services() {
   return (
     <>
       <SEO
-        title="Criação de sites profissionais"
-        description="Criação de sites profissionais com foco em clareza, credibilidade, SEO, conversão e uso de IA como apoio no processo."
+        title="Criação de Sites Profissionais em São Paulo"
+        description="Criação de sites profissionais em São Paulo com foco em clareza, credibilidade, SEO, conversão e uso de IA como apoio no processo."
         path="/servicos"
         structuredData={createServicesSchema()}
       />

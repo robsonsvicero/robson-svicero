@@ -71,9 +71,10 @@ export default function DigitalCard() {
   return (
     <>
       <SEO
-        title="Cartao digital interativo | Robson Svicero"
-        description="Cartao digital de Robson Svicero com links para WhatsApp, site e Instagram."
+        title="Cartão digital | Robson Svicero"
+        description="Cartão digital de Robson Svicero com links para WhatsApp, site e Instagram."
         path="/cartao"
+        robots="noindex, follow"
       />
       <main className="digital-card-page">
         <article className="digital-card" ref={cardRef} aria-label="Cartao digital interativo">

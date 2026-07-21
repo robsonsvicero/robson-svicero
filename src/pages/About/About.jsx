@@ -23,8 +23,8 @@ export default function About() {
   return (
     <>
       <SEO
-        title="Sobre Robson Svicero"
-        description="Conheça a trajetória, experiência e forma de trabalho de Robson Svicero em criação de sites, UX/UI, branding, desenvolvimento front-end e uso complementar de IA."
+        title="Sobre Robson Svicero | Criação de Sites em São Paulo"
+        description="Conheça a trajetória, experiência e forma de trabalho de Robson Svicero em criação de sites em São Paulo, UX/UI, branding, desenvolvimento front-end e uso complementar de IA."
         path="/sobre"
       />
       <Layout>

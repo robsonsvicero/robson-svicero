@@ -8,8 +8,8 @@ export default function Schedule() {
   return (
     <>
       <SEO
-        title="Agendamentos"
-        description="Agende uma conversa com Robson Svicero para discutir seu projeto de Criação de sites e UX/UI Design."
+        title="Agendamentos | Criação de Sites em São Paulo"
+        description="Agende uma conversa com Robson Svicero para discutir seu projeto de criação de sites em São Paulo e UX/UI Design."
         path="/agendamentos"
       />
       <Layout>

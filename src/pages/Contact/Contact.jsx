@@ -15,8 +15,8 @@ export default function Contact() {
   return (
     <>
       <SEO
-        title="Contato | Robson Svicero"
-        description="Entre em contato para conversar sobre criação de sites profissionais, com IA como apoio complementar no processo."
+        title="Contato | Criação de Sites em São Paulo"
+        description="Entre em contato para conversar sobre criação de sites profissionais em São Paulo, com IA como apoio complementar no processo."
         path="/contato"
       />
       <Layout>

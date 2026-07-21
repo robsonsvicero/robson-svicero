@@ -7,7 +7,7 @@ export default function NotFound() {
       title="Página não encontrada"
       description="O endereço acessado não existe ou foi movido."
       seo={{
-        title: "Página não encontrada",
+        title: "Página não encontrada | Robson Svicero",
         description: "O endereço acessado não existe ou foi movido.",
         path: "/404",
         robots: "noindex, follow",

@@ -41,8 +41,8 @@ export default function AdminLogin() {
   return (
     <>
       <SEO
-        title="Login administrativo"
-        description="Acesso administrativo ao painel de conteudo."
+        title="Login administrativo | Robson Svicero"
+        description="Acesso interno ao painel de conteúdo do site."
         path="/admin/login"
         robots="noindex, nofollow"
       />
