@@ -14,6 +14,44 @@ import { absoluteUrl, siteSeo } from "../../utils/seo.js";
 import NotFound from "../NotFound/NotFound.jsx";
 
 const BLOG_VISITOR_KEY_STORAGE = "od_blog_visitor_key";
+const BLOG_VIEWED_POSTS_STORAGE = "od_blog_viewed_posts";
+const pendingViewRegistrations = new Set();
+
+function getViewedPostSlugs() {
+  if (typeof window === "undefined") return new Set();
+
+  try {
+    const rawValue = window.localStorage.getItem(BLOG_VIEWED_POSTS_STORAGE);
+    if (!rawValue) return new Set();
+
+    const parsed = JSON.parse(rawValue);
+    if (!Array.isArray(parsed)) return new Set();
+
+    return new Set(parsed.filter((value) => typeof value === "string"));
+  } catch {
+    return new Set();
+  }
+}
+
+function hasRegisteredPostView(postSlug) {
+  if (!postSlug) return false;
+  return getViewedPostSlugs().has(postSlug);
+}
+
+function markPostViewAsRegistered(postSlug) {
+  if (!postSlug || typeof window === "undefined") return;
+
+  try {
+    const viewedPosts = getViewedPostSlugs();
+    viewedPosts.add(postSlug);
+    window.localStorage.setItem(
+      BLOG_VIEWED_POSTS_STORAGE,
+      JSON.stringify(Array.from(viewedPosts)),
+    );
+  } catch {
+    // Ignora falhas de storage para não quebrar a renderização do artigo.
+  }
+}
 
 function getPostParagraphs(post) {
   if (post.content) {
@@ -108,18 +146,28 @@ export default function BlogPost() {
   useEffect(() => {
     if (!isSupabaseConfigured || !post?.slug) return;
 
+    if (hasRegisteredPostView(post.slug) || pendingViewRegistrations.has(post.slug)) {
+      return;
+    }
+
     const visitorKey = getOrCreateVisitorKey();
     if (!visitorKey) return;
 
     let isMounted = true;
 
     async function registerView() {
+      pendingViewRegistrations.add(post.slug);
+
       const { data, error } = await supabase.rpc("register_blog_post_view", {
         p_post_slug: post.slug,
         p_visitor_key: visitorKey,
       });
 
+      pendingViewRegistrations.delete(post.slug);
+
       if (error || !isMounted) return;
+
+      markPostViewAsRegistered(post.slug);
 
       if (Number.isFinite(Number(data))) {
         setViewsCount(Number(data));
