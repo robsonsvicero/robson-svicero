@@ -1,5 +1,8 @@
 export const siteSeo = {
   siteName: "Robson Svicero",
+  publisher: "Robson Svicero",
+  defaultKeywords:
+    "criação de sites, criação de sites em São Paulo, desenvolvimento de sites, sites profissionais, landing pages, UX design, UI design, SEO técnico, Robson Svicero",
   baseUrl: "https://robsonsvicero.com.br",
   defaultImage: "https://robsonsvicero.com.br/assets/images/og-image.webp",
   defaultTitle: "Criação de Sites Profissionais em São Paulo | Robson Svicero",
@@ -27,6 +30,8 @@ export function createPageSeo({
   type = "website",
   robots = "index, follow",
   twitterCard = "summary_large_image",
+  keywords = siteSeo.defaultKeywords,
+  publisher = siteSeo.publisher,
 }) {
   const canonicalUrl = canonical ? absoluteUrl(canonical) : absoluteUrl(path);
   const resolvedTitle = formatTitle(title);
@@ -38,6 +43,8 @@ export function createPageSeo({
     description: resolvedDescription,
     canonical: canonicalUrl,
     robots,
+    keywords,
+    publisher,
     openGraph: {
       type,
       url: canonicalUrl,

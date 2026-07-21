@@ -65,6 +65,8 @@ export default function SEO({
   type,
   twitterCard,
   robots,
+  keywords,
+  publisher,
   structuredData,
 }) {
   useEffect(() => {
@@ -77,11 +79,15 @@ export default function SEO({
       type,
       twitterCard,
       robots,
+      keywords,
+      publisher,
     });
 
     document.title = seo.title;
     setMetaByName("description", seo.description);
     setMetaByName("robots", seo.robots);
+    setMetaByName("keywords", seo.keywords);
+    setMetaByName("publisher", seo.publisher);
     setMetaByProperty("og:type", seo.openGraph.type);
     setMetaByProperty("og:url", seo.openGraph.url);
     setMetaByProperty("og:title", seo.openGraph.title);
@@ -95,7 +101,7 @@ export default function SEO({
     setMetaByName("twitter:image", seo.twitter.image);
     setCanonical(seo.canonical);
     setStructuredData(structuredData);
-  }, [title, description, path, canonical, image, type, twitterCard, robots, structuredData]);
+  }, [title, description, path, canonical, image, type, twitterCard, robots, keywords, publisher, structuredData]);
 
   return null;
 }
