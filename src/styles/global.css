@@ -2507,8 +2507,9 @@ h3 {
 
 .claro-diagnostic-form {
   display: grid;
+  min-width: 0;
   gap: var(--space-5);
-  padding: clamp(var(--space-5), 5vw, var(--space-10));
+  padding: clamp(32px, 4vw, 48px);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg);
   background: var(--surface);
@@ -2559,6 +2560,10 @@ h3 {
     position: static;
     max-width: 720px;
   }
+
+  .claro-diagnostic-form {
+    padding: 32px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -2580,7 +2585,15 @@ h3 {
   }
 
   .claro-diagnostic-form {
+    padding: 20px;
     border-radius: var(--radius-md);
+  }
+
+  .claro-diagnostic-form .input,
+  .claro-diagnostic-form .textarea,
+  .claro-diagnostic-form .btn {
+    min-width: 0;
+    max-width: 100%;
   }
 }
 

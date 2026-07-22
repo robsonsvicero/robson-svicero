@@ -130,7 +130,7 @@ export const claroMethodContent = {
   ],
   cta: {
     label: "Solicitar diagnóstico",
-    href: "https://forms.gle/3phtkKqL2KShxSB17",
+    href: "https://robsonsvicero.com.br/diagnostico-claro",
   },
 };
 
