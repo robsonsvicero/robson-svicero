@@ -34,7 +34,8 @@
   --text-2xl: 40px;
   --text-3xl: 56px;
   --text-4xl: 80px;
-  --page-h1-size: 48px;
+  --page-h1-size: 64px;
+  --page-h2-size: 48px;
   --leading-body: 1.47;
   --leading-tight: 1.05;
   --tracking-display: -0.015em;
@@ -207,7 +208,7 @@ h1 {
 .h2,
 h2 {
   font-family: var(--font-display);
-  font-size: clamp(34px, 4vw, var(--text-3xl));
+  font-size: var(--page-h2-size);
   line-height: 1.08;
   letter-spacing: var(--tracking-display);
   font-weight: 600;
@@ -1471,7 +1472,7 @@ h3 {
 
 .rich-content h2 {
   color: var(--fg);
-  font-size: clamp(30px, 3vw, var(--text-2xl));
+  font-size: var(--page-h2-size);
 }
 
 .rich-content h3 {
@@ -1723,7 +1724,7 @@ h3 {
 }
 
 .about-section h2 {
-  font-size: clamp(30px, 3.2vw, 44px);
+  font-size: var(--page-h2-size);
 }
 
 .about-section .card {
@@ -2418,7 +2419,7 @@ h3 {
 }
 
 .contact-aside h2 {
-  font-size: clamp(30px, 3vw, var(--text-2xl));
+  font-size: var(--page-h2-size);
 }
 
 .contact-aside p {
@@ -2614,7 +2615,7 @@ h3 {
 }
 
 .legal-section h2 {
-  font-size: clamp(26px, 3vw, 34px);
+  font-size: var(--page-h2-size);
 }
 
 .legal-section p,
@@ -3417,7 +3418,7 @@ h3 {
 .blog-share h2 {
   color: var(--bg);
   margin-top: var(--space-2);
-  font-size: clamp(18px, 4vw, 24px);
+  font-size: var(--page-h2-size);
 }
 
 .blog-share-actions {
@@ -3499,7 +3500,7 @@ h3 {
 
 .blog-author-card-content h2 {
   margin: 0;
-  font-size: clamp(26px, 4vw, 36px);
+  font-size: var(--page-h2-size);
 }
 
 .blog-author-card-content p:not(.eyebrow) {
@@ -3821,7 +3822,8 @@ h3 {
 @media (max-width: 920px) {
 
   :root {
-    --page-h1-size: clamp(38px, 5.2vw, 44px);
+    --page-h1-size: clamp(48px, 6vw, 56px);
+    --page-h2-size: clamp(38px, 4.8vw, 44px);
   }
 
   .container {
@@ -4126,7 +4128,8 @@ h3 {
 @media (max-width: 640px) {
 
   :root {
-    --page-h1-size: clamp(32px, 9vw, 38px);
+    --page-h1-size: clamp(38px, 10vw, 44px);
+    --page-h2-size: clamp(30px, 8vw, 36px);
   }
 
   .container {
