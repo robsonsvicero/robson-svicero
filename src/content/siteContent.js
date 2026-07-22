@@ -43,7 +43,7 @@ export const heroContent = {
   eyebrow: "Criação de sites - UX Design",
   title: "Criação de sites profissionais para empresas e marcas.",
   lead:
-    "Crio sites profissionais desenvolvidos em React.js, com foco em performance, SEO, experiência do usuário e uso de IA como apoio complementar no processo de criação. Atendo empresas em São Paulo e clientes em todo o Brasil.",
+    "Crio sites rápidos, claros e estratégicos, com foco em SEO, experiência do usuário e geração de oportunidades para o seu negócio. Atendo empresas em São Paulo e clientes em todo o Brasil.",
   note:
     "Para empresas e profissionais que precisam de uma presença digital mais clara, confiável e preparada para conversão.",
   media: {
@@ -51,7 +51,7 @@ export const heroContent = {
     mobile: "/assets/images/hero_mobile.webp",
   },
   primaryCta: {
-    label: "Solicitar orçamento",
+    label: "Vamos conversar",
     href: contactLinks.whatsapp,
   },
   secondaryCta: {
@@ -267,7 +267,7 @@ export const faqContent = {
 export const contactContent = {
   eyebrow: "Conversão",
   title: "Tem um projeto em mente?",
-  lead: "Vamos conversar sobre a criação do seu site profissional em São Paulo, com IA como apoio complementar no processo.",
+  lead: "Vamos conversar sobre a criação do seu site profissional e mudar a presença digital da sua marca.",
   links: [
     { label: "Agendar reunião", href: routes.schedule, variant: "primary" },
     {
@@ -286,7 +286,7 @@ export const pageCtaContent = {
     eyebrow: "Vamos criar seu site",
     title: "Seu próximo passo digital pode começar hoje.",
     lead:
-      "Se você precisa de um site profissional em São Paulo com clareza estratégica, performance e SEO, posso conduzir o projeto com IA como apoio complementar no processo.",
+      "Se você precisa de um site profissional com clareza estratégica, performance e SEO, posso conduzir o projeto com IA como apoio complementar no processo.",
     bandClass: "cta-home-band",
     primaryAction: {
       label: "Falar no WhatsApp",
