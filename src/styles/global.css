@@ -2436,18 +2436,20 @@ h3 {
 /* Diagnostico C.L.A.R.O. */
 
 .claro-diagnostic-hero {
-  overflow: hidden;
-  background: var(--surface-warm);
+  height: clamp(360px, 56.25vw, 760px);
+  background-color: var(--surface-warm);
+  background-image: url("/assets/images/metodo_claro_binho.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   border-bottom: 1px solid var(--border-soft);
 }
 
-.claro-diagnostic-hero-layout {
-  display: grid;
-  min-height: min(760px, calc(100vh - 76px));
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
-  gap: var(--space-10);
-  align-items: center;
-  padding-block: clamp(var(--space-10), 9vw, 120px);
+.claro-diagnostic-hero-content {
+  display: flex;
+  height: 100%;
+  align-items: flex-start;
+  padding-top: clamp(var(--space-8), 7vw, 96px);
 }
 
 .claro-diagnostic-copy {
@@ -2464,36 +2466,6 @@ h3 {
 .claro-diagnostic-copy .lead {
   max-width: 60ch;
   margin: 0;
-}
-
-.claro-diagnostic-anchor {
-  display: inline-flex;
-  min-height: 48px;
-  align-items: center;
-  justify-content: center;
-  padding: 12px 22px;
-  border-radius: var(--radius-md);
-  background: var(--fg);
-  color: var(--bg);
-  font-weight: 700;
-  transition: transform var(--motion-fast) var(--ease-standard);
-}
-
-.claro-diagnostic-anchor:hover {
-  transform: translateY(-2px);
-}
-
-.claro-diagnostic-visual {
-  align-self: end;
-  margin: 0;
-}
-
-.claro-diagnostic-visual img {
-  display: block;
-  width: 100%;
-  max-height: 650px;
-  object-fit: contain;
-  object-position: center bottom;
 }
 
 .claro-diagnostic-form-section {
@@ -2575,22 +2547,12 @@ h3 {
 }
 
 @media (max-width: 900px) {
-  .claro-diagnostic-hero-layout,
   .claro-diagnostic-form-layout {
     grid-template-columns: 1fr;
   }
 
-  .claro-diagnostic-hero-layout {
-    padding-bottom: 0;
-  }
-
   .claro-diagnostic-copy h1 {
     max-width: 16ch;
-  }
-
-  .claro-diagnostic-visual {
-    width: min(100%, 580px);
-    margin-inline: auto;
   }
 
   .claro-diagnostic-form-copy {
@@ -2600,10 +2562,17 @@ h3 {
 }
 
 @media (max-width: 640px) {
-  .claro-diagnostic-hero-layout {
-    gap: var(--space-6);
-    min-height: auto;
-    padding-top: var(--space-10);
+  .claro-diagnostic-hero {
+    height: min(177.78vw, 860px);
+    background-image: url("/assets/images/metodo_claro_binho_mobile.webp");
+  }
+
+  .claro-diagnostic-hero-content {
+    padding-top: var(--space-8);
+  }
+
+  .claro-diagnostic-hero .claro-diagnostic-copy {
+    max-width: 92%;
   }
 
   .claro-diagnostic-copy {

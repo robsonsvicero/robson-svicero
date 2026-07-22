@@ -60,31 +60,18 @@ export default function ClaroDiagnostic() {
 
       <Layout>
         <section className="claro-diagnostic-hero" aria-labelledby="claro-diagnostic-title">
-          <div className="container claro-diagnostic-hero-layout">
+          <div className="container claro-diagnostic-hero-content">
             <div className="claro-diagnostic-copy">
               <p className="eyebrow">Diagnóstico estratégico</p>
               <h1 id="claro-diagnostic-title">
-                Descubra o que impede seu site de ser mais claro e eficiente.
+                Criação de sites com clareza e resultado.
               </h1>
               <p className="lead">
                 Solicite o diagnóstico C.L.A.R.O. e receba uma análise inicial da sua
                 presença digital, considerando clareza, lógica, acessibilidade,
                 relevância e otimização.
               </p>
-              <a className="claro-diagnostic-anchor" href="#solicitar-diagnostico">
-                Solicitar diagnóstico
-              </a>
             </div>
-
-            <figure className="claro-diagnostic-visual">
-              <img
-                src="/assets/images/metodo_claro_binho.webp"
-                alt="Personagem do método C.L.A.R.O. apresentando o diagnóstico de sites"
-                width="640"
-                height="640"
-                fetchPriority="high"
-              />
-            </figure>
           </div>
         </section>
 
