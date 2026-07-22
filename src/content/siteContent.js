@@ -51,7 +51,7 @@ export const heroContent = {
     mobile: "/assets/images/hero_mobile.webp",
   },
   primaryCta: {
-    label: "Vamos conversar",
+    label: "Vamos falar sobre o seu projeto",
     href: contactLinks.whatsapp,
   },
   secondaryCta: {
