@@ -61,6 +61,14 @@ function createProjectSeoPayload(formValues) {
   };
 }
 
+function createWhatsAppUrl(phoneValue, messageValue) {
+  const phone = String(phoneValue || "").replace(/\D/g, "");
+  const message = String(messageValue || "").trim();
+
+  if (!phone) return "";
+  return `https://wa.me/${phone}${message ? `?text=${encodeURIComponent(message)}` : ""}`;
+}
+
 function createShortLinkPayload(formValues) {
   const linkType = formValues.link_type || "url";
   const phone = String(formValues.whatsapp_phone || "").replace(/\D/g, "");
@@ -72,7 +80,7 @@ function createShortLinkPayload(formValues) {
       ...formValues,
       link_type: linkType,
       whatsapp_phone: phone,
-      destination_url: `https://wa.me/${phone}${message ? `?text=${encodeURIComponent(message)}` : ""}`,
+      destination_url: createWhatsAppUrl(phone, message),
     };
   }
 
@@ -115,9 +123,12 @@ export default function AdminDashboard() {
   const selectedItem = items.find((item) => item.id === selectedId);
   const isPostsResource = activeResource === "posts";
   const isLinksResource = activeResource === "links";
-  const shortUrl = isLinksResource && formValues.slug
-    ? `${window.location.origin}/r/${formValues.slug}`
-    : "";
+  const isWhatsAppLink = isLinksResource && formValues.link_type === "whatsapp";
+  const generatedUrl = isWhatsAppLink
+    ? createWhatsAppUrl(formValues.whatsapp_phone, formValues.whatsapp_message)
+    : isLinksResource && formValues.slug
+      ? `${window.location.origin}/r/${formValues.slug}`
+      : "";
 
   function shouldShowField(fieldName) {
     if (!isLinksResource) return true;
@@ -130,10 +141,10 @@ export default function AdminDashboard() {
   }
 
   async function copyShortUrl() {
-    if (!shortUrl) return;
+    if (!generatedUrl) return;
     try {
-      await navigator.clipboard.writeText(shortUrl);
-      setStatus("URL encurtada copiada.");
+      await navigator.clipboard.writeText(generatedUrl);
+      setStatus(isWhatsAppLink ? "Link do WhatsApp copiado." : "URL encurtada copiada.");
     } catch (_error) {
       setStatus("Não foi possível copiar automaticamente. Selecione e copie a URL.");
     }
@@ -646,22 +657,24 @@ export default function AdminDashboard() {
                     )}
                   </div>
                 ))}
-                {isLinksResource && shortUrl && (
+                {isLinksResource && generatedUrl && (
                   <div className="field admin-short-link">
-                    <label htmlFor="links-short-url">URL encurtada</label>
+                    <label htmlFor="links-short-url">
+                      {isWhatsAppLink ? "Link do WhatsApp" : "URL encurtada"}
+                    </label>
                     <div className="admin-short-link-row">
                       <input
                         className="input"
                         id="links-short-url"
                         type="url"
-                        value={shortUrl}
+                        value={generatedUrl}
                         readOnly
                       />
                       <Button as="button" variant="secondary" type="button" onClick={copyShortUrl}>
                         Copiar
                       </Button>
                     </div>
-                    {!selectedItem && (
+                    {!isWhatsAppLink && !selectedItem && (
                       <p className="meta">O endereço começará a funcionar depois que o link for salvo.</p>
                     )}
                   </div>
