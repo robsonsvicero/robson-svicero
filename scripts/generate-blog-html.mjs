@@ -112,10 +112,11 @@ async function generateBlogHtmls() {
   const siteUrl = process.env.VITE_SITE_URL || "https://robsonsvicero.com.br";
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    throw new Error(
-      "VITE_SUPABASE_URL ou VITE_SUPABASE_ANON_KEY nao encontrados. " +
-      "O build foi interrompido para nao publicar artigos sem Open Graph.",
+    console.warn(
+      "[blog-html] VITE_SUPABASE_URL/VITE_SUPABASE_ANON_KEY nao encontrados. " +
+      "Mantendo apenas o HTML gerado pelo Vite.",
     );
+    return;
   }
 
   let indexHtml = "";
@@ -170,6 +171,8 @@ async function generateBlogHtmls() {
 }
 
 generateBlogHtmls().catch((error) => {
-  console.error(`[blog-html] Erro: ${error.message}`);
-  process.exit(1);
+  console.warn(
+    `[blog-html] Nao foi possivel gerar os HTMLs estaticos: ${error.message}. ` +
+    "Mantendo o build gerado pelo Vite.",
+  );
 });

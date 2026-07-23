@@ -193,6 +193,5 @@ async function run() {
 }
 
 run().catch((error) => {
-  console.error(`[sitemap] ${error.message}`);
-  process.exit(1);
+  console.warn(`[sitemap] ${error.message}. Mantendo sitemap atual.`);
 });
