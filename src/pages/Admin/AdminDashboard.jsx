@@ -603,6 +603,7 @@ export default function AdminDashboard() {
                     <label htmlFor={`${activeResource}-${field.name}`}>
                       {field.label}
                     </label>
+                    {field.help && <p className="field-help">{field.help}</p>}
                     {field.type === "image" || field.type === "imageUpload" ? (
                       <div className="admin-image-field">
                         {field.type === "image" && (
