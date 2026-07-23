@@ -18,7 +18,10 @@ export default function ClaroMethod() {
           <Button href={claroMethodContent.cta.href} variant="dark">
             {claroMethodContent.cta.label}
           </Button>
-          <Button href={claroMethodContent.diagnosticCta.href}>
+          <Button
+            href={claroMethodContent.diagnosticCta.href}
+            title={claroMethodContent.diagnosticCta.label}
+          >
             {claroMethodContent.diagnosticCta.label}
           </Button>
         </div>

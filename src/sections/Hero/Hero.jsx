@@ -16,7 +16,7 @@ export default function Hero() {
           <img
             className="hero-image"
             src={media.desktop}
-            alt=""
+            alt="Entrega de projeto de site profissional"
             title="Criação de sites profissionais com estratégia, UX e SEO"
             fetchPriority="high"
             decoding="sync"
