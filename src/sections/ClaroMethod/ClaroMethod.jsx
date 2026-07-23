@@ -15,14 +15,14 @@ export default function ClaroMethod() {
         <h2 id="metodo-claro-title">{claroMethodContent.title}</h2>
         <p className="lead">{claroMethodContent.description}</p>
         <div className="claro-method-actions">
-          <Button href={claroMethodContent.cta.href} variant="dark">
-            {claroMethodContent.cta.label}
-          </Button>
           <Button
             href={claroMethodContent.diagnosticCta.href}
             title={claroMethodContent.diagnosticCta.label}
           >
             {claroMethodContent.diagnosticCta.label}
+          </Button>
+          <Button href={claroMethodContent.cta.href} variant="secondary">
+            {claroMethodContent.cta.label}
           </Button>
         </div>
       </div>
