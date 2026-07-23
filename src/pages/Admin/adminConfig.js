@@ -97,7 +97,7 @@ export const adminResources = {
         ],
       },
       { name: "excerpt", label: "Resumo", type: "textarea", required: true },
-      { name: "published_at", label: "Data de publicação", type: "date" },
+      { name: "published_at", label: "Agendar publicação", type: "datetime-local", required: true },
       { name: "reading_time", label: "Tempo de leitura", type: "text", required: true },
       { name: "intro", label: "Introdução", type: "textarea", required: true },
       { name: "content", label: "Corpo do artigo", type: "richtext", required: true },

@@ -106,6 +106,7 @@ export default function BlogPost() {
     table: "blog_posts",
     slug,
     mapper: mapBlogPost,
+    publishedOnly: true,
   });
   const [viewsCount, setViewsCount] = useState(0);
   const [authorProfile, setAuthorProfile] = useState(null);

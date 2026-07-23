@@ -32,6 +32,7 @@ export default function LatestArticles({
     orderBy: "published_at",
     ascending: false,
     select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,views_count,reading_time,intro",
+    publishedOnly: true,
     limit: queryLimit,
   });
 

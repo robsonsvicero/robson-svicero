@@ -8,6 +8,7 @@ const allowedTags = new Set([
   "H2",
   "H3",
   "I",
+  "IMG",
   "LI",
   "OL",
   "P",
@@ -108,7 +109,10 @@ function cleanNode(node) {
       const isAllowedLinkAttribute =
         child.tagName === "A" && ["href", "target", "rel"].includes(attribute.name);
 
-      if (!isAllowedLinkAttribute) {
+      const isAllowedImageAttribute =
+        child.tagName === "IMG" && ["src", "alt", "width", "height", "loading"].includes(attribute.name);
+
+      if (!isAllowedLinkAttribute && !isAllowedImageAttribute) {
         child.removeAttribute(attribute.name);
       }
     });
@@ -120,6 +124,16 @@ function cleanNode(node) {
       }
       child.setAttribute("target", "_blank");
       child.setAttribute("rel", "noreferrer noopener");
+    }
+
+    if (child.tagName === "IMG") {
+      const src = child.getAttribute("src") || "";
+      if (!src.startsWith("https://") && !src.startsWith("/assets/")) {
+        child.remove();
+        return;
+      }
+      child.setAttribute("loading", "lazy");
+      child.setAttribute("alt", child.getAttribute("alt") || "");
     }
 
     cleanNode(child);

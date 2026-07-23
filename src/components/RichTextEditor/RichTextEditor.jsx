@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { sanitizeRichText } from "../../utils/richText.js";
 
 const controls = [
@@ -12,8 +12,13 @@ const controls = [
   { label: "1.", command: "insertOrderedList", title: "Lista numerada" },
 ];
 
-export default function RichTextEditor({ id, name, value = "", onChange, required }) {
+export default function RichTextEditor({ id, name, value = "", onChange, onImageUpload, required }) {
   const editorRef = useRef(null);
+  const imageInputRef = useRef(null);
+  const savedRangeRef = useRef(null);
+  const selectedImageRef = useRef(null);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [hasSelectedImage, setHasSelectedImage] = useState(false);
 
   useEffect(() => {
     if (!editorRef.current || editorRef.current.innerHTML === value) return;
@@ -29,6 +34,97 @@ export default function RichTextEditor({ id, name, value = "", onChange, require
     editorRef.current?.focus();
     document.execCommand(command, false, commandValue);
     emitChange();
+  }
+
+  function saveCursorPosition() {
+    const selection = window.getSelection();
+    if (!selection?.rangeCount) return;
+
+    const range = selection.getRangeAt(0);
+    if (editorRef.current?.contains(range.commonAncestorContainer)) {
+      savedRangeRef.current = range.cloneRange();
+    }
+  }
+
+  function clearImageSelection() {
+    selectedImageRef.current?.classList.remove("is-selected");
+    selectedImageRef.current = null;
+    setHasSelectedImage(false);
+  }
+
+  function selectImage(image) {
+    clearImageSelection();
+    image.classList.add("is-selected");
+    selectedImageRef.current = image;
+    setHasSelectedImage(true);
+  }
+
+  function deleteSelectedImage() {
+    if (!selectedImageRef.current) return;
+    selectedImageRef.current.remove();
+    selectedImageRef.current = null;
+    setHasSelectedImage(false);
+    emitChange();
+    editorRef.current?.focus();
+  }
+
+  function requestImage() {
+    saveCursorPosition();
+    imageInputRef.current?.click();
+  }
+
+  async function handleImageFile(event) {
+    const file = event.target.files?.[0];
+    event.target.value = "";
+    if (!file || !onImageUpload) return;
+
+    setIsUploadingImage(true);
+    try {
+      const imageUrl = await onImageUpload(file);
+      if (!imageUrl) return;
+
+      const alt = window.prompt("Texto alternativo da imagem", file.name.replace(/\.[^.]+$/, "")) || "";
+      const image = document.createElement("img");
+      image.src = imageUrl;
+      image.alt = alt.trim();
+      image.loading = "lazy";
+
+      const editor = editorRef.current;
+      editor?.focus();
+      const range = savedRangeRef.current;
+
+      if (range && editor?.contains(range.commonAncestorContainer)) {
+        range.deleteContents();
+        range.insertNode(image);
+        range.setStartAfter(image);
+        range.collapse(true);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+      } else {
+        editor?.append(image);
+      }
+
+      selectImage(image);
+      emitChange();
+    } finally {
+      setIsUploadingImage(false);
+    }
+  }
+
+  function handleEditorClick(event) {
+    if (event.target instanceof HTMLImageElement) {
+      selectImage(event.target);
+      return;
+    }
+    clearImageSelection();
+  }
+
+  function handleEditorKeyDown(event) {
+    if (hasSelectedImage && (event.key === "Delete" || event.key === "Backspace")) {
+      event.preventDefault();
+      deleteSelectedImage();
+    }
   }
 
   function insertLink() {
@@ -68,13 +164,28 @@ export default function RichTextEditor({ id, name, value = "", onChange, require
         <button type="button" title="Link" onClick={insertLink}>
           Link
         </button>
+        {onImageUpload && (
+          <>
+            <button type="button" title="Inserir imagem na posição do cursor" onClick={requestImage} disabled={isUploadingImage}>
+              {isUploadingImage ? "Enviando..." : "Imagem"}
+            </button>
+            <button type="button" title="Excluir imagem selecionada" onClick={deleteSelectedImage} disabled={!hasSelectedImage}>
+              Excluir imagem
+            </button>
+            <input ref={imageInputRef} className="rich-editor-image-input" type="file" accept="image/*" onChange={handleImageFile} />
+          </>
+        )}
       </div>
       <div
         aria-label={name}
         className="rich-editor-surface"
         contentEditable
         id={id}
+        onClick={handleEditorClick}
         onInput={emitChange}
+        onKeyDown={handleEditorKeyDown}
+        onKeyUp={saveCursorPosition}
+        onMouseUp={saveCursorPosition}
         onPaste={handlePaste}
         ref={editorRef}
         role="textbox"

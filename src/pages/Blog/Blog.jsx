@@ -40,6 +40,7 @@ export default function Blog() {
     orderBy: "published_at",
     ascending: false,
     select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,views_count,reading_time,intro",
+    publishedOnly: true,
     limit: 12,
   });
   const shouldShowSkeletons = isLoading && blogPosts.length === 0;

@@ -4,8 +4,8 @@ import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
 const listCache = new Map();
 const listRequests = new Map();
 
-function getListCacheKey({ table, orderBy, ascending, select, limit }) {
-  return JSON.stringify({ table, orderBy, ascending, select, limit });
+function getListCacheKey({ table, orderBy, ascending, select, limit, publishedOnly }) {
+  return JSON.stringify({ table, orderBy, ascending, select, limit, publishedOnly });
 }
 
 export function useSupabaseList({
@@ -16,8 +16,9 @@ export function useSupabaseList({
   ascending = false,
   select = "*",
   limit,
+  publishedOnly = false,
 }) {
-  const cacheKey = getListCacheKey({ table, orderBy, ascending, select, limit });
+  const cacheKey = getListCacheKey({ table, orderBy, ascending, select, limit, publishedOnly });
   const cachedItems = listCache.get(cacheKey);
   const [items, setItems] = useState(cachedItems || fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured && !cachedItems));
@@ -47,6 +48,10 @@ export function useSupabaseList({
           .from(table)
           .select(select)
           .order(orderBy, { ascending });
+
+        if (publishedOnly) {
+          query = query.lte("published_at", new Date().toISOString());
+        }
 
         if (typeof limit === "number") {
           query = query.limit(limit);
@@ -78,12 +83,12 @@ export function useSupabaseList({
     return () => {
       isMounted = false;
     };
-  }, [ascending, cacheKey, limit, mapper, orderBy, select, table]);
+  }, [ascending, cacheKey, limit, mapper, orderBy, publishedOnly, select, table]);
 
   return { items, isLoading };
 }
 
-export function useSupabaseItem({ table, slug, fallback = null, mapper }) {
+export function useSupabaseItem({ table, slug, fallback = null, mapper, publishedOnly = false }) {
   const [item, setItem] = useState(fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured));
 
@@ -96,11 +101,16 @@ export function useSupabaseItem({ table, slug, fallback = null, mapper }) {
         return;
       }
 
-      const { data, error } = await supabase
+      let query = supabase
         .from(table)
         .select("*")
-        .eq("slug", slug)
-        .maybeSingle();
+        .eq("slug", slug);
+
+      if (publishedOnly) {
+        query = query.lte("published_at", new Date().toISOString());
+      }
+
+      const { data, error } = await query.maybeSingle();
 
       if (!isMounted) return;
       if (!error && data) setItem(mapper(data));
@@ -114,7 +124,7 @@ export function useSupabaseItem({ table, slug, fallback = null, mapper }) {
     return () => {
       isMounted = false;
     };
-  }, [fallback, mapper, slug, table]);
+  }, [fallback, mapper, publishedOnly, slug, table]);
 
   return { item, isLoading };
 }

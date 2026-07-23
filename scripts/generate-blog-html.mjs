@@ -83,6 +83,7 @@ async function fetchBlogPosts(supabaseUrl, supabaseAnonKey) {
   const { data, error } = await supabase
     .from("blog_posts")
     .select("slug, title, excerpt, seo_description, image")
+    .lte("published_at", new Date().toISOString())
     .order("published_at", { ascending: false });
 
   if (error) {

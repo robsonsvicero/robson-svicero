@@ -31,6 +31,12 @@ function normalizeFormValue(field, value) {
   if (field.type === "date" && value) {
     return String(value).split("T")[0];
   }
+  if (field.type === "datetime-local" && value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    const pad = (part) => String(part).padStart(2, "0");
+    return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}T${pad(date.getHours())}:${pad(date.getMinutes())}`;
+  }
   if (field.type !== "json") return value || "";
   if (typeof value === "string") return value;
   return JSON.stringify(value || [], null, 2);
@@ -45,6 +51,8 @@ function parsePayload(fields, formValues) {
       payload[field.name] = value ? JSON.parse(value) : [];
     } else if (field.type === "richtext") {
       payload[field.name] = value ? sanitizeRichText(value) : null;
+    } else if (field.type === "datetime-local") {
+      payload[field.name] = value ? new Date(value).toISOString() : null;
     } else {
       payload[field.name] = value || null;
     }
@@ -334,6 +342,43 @@ export default function AdminDashboard() {
     setStatus("Imagem enviada. Agora clique em Salvar para gravar a URL no conteúdo.");
   }
 
+  async function handleRichTextImageUpload(fieldName, file) {
+    if (!file || !isSupabaseConfigured) {
+      setStatus("Configure o Supabase antes de enviar imagens.");
+      return "";
+    }
+
+    const loadingKey = `${fieldName}-content-image`;
+    setImageLoadingFields((current) => [...new Set([...current, loadingKey])]);
+    setStatus("Enviando imagem do artigo para o Supabase Storage...");
+
+    const storagePath = createStoragePath({
+      activeResource,
+      fieldName: `${fieldName}-image`,
+      formValues,
+      file,
+    });
+
+    const { error } = await supabase.storage
+      .from(mediaBucket)
+      .upload(storagePath, file, {
+        cacheControl: "31536000",
+        contentType: file.type,
+        upsert: false,
+      });
+
+    setImageLoadingFields((current) => current.filter((name) => name !== loadingKey));
+
+    if (error) {
+      setStatus(`Não foi possível enviar a imagem: ${error.message}`);
+      return "";
+    }
+
+    const { data } = supabase.storage.from(mediaBucket).getPublicUrl(storagePath);
+    setStatus("Imagem inserida no artigo. Clique em Salvar para gravar o conteúdo.");
+    return data.publicUrl || "";
+  }
+
   async function handleSubmit(event) {
     event.preventDefault();
     setStatus("");
@@ -605,6 +650,11 @@ export default function AdminDashboard() {
                         name={field.name}
                         value={formValues[field.name] || ""}
                         onChange={(value) => updateField(field.name, value)}
+                        onImageUpload={
+                          activeResource === "posts"
+                            ? (file) => handleRichTextImageUpload(field.name, file)
+                            : undefined
+                        }
                         required={field.required}
                       />
                     ) : field.type === "select" || field.type === "relationSelect" ? (

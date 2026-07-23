@@ -25,7 +25,7 @@ create table if not exists public.blog_posts (
   seo_title text,
   seo_description text,
   thumbnail text,
-  published_at date,
+  published_at timestamptz,
   views_count bigint not null default 0,
   reading_time text,
   intro text,
@@ -35,6 +35,22 @@ create table if not exists public.blog_posts (
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
+
+do $$
+begin
+  if exists (
+    select 1
+    from information_schema.columns
+    where table_schema = 'public'
+      and table_name = 'blog_posts'
+      and column_name = 'published_at'
+      and data_type = 'date'
+  ) then
+    alter table public.blog_posts
+      alter column published_at type timestamptz
+      using (published_at::timestamp at time zone 'America/Sao_Paulo');
+  end if;
+end $$;
 
 alter table public.blog_posts add column if not exists image text;
 alter table public.blog_posts add column if not exists author text;
@@ -325,8 +341,8 @@ using (bucket_id = 'site-media');
 drop policy if exists "Public can read blog posts" on public.blog_posts;
 create policy "Public can read blog posts"
 on public.blog_posts for select
-to anon, authenticated
-using (true);
+to anon
+using (published_at is not null and published_at <= now());
 
 drop policy if exists "Public can read blog authors" on public.blog_authors;
 create policy "Public can read blog authors"
