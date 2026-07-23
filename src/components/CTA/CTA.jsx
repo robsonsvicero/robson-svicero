@@ -6,7 +6,7 @@ function renderAction(action, variant = "primary") {
 
   if (action.to) {
     return (
-      <Button key={`${action.label}-${variant}`} as={Link} to={action.to} variant={variant}>
+      <Button key={`${action.label}-${variant}`} as={Link} to={action.to} variant={variant} title={action.label}>
         {action.label}
       </Button>
     );
@@ -21,6 +21,7 @@ function renderAction(action, variant = "primary") {
       variant={variant}
       target={isExternal ? "_blank" : undefined}
       rel={isExternal ? "noreferrer noopener" : undefined}
+      title={action.label}
     >
       {action.label}
     </Button>

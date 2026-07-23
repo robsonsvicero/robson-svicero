@@ -26,6 +26,7 @@ export default function Contact() {
               variant={link.variant}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noreferrer noopener" : undefined}
+              title={link.label}
               key={link.label}
             >
               {link.label}

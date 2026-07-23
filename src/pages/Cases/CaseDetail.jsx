@@ -34,8 +34,8 @@ export default function CaseDetail() {
               <img
                 className="case-detail-hero-image"
                 src={project.image}
-                alt=""
-                aria-hidden="true"
+                alt={project.alt || `Imagem principal do projeto ${project.title}`}
+                title={project.alt || `Imagem principal do projeto ${project.title}`}
                 loading="eager"
                 decoding="async"
               />
@@ -74,6 +74,7 @@ export default function CaseDetail() {
                   <img
                     src={image}
                     alt={`${project.alt || project.title} - imagem ${index + 2}`}
+                    title={`${project.alt || project.title} - imagem ${index + 2}`}
                     loading="lazy"
                     decoding="async"
                   />

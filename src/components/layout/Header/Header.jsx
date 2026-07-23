@@ -33,10 +33,11 @@ export default function Header() {
       ref={topnavRef}
     >
       <div className="container topnav-inner">
-        <NavLink className="logo" to="/" aria-label="Robson Svicero - Início">
+        <NavLink className="logo" to="/" aria-label="Robson Svicero - Início" title="Ir para o início">
           <img
             src={logo.src}
             alt={logo.alt}
+            title={logo.alt}
             width={logo.width}
             height={logo.height}
           />
@@ -61,6 +62,7 @@ export default function Header() {
               key={`${item.label}-${item.to}`}
               to={item.to}
               end={item.to === "/"}
+              title={`Ir para ${item.label}`}
               onClick={() => setIsOpen(false)}
             >
               {item.label}
@@ -74,6 +76,7 @@ export default function Header() {
           target="_blank"
           rel="noreferrer noopener"
           aria-label={`${cta.label} ${cta.phone}`}
+          title={`${cta.label} pelo WhatsApp`}
         >
           <span className="topnav-cta-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" role="presentation" focusable="false">

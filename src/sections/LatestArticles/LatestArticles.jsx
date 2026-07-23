@@ -57,7 +57,7 @@ export default function LatestArticles({
           <h2 id="sec-ultimos-artigos">Últimos artigos</h2>
         </div>
         {showCta && (
-          <Button variant="secondary" as={Link} to="/blog">
+          <Button variant="secondary" as={Link} to="/blog" title="Ver todos os artigos">
             Ver todos
           </Button>
         )}

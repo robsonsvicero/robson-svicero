@@ -12,12 +12,13 @@ export default function Footer() {
               target="_blank"
               rel="noreferrer noopener me"
               key={link.label}
+              title={`Acessar ${link.label}`}
             >
               {link.label}
             </a>
           ))}
         </nav>
-        <a href={footerContent.privacy.href}>{footerContent.privacy.label}</a>
+        <a href={footerContent.privacy.href} title={footerContent.privacy.label}>{footerContent.privacy.label}</a>
       </div>
     </footer>
   );

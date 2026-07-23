@@ -46,6 +46,7 @@ export default function BlogArticleCard({
       as={Link}
       to={post.path}
       aria-label={`${linkLabel}: ${post.title}`}
+      title={`${linkLabel}: ${post.title}`}
       className={`blog-card clickable-card ${featured ? "blog-card-featured" : ""} ${className}`.trim()}
       key={post.slug}
     >
@@ -53,8 +54,8 @@ export default function BlogArticleCard({
         <img
           className="blog-card-image"
           src={imageSource}
-          alt=""
-          aria-hidden="true"
+          alt={`Capa do artigo: ${post.title}`}
+          title={`Capa do artigo: ${post.title}`}
           loading="lazy"
           decoding="async"
           width="800"

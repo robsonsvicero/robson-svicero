@@ -14,7 +14,7 @@ export default function About() {
       containerClassName="container home-about-layout"
     >
       <figure className="home-about-media">
-        <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+        <img src={image.src} alt={image.alt} title={image.alt} loading="lazy" decoding="async" />
       </figure>
       <div className="home-about-copy">
         <p className="eyebrow">{eyebrow}</p>
@@ -25,8 +25,8 @@ export default function About() {
           {highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
         </ul>
         <div className="home-about-actions">
-          <Button as={Link} to={primaryCta.to} variant="dark">{primaryCta.label}</Button>
-          <Button href={secondaryCta.href} variant="secondary" target="_blank" rel="noreferrer noopener">
+          <Button as={Link} to={primaryCta.to} variant="dark" title={primaryCta.label}>{primaryCta.label}</Button>
+          <Button href={secondaryCta.href} variant="secondary" target="_blank" rel="noreferrer noopener" title={secondaryCta.label}>
             {secondaryCta.label}
           </Button>
         </div>

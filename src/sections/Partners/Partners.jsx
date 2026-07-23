@@ -15,9 +15,10 @@ export default function Partners() {
               target="_blank"
               rel="noreferrer noopener"
               aria-label={partner.name}
+              title={`Visitar o site de ${partner.name}`}
               key={partner.name}
             >
-              <img src={partner.image} alt={partner.name} />
+              <img src={partner.image} alt={partner.name} title={partner.name} />
               <p>{partner.name}</p>
             </a>
           ))}

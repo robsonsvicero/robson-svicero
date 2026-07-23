@@ -17,6 +17,7 @@ export default function Hero() {
             className="hero-image"
             src={media.desktop}
             alt=""
+            title="Criação de sites profissionais com estratégia, UX e SEO"
             fetchPriority="high"
             decoding="sync"
           />
@@ -34,10 +35,11 @@ export default function Hero() {
               href={primaryCta.href}
               target="_blank"
               rel="noreferrer noopener"
+              title={primaryCta.label}
             >
               {primaryCta.label}
             </Button>
-            <Button variant="secondary" href={secondaryCta.href}>
+            <Button variant="secondary" href={secondaryCta.href} title={secondaryCta.label}>
               {secondaryCta.label}
             </Button>
           </div>

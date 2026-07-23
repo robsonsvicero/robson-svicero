@@ -45,7 +45,8 @@ export default function Projects() {
         <Button
           variant="secondary"
           as={Link}
-          to={projectsContent.cta.href}
+            to={projectsContent.cta.href}
+            title="Ver todos os cases"
         >
           {projectsContent.cta.label}
         </Button>
@@ -59,6 +60,7 @@ export default function Projects() {
             as={Link}
             to={project.path}
             aria-label={`Ver case: ${project.title}`}
+            title={`Ver case: ${project.title}`}
             className="case-card clickable-card"
             key={project.title}
             itemScope
@@ -68,7 +70,8 @@ export default function Projects() {
             <div className="case-visual">
               <img
                 src={project.thumbnail}
-                alt={project.alt}
+                alt={project.alt || `Prévia do projeto ${project.title}`}
+                title={project.alt || `Prévia do projeto ${project.title}`}
                 loading="lazy"
                 decoding="async"
                 width="800"
