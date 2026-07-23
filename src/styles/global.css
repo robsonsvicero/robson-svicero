@@ -2435,6 +2435,244 @@ h3 {
 
 /* Paginas legais */
 
+/* Pagina do Metodo C.L.A.R.O. */
+
+.claro-method-page-hero {
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-soft);
+}
+
+.claro-method-page-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: var(--space-12);
+  align-items: center;
+}
+
+.claro-method-page-hero-copy {
+  max-width: 680px;
+}
+
+.claro-method-page-hero-copy h1,
+.claro-method-page-hero-copy .lead {
+  margin: 0;
+}
+
+.claro-method-page-hero-copy .lead {
+  max-width: 34ch;
+}
+
+.claro-method-page-hero-visual {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface-warm);
+}
+
+.claro-method-page-hero-visual picture,
+.claro-method-page-hero-visual img {
+  display: block;
+  width: 100%;
+}
+
+.claro-method-page-hero-visual img {
+  height: auto;
+}
+
+.claro-method-page-intro-grid,
+.claro-method-page-scope-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: clamp(var(--space-8), 7vw, var(--space-16));
+  align-items: start;
+}
+
+.claro-method-page-prose {
+  display: grid;
+  gap: var(--space-5);
+  color: var(--fg-2);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+}
+
+.claro-method-page-prose p {
+  margin: 0;
+}
+
+.claro-method-principle {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-5);
+  text-align: center;
+}
+
+.claro-method-principle h2 {
+  max-width: 22ch;
+}
+
+.claro-method-principle .lead {
+  max-width: 66ch;
+  margin: 0;
+}
+
+.claro-method-flow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.claro-method-flow span {
+  padding: 10px var(--space-4);
+  border: 1px solid var(--border-soft);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.claro-method-flow i {
+  color: var(--accent);
+  font-size: var(--text-xl);
+  font-style: normal;
+}
+
+.claro-method-page-pillars-section {
+  scroll-margin-top: 76px;
+}
+
+.claro-method-page-section-heading {
+  display: grid;
+  gap: var(--space-4);
+  max-width: 760px;
+  margin-bottom: var(--space-10);
+}
+
+.claro-method-page-section-heading .lead {
+  margin: 0;
+}
+
+.claro-method-page-pillars {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.claro-method-page-pillars li {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: var(--space-5);
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.claro-method-page-pillars li:last-child {
+  grid-column: 1 / -1;
+}
+
+.claro-method-page-initial {
+  display: grid;
+  width: 56px;
+  aspect-ratio: 1;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+}
+
+.claro-method-page-pillars h3 {
+  margin-bottom: var(--space-2);
+}
+
+.claro-method-page-pillars p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.claro-method-page-pillars .claro-method-page-question {
+  margin-bottom: var(--space-3);
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.claro-method-page-scope {
+  background: var(--surface-warm);
+}
+
+.claro-method-page-scope-cards {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.claro-method-page-scope-cards article {
+  padding: var(--space-6);
+  border-left: 3px solid var(--accent);
+  background: var(--bg);
+}
+
+.claro-method-page-scope-cards h3 {
+  margin-bottom: var(--space-3);
+}
+
+.claro-method-page-scope-cards p {
+  margin: 0;
+  color: var(--fg-2);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .claro-method-page-hero-grid,
+  .claro-method-page-intro-grid,
+  .claro-method-page-scope-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .claro-method-page-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .claro-method-page-pillars li:last-child {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .claro-method-page-hero-copy {
+    max-width: 100%;
+  }
+
+  .claro-method-page-pillars li {
+    grid-template-columns: 48px 1fr;
+    gap: var(--space-4);
+    padding: var(--space-5);
+  }
+
+  .claro-method-page-initial {
+    width: 44px;
+    font-size: var(--text-xl);
+  }
+
+  .claro-method-flow {
+    display: grid;
+  }
+
+  .claro-method-flow i {
+    transform: rotate(90deg);
+  }
+}
+
 /* Diagnostico C.L.A.R.O. */
 
 .claro-diagnostic-hero {
@@ -3005,6 +3243,12 @@ h3 {
 .claro-method-copy .eyebrow,
 .claro-method-copy .lead {
   margin: 0;
+}
+
+.claro-method-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
 }
 
 .claro-method-pillars {
@@ -4145,6 +4389,10 @@ h3 {
   .claro-method-copy .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .claro-method-actions {
+    width: 100%;
   }
 
   .section {

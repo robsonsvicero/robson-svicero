@@ -14,14 +14,14 @@ export default function ClaroMethod() {
         <p className="eyebrow">{claroMethodContent.eyebrow}</p>
         <h2 id="metodo-claro-title">{claroMethodContent.title}</h2>
         <p className="lead">{claroMethodContent.description}</p>
-        <Button
-          href={claroMethodContent.cta.href}
-          variant="dark"
-          target="_blank"
-          rel="noreferrer noopener"
-        >
-          {claroMethodContent.cta.label}
-        </Button>
+        <div className="claro-method-actions">
+          <Button href={claroMethodContent.cta.href} variant="dark">
+            {claroMethodContent.cta.label}
+          </Button>
+          <Button href={claroMethodContent.diagnosticCta.href}>
+            {claroMethodContent.diagnosticCta.label}
+          </Button>
+        </div>
       </div>
 
       <ol className="claro-method-pillars" aria-label="Cinco pilares do Método C.L.A.R.O.">

@@ -14,6 +14,7 @@ const CaseDetail = lazy(() => import("../pages/Cases/CaseDetail.jsx"));
 const Cases = lazy(() => import("../pages/Cases/Cases.jsx"));
 const Contact = lazy(() => import("../pages/Contact/Contact.jsx"));
 const ClaroDiagnostic = lazy(() => import("../pages/ClaroDiagnostic/ClaroDiagnostic.jsx"));
+const ClaroMethodPage = lazy(() => import("../pages/ClaroMethod/ClaroMethod.jsx"));
 const DesignSystem = lazy(() => import("../pages/DesignSystem/DesignSystem.jsx"));
 const NotFound = lazy(() => import("../pages/NotFound/NotFound.jsx"));
 const Schedule = lazy(() => import("../pages/Schedule/Schedule.jsx"));
@@ -50,6 +51,7 @@ export default function AppRoutes() {
           <Route path="/sobre" element={<About />} />
           <Route path="/contato" element={<Contact />} />
           <Route path="/diagnostico-claro" element={<ClaroDiagnostic />} />
+          <Route path="/metodo-claro" element={<ClaroMethodPage />} />
           <Route path="/agendamentos" element={<Schedule />} />
           <Route path="/obrigado" element={<ThankYou />} />
           <Route path="/privacidade" element={<Privacy />} />

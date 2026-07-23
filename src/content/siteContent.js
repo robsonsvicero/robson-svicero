@@ -8,6 +8,7 @@ export const routes = {
   schedule: "/agendamentos",
   homeProjects: "/#projetos",
   privacy: "/privacidade",
+  claroMethod: "/metodo-claro",
 };
 
 export const contactLinks = {
@@ -26,6 +27,7 @@ export const headerContent = {
   navItems: [
     { label: "Home", to: routes.home },
     { label: "Criação de sites", to: routes.services },
+    { label: "Método C.L.A.R.O.", to: routes.claroMethod },
     { label: "Sobre", to: routes.about },
     { label: "Projetos", to: routes.cases },
     { label: "Blog", to: routes.blog },
@@ -129,8 +131,12 @@ export const claroMethodContent = {
     { initial: "O", label: "Orientação - direcionamento natural e compreensível para a próxima etapa" },
   ],
   cta: {
+    label: "Conheça o método",
+    href: routes.claroMethod,
+  },
+  diagnosticCta: {
     label: "Solicitar diagnóstico",
-    href: "https://robsonsvicero.com.br/diagnostico-claro",
+    href: "/diagnostico-claro",
   },
 };
 
