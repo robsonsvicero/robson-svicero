@@ -52,6 +52,17 @@ function escapeHtml(str) {
     .replace(/'/g, "&#039;");
 }
 
+function absoluteUrl(value, siteUrl) {
+  const fallbackImage = `${siteUrl}/assets/images/og-image.webp`;
+  if (!value) return fallbackImage;
+
+  try {
+    return new URL(value, `${siteUrl}/`).href;
+  } catch {
+    return fallbackImage;
+  }
+}
+
 function createSocialHtml(indexHtml, { title, description, image, url, type = "website" }) {
   let html = indexHtml;
 
@@ -67,6 +78,8 @@ function createSocialHtml(indexHtml, { title, description, image, url, type = "w
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:image" content="${image}" />
+  <meta property="og:image:secure_url" content="${image}" />
+  <meta property="og:image:alt" content="${title}" />
   <meta property="og:site_name" content="Robson Svicero" />
   <meta property="og:locale" content="pt_BR" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -82,8 +95,7 @@ async function fetchBlogPosts(supabaseUrl, supabaseAnonKey) {
   const supabase = createClient(supabaseUrl, supabaseAnonKey);
   const { data, error } = await supabase
     .from("blog_posts")
-    .select("slug, title, excerpt, seo_description, image")
-    .lte("published_at", new Date().toISOString())
+    .select("slug, title, excerpt, seo_title, seo_description, image, thumbnail, canonical_url")
     .order("published_at", { ascending: false });
 
   if (error) {
@@ -100,8 +112,10 @@ async function generateBlogHtmls() {
   const siteUrl = process.env.VITE_SITE_URL || "https://robsonsvicero.com.br";
 
   if (!supabaseUrl || !supabaseAnonKey) {
-    console.warn("[blog-html] VITE_SUPABASE_URL ou VITE_SUPABASE_ANON_KEY nao encontrados. Pulando geracao de HTMLs do blog.");
-    return;
+    throw new Error(
+      "VITE_SUPABASE_URL ou VITE_SUPABASE_ANON_KEY nao encontrados. " +
+      "O build foi interrompido para nao publicar artigos sem Open Graph.",
+    );
   }
 
   let indexHtml = "";
@@ -130,10 +144,12 @@ async function generateBlogHtmls() {
   for (const post of posts) {
     if (!post.slug) continue;
 
-    const title = escapeHtml(post.title);
-    const description = escapeHtml(post.seo_description || post.excerpt);
-    const image = escapeHtml(post.image);
-    const url = `${siteUrl}/blog/${post.slug}`;
+    const title = escapeHtml(post.seo_title || post.title || "Artigo | Robson Svicero");
+    const description = escapeHtml(
+      post.seo_description || post.excerpt || "Artigo publicado por Robson Svicero.",
+    );
+    const image = escapeHtml(absoluteUrl(post.image || post.thumbnail, siteUrl));
+    const url = escapeHtml(post.canonical_url || `${siteUrl}/blog/${post.slug}`);
 
     const postHtml = createSocialHtml(indexHtml, {
       title,

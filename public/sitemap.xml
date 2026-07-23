@@ -50,13 +50,19 @@
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://robsonsvicero.com.br/blog/seu-site-esta-respondendo-as-perguntas-que-impedem-um-cliente-de-comprar</loc>
+    <lastmod>2026-07-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://robsonsvicero.com.br/blog/instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -68,7 +74,7 @@
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog/todo-site-comeca-como-uma-folha-em-branco</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
