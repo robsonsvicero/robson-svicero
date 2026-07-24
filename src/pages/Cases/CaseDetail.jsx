@@ -30,31 +30,35 @@ export default function CaseDetail() {
       <Layout>
         <article className="case-detail" aria-labelledby="case-title">
           <header className="case-detail-hero">
-            {project.image && (
-              <img
-                className="case-detail-hero-image"
-                src={project.image}
-                alt={project.alt || `Imagem principal do projeto ${project.title}`}
-                title={project.alt || `Imagem principal do projeto ${project.title}`}
-                loading="eager"
-                decoding="async"
-              />
-            )}
-            <div className="case-detail-hero-overlay" />
-            <div className="container case-detail-hero-content">
-              <p className="eyebrow">Case</p>
-              <h1 id="case-title">{project.title}</h1>
-              <p className="lead">{project.description}</p>
-              <div className="hero-cta">
-                {project.externalUrl && (
-                  <Button href={project.externalUrl} target="_blank" rel="noreferrer noopener">
-                    Abrir projeto
+            <div className="container case-detail-hero-layout">
+              <div className="case-detail-hero-content">
+                <p className="eyebrow">Case</p>
+                <h1 id="case-title">{project.title}</h1>
+                <p className="lead">{project.description}</p>
+                <div className="hero-cta">
+                  {project.externalUrl && (
+                    <Button href={project.externalUrl} target="_blank" rel="noreferrer noopener">
+                      Abrir projeto
+                    </Button>
+                  )}
+                  <Button variant="secondary" as={Link} to="/cases">
+                    Ver todos os cases
                   </Button>
-                )}
-                <Button variant="secondary" as={Link} to="/cases">
-                  Ver todos os cases
-                </Button>
+                </div>
               </div>
+
+              {project.image && (
+                <figure className="case-detail-hero-media">
+                  <img
+                    className="case-detail-hero-image"
+                    src={project.image}
+                    alt={project.alt || `Imagem principal do projeto ${project.title}`}
+                    title={project.alt || `Imagem principal do projeto ${project.title}`}
+                    loading="eager"
+                    decoding="async"
+                  />
+                </figure>
+              )}
             </div>
           </header>
 

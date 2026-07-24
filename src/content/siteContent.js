@@ -45,9 +45,9 @@ export const heroContent = {
   eyebrow: "Criação de sites - UX Design",
   title: "Criação de sites profissionais para empresas e marcas.",
   lead:
-    "Crio sites rápidos, claros e estratégicos, com foco em SEO, experiência do usuário e geração de oportunidades para o seu negócio. Atendo empresas em São Paulo e clientes em todo o Brasil.",
+    "Sites claros e estratégicos para profissionais e pequenos negócios que querem transmitir confiança e transformar visitas em oportunidades.",
   note:
-    "Para empresas e profissionais que precisam de uma presença digital mais clara, confiável e preparada para conversão.",
+    "Transformo a sua presença digital em uma ferramenta para gerar contatos e oportunidades.",
   media: {
     desktop: "/assets/images/hero_web.webp",
     mobile: "/assets/images/hero_mobile.webp",
@@ -73,12 +73,12 @@ export const credibilityBarContent = {
 
 export const homeAboutContent = {
   eyebrow: "Sobre",
-  title: "Estratégia, experiência e tecnologia em um processo integrado.",
+  title: "Da curiosidade por programação a sites pensados para gerar resultados.",
   description:
-    "Meu nome é Robson Svicero e atuo há mais de 10 anos criando experiências digitais que unem estratégia, design e desenvolvimento para transformar necessidades de negócio em soluções claras e relevantes.",
+    "Meu nome é Robson Svicero e trabalho com sites desde 2013. Comecei criando páginas em HTML e CSS para amigos, passei pelo webdesign e encontrei no UX uma forma mais estratégica de pensar cada projeto.",
   complement:
-    "Acompanho cada projeto desde o entendimento dos objetivos até a implementação da interface, garantindo consistência entre conceito, experiência e execução.",
-  highlights: ["UX e UI Design", "Criação de sites profissionais", "Desenvolvimento Front-end"],
+    "Depois de atuar em diferentes empresas e participar de projetos como a atualização da Universal Music Store, decidi, em 2025, assumir meus próprios projetos. Hoje ajudo pequenos negócios a terem sites claros, profissionais e realmente úteis para seus clientes.",
+  highlights: ["Sites desde 2013", "+50 projetos entregues", "Estratégia e técnicas de UX"],
   image: {
     src: "/assets/images/sobre-robson.webp",
     alt: "Robson Svicero, designer e desenvolvedor front-end",
@@ -213,21 +213,23 @@ export const projectsContent = {
 
 export const testimonialsContent = {
   eyebrow: "Depoimentos",
-  title: "Quando a entrega visual também melhora a percepção de valor.",
+  title: "Resultados percebidos por quem já confiou no meu trabalho.",
   reviews: [
     {
-      quote: "O novo site profissionalizou nossa imagem e nos deu uma ferramenta clara para mostrar exatamente onde o recurso é aplicado. Trabalho impecável que superou todas as nossas expectativas.",
-      author: "Carol Andrade, Gestora de Projetos Sociais do Instituto Sublim",
+      quote:
+        "O novo site profissionalizou nossa imagem e nos deu uma ferramenta clara para mostrar onde o recurso é aplicado. O trabalho superou nossas expectativas.",
+      author: "Carol Andrade",
+      role: "Gestora de Projetos Sociais",
+      business: "Instituto Sublim",
+      segment: "Projetos sociais",
     },
     {
       quote:
-        "O Robson nos ajudou a estruturar nossa proposta de valor e criou uma identidade visual que traduz inovação, inteligência e força. O novo site tornou nossa atuação mais clara e nos deu uma presença digital coerente com o mercado de energia e tecnologia.",
-      author: "Marcelo Pelegrini, CEO da PowerBrain",
-    },
-    {
-      quote:
-        "Desde o diagnóstico inicial, o trabalho foi conduzido com foco em identificar onde minha marca perdia valor e como fortalecer sua presença no mercado. Hoje, minha identidade visual e minha plataforma refletem o nível de profissionalismo e confiança que sempre quis transmitir aos meus clientes.",
-      author: "André Barbosa, Corretor da André Barbosa Imóveis",
+        "O Robson nos ajudou a estruturar nossa proposta de valor. O novo site tornou nossa atuação mais clara e trouxe uma presença digital coerente com o nosso mercado.",
+      author: "Marcelo Pelegrini",
+      role: "CEO",
+      business: "PowerBrain",
+      segment: "Energia e tecnologia",
     },
   ],
 };
@@ -266,6 +268,40 @@ export const faqContent = {
       question: "Você atende apenas São Paulo?",
       answer:
         "Não. O atendimento pode ser feito de forma remota para clientes de qualquer região do Brasil. Para projetos em São Paulo, também é possível alinhar necessidades específicas da atuação local, mas todo o processo de briefing, aprovação, desenvolvimento e entrega funciona muito bem online.",
+    },
+  ],
+};
+
+export const homeFaqContent = {
+  eyebrow: "Perguntas frequentes",
+  title: "O que você precisa saber antes de criar seu site.",
+  lead:
+    "Respostas diretas para algumas das dúvidas mais comuns de quem está planejando uma presença profissional online.",
+  questions: [
+    {
+      question: "Quanto custa um site?",
+      answer:
+        "O investimento depende do tipo de site, da quantidade de páginas, do conteúdo disponível, das funcionalidades e de integrações como formulários, agenda ou painel administrativo. Por isso, primeiro entendo o objetivo e o escopo do projeto para preparar uma proposta coerente com o que o negócio realmente precisa, sem incluir recursos desnecessários.",
+    },
+    {
+      question: "Quanto tempo leva para colocar um site no ar?",
+      answer:
+        "Um site institucional ou uma landing page costuma levar de 2 a 6 semanas, dependendo do tamanho do projeto, da disponibilidade dos conteúdos e da agilidade nas aprovações. O prazo é definido com clareza na proposta e inclui etapas de planejamento, design, desenvolvimento, revisão e publicação.",
+    },
+    {
+      question: "O que você precisa ter pronto antes de começar?",
+      answer:
+        "Você não precisa chegar com tudo definido. É importante ter uma ideia dos serviços oferecidos, do público que deseja alcançar e do principal objetivo do site. Textos, estrutura e organização das informações podem ser construídos e refinados durante o processo. Caso já tenha logotipo, fotos e materiais da marca, eles também ajudam.",
+    },
+    {
+      question: "Qual é a diferença entre site institucional e landing page?",
+      answer:
+        "O site institucional apresenta o negócio de forma mais completa, normalmente com páginas para serviços, sobre, projetos e contato. A landing page concentra a comunicação em uma única página e conduz o visitante para uma ação específica, como solicitar um orçamento, agendar uma conversa ou contratar um serviço.",
+    },
+    {
+      question: "O site já é feito com SEO?",
+      answer:
+        "Sim. Todos os sites são desenvolvidos com uma base técnica de SEO, incluindo estrutura semântica, hierarquia de títulos, descrições, URLs adequadas, responsividade e atenção à performance. O cliente também pode contratar, separadamente, o serviço de acompanhamento mensal de SEO. Nesse trabalho, o site é monitorado e otimizado mês a mês, com ajustes técnicos e de conteúdo para melhorar sua relevância e competitividade nas buscas do Google. Como o ranqueamento também depende da concorrência e dos critérios do buscador, não é possível garantir uma posição específica.",
     },
   ],
 };

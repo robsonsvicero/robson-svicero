@@ -8,7 +8,7 @@ export default function About() {
 
   return (
     <Section
-      className="home-about-section bg-white"
+      className="home-about-section surface-band"
       data-od-id="sobre-resumo"
       aria-labelledby="home-about-title"
       containerClassName="container home-about-layout"

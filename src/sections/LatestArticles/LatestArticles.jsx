@@ -46,7 +46,7 @@ export default function LatestArticles({
 
   return (
     <Section
-      className={`surface-band latest-articles ${className}`.trim()}
+      className={`latest-articles ${className}`.trim()}
       aria-labelledby="sec-ultimos-artigos"
       containerClassName="container stack"
       containerStyle={{ gap: "var(--space-12)" }}

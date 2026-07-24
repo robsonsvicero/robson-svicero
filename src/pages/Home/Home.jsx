@@ -1,8 +1,7 @@
 import CookieBanner from "../../components/CookieBanner/CookieBanner.jsx";
-import CTA from "../../components/CTA/CTA.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import { pageCtaContent } from "../../content/siteContent.js";
+import { homeFaqContent } from "../../content/siteContent.js";
 import { useHomeInteractions } from "../../hooks/useHomeInteractions.js";
 import { absoluteUrl } from "../../utils/seo.js";
 import Contact from "../../sections/Contact/Contact.jsx";
@@ -14,6 +13,7 @@ import Hero from "../../sections/Hero/Hero.jsx";
 import Partners from "../../sections/Partners/Partners.jsx";
 import Projects from "../../sections/Projects/Projects.jsx";
 import LatestArticles from "../../sections/LatestArticles/LatestArticles.jsx";
+import ParaQuemEsteServico from "../../sections/ParaQuemEsteServico/ParaQuemEsteServico.jsx";
 import Services from "../../sections/Services/Services.jsx";
 import Testimonials from "../../sections/Testimonials/Testimonials.jsx";
 
@@ -66,13 +66,19 @@ export default function Home() {
         <Hero />
         <CredibilityBar />
         <Services />
+        <ParaQuemEsteServico />
         <About />
         <Testimonials />
-        <CTA content={pageCtaContent.home} titleId="home-cta-title" />
         <ClaroMethod />
         <Partners />
         <Projects />
         <LatestArticles />
+        <Faq
+          content={homeFaqContent}
+          id="faq-home"
+          titleId="faq-home-title"
+          className="surface-band"
+        />
         <Contact />
       </Layout>
       {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}

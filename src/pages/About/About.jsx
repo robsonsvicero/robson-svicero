@@ -1,22 +1,84 @@
+import { Link } from "react-router-dom";
+import {
+  BadgeCheck,
+  Building2,
+  CalendarDays,
+  FolderCheck,
+  Lightbulb,
+  MousePointerClick,
+  Music2,
+  Stethoscope,
+  Target,
+  UserRound,
+} from "lucide-react";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
+import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
-import CTA from "../../components/CTA/CTA.jsx";
-import { pageCtaContent } from "../../content/siteContent.js";
+import Section from "../../components/ui/Section/Section.jsx";
+import { contactLinks, routes } from "../../content/siteContent.js";
 
-const processSteps = [
-  "Imersão e entendimento do projeto",
-  "Arquitetura da informação e experiência do usuário (UX)",
-  "Design de interfaces (UI)",
-  "Desenvolvimento Front-end",
-  "Validação, refinamentos e acompanhamento da entrega",
+const clients = [
+  {
+    icon: Building2,
+    title: "Pequenos negócios",
+    description: "Empresas que querem se apresentar de forma mais profissional.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "MEIs",
+    description: "Quem está construindo sua presença e precisa transmitir confiança.",
+  },
+  {
+    icon: UserRound,
+    title: "Profissionais liberais",
+    description: "Especialistas que precisam tornar seu trabalho claro para novos clientes.",
+  },
+  {
+    icon: Stethoscope,
+    title: "Serviços, clínicas e consultórios",
+    description: "Negócios que dependem de credibilidade para gerar contatos e oportunidades.",
+  },
 ];
 
-const expectations = [
-  "Claras e intuitivas para o usuário",
-  "Alinhadas aos objetivos do negócio",
-  "Visualmente consistentes com a marca",
-  "Preparadas para evoluir ao longo do tempo",
+const approach = [
+  {
+    icon: Lightbulb,
+    title: "Clareza",
+    description: "O site precisa comunicar bem o que você faz — não apenas ser bonito.",
+  },
+  {
+    icon: Target,
+    title: "Estratégia",
+    description: "Cada decisão é pensada para gerar contato, credibilidade e conversão.",
+  },
+  {
+    icon: MousePointerClick,
+    title: "Técnicas de UX",
+    description: "O processo considera a experiência de quem vai usar o site, não só a estética.",
+  },
+];
+
+const experience = [
+  {
+    icon: CalendarDays,
+    value: "+10",
+    label: "anos de experiência",
+    description: "Criando sites e experiências digitais desde 2013.",
+  },
+  {
+    icon: FolderCheck,
+    value: "+50",
+    label: "projetos entregues",
+    description: "Soluções desenvolvidas para empresas de diferentes segmentos.",
+  },
+  {
+    icon: Music2,
+    value: "Universal Music Store",
+    label: "projeto de destaque",
+    description: "Atualização do site no maior projeto da minha carreira até hoje.",
+    featured: true,
+  },
 ];
 
 export default function About() {
@@ -24,142 +86,182 @@ export default function About() {
     <>
       <SEO
         title="Sobre Robson Svicero | Criação de Sites em São Paulo"
-        description="Conheça a trajetória, experiência e forma de trabalho de Robson Svicero em criação de sites em São Paulo, UX/UI, branding, desenvolvimento front-end e uso complementar de IA."
+        description="Conheça a trajetória de Robson Svicero, profissional de UX e criação de sites desde 2013, e sua abordagem para ajudar pequenos negócios."
         path="/sobre"
       />
+
       <Layout>
-        <section className="section about-page" aria-labelledby="about-title">
-          <div className="container stack" style={{ gap: "var(--space-12)" }}>
-            <div className="about-hero">
-              <div className="stack about-hero-copy">
-                <p className="eyebrow">Sobre</p>
-                <h1 id="about-title">
-                  Estratégia, experiência e tecnologia para transformar ideias em
-                  sites profissionais.
-                </h1>
-                <p className="lead">
-                  Meu nome é <strong>Robson Svicero</strong> e atuo há mais de 10
-                  anos desenvolvendo experiências digitais que unem estratégia,
-                  design e desenvolvimento.
-                </p>
-              </div>
-              <figure className="about-portrait">
-                <img
-                  src="/assets/images/sobre-robson.webp"
-                  alt="Robson Svicero"
-                  width="840"
-                  height="420"
-                  loading="eager"
-                  decoding="async"
-                />
-              </figure>
-            </div>
+        {/* Seção 1 — Minha história */}
+        <Section
+          className="about-story-section"
+          aria-labelledby="about-title"
+          containerClassName="container about-story-layout"
+        >
+          <div className="stack about-story-copy">
+            <p className="eyebrow">Sobre mim</p>
+            <h1 id="about-title">Minha história</h1>
+            <p className="lead">Como a curiosidade por programação se transformou no trabalho que faço hoje.</p>
 
-            <div className="about-content">
-              <div className="about-copy">
-                <p>
-                  Ao longo da minha trajetória, participei de projetos para
-                  empresas de diferentes segmentos, criando sites profissionais,
-                  identidades visuais de apoio e produtos digitais, sempre com um
-                  objetivo em comum: transformar necessidades de negócio em
-                  soluções claras, funcionais e relevantes para as pessoas.
-                </p>
-                <p>
-                  Acredito que um bom projeto digital vai muito além da
-                  estética. Ele precisa comunicar valor, transmitir confiança e
-                  facilitar a jornada de quem o utiliza.
-                </p>
-                <p>
-                  Foi essa visão que me levou a construir uma atuação
-                  multidisciplinar, combinando <strong>UX Design</strong>,{" "}
-                  <strong>UI Design</strong>, <strong>Branding</strong> e{" "}
-                  <strong>Desenvolvimento Front-end</strong>. Em vez de trabalhar
-                  apenas uma etapa do processo, acompanho o projeto desde a
-                  definição da estratégia até a implementação da interface,
-                  garantindo consistência entre conceito, experiência e execução.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid-2 about-section">
-              <div className="stack">
-                <p className="eyebrow">Visão completa</p>
-                <h2>Uma visão completa do processo</h2>
-              </div>
-              <div className="about-copy">
-                <p>
-                  Durante minha carreira, tive a oportunidade de colaborar em
-                  projetos para empresas e organizações de diferentes portes,
-                  desenvolvendo sites profissionais, plataformas digitais,
-                  sistemas e identidades visuais de apoio.
-                </p>
-                <p>
-                  Essa diversidade de experiências me permite compreender
-                  rapidamente os desafios de cada negócio e propor soluções que
-                  equilibram objetivos comerciais, necessidades dos usuários e
-                  viabilidade técnica.
-                </p>
-                <p>
-                  Mais do que entregar telas ou código, meu foco é construir
-                  experiências digitais que façam sentido para quem utiliza e
-                  tragam resultados para quem investe.
-                </p>
-              </div>
-            </div>
-
-            <div className="grid-2 about-section">
-              <div className="stack">
-                <p className="eyebrow">Como trabalho</p>
-                <h2>Um processo integrado do entendimento à entrega</h2>
-                <p className="lead">
-                  Cada projeto começa entendendo o negócio, seus objetivos e o
-                  perfil das pessoas que irão utilizar a solução.
-                </p>
-              </div>
-              <Card as="div">
-                <ol className="about-list">
-                  {processSteps.map((step) => (
-                    <li key={step}>{step}</li>
-                  ))}
-                </ol>
-              </Card>
-            </div>
-
-            <div className="grid-2 about-section">
-              <div className="stack">
-                <p className="eyebrow">O que esperar</p>
-                <h2>Soluções pensadas para evoluir com a marca</h2>
-                <p>
-                  Independentemente do tamanho do projeto, busco entregar
-                  soluções que sejam:
-                </p>
-              </div>
-              <Card as="div">
-                <ul className="about-list">
-                  {expectations.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </Card>
-            </div>
-
-            <div className="about-copy">
+            <div className="about-story-text">
               <p>
-                Seja no desenvolvimento de um site profissional, de uma identidade
-                visual de apoio ou de um produto digital, meu compromisso é criar
-                experiências que fortaleçam a presença da marca e contribuam para
-                seus resultados.
+                Minha história com sites começou em 2013, muito antes de eu imaginar onde isso me
+                levaria. Eu gostava de programação e comecei criando sites para amigos próximos,
+                usando apenas HTML e CSS. Na época, eu já trabalhava como designer e foi justamente
+                essa mistura de interesses que abriu a primeira porta: recebi uma proposta para
+                trabalhar como webdesigner.
               </p>
               <p>
-                Se você procura um profissional capaz de unir estratégia, design
-                e desenvolvimento em um único processo, será um prazer conhecer o
-                seu projeto.
+                Depois de dois anos nessa função, surgiu um novo convite — trabalhar como UX
+                Designer. Para ser sincero, eu nem sabia direito o que um UX Designer fazia. Mesmo
+                assim, aceitei o desafio e fui estudar. Passei por algumas empresas, aprendi com
+                equipes e projetos diferentes e, na MAEZTRA, tive a oportunidade de participar do
+                que considero o maior projeto da minha carreira até hoje: a atualização do site da
+                Universal Music Store.
+              </p>
+              <p>
+                Em 2025, decidi dar um novo passo e assumir meus próprios projetos como autônomo.
+                Hoje, reúno tudo o que aprendi ao longo dessa trajetória para criar sites
+                estratégicos, claros e pensados com técnicas de UX. Meu objetivo é ajudar cada
+                negócio a se apresentar melhor e transformar sua presença online em uma ferramenta
+                que realmente trabalhe a seu favor.
               </p>
             </div>
           </div>
-        </section>
 
-            <CTA content={pageCtaContent.about} titleId="about-cta-title" />
+          <figure className="about-story-portrait">
+            <img
+              src="/assets/images/sobre-robson.webp"
+              alt="Robson Svicero, designer e desenvolvedor de sites"
+              width="840"
+              height="840"
+              loading="eager"
+              decoding="async"
+            />
+            <figcaption>
+              <span>Desde 2013</span>
+              Design, UX e criação de sites
+            </figcaption>
+          </figure>
+        </Section>
+
+        {/* Seção 2 — Com quem eu trabalho */}
+        <Section
+          className="surface-band about-clients-section"
+          aria-labelledby="about-clients-title"
+          containerClassName="container stack about-section-layout"
+        >
+          <div className="about-section-heading stack">
+            <p className="eyebrow">Com quem eu trabalho</p>
+            <h2 id="about-clients-title">Sites profissionais para quem faz o negócio acontecer</h2>
+            <p className="lead">
+              Meu foco é ajudar negócios que precisam de um site que realmente funcione — não só
+              que exista.
+            </p>
+          </div>
+
+          <div className="about-client-grid">
+            {clients.map(({ icon: Icon, title, description }) => (
+              <Card className="about-client-card" key={title}>
+                <span className="about-card-icon" aria-hidden="true">
+                  <Icon />
+                </span>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </Card>
+            ))}
+          </div>
+        </Section>
+
+        {/* Seção 3 — Minha abordagem */}
+        <Section
+          className="about-approach-section"
+          aria-labelledby="about-approach-title"
+          containerClassName="container about-approach-layout"
+        >
+          <div className="stack about-approach-copy">
+            <p className="eyebrow">Minha abordagem</p>
+            <h2 id="about-approach-title">Não é só sobre design bonito</h2>
+            <p className="lead">
+              Um bom site precisa fazer sentido para o seu negócio e para as pessoas que chegam até
+              ele.
+            </p>
+            <p>
+              Antes de pensar nas cores ou no visual, procuro entender o que você oferece, quem
+              precisa encontrar essa informação e qual ação esperamos dessa pessoa. É isso que
+              transforma uma página bonita em uma ferramenta de negócio.
+            </p>
+          </div>
+
+          <div className="about-approach-list">
+            {approach.map(({ icon: Icon, title, description }) => (
+              <article className="about-approach-item" key={title}>
+                <span className="about-card-icon" aria-hidden="true">
+                  <Icon />
+                </span>
+                <div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </Section>
+
+        {/* Seção 4 — Experiência em números */}
+        <Section
+          className="dark-band about-experience-section"
+          aria-labelledby="about-experience-title"
+          containerClassName="container stack about-section-layout"
+        >
+          <div className="about-section-heading stack">
+            <p className="eyebrow">Trajetória e experiência</p>
+            <h2 id="about-experience-title">Experiência construída projeto após projeto</h2>
+          </div>
+
+          <div className="about-stats-grid">
+            {experience.map(({ icon: Icon, value, label, description, featured }) => (
+              <article
+                className={`about-stat-card${featured ? " about-stat-card-featured" : ""}`}
+                key={label}
+              >
+                <Icon aria-hidden="true" />
+                <strong>{value}</strong>
+                <span>{label}</span>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </Section>
+
+        {/* Seção 5 — CTA final */}
+        <Section
+          className="cta-about-band about-final-cta"
+          aria-labelledby="about-cta-title"
+          containerClassName="container about-final-cta-layout"
+        >
+          <div className="stack">
+            <p className="eyebrow">Vamos conversar?</p>
+            <h2 id="about-cta-title">Vamos conversar sobre o seu projeto?</h2>
+            <p className="lead">
+              Conte um pouco sobre o seu negócio e vamos descobrir juntos como um site profissional
+              pode ajudar.
+            </p>
+          </div>
+          <div className="about-final-cta-actions">
+            <Button as={Link} to={routes.contact} title="Ir para a página de contato">
+              Falar sobre meu projeto
+            </Button>
+            <Button
+              href={contactLinks.whatsapp}
+              variant="secondary"
+              target="_blank"
+              rel="noreferrer noopener"
+              title="Conversar pelo WhatsApp"
+            >
+              Chamar no WhatsApp
+            </Button>
+          </div>
+        </Section>
       </Layout>
     </>
   );
