@@ -78,8 +78,7 @@ export default function ParaQuemEsteServico() {
         <p className="eyebrow">Seu negócio mais profissional online</p>
         <h2 id="para-quem-title">Para quem é este serviço?</h2>
         <p className="lead">
-          Ideal para prestadores de serviço, clínicas, consultórios, escolas pequenas e negócios que
-          precisam se apresentar melhor online.
+          Ideal para negócios que precisam transmitir confiança, explicar seu valor e gerar novas oportunidades.
         </p>
       </header>
 

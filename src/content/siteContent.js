@@ -1,9 +1,9 @@
 export const routes = {
   home: "/",
+  about: "/sobre",
   services: "/servicos",
   cases: "/cases",
   blog: "/blog",
-  about: "/sobre",
   contact: "/contato",
   schedule: "/agendamentos",
   faq: "/faq",
@@ -27,9 +27,9 @@ export const headerContent = {
   },
   navItems: [
     { label: "Home", to: routes.home },
+    { label: "Sobre", to: routes.about },
     { label: "Criação de sites", to: routes.services },
     { label: "Método C.L.A.R.O.", to: routes.claroMethod },
-    { label: "Sobre", to: routes.about },
     { label: "Projetos", to: routes.cases },
     { label: "Blog", to: routes.blog },
     { label: "Contato", to: routes.contact },
