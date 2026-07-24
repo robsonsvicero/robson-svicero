@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { footerContent } from "../../../content/siteContent.js";
 
 export default function Footer() {
@@ -18,7 +19,14 @@ export default function Footer() {
             </a>
           ))}
         </nav>
-        <a href={footerContent.privacy.href} title={footerContent.privacy.label}>{footerContent.privacy.label}</a>
+        <nav className="footer-page-links" aria-label="Links institucionais">
+          <Link to={footerContent.faq.href} title={footerContent.faq.label}>
+            {footerContent.faq.label}
+          </Link>
+          <Link to={footerContent.privacy.href} title={footerContent.privacy.label}>
+            {footerContent.privacy.label}
+          </Link>
+        </nav>
       </div>
     </footer>
   );

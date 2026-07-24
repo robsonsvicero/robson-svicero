@@ -4690,6 +4690,52 @@ h3 {
   transform: scale(1.05);
 }
 
+.footer-page-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.footer-page-links a {
+  color: var(--muted);
+  font-weight: 600;
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+
+.footer-page-links a:hover {
+  color: var(--accent);
+}
+
+/* ─── Página de FAQ ──────────────────────────────────── */
+
+.faq-page-hero {
+  min-height: 52svh;
+  justify-content: center;
+  background:
+    radial-gradient(
+      800px 380px at 85% 20%,
+      color-mix(in oklab, var(--accent), transparent 84%),
+      transparent 68%
+    ),
+    var(--bg);
+}
+
+.faq-page-hero-copy {
+  max-width: var(--container-max);
+  gap: var(--space-4);
+}
+
+.faq-page-hero-copy h1 {
+  max-width: 13ch;
+}
+
+.faq-page-list .faq-intro {
+  position: sticky;
+  top: 112px;
+}
+
 /* ─── Voltar ao topo ────────────────────────────────── */
 
 .whatsapp-float {
@@ -5071,6 +5117,14 @@ h3 {
 
   .pagefoot .container {
     gap: 18px;
+  }
+
+  .footer-page-links {
+    justify-content: flex-start;
+  }
+
+  .faq-page-list .faq-intro {
+    position: static;
   }
 
   .whatsapp-float {

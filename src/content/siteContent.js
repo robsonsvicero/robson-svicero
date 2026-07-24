@@ -6,6 +6,7 @@ export const routes = {
   about: "/sobre",
   contact: "/contato",
   schedule: "/agendamentos",
+  faq: "/faq",
   homeProjects: "/#projetos",
   privacy: "/privacidade",
   claroMethod: "/metodo-claro",
@@ -306,6 +307,19 @@ export const homeFaqContent = {
   ],
 };
 
+export const faqPageContent = {
+  eyebrow: "Todas as dúvidas",
+  title: "Respostas para planejar seu site com mais segurança.",
+  lead:
+    "Reuni aqui as perguntas mais frequentes sobre investimento, prazo, processo, tecnologia, SEO e evolução do site.",
+  questions: [
+    ...homeFaqContent.questions,
+    ...faqContent.questions.filter(
+      (item) => item.question !== "O projeto já nasce preparado para SEO?",
+    ),
+  ],
+};
+
 export const contactContent = {
   eyebrow: "Conversão",
   title: "Tem um projeto em mente?",
@@ -422,5 +436,9 @@ export const footerContent = {
   privacy: {
     label: "Política de Privacidade",
     href: routes.privacy,
+  },
+  faq: {
+    label: "FAQ",
+    href: routes.faq,
   },
 };
