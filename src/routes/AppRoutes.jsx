@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton.jsx";
 import Home from "../pages/Home/Home.jsx";
 import useScrollToTop from "../hooks/useScrollToTop.js";
@@ -37,13 +37,22 @@ function GlobalWhatsAppButton() {
   return isBlogPage ? null : <WhatsAppButton />;
 }
 
+function HomeOrBlogPreview() {
+  const { search } = useLocation();
+  const previewSlug = new URLSearchParams(search).get("preview");
+
+  if (!previewSlug) return <Home />;
+
+  return <Navigate to={`/blog/${encodeURIComponent(previewSlug)}`} replace />;
+}
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Suspense fallback={null}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomeOrBlogPreview />} />
           <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/:slug" element={<CaseDetail />} />

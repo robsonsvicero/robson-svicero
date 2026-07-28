@@ -288,7 +288,9 @@ export default function AdminDashboard() {
 
   function previewPost() {
     if (!selectedItem?.slug) return;
-    window.open(`/blog/${selectedItem.slug}`, "_blank", "noopener,noreferrer");
+    const previewUrl = new URL("/", window.location.origin);
+    previewUrl.searchParams.set("preview", selectedItem.slug);
+    window.open(previewUrl.href, "_blank", "noopener,noreferrer");
   }
 
   function updateField(name, value) {
