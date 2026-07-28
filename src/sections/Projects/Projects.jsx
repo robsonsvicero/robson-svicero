@@ -30,7 +30,7 @@ export default function Projects() {
 
   return (
     <Section
-      className="dark-band"
+      className="surface-band"
       id="projetos"
       data-od-id="projetos"
       aria-labelledby="sec-projetos"
@@ -38,9 +38,10 @@ export default function Projects() {
       containerStyle={{ gap: "var(--space-12)" }}
     >
       <div className="row-between">
-        <div style={{ maxWidth: 700 }}>
+        <div className="projects-header stack" style={{ maxWidth: 700 }}>
           <p className="eyebrow">{projectsContent.eyebrow}</p>
           <h2 id="sec-projetos">{projectsContent.title}</h2>
+          <p className="lead">{projectsContent.lead}</p>
         </div>
         <Button
           variant="secondary"

@@ -46,7 +46,7 @@ export default function LatestArticles({
 
   return (
     <Section
-      className={`latest-articles ${className}`.trim()}
+      className={`surface-band latest-articles ${className}`.trim()}
       aria-labelledby="sec-ultimos-artigos"
       containerClassName="container stack"
       containerStyle={{ gap: "var(--space-12)" }}
@@ -54,7 +54,10 @@ export default function LatestArticles({
       <div className="row-between">
         <div style={{ maxWidth: 700 }}>
           <p className="eyebrow">Observatório Digital</p>
-          <h2 id="sec-ultimos-artigos">Últimos artigos</h2>
+          <h2 id="sec-ultimos-artigos">Conteúdos para quem quer um site que gera resultados.</h2>
+          <p className="lead">
+            Artigos sobre criação de sites, SEO, UX, posicionamento digital e estratégias para transformar visitas em clientes.
+          </p>
         </div>
         {showCta && (
           <Button variant="secondary" as={Link} to="/blog" title="Ver todos os artigos">

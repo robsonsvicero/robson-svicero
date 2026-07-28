@@ -512,6 +512,18 @@ h3 {
   border-color: var(--fg-2);
 }
 
+.btn-outline {
+  background: transparent;
+  color: var(--accent-on);
+  border-color: var(--accent-on);
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--accent-on);
+  border-color: var(--accent);
+}
+
 .btn-ghost {
   padding-inline: 0;
   min-height: auto;
@@ -765,7 +777,7 @@ h3 {
   display: flex;
   align-items: center;
   gap: clamp(22px, 3vw, 38px);
-  max-width: 760px;
+  width: auto;
 }
 
 .trusted-highlight {
@@ -778,7 +790,7 @@ h3 {
 }
 
 .trusted-message p {
-  max-width: 600px;
+  width: 100%;
   margin: 0;
   color: var(--fg);
   font-size: clamp(1.15rem, 2vw, 1.55rem);
@@ -1534,6 +1546,11 @@ h3 {
 }
 
 /* ─── Case cards ─────────────────────────────────────── */
+
+.projects-header {
+  max-width: 920px;
+  gap: var(--space-4);
+}
 
 .case-card {
   display: grid;
@@ -3008,7 +3025,7 @@ h3 {
 /* ─── Contato ────────────────────────────────────────── */
 
 .contact-panel {
-  background: var(--surface);
+  background: transparent;
   border-radius: 36px;
   padding: clamp(var(--space-6), 5vw, var(--space-12));
   display: grid;
@@ -3024,7 +3041,7 @@ h3 {
 }
 
 .field label {
-  color: var(--fg-2);
+  color: var(--surface);
   font-size: var(--text-sm);
 }
 

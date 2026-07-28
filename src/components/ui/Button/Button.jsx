@@ -3,6 +3,7 @@ const variantClassNames = {
   secondary: "btn-secondary",
   dark: "btn-dark",
   ghost: "btn-ghost",
+  outline: "btn-outline",
 };
 
 export default function Button({

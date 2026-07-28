@@ -67,12 +67,10 @@ export default function Home() {
         <CredibilityBar />
         <Services />
         <ParaQuemEsteServico />
-        <About />
-        <Testimonials />
-        <ClaroMethod />
-        <Partners />
         <Projects />
-        <LatestArticles />
+        <Testimonials />
+        <About />
+        {/* <Partners /> */}
         <Faq
           content={homeFaqContent}
           id="faq-home"
@@ -80,6 +78,7 @@ export default function Home() {
           className="surface-band"
         />
         <Contact />
+        <LatestArticles />
       </Layout>
       {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}
     </>

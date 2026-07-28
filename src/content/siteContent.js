@@ -8,6 +8,7 @@ export const routes = {
   schedule: "/agendamentos",
   faq: "/faq",
   homeProjects: "/#projetos",
+  homeContact: "/#contato",
   privacy: "/privacidade",
   claroMethod: "/metodo-claro",
 };
@@ -36,7 +37,7 @@ export const headerContent = {
     { label: "Agendamentos", to: routes.schedule },
   ],
   cta: {
-    label: "Atendimento ao Cliente",
+    label: "Vamos Conversar",
     href: contactLinks.whatsapp,
     phone: "(11) 96493-2007",
   },
@@ -44,18 +45,18 @@ export const headerContent = {
 
 export const heroContent = {
   eyebrow: "Criação de sites - UX Design",
-  title: "Criação de sites profissionais para empresas e marcas.",
+  title: "Criação de sites que ajudam empresas a conquistar mais clientes.",
   lead:
-    "Sites claros e estratégicos para profissionais e pequenos negócios que querem transmitir confiança e transformar visitas em oportunidades.",
-  note:
-    "Transformo a sua presença digital em uma ferramenta para gerar contatos e oportunidades.",
+    "Desenvolvo sites rápidos, profissionais e pensados para transformar visitantes em contatos, orçamentos e vendas. Do planejamento à publicação, cada projeto é criado para gerar resultados.",
+  // note:
+  //   "Transformo a sua presença digital em uma ferramenta para gerar contatos e oportunidades.",
   media: {
     desktop: "/assets/images/hero_web.webp",
     mobile: "/assets/images/hero_mobile.webp",
   },
   primaryCta: {
-    label: "Vamos falar sobre o seu projeto",
-    href: contactLinks.whatsapp,
+    label: "Quero meu site",
+    href: routes.homeContact,
   },
   secondaryCta: {
     label: "Ver projetos",
@@ -65,7 +66,7 @@ export const heroContent = {
 
 export const credibilityBarContent = {
   highlight: "+10",
-  label: "Há mais de 10 anos criando experiências digitais que fortalecem empresas e marcas.",
+  label: "Há mais de 10 anos desenvolvendo sites que fortalecem empresas e geram novas oportunidades de negócio.",
   cta: {
     label: "Fale comigo agora",
     href: contactLinks.whatsapp,
@@ -74,15 +75,14 @@ export const credibilityBarContent = {
 
 export const homeAboutContent = {
   eyebrow: "Sobre",
-  title: "Da curiosidade por programação a sites pensados para gerar resultados.",
+  title: "Quem vai desenvolver seu site?",
   description:
-    "Meu nome é Robson Svicero e trabalho com sites desde 2013. Comecei criando páginas em HTML e CSS para amigos, passei pelo webdesign e encontrei no UX uma forma mais estratégica de pensar cada projeto.",
-  complement:
-    "Depois de atuar em diferentes empresas e participar de projetos como a atualização da Universal Music Store, decidi, em 2025, assumir meus próprios projetos. Hoje ajudo pequenos negócios a terem sites claros, profissionais e realmente úteis para seus clientes.",
-  highlights: ["Sites desde 2013", "+50 projetos entregues", "Estratégia e técnicas de UX"],
+    "Sou Robson Svicero, UX/UI Designer e Desenvolvedor Front-end com mais de 10 anos de experiência criando sites para pequenas empresas.",
+  complement: "Meu trabalho une estratégia, design e desenvolvimento para entregar sites rápidos, intuitivos e preparados para gerar resultados desde o primeiro acesso.",
+  highlights: ["Desenvolvimento sob medida", "UX focado em conversão", "SEO técnico", "Atendimento direto durante todo o projeto"],
   image: {
     src: "/assets/images/sobre-robson.webp",
-    alt: "Robson Svicero, designer e desenvolvedor front-end",
+    alt: "Robson Svicero, designer e desenvolvedor web",
   },
   primaryCta: { label: "Conheça minha trajetória", to: routes.about },
   secondaryCta: { label: "Vamos conversar", href: contactLinks.whatsapp },
@@ -143,24 +143,24 @@ export const claroMethodContent = {
 
 export const servicesContent = {
   eyebrow: "Sites Profissionais",
-  title: "Criação de sites profissionais do briefing à publicação.",
+  title: "Seu novo site, do planejamento à publicação.",
   items: [
     {
-      title: "Estratégia e conteúdo",
+      title: "Planejamento estratégico",
       description:
-        "Organização da narrativa da página com apoio de IA para acelerar pesquisa, estruturação e refinamento inicial.",
+        "Antes de criar qualquer tela, entendemos seus objetivos, seu público e como seu site pode gerar mais resultados.",
       iconPath: "M4 6h16M4 12h10M4 18h7",
     },
     {
       title: "Design sob medida",
       description:
-        "Interface alinhada à marca, com leitura clara, responsividade e foco em credibilidade.",
+        "Um site exclusivo, alinhado à identidade da sua empresa e pensado para transmitir confiança.",
       iconPath: "M5 20V8l7-4 7 4v12M9 20v-6h6v6",
     },
     {
-      title: "Desenvolvimento e SEO base",
+      title: "Desenvolvimento + SEO",
       description:
-        "Entrega em React com base semântica, performance e estrutura pensada para crescer.",
+        "Seu site nasce rápido, responsivo e preparado para ser encontrado no Google.",
       iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
     },
   ],
@@ -205,7 +205,8 @@ export const processContent = {
 
 export const projectsContent = {
   eyebrow: "Projetos em destaque",
-  title: "Cases que mostram estratégia, design e implementação trabalhando juntos.",
+  title: "Sites criados para gerar resultados reais.",
+  lead: "Conheça alguns projetos desenvolvidos para empresas que precisavam vender mais, comunicar melhor seu valor e fortalecer sua presença digital.",
   cta: {
     label: "Ver todos",
     href: "/cases",
@@ -214,7 +215,8 @@ export const projectsContent = {
 
 export const testimonialsContent = {
   eyebrow: "Depoimentos",
-  title: "Resultados percebidos por quem já confiou no meu trabalho.",
+  title: "Empresas que confiaram no meu trabalho.",
+  lead: "Mais do que entregar um site bonito, meu objetivo é criar uma ferramenta que ajude cada empresa a crescer.",
   reviews: [
     {
       quote:
@@ -270,25 +272,7 @@ export const faqContent = {
       answer:
         "Não. O atendimento pode ser feito de forma remota para clientes de qualquer região do Brasil. Para projetos em São Paulo, também é possível alinhar necessidades específicas da atuação local, mas todo o processo de briefing, aprovação, desenvolvimento e entrega funciona muito bem online.",
     },
-  ],
-};
-
-export const homeFaqContent = {
-  eyebrow: "Perguntas frequentes",
-  title: "O que você precisa saber antes de criar seu site.",
-  lead:
-    "Respostas diretas para algumas das dúvidas mais comuns de quem está planejando uma presença profissional online.",
-  questions: [
-    {
-      question: "Quanto custa um site?",
-      answer:
-        "O investimento depende do tipo de site, da quantidade de páginas, do conteúdo disponível, das funcionalidades e de integrações como formulários, agenda ou painel administrativo. Por isso, primeiro entendo o objetivo e o escopo do projeto para preparar uma proposta coerente com o que o negócio realmente precisa, sem incluir recursos desnecessários.",
-    },
-    {
-      question: "Quanto tempo leva para colocar um site no ar?",
-      answer:
-        "Um site institucional ou uma landing page costuma levar de 2 a 6 semanas, dependendo do tamanho do projeto, da disponibilidade dos conteúdos e da agilidade nas aprovações. O prazo é definido com clareza na proposta e inclui etapas de planejamento, design, desenvolvimento, revisão e publicação.",
-    },
+    
     {
       question: "O que você precisa ter pronto antes de começar?",
       answer:
@@ -299,10 +283,44 @@ export const homeFaqContent = {
       answer:
         "O site institucional apresenta o negócio de forma mais completa, normalmente com páginas para serviços, sobre, projetos e contato. A landing page concentra a comunicação em uma única página e conduz o visitante para uma ação específica, como solicitar um orçamento, agendar uma conversa ou contratar um serviço.",
     },
+  ],
+};
+
+export const homeFaqContent = {
+  eyebrow: "Perguntas frequentes",
+  title: "O que você precisa saber antes de criar seu site.",
+  lead:
+    "Respostas diretas para algumas das dúvidas mais comuns de quem está planejando uma presença profissional online.",
+  questions: [
     {
-      question: "O site já é feito com SEO?",
+      question: "Quanto custa criar um site",
       answer:
-        "Sim. Todos os sites são desenvolvidos com uma base técnica de SEO, incluindo estrutura semântica, hierarquia de títulos, descrições, URLs adequadas, responsividade e atenção à performance. O cliente também pode contratar, separadamente, o serviço de acompanhamento mensal de SEO. Nesse trabalho, o site é monitorado e otimizado mês a mês, com ajustes técnicos e de conteúdo para melhorar sua relevância e competitividade nas buscas do Google. Como o ranqueamento também depende da concorrência e dos critérios do buscador, não é possível garantir uma posição específica.",
+        "O investimento depende do tipo de site, da quantidade de páginas, do conteúdo disponível, das funcionalidades e de integrações como formulários, agenda ou painel administrativo. Por isso, primeiro entendo o objetivo e o escopo do projeto para preparar uma proposta coerente com o que o negócio realmente precisa, sem incluir recursos desnecessários.",
+    },
+    {
+      question: "Quanto tempo leva para desenvolver um site?",
+      answer:
+        "Um site institucional ou uma landing page costuma levar de 2 a 6 semanas, dependendo do tamanho do projeto, da disponibilidade dos conteúdos e da agilidade nas aprovações. O prazo é definido com clareza na proposta e inclui etapas de planejamento, design, desenvolvimento, revisão e publicação.",
+    },
+    {
+      question: "Meu site aparecerá no Google?",
+      answer:
+        "Sim. Todos os sites são desenvolvidos seguindo boas práticas de SEO técnico, como estrutura semântica, performance, responsividade e metadados. Isso aumenta as chances de um bom posicionamento nas pesquisas. Vale lembrar que estar no Google é diferente de estar nas primeiras posições, que dependem de fatores como concorrência, estratégia de conteúdo e autoridade do domínio.",
+    },
+    {
+      question: "O site funciona no celular?",
+      answer:
+        "Sim. Todos os projetos são desenvolvidos com abordagem responsiva, garantindo uma boa experiência em celulares, tablets e computadores. O conteúdo, a navegação e os elementos visuais se adaptam automaticamente ao tamanho da tela.",
+    },
+    {
+      question: "Posso atualizar o conteúdo depois?",
+      answer:
+        "Sim. Dependendo da estrutura do projeto, é possível atualizar textos, imagens e outras informações sempre que necessário. Também ofereço suporte e manutenção para quem prefere não se preocupar com as atualizações.",
+    },
+    {
+      question: "Vocês fazem landing pages?",
+      answer:
+        "Sim. Desenvolvo landing pages para campanhas, lançamento de produtos, captação de leads, apresentação de serviços e outras estratégias de conversão. Cada página é planejada para orientar o visitante até a ação desejada, seja preencher um formulário, solicitar um orçamento ou realizar uma compra.",
     },
   ],
 };
@@ -322,16 +340,11 @@ export const faqPageContent = {
 
 export const contactContent = {
   eyebrow: "Conversão",
-  title: "Tem um projeto em mente?",
-  lead: "Vamos conversar sobre a criação do seu site profissional e mudar a presença digital da sua marca.",
+  title: "Vamos conversar sobre o seu projeto?",
+  lead: "Seja para criar um novo site ou modernizar o que sua empresa já possui, conte um pouco sobre sua necessidade. Em até um dia útil retorno com uma proposta e as melhores opções para o seu projeto.",
   links: [
-    { label: "Agendar reunião", href: routes.schedule, variant: "primary" },
-    {
-      label: "Enviar e-mail",
-      href: "mailto:ola@robsonsvicero.com.br?subject=Informações%20sobre%20projeto",
-      variant: "secondary",
-    },
-    { label: "Chamar no WhatsApp", href: "https://wa.me/5511964932007", variant: "secondary" },
+    
+    { label: "Falar sobre meu projeto", href: "https://wa.me/5511964932007", variant: "outline" },
   ],
   meta: "ola@robsonsvicero.com.br - 11 96493-2007",
   formAction: "https://formspree.io/f/xbdevbne",

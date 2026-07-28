@@ -10,6 +10,7 @@ export default function Contact() {
 
   return (
     <Section
+      className="dark-band"
       id="contato"
       data-od-id="contato"
       aria-labelledby="sec-contato"
@@ -19,7 +20,7 @@ export default function Contact() {
         <p className="eyebrow">{contactContent.eyebrow}</p>
         <h2 id="sec-contato">{contactContent.title}</h2>
         <p className="lead">{contactContent.lead}</p>
-        <div className="stack" style={{ gap: "var(--space-3)" }}>
+        <div className="stack" style={{ marginTop: "var(--space-2)" }}>
           {contactContent.links.map((link) => (
             <Button
               href={link.href}
@@ -71,7 +72,7 @@ export default function Contact() {
             placeholder="Conte em poucas linhas o que você precisa construir."
           />
         </div>
-        <Button as="button" variant="dark" type="submit" disabled={isSubmitting}>
+        <Button as="button" variant="primary" type="submit" disabled={isSubmitting}>
           {isSubmitting ? "Enviando..." : "Enviar mensagem"}
         </Button>
         {status && (

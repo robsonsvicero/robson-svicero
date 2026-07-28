@@ -33,8 +33,6 @@ export default function Hero() {
           <div className="hero-cta">
             <Button
               href={primaryCta.href}
-              target="_blank"
-              rel="noreferrer noopener"
               title={primaryCta.label}
             >
               {primaryCta.label}

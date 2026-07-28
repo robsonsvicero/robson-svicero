@@ -38,31 +38,31 @@ const audiences = [
 ];
 
 const commonPains = [
-  "Seu site atual não gera contatos ou vendas",
-  "Sua empresa só tem Instagram e carece de um site profissional",
-  "Você já tentou criar um site sozinho e não obteve o resultado desejado",
-  "Seu site parece amador e não passa credibilidade",
-  "Você não sabe por onde começar para ter presença online",
+  "Seu site não transmite profissionalismo",
+  "Os visitantes não entram em contato",
+  "Sua empresa depende apenas das redes sociais",
+  "Você perde oportunidades para concorrentes mais bem posicionados",
+  "Seu site é lento ou antigo",
 ];
 
 const benefits = [
   {
-    icon: Building2,
-    problem: "Sem site claro",
-    benefit: "Mais clareza sobre o que você oferece",
-    description: "Apresente seus serviços de forma simples e ajude o cliente a entender como você pode ajudá-lo.",
-  },
-  {
     icon: ShieldCheck,
     problem: "Sem credibilidade online",
-    benefit: "Mais confiança para seus clientes",
-    description: "Tenha uma presença profissional que transmite segurança antes mesmo do primeiro contato.",
+    benefit: "Passe mais credibilidade",
+    description: "Seu site mostra que sua empresa é profissional desde o primeiro contato.",
+  },
+  {
+    icon: Building2,
+    problem: "Sem geração de contatos",
+    benefit: "Gere mais oportunidades",
+    description: "Transforme visitantes em contatos e pedidos de orçamento.",
   },
   {
     icon: TrendingUp,
-    problem: "Sem geração de contatos",
-    benefit: "Mais oportunidades de negócio",
-    description: "Transforme visitas em conversas com caminhos claros para orçamento e atendimento.",
+    problem: "Sem SEO + estratégia",
+    benefit: "Seja encontrado no Google",
+    description: "Tenha uma presença digital preparada para atrair novos clientes.",
   },
 ];
 
@@ -76,9 +76,9 @@ export default function ParaQuemEsteServico() {
     >
       <header className="para-quem-header stack">
         <p className="eyebrow">Seu negócio mais profissional online</p>
-        <h2 id="para-quem-title">Para quem é este serviço?</h2>
+        <h2 id="para-quem-title">Este serviço é para empresas que precisam de um site que trabalhe a favor do negócio.</h2>
         <p className="lead">
-          Ideal para negócios que precisam transmitir confiança, explicar seu valor e gerar novas oportunidades.
+          Ideal para quem quer fortalecer sua presença digital, transmitir credibilidade e conquistar mais clientes.
         </p>
       </header>
 
@@ -104,7 +104,7 @@ export default function ParaQuemEsteServico() {
       <div className="para-quem-pains">
         <div className="stack para-quem-pains-copy">
           <p className="eyebrow">Você se identifica?</p>
-          <h3>Dores comuns dos pequenos negócios</h3>
+          <h3>Seu site deveria ajudar sua empresa a vender, não atrapalhar.</h3>
           <p>
             Uma presença digital fraca pode fazer bons clientes desistirem antes mesmo de conhecer
             a qualidade do seu trabalho.
@@ -124,7 +124,7 @@ export default function ParaQuemEsteServico() {
       <div className="para-quem-conversion stack">
         <div className="para-quem-conversion-header">
           <p className="eyebrow">Da dificuldade ao resultado</p>
-          <h3>Por que você precisa de um site</h3>
+          <h3>O que um bom site faz pela sua empresa</h3>
         </div>
 
         <div className="para-quem-benefit-grid">

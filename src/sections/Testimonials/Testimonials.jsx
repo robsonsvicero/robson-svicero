@@ -19,6 +19,7 @@ export default function Testimonials() {
         <div className="testimonials-proof-heading">
           <p className="eyebrow">{testimonialsContent.eyebrow}</p>
           <h2 id="sec-depoimentos">{testimonialsContent.title}</h2>
+          <p className="lead">{testimonialsContent.lead}</p>
         </div>
 
         <div className="testimonials-proof-grid">
