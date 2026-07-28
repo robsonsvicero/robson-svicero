@@ -43,7 +43,7 @@ function HomeOrBlogPreview() {
 
   if (!previewSlug) return <Home />;
 
-  return <Navigate to={`/blog/${encodeURIComponent(previewSlug)}`} replace />;
+  return <Navigate to={`/blog/${encodeURIComponent(previewSlug)}?preview=1`} replace />;
 }
 
 export default function AppRoutes() {

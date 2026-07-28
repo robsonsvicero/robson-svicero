@@ -1,6 +1,6 @@
 import { CalendarDays, Clock, Eye, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import BlogComments from "../../components/BlogComments/BlogComments.jsx";
 import BlogShare from "../../components/BlogShare/BlogShare.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
@@ -64,6 +64,13 @@ function getPostParagraphs(post) {
   return post.sections.map((section) => section.body).filter(Boolean);
 }
 
+function getIntroParagraphs(intro = "") {
+  return intro
+    .split(/\r?\n+/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
+
 function hasHtmlContent(content = "") {
   return /<\/?[a-z][\s\S]*>/i.test(content);
 }
@@ -102,11 +109,13 @@ function getOrCreateVisitorKey() {
 
 export default function BlogPost() {
   const { slug } = useParams();
+  const { search } = useLocation();
+  const isPreview = new URLSearchParams(search).get("preview") === "1";
   const { item: post, isLoading } = useSupabaseItem({
     table: "blog_posts",
     slug,
     mapper: mapBlogPost,
-    publishedOnly: true,
+    publishedOnly: !isPreview,
   });
   const [viewsCount, setViewsCount] = useState(0);
   const [authorProfile, setAuthorProfile] = useState(null);
@@ -186,6 +195,7 @@ export default function BlogPost() {
   if (!post) return <NotFound />;
 
   const paragraphs = getPostParagraphs(post);
+  const introParagraphs = getIntroParagraphs(post.intro);
   const canonicalUrl = post.canonicalUrl || absoluteUrl(post.path);
   const authorName = authorProfile?.name || post.author || "Robson Svicero";
   const hasRichContent = hasHtmlContent(post.content);
@@ -263,7 +273,11 @@ export default function BlogPost() {
           <div className="section">
             <div className="container blog-article-layout">
               <div className="blog-article-content">
-                {post.intro && <p className="blog-article-intro">{post.intro}</p>}
+                {introParagraphs.map((paragraph, index) => (
+                  <p className="blog-article-intro" key={`${index}-${paragraph}`}>
+                    {paragraph}
+                  </p>
+                ))}
                 {hasRichContent
                   ? <RichTextContent>{post.content}</RichTextContent>
                   : post.content

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import {
+  ArrowUpDown,
   ExternalLink,
   FileText,
   FolderKanban,
@@ -117,6 +118,22 @@ function createStoragePath({ activeResource, fieldName, formValues, file }) {
   return `${activeResource}/${slug}/${fieldName}-${timestamp}.${extension}`;
 }
 
+function formatPostPublicationDate(value) {
+  if (!value) return "Sem data";
+
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "Sem data";
+
+  return new Intl.DateTimeFormat("pt-BR").format(date);
+}
+
+function getPostStatus(value) {
+  const publishedAt = new Date(value);
+  return !Number.isNaN(publishedAt.getTime()) && publishedAt <= new Date()
+    ? { label: "Publicado", value: "published" }
+    : { label: "Agendado", value: "scheduled" };
+}
+
 export default function AdminDashboard() {
   const [activeResource, setActiveResource] = useState("dashboard");
   const resource = adminResources[activeResource];
@@ -133,7 +150,8 @@ export default function AdminDashboard() {
   const [isSaving, setIsSaving] = useState(false);
   const [imageLoadingFields, setImageLoadingFields] = useState([]);
   const [relationOptions, setRelationOptions] = useState({});
-  const [showPostsList, setShowPostsList] = useState(false);
+  const [postScreen, setPostScreen] = useState("list");
+  const [postSort, setPostSort] = useState({ key: "published_at", ascending: false });
 
   const selectedItem = items.find((item) => item.id === selectedId);
   const isPostsResource = activeResource === "posts";
@@ -144,6 +162,22 @@ export default function AdminDashboard() {
     : isLinksResource && formValues.slug
       ? `${window.location.origin}/r/${formValues.slug}`
       : "";
+  const sortedPostItems = useMemo(() => {
+    if (!isPostsResource) return [];
+
+    return [...items].sort((first, second) => {
+      const firstValue = postSort.key === "status"
+        ? getPostStatus(first.published_at).value
+        : first[postSort.key] || "";
+      const secondValue = postSort.key === "status"
+        ? getPostStatus(second.published_at).value
+        : second[postSort.key] || "";
+      const result = String(firstValue).localeCompare(String(secondValue), "pt-BR", {
+        numeric: true,
+      });
+      return postSort.ascending ? result : -result;
+    });
+  }, [isPostsResource, items, postSort]);
 
   function shouldShowField(fieldName) {
     if (!isLinksResource) return true;
@@ -169,7 +203,7 @@ export default function AdminDashboard() {
     setSelectedId(null);
     setFormValues(emptyRecord);
     setStatus("");
-    setShowPostsList(false);
+    setPostScreen("list");
     if (resource) {
       loadItems();
       loadRelationOptions();
@@ -273,6 +307,7 @@ export default function AdminDashboard() {
     setSelectedId(null);
     setFormValues(emptyRecord);
     setStatus("");
+    if (isPostsResource) setPostScreen("create");
   }
 
   function startEdit(item) {
@@ -284,13 +319,28 @@ export default function AdminDashboard() {
     setSelectedId(item.id);
     setFormValues(nextValues);
     setStatus("");
+    if (isPostsResource) setPostScreen("edit");
   }
 
-  function previewPost() {
-    if (!selectedItem?.slug) return;
+  function previewPost(item = selectedItem) {
+    if (!item?.slug) return;
     const previewUrl = new URL("/", window.location.origin);
-    previewUrl.searchParams.set("preview", selectedItem.slug);
+    previewUrl.searchParams.set("preview", item.slug);
     window.open(previewUrl.href, "_blank", "noopener,noreferrer");
+  }
+
+  function togglePostSort(key) {
+    setPostSort((current) => ({
+      key,
+      ascending: current.key === key ? !current.ascending : true,
+    }));
+  }
+
+  function returnToPostsList() {
+    setSelectedId(null);
+    setFormValues(emptyRecord);
+    setStatus("");
+    setPostScreen("list");
   }
 
   function updateField(name, value) {
@@ -450,7 +500,11 @@ export default function AdminDashboard() {
 
     setStatus(`${resource.singular} salvo com sucesso.`);
     await loadItems();
-    startCreate();
+    if (isPostsResource) {
+      returnToPostsList();
+    } else {
+      startCreate();
+    }
   }
 
   async function handleDelete(item) {
@@ -468,7 +522,11 @@ export default function AdminDashboard() {
     }
 
     setStatus(`${resource.singular} excluído com sucesso.`);
-    startCreate();
+    if (isPostsResource) {
+      returnToPostsList();
+    } else {
+      startCreate();
+    }
     await loadItems();
   }
 
@@ -525,17 +583,17 @@ export default function AdminDashboard() {
                 <p>{resource.description}</p>
               </div>
               <div className="stack" style={{ gap: "var(--space-2)" }}>
-                <Button as="button" type="button" onClick={startCreate}>
-                  Novo {resource.singular}
-                </Button>
-                {isPostsResource && (
+                {isPostsResource ? (
                   <Button
                     as="button"
-                    variant="secondary"
                     type="button"
-                    onClick={() => setShowPostsList((current) => !current)}
+                    onClick={postScreen === "list" ? startCreate : returnToPostsList}
                   >
-                    {showPostsList ? "Ocultar artigos cadastrados" : "Ver artigos cadastrados"}
+                    {postScreen === "list" ? "Novo artigo" : "Voltar para artigos"}
+                  </Button>
+                ) : (
+                  <Button as="button" type="button" onClick={startCreate}>
+                    Novo {resource.singular}
                   </Button>
                 )}
               </div>
@@ -574,11 +632,62 @@ export default function AdminDashboard() {
                   );
                 })}
             </div>
+          ) : isPostsResource && postScreen === "list" ? (
+            <div className="admin-posts-table-wrap">
+              <table className="admin-posts-table">
+                <thead>
+                  <tr>
+                    {[
+                      ["title", "Título"],
+                      ["category", "Categoria"],
+                      ["status", "Status"],
+                      ["published_at", "Publicação"],
+                      ["slug", "Slug"],
+                    ].map(([key, label]) => (
+                      <th key={key} scope="col" aria-sort={postSort.key === key ? (postSort.ascending ? "ascending" : "descending") : "none"}>
+                        <button type="button" onClick={() => togglePostSort(key)}>
+                          {label}
+                          <ArrowUpDown aria-hidden="true" />
+                        </button>
+                      </th>
+                    ))}
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {isLoading && (
+                    <tr><td colSpan="6" className="admin-posts-empty">Carregando artigos...</td></tr>
+                  )}
+                  {!isLoading && sortedPostItems.length === 0 && (
+                    <tr><td colSpan="6" className="admin-posts-empty">Nenhum artigo cadastrado.</td></tr>
+                  )}
+                  {!isLoading && sortedPostItems.map((item) => {
+                    const postStatus = getPostStatus(item.published_at);
+                    return (
+                      <tr key={item.id}>
+                        <td className="admin-post-title">{item.title || "Sem título"}</td>
+                        <td>{item.category || "—"}</td>
+                        <td><span className={`admin-post-status is-${postStatus.value}`}>{postStatus.label}</span></td>
+                        <td>{formatPostPublicationDate(item.published_at)}</td>
+                        <td className="admin-post-slug">{item.slug || "—"}</td>
+                        <td>
+                          <div className="admin-post-actions">
+                            <button type="button" onClick={() => previewPost(item)}>Visualizar</button>
+                            <button type="button" onClick={() => startEdit(item)}>Editar</button>
+                            <button className="is-danger" type="button" onClick={() => handleDelete(item)}>Excluir</button>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
           ) : (
             <div
-              className={`admin-grid ${isPostsResource && !showPostsList ? "admin-grid--editor-full" : ""}`.trim()}
+              className={`admin-grid ${isPostsResource ? "admin-grid--editor-full" : ""}`.trim()}
             >
-            {(!isPostsResource || showPostsList) && (
+            {!isPostsResource && (
               <div className="admin-list" aria-label={`Lista de ${resource.label}`}>
                 {isLoading && <p className="meta">Carregando...</p>}
                 {!isLoading && items.length === 0 && (
