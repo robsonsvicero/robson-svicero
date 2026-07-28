@@ -1,5 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
-import { FileText, FolderKanban, LayoutDashboard, Link as LinkIcon, UserRound } from "lucide-react";
+import {
+  ExternalLink,
+  FileText,
+  FolderKanban,
+  LayoutDashboard,
+  Link as LinkIcon,
+  UserRound,
+} from "lucide-react";
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -277,6 +284,11 @@ export default function AdminDashboard() {
     setSelectedId(item.id);
     setFormValues(nextValues);
     setStatus("");
+  }
+
+  function previewPost() {
+    if (!selectedItem?.slug) return;
+    window.open(`/blog/${selectedItem.slug}`, "_blank", "noopener,noreferrer");
   }
 
   function updateField(name, value) {
@@ -740,6 +752,12 @@ export default function AdminDashboard() {
                       ? "Carregando imagem..."
                       : "Salvar"}
                 </Button>
+                {isPostsResource && selectedItem?.slug && (
+                  <Button as="button" variant="secondary" type="button" onClick={previewPost}>
+                    <ExternalLink aria-hidden="true" />
+                    Visualizar artigo
+                  </Button>
+                )}
                 <Button as="button" variant="secondary" type="button" onClick={startCreate}>
                   Limpar
                 </Button>
