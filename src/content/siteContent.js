@@ -1,7 +1,7 @@
 export const routes = {
   home: "/",
   about: "/sobre",
-  services: "/servicos",
+  siteCreation: "/criacao-de-sites",
   cases: "/cases",
   blog: "/blog",
   contact: "/contato",
@@ -28,7 +28,7 @@ export const headerContent = {
   navItems: [
     { label: "Home", to: routes.home },
     { label: "Sobre", to: routes.about },
-    { label: "Criação de sites", to: routes.services },
+    { label: "Criação de sites", to: routes.siteCreation },
     { label: "Método C.L.A.R.O.", to: routes.claroMethod },
     { label: "Projetos", to: routes.cases },
     { label: "Blog", to: routes.blog },
@@ -351,7 +351,7 @@ export const pageCtaContent = {
     },
     secondaryAction: {
       label: "Ver criação de sites",
-      to: routes.services,
+      to: routes.siteCreation,
     },
   },
   cases: {
@@ -386,7 +386,7 @@ export const pageCtaContent = {
       to: routes.cases,
     },
   },
-  services: {
+  siteCreation: {
     eyebrow: "Próximo passo",
     title: "Se a sua marca precisa de um site profissional, este é o ponto de partida.",
     lead:

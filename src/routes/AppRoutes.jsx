@@ -20,7 +20,7 @@ const NotFound = lazy(() => import("../pages/NotFound/NotFound.jsx"));
 const Schedule = lazy(() => import("../pages/Schedule/Schedule.jsx"));
 const DigitalCard = lazy(() => import("../pages/DigitalCard/DigitalCard.jsx"));
 const FaqPage = lazy(() => import("../pages/Faq/FaqPage.jsx"));
-const Services = lazy(() => import("../pages/Services/Services.jsx"));
+const CriacaoDeSites = lazy(() => import("../pages/CriacaoDeSites/CriacaoDeSites.jsx"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
 const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
 const ShortLinkRedirect = lazy(() => import("../pages/ShortLink/ShortLinkRedirect.jsx"));
@@ -44,7 +44,7 @@ export default function AppRoutes() {
       <Suspense fallback={null}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/servicos" element={<Services />} />
+          <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/:slug" element={<CaseDetail />} />
           <Route path="/blog" element={<Blog />} />

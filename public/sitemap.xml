@@ -4,7 +4,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url>
     <loc>https://robsonsvicero.com.br/</loc>
-    <lastmod>2026-06-19</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
     <image:image>
@@ -13,62 +13,68 @@
     </image:image>
   </url>
 <url>
-    <loc>https://robsonsvicero.com.br/servicos</loc>
-    <lastmod>2026-06-28</lastmod>
+    <loc>https://robsonsvicero.com.br/criacao-de-sites</loc>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/cases</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/cases/captacao-digital-ong</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/cases/landing-page-dentistas</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/cases/plataforma-digital-imobiliaria</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/cases/universal-music</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://robsonsvicero.com.br/blog/seu-concorrente-nao-e-melhor-ele-apenas-comunica-melhor-o-valor-que-entrega</loc>
+    <lastmod>2026-07-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://robsonsvicero.com.br/blog/seu-site-esta-respondendo-as-perguntas-que-impedem-um-cliente-de-comprar</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog/instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog/metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais</loc>
-    <lastmod>2026-07-23</lastmod>
+    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -98,49 +104,49 @@
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/sobre</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/contato</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/diagnostico-claro</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/metodo-claro</loc>
-    <lastmod>2026-07-22</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/agendamentos</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/cartao</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/privacidade</loc>
-    <lastmod>2026-06-28</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
 <url>
     <loc>https://robsonsvicero.com.br/faq</loc>
-    <lastmod>2026-07-24</lastmod>
+    <lastmod>2026-07-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

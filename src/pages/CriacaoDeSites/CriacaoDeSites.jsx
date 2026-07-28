@@ -48,8 +48,8 @@ const includedServices = [
   "Publicação e orientação de uso",
 ];
 
-function createServicesSchema() {
-  const pageUrl = absoluteUrl(routes.services);
+function createSiteCreationSchema() {
+  const pageUrl = absoluteUrl(routes.siteCreation);
 
   return {
     "@context": "https://schema.org",
@@ -101,14 +101,14 @@ function createServicesSchema() {
   };
 }
 
-export default function Services() {
+export default function CriacaoDeSites() {
   return (
     <>
       <SEO
         title="Criação de Sites Profissionais em São Paulo"
         description="Criação de sites profissionais em São Paulo com foco em clareza, credibilidade, SEO, conversão e uso de IA como apoio no processo."
-        path="/servicos"
-        structuredData={createServicesSchema()}
+        path="/criacao-de-sites"
+        structuredData={createSiteCreationSchema()}
       />
       <Layout>
         <section className="section service-hero" aria-labelledby="services-title">
@@ -243,7 +243,7 @@ export default function Services() {
           </div>
         </section>
         
-        <CTA content={pageCtaContent.services} titleId="services-cta-title" />
+        <CTA content={pageCtaContent.siteCreation} titleId="services-cta-title" />
 
         <section hidden aria-hidden="true" className="section" id="servicos-inclusos">
           <div className="container stack" style={{ gap: "var(--space-8)" }}>

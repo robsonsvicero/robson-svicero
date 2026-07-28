@@ -23,20 +23,17 @@ export default function Testimonials() {
 
         <div className="testimonials-proof-grid">
           {testimonialsContent.reviews.map((review) => (
-            <Card className="testimonial-proof-card" key={review.author} itemScope itemType="https://schema.org/Review">
-              <span itemProp="itemReviewed" itemScope itemType="https://schema.org/Person">
-                <meta itemProp="name" content="Robson Svicero" />
-              </span>
+            <Card className="testimonial-proof-card" key={review.author}>
               <div className="testimonial-proof-top" aria-hidden="true">
                 <Quote />
                 <span>Projeto entregue</span>
               </div>
-              <blockquote className="quote" itemProp="reviewBody">
+              <blockquote className="quote">
                 “{review.quote}”
               </blockquote>
               <footer className="testimonial-proof-author">
-                <p itemProp="author" itemScope itemType="https://schema.org/Person">
-                  <strong itemProp="name">{review.author}</strong>
+                <p>
+                  <strong>{review.author}</strong>
                   <span>{review.role} · {review.business}</span>
                 </p>
                 <span className="testimonial-proof-segment">{review.segment}</span>

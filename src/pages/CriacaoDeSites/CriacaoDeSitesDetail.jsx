@@ -4,7 +4,7 @@ import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 
-export default function ServiceDetail({ service }) {
+export default function CriacaoDeSitesDetail({ service }) {
   return (
     <>
       <SEO
@@ -21,7 +21,7 @@ export default function ServiceDetail({ service }) {
               <p className="lead">{service.intro}</p>
               <div className="hero-cta">
                 <Button href="/contato">Solicitar orçamento</Button>
-                <Button variant="secondary" as={Link} to="/servicos">
+                <Button variant="secondary" as={Link} to="/criacao-de-sites">
                   Ver criação de sites
                 </Button>
               </div>

@@ -1,7 +1,7 @@
 export const services = [
   {
     slug: "criacao-de-sites",
-    path: "/servicos",
+    path: "/criacao-de-sites",
     eyebrow: "Criação de sites",
     title: "Criação de sites profissionais em São Paulo para fortalecer sua presença digital",
     summary:
