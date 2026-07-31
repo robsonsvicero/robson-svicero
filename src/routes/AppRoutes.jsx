@@ -24,6 +24,7 @@ const CriacaoDeSites = lazy(() => import("../pages/CriacaoDeSites/CriacaoDeSites
 const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
 const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
 const ShortLinkRedirect = lazy(() => import("../pages/ShortLink/ShortLinkRedirect.jsx"));
+const Agendamento = lazy(() => import("../pages/Agendamento/Agendamento.jsx"));
 
 function ScrollToTop() {
   useScrollToTop();

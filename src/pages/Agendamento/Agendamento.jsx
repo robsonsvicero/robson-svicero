@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { CalendarDays, Check, ChevronLeft, Clock3, ShieldCheck, Stethoscope } from 'lucide-react';
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import { agendaVita } from '../lib/agendaVita';
+import { agendaVita } from '../../lib/agendaVita';
 
 const initialForm = { professional: '', date: '', time: '', name: '', phone: '', email: '' };
 const today = new Date().toISOString().slice(0, 10);
