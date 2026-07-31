@@ -5848,6 +5848,10 @@ h3 {
     padding-top: var(--section-y-phone);
   }
 
+  .appointment-fields {
+    grid-template-columns: 1fr;
+  }
+
   .appointment-slot-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
