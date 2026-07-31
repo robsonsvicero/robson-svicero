@@ -64,6 +64,7 @@ export default function AppRoutes() {
           <Route path="/diagnostico-claro" element={<ClaroDiagnostic />} />
           <Route path="/metodo-claro" element={<ClaroMethodPage />} />
           <Route path="/agendamentos" element={<Schedule />} />
+          <Route path="/agendamento" element={<Agendamento />} />
           <Route path="/obrigado" element={<ThankYou />} />
           <Route path="/privacidade" element={<Privacy />} />
           <Route path="/faq" element={<FaqPage />} />
