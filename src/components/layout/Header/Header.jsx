@@ -6,15 +6,22 @@ import { headerContent } from "../../../content/siteContent.js";
 export default function Header() {
   const { logo, navItems, cta } = headerContent;
   const [isOpen, setIsOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState(null);
   const topnavRef = useRef(null);
 
   useEffect(() => {
     const closeOnDesktop = () => {
-      if (window.innerWidth > 920) setIsOpen(false);
+      if (window.innerWidth > 920) {
+        setIsOpen(false);
+        setOpenSubmenu(null);
+      }
     };
 
     const closeOnOutsideClick = (event) => {
-      if (!topnavRef.current?.contains(event.target)) setIsOpen(false);
+      if (!topnavRef.current?.contains(event.target)) {
+        setIsOpen(false);
+        setOpenSubmenu(null);
+      }
     };
 
     window.addEventListener("resize", closeOnDesktop);
@@ -57,17 +64,75 @@ export default function Header() {
         </button>
 
         <nav id="primary-nav" aria-label="Navegacao principal">
-          {navItems.map((item) => (
-            <NavLink
-              key={`${item.label}-${item.to}`}
-              to={item.to}
-              end={item.to === "/"}
-              title={`Ir para ${item.label}`}
-              onClick={() => setIsOpen(false)}
-            >
-              {item.label}
-            </NavLink>
-          ))}
+          {navItems.map((item) => {
+            if (item.items?.length) {
+              const isSubmenuOpen = openSubmenu === item.label;
+
+              return (
+                <div className="topnav-item topnav-item--has-submenu" key={`${item.label}-${item.to}`}>
+                  <button
+                    className="topnav-link topnav-submenu-toggle"
+                    type="button"
+                    title={`Abrir submenu de ${item.label}`}
+                    aria-expanded={isSubmenuOpen}
+                    aria-controls={`submenu-${item.label}`}
+                    onClick={() => {
+                      setOpenSubmenu((current) => (current === item.label ? null : item.label));
+                    }}
+                  >
+                    {item.label}
+                    <span className="topnav-submenu-caret" aria-hidden="true">
+                      <svg
+                        viewBox="0 0 24 24"
+                        role="presentation"
+                        focusable="false"
+                        className={`topnav-submenu-caret-icon${isSubmenuOpen ? " is-open" : ""}`}
+                      >
+                        <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  <div
+                    className={`topnav-submenu${isSubmenuOpen ? " is-open" : ""}`}
+                    id={`submenu-${item.label}`}
+                    aria-label={`Submenu de ${item.label}`}
+                  >
+                    {item.items.map((subItem) => (
+                      <NavLink
+                        key={`${item.label}-${subItem.label}-${subItem.to}`}
+                        className="topnav-sublink"
+                        to={subItem.to}
+                        title={`Ir para ${subItem.label}`}
+                        onClick={() => {
+                          setIsOpen(false);
+                          setOpenSubmenu(null);
+                        }}
+                      >
+                        {subItem.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
+              );
+            }
+
+            return (
+              <NavLink
+                key={`${item.label}-${item.to}`}
+                className="topnav-link"
+                to={item.to}
+                end={item.to === "/"}
+                title={`Ir para ${item.label}`}
+                onClick={() => {
+                  setIsOpen(false);
+                  setOpenSubmenu(null);
+                }}
+              >
+                {item.label}
+              </NavLink>
+            );
+          })}
         </nav>
 
         <Button

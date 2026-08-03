@@ -4,8 +4,13 @@ import Button from "../../components/ui/Button/Button.jsx";
 import { contactContent } from "../../content/siteContent.js";
 import { useContactForm } from "../../hooks/useContactForm.js";
 
-const emailLink = contactContent.links.find((link) => link.href.startsWith("mailto:"));
-const whatsappLink = contactContent.links.find((link) => link.label.includes("WhatsApp"));
+const emailLink =
+  contactContent.links.find((link) => link.href.startsWith("mailto:")) ||
+  { href: "mailto:ola@robsonsvicero.com.br" };
+
+const whatsappLink =
+  contactContent.links.find((link) => link.href.includes("wa.me") || link.label.includes("WhatsApp")) ||
+  { href: "https://wa.me/5511964932007" };
 
 export default function Contact() {
   const { status, statusType, isSubmitting, handleSubmit } = useContactForm({

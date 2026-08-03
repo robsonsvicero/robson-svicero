@@ -20,6 +20,9 @@ export default function Footer() {
           ))}
         </nav>
         <nav className="footer-page-links" aria-label="Links institucionais">
+          <Link to={footerContent.services.href} title={footerContent.services.label}>
+            {footerContent.services.label}
+          </Link>
           <Link to={footerContent.faq.href} title={footerContent.faq.label}>
             {footerContent.faq.label}
           </Link>

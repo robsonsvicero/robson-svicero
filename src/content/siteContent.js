@@ -2,6 +2,12 @@ export const routes = {
   home: "/",
   about: "/sobre",
   siteCreation: "/criacao-de-sites",
+  prices: "/precos",
+  services: "/servicos",
+  uxDesignService: "/servicos/ux-design",
+  visualIdentityService: "/servicos/identidade-visual",
+  seoService: "/servicos/seo",
+  gmnService: "/servicos/gestao-gmn",
   cases: "/cases",
   blog: "/blog",
   contact: "/contato",
@@ -30,7 +36,18 @@ export const headerContent = {
     { label: "Home", to: routes.home },
     { label: "Sobre", to: routes.about },
     { label: "Criação de sites", to: routes.siteCreation },
-    { label: "Método C.L.A.R.O.", to: routes.claroMethod },
+    {
+      label: "Serviços",
+      to: routes.services,
+      items: [
+        { label: "Método C.L.A.R.O.", to: routes.claroMethod },
+        { label: "SEO", to: routes.seoService },
+        { label: "UX Design", to: routes.uxDesignService },
+        { label: "Gestão de GMN", to: routes.gmnService },
+        { label: "Identidade Visual", to: routes.visualIdentityService },
+      ],
+    },
+    { label: "Preços", to: routes.prices },
     { label: "Projetos", to: routes.cases },
     { label: "Blog", to: routes.blog },
     { label: "Contato", to: routes.contact },
@@ -343,8 +360,8 @@ export const contactContent = {
   title: "Vamos conversar sobre o seu projeto?",
   lead: "Seja para criar um novo site ou modernizar o que sua empresa já possui, conte um pouco sobre sua necessidade. Em até um dia útil retorno com uma proposta e as melhores opções para o seu projeto.",
   links: [
-    
-    { label: "Falar sobre meu projeto", href: "https://wa.me/5511964932007", variant: "outline" },
+    { label: "Enviar e-mail", href: "mailto:ola@robsonsvicero.com.br", variant: "secondary" },
+    { label: "Falar no WhatsApp", href: "https://wa.me/5511964932007", variant: "outline" },
   ],
   meta: "ola@robsonsvicero.com.br - 11 96493-2007",
   formAction: "https://formspree.io/f/xbdevbne",
@@ -415,6 +432,86 @@ export const pageCtaContent = {
       to: routes.schedule,
     },
   },
+  planosSiteCreation: {
+    eyebrow: "Quer avançar?",
+    title: "Nem todo projeto cabe em um pacote pronto.",
+    lead:
+      "Me conte o que você precisa vender, qual é sua meta e o que torna seu projeto diferente, que eu retorno com uma proposta sob medida, objetiva e sem desperdício.",
+    bandClass: "cta-home-band",
+    primaryAction: {
+      label: "Quero uma proposta",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ir para contato",
+      to: routes.contact,
+    },
+  },
+  uxDesignService: {
+    eyebrow: "Próximo passo",
+    title: "Vamos organizar a experiência do seu site com mais clareza e objetivo.",
+    lead:
+      "Se sua página não está convertendo como deveria, posso mapear fricções e desenhar uma jornada mais objetiva para o seu público.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Falar sobre UX Design",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver serviços",
+      to: routes.services,
+    },
+  },
+  visualIdentityService: {
+    eyebrow: "Próximo passo",
+    title: "Vamos alinhar sua identidade visual ao posicionamento da sua marca.",
+    lead:
+      "Posso estruturar uma direção visual consistente para fortalecer percepção, confiança e reconhecimento.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Falar sobre identidade visual",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver serviços",
+      to: routes.services,
+    },
+  },
+  seoService: {
+    eyebrow: "Próximo passo",
+    title: "Vamos melhorar sua visibilidade orgânica com SEO técnico e conteúdo.",
+    lead:
+      "Posso diagnosticar gargalos, priorizar ajustes e estruturar uma base de SEO mais consistente para atrair tráfego qualificado.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Falar sobre SEO",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver serviços",
+      to: routes.services,
+    },
+  },
+  gmnService: {
+    eyebrow: "Próximo passo",
+    title: "Vamos fortalecer sua presença local com uma gestão estratégica de GMN.",
+    lead:
+      "Posso otimizar seu perfil para aumentar relevância nas buscas da região e facilitar o contato de novos clientes.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Falar sobre Gestão de GMN",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver serviços",
+      to: routes.services,
+    },
+  },
   about: {
     eyebrow: "Vamos conversar?",
     title: "Vamos conversar sobre o seu projeto?",
@@ -453,5 +550,9 @@ export const footerContent = {
   faq: {
     label: "FAQ",
     href: routes.faq,
+  },
+  services: {
+    label: "Serviços",
+    href: routes.services,
   },
 };
