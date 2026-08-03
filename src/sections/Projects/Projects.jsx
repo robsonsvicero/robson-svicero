@@ -1,32 +1,30 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
+import { contentSnapshots } from "../../data/contentSnapshots.js";
 import { projectsContent } from "../../content/siteContent.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
-
-function ProjectCardSkeleton() {
-  return (
-    <Card className="case-card card-skeleton" aria-hidden="true">
-      <div className="case-visual skeleton-block" />
-      <span className="skeleton-line skeleton-line-title" />
-      <span className="skeleton-line" />
-      <span className="skeleton-line skeleton-line-medium" />
-      <span className="skeleton-line skeleton-line-button" />
-    </Card>
-  );
-}
+import { prefetchImages } from "../../utils/imagePrefetch.js";
 
 export default function Projects() {
-  const { items: projects, isLoading } = useSupabaseList({
+  const { items: projects } = useSupabaseList({
     table: "projects",
+    fallback: contentSnapshots.projects.slice(0, 3),
     mapper: mapProject,
     orderBy: "published_at",
     select: "slug,title,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 3,
   });
-  const shouldShowSkeletons = isLoading && projects.length === 0;
+
+  useEffect(() => {
+    if (projects.length === 0) return;
+
+    const candidateImages = projects.map((project) => project.thumbnail || project.image).filter(Boolean);
+    prefetchImages(candidateImages, { limit: 3 });
+  }, [projects]);
 
   return (
     <Section
@@ -54,8 +52,6 @@ export default function Projects() {
       </div>
 
       <div className="grid-3">
-        {shouldShowSkeletons &&
-          Array.from({ length: 3 }, (_, index) => <ProjectCardSkeleton key={index} />)}
         {projects.map((project) => (
           <Card
             as={Link}

@@ -1,33 +1,35 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
+import { contentSnapshots } from "../../data/contentSnapshots.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 import CTA from "../../components/CTA/CTA.jsx";
 import { pageCtaContent } from "../../content/siteContent.js";
-
-function CaseCardSkeleton() {
-  return (
-    <Card className="case-card card-skeleton" aria-hidden="true">
-      <figure className="case-card-media skeleton-block" />
-      <span className="skeleton-line skeleton-line-title" />
-      <span className="skeleton-line" />
-      <span className="skeleton-line skeleton-line-medium" />
-      <span className="skeleton-line skeleton-line-button" />
-    </Card>
-  );
-}
+import { prefetchImages } from "../../utils/imagePrefetch.js";
 
 export default function Cases() {
-  const { items: projects, isLoading } = useSupabaseList({
+  const { items: projects } = useSupabaseList({
     table: "projects",
+    fallback: contentSnapshots.projects,
     mapper: mapProject,
     orderBy: "published_at",
     select: "slug,title,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 12,
   });
-  const shouldShowSkeletons = isLoading && projects.length === 0;
+
+  useEffect(() => {
+    if (projects.length === 0) return;
+
+    const candidateImages = projects
+      .slice(0, 8)
+      .map((project) => project.thumbnail || project.image)
+      .filter(Boolean);
+
+    prefetchImages(candidateImages, { limit: 8 });
+  }, [projects]);
 
   return (
     <>
@@ -49,8 +51,6 @@ export default function Cases() {
             </div>
 
             <div className="grid-3">
-              {shouldShowSkeletons &&
-                Array.from({ length: 4 }, (_, index) => <CaseCardSkeleton key={index} />)}
               {projects.map((project) => (
                 <Card
                   as={Link}

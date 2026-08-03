@@ -1169,90 +1169,6 @@ h3 {
   color: var(--accent-on);
 }
 
-.card-skeleton {
-  pointer-events: none;
-}
-
-.card-skeleton:hover {
-  transform: none;
-  box-shadow: var(--elev-flat);
-}
-
-.skeleton-block,
-.skeleton-line {
-  display: block;
-  border-radius: var(--radius-sm);
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--surface), transparent 8%) 0%,
-      color-mix(in oklab, var(--border-soft), transparent 12%) 48%,
-      color-mix(in oklab, var(--surface), transparent 8%) 100%
-    );
-  background-size: 220% 100%;
-  animation: skeleton-shimmer 1.2s var(--ease-standard) infinite;
-}
-
-.skeleton-line {
-  width: calc(100% - (var(--space-6) * 2));
-  height: 14px;
-  margin-inline: var(--space-6);
-}
-
-.case-card .skeleton-line {
-  width: 100%;
-  margin-inline: 0;
-}
-
-.blog-card-body .skeleton-line {
-  margin-inline: 0;
-}
-
-.skeleton-line-short {
-  width: 28%;
-}
-
-.skeleton-line-medium {
-  width: 62%;
-}
-
-.skeleton-line-title {
-  height: 28px;
-  width: 78%;
-}
-
-.skeleton-line-button {
-  width: 112px;
-  height: 18px;
-  margin-bottom: var(--space-6);
-}
-
-.case-card .skeleton-line-button {
-  margin-bottom: 0;
-}
-
-.dark-band .skeleton-block,
-.dark-band .skeleton-line {
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--bg), transparent 92%) 0%,
-      color-mix(in oklab, var(--bg), transparent 84%) 48%,
-      color-mix(in oklab, var(--bg), transparent 92%) 100%
-    );
-  background-size: 220% 100%;
-}
-
-@keyframes skeleton-shimmer {
-  from {
-    background-position: 120% 0;
-  }
-
-  to {
-    background-position: -120% 0;
-  }
-}
-
 .blog-page {
   position: relative;
 }
@@ -3974,6 +3890,47 @@ h3 {
   opacity: 0.7;
 }
 
+@media print {
+  @page {
+    size: 460px 660px;
+    margin: 0;
+  }
+
+  .is-printing-digital-card body {
+    background: #ffffff !important;
+  }
+
+  .is-printing-digital-card body * {
+    visibility: hidden !important;
+  }
+
+  .is-printing-digital-card .digital-card,
+  .is-printing-digital-card .digital-card * {
+    visibility: visible !important;
+  }
+
+  .is-printing-digital-card .digital-card-page {
+    min-height: auto;
+    padding: 0;
+    background: #ffffff;
+  }
+
+  .is-printing-digital-card .digital-card {
+    width: 460px;
+    min-height: 660px;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
+    position: fixed;
+    inset: 0 auto auto 0;
+    overflow: hidden;
+  }
+
+  .is-printing-digital-card .digital-card-pdf-btn {
+    display: none !important;
+  }
+}
+
 @keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -4576,8 +4533,7 @@ h3 {
 
 .planos-plan-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+  flex-direction: column;
   margin-top: auto;
 }
 
@@ -6200,6 +6156,7 @@ h3 {
 }
 
 .appointment-form input[type="date"] {
+  appearance: none;
   -webkit-appearance: none;
 }
 

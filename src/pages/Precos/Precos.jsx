@@ -257,9 +257,7 @@ export default function Planos() {
                         >
                           Quero este plano
                         </Button>
-                        <Button as={Link} to={routes.contact} variant="secondary">
-                          Falar por formulário
-                        </Button>
+                        
                       </div>
                     </Card>
                   ))}

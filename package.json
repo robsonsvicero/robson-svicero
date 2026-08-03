@@ -5,14 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 127.0.0.1",
-    "build": "node scripts/generate-sitemap.mjs && vite build && node scripts/generate-blog-html.mjs",
+    "build": "node scripts/generate-content-snapshots.mjs && node scripts/generate-sitemap.mjs && vite build && node scripts/generate-blog-html.mjs",
+    "build:snapshots": "node scripts/generate-content-snapshots.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "preview": "vite preview --host 127.0.0.1"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.0",
     "@vitejs/plugin-react": "^4.3.4",
-    "html2pdf.js": "^0.14.0",
     "lucide-react": "^1.23.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

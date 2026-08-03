@@ -56,8 +56,9 @@ export default function BlogArticleCard({
           src={imageSource}
           alt={`Capa do artigo: ${post.title}`}
           title={`Capa do artigo: ${post.title}`}
-          loading="lazy"
+          loading={featured ? "eager" : "lazy"}
           decoding="async"
+          fetchPriority={featured ? "high" : "auto"}
           width="800"
           height="500"
         />

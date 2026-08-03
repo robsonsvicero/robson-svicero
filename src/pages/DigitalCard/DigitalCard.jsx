@@ -42,29 +42,38 @@ export default function DigitalCard() {
     if (!cardRef.current || isGenerating) return;
     setIsGenerating(true);
 
+    let releaseTimer = null;
+
     try {
-      const html2pdf = (await import("html2pdf.js")).default;
-      const options = {
-        margin: 0,
-        filename: "cartao-robson-svicero.pdf",
-        image: { type: "jpeg", quality: 0.98 },
-        html2canvas: {
-          scale: 3,
-          useCORS: true,
-          backgroundColor: null,
-        },
-        jsPDF: {
-          unit: "px",
-          format: [460, 660],
-          orientation: "portrait",
-        },
+      const root = document.documentElement;
+      root.classList.add("is-printing-digital-card");
+
+      const finishPrint = () => {
+        root.classList.remove("is-printing-digital-card");
+        setIsGenerating(false);
+        window.removeEventListener("afterprint", finishPrint);
+
+        if (releaseTimer) {
+          window.clearTimeout(releaseTimer);
+          releaseTimer = null;
+        }
       };
 
-      await html2pdf().set(options).from(cardRef.current).save();
+      window.addEventListener("afterprint", finishPrint);
+
+      // Fallback for browsers that may not consistently fire afterprint.
+      releaseTimer = window.setTimeout(finishPrint, 4000);
+
+      window.print();
     } catch (err) {
       console.error("Erro ao gerar PDF:", err);
-    } finally {
+
+      document.documentElement.classList.remove("is-printing-digital-card");
       setIsGenerating(false);
+
+      if (releaseTimer) {
+        window.clearTimeout(releaseTimer);
+      }
     }
   }
 

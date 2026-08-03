@@ -3,6 +3,61 @@ import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
 
 const listCache = new Map();
 const listRequests = new Map();
+const SESSION_LIST_CACHE_TTL_MS = 1000 * 60 * 15;
+const LOCAL_LIST_CACHE_TTL_MS = 1000 * 60 * 60 * 24 * 7;
+
+function getStorageCacheKey(cacheKey) {
+  return `supabase-list:${cacheKey}`;
+}
+
+function readFromStorage(storage, cacheKey, ttlMs) {
+  if (!storage) return null;
+
+  try {
+    const raw = storage.getItem(getStorageCacheKey(cacheKey));
+    if (!raw) return null;
+
+    const parsed = JSON.parse(raw);
+    if (!parsed || !Array.isArray(parsed.items) || typeof parsed.timestamp !== "number") {
+      return null;
+    }
+
+    if (Date.now() - parsed.timestamp > ttlMs) {
+      storage.removeItem(getStorageCacheKey(cacheKey));
+      return null;
+    }
+
+    return parsed.items;
+  } catch {
+    return null;
+  }
+}
+
+function readPersistedList(cacheKey) {
+  if (typeof window === "undefined") return null;
+
+  return (
+    readFromStorage(window.sessionStorage, cacheKey, SESSION_LIST_CACHE_TTL_MS) ||
+    readFromStorage(window.localStorage, cacheKey, LOCAL_LIST_CACHE_TTL_MS)
+  );
+}
+
+function persistList(cacheKey, items) {
+  if (typeof window === "undefined") return;
+
+  try {
+    const payload = JSON.stringify({ items, timestamp: Date.now() });
+
+    window.sessionStorage.setItem(
+      getStorageCacheKey(cacheKey),
+      payload,
+    );
+
+    window.localStorage.setItem(getStorageCacheKey(cacheKey), payload);
+  } catch {
+    // Ignore storage quota and serialization errors.
+  }
+}
 
 function getListCacheKey({ table, orderBy, ascending, select, limit, publishedOnly }) {
   return JSON.stringify({ table, orderBy, ascending, select, limit, publishedOnly });
@@ -19,7 +74,12 @@ export function useSupabaseList({
   publishedOnly = false,
 }) {
   const cacheKey = getListCacheKey({ table, orderBy, ascending, select, limit, publishedOnly });
-  const cachedItems = listCache.get(cacheKey);
+  const cachedItems = listCache.get(cacheKey) || readPersistedList(cacheKey);
+
+  if (cachedItems && !listCache.has(cacheKey)) {
+    listCache.set(cacheKey, cachedItems);
+  }
+
   const [items, setItems] = useState(cachedItems || fallback);
   const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured && !cachedItems));
 
@@ -72,6 +132,7 @@ export function useSupabaseList({
 
       if (mappedItems) {
         listCache.set(cacheKey, mappedItems);
+        persistList(cacheKey, mappedItems);
         setItems(mappedItems);
       }
 

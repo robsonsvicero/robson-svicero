@@ -265,7 +265,16 @@ export default function BlogPost() {
                 </span>
               </p>
               {post.image && (
-                <img className="blog-post-cover" src={post.image} alt={post.title} />
+                <img
+                  className="blog-post-cover"
+                  src={post.image}
+                  alt={post.title}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  width="1200"
+                  height="630"
+                />
               )}
             </div>
           </header>
@@ -292,7 +301,14 @@ export default function BlogPost() {
               <BlogShare title={post.title} url={canonicalUrl} />
               {authorProfile && (
                 <aside className="blog-author-card" aria-labelledby="blog-author-name">
-                  <img src={authorProfile.photo} alt={`Foto de ${authorProfile.name}`} />
+                  <img
+                    src={authorProfile.photo}
+                    alt={`Foto de ${authorProfile.name}`}
+                    loading="lazy"
+                    decoding="async"
+                    width="120"
+                    height="120"
+                  />
                   <div className="blog-author-card-content">
                     <p className="eyebrow">Publicado por</p>
                     <h2 id="blog-author-name">{authorProfile.name}</h2>

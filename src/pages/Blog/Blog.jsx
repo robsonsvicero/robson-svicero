@@ -1,41 +1,16 @@
+import { useEffect } from "react";
 import BlogArticleCard from "../../components/BlogArticleCard/BlogArticleCard.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import Card from "../../components/ui/Card/Card.jsx";
+import { contentSnapshots } from "../../data/contentSnapshots.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapBlogPost } from "../../lib/contentMappers.js";
-
-function BlogCardSkeleton() {
-  return (
-    <Card className="blog-card card-skeleton" aria-hidden="true">
-      <div className="blog-card-image skeleton-block" />
-      <div className="blog-card-body">
-        <span className="skeleton-line skeleton-line-short" />
-        <span className="skeleton-line skeleton-line-title" />
-        <span className="skeleton-line skeleton-line-button" />
-      </div>
-    </Card>
-  );
-}
-
-function BlogFeaturedCardSkeleton() {
-  return (
-    <Card className="blog-card blog-card-featured card-skeleton" aria-hidden="true">
-      <div className="blog-card-image skeleton-block" />
-      <div className="blog-card-body">
-        <span className="skeleton-line skeleton-line-short" />
-        <span className="skeleton-line skeleton-line-title" />
-        <span className="skeleton-line" />
-        <span className="skeleton-line skeleton-line-medium" />
-        <span className="skeleton-line skeleton-line-button" />
-      </div>
-    </Card>
-  );
-}
+import { prefetchImages } from "../../utils/imagePrefetch.js";
 
 export default function Blog() {
-  const { items: blogPosts, isLoading } = useSupabaseList({
+  const { items: blogPosts } = useSupabaseList({
     table: "blog_posts",
+    fallback: contentSnapshots.blogPosts.slice(0, 12),
     mapper: mapBlogPost,
     orderBy: "published_at",
     ascending: false,
@@ -43,8 +18,17 @@ export default function Blog() {
     publishedOnly: true,
     limit: 12,
   });
-  const shouldShowSkeletons = isLoading && blogPosts.length === 0;
   const [featuredPost, ...remainingPosts] = blogPosts;
+
+  useEffect(() => {
+    if (blogPosts.length === 0) return;
+
+    const candidateImages = [featuredPost?.image || featuredPost?.thumbnail]
+      .concat(remainingPosts.slice(0, 5).map((post) => post.thumbnail || post.image))
+      .filter(Boolean);
+
+    prefetchImages(candidateImages, { limit: 6 });
+  }, [blogPosts, featuredPost, remainingPosts]);
 
   return (
     <>
@@ -65,9 +49,7 @@ export default function Blog() {
               </p>
             </div>
 
-            {shouldShowSkeletons ? (
-              <BlogFeaturedCardSkeleton />
-            ) : featuredPost ? (
+            {featuredPost ? (
               <BlogArticleCard
                 className="blog-featured-card"
                 featured
@@ -77,8 +59,6 @@ export default function Blog() {
             ) : null}
 
             <div className="blog-grid">
-              {shouldShowSkeletons &&
-                Array.from({ length: 3 }, (_, index) => <BlogCardSkeleton key={index} />)}
               {remainingPosts.map((post) => (
                 <BlogArticleCard key={post.slug} post={post} />
               ))}
