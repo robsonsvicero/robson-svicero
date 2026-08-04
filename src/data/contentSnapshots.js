@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-04T00:16:46.206Z",
+  "generatedAt": "2026-08-04T00:52:47.406Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-que-escondia-seus-principais-diferenciais/image-2026-07-28T17-19-02-944Z.webp",
@@ -113,7 +113,7 @@ export const contentSnapshots = {
   "projects": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/image-2026-07-03T17-02-54-771Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T00-02-04-031Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T00-46-11-993Z.webp",
       "slug": "projeto-de-captacao-digital-para-ong",
       "path": "/cases/projeto-de-captacao-digital-para-ong",
       "title": "Projeto de captação digital para ONG",

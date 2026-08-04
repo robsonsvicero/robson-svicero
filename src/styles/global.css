@@ -1548,10 +1548,13 @@ h3 {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 400px;
+  width: 100%;
+  height: clamp(340px, 30vw, 400px);
+  padding: 0;
   border-radius: var(--radius-lg);
   border: 2px solid transparent;
   overflow: hidden;
+  isolation: isolate;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1562,7 +1565,7 @@ h3 {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.24) 58%, rgba(0, 0, 0, 0.18) 100%);
   z-index: 1;
   transition: opacity 0.3s ease;
 }
@@ -1689,7 +1692,7 @@ h3 {
   width: 100%;
   min-width: 0;
   margin: 0;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid color-mix(in oklab, var(--bg), transparent 84%);
   border-radius: var(--radius-lg);
@@ -5682,7 +5685,7 @@ h3 {
   }
 
   .case-card {
-    min-height: auto;
+    height: clamp(300px, 78vw, 360px);
   }
 
   .schedule-card {
