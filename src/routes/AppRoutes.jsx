@@ -1,8 +1,18 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
+import ReactGA from "react-ga4";
 import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton.jsx";
 import Home from "../pages/Home/Home.jsx";
 import useScrollToTop from "../hooks/useScrollToTop.js";
+
+const GA_MEASUREMENT_ID = "G-WP7DM0BXVE";
+let analyticsInitialized = false;
+
+function ensureAnalyticsInitialized() {
+  if (analyticsInitialized || typeof window === "undefined") return;
+  ReactGA.initialize(GA_MEASUREMENT_ID);
+  analyticsInitialized = true;
+}
 
 const AdminDashboard = lazy(() => import("../pages/Admin/AdminDashboard.jsx"));
 const AdminLogin = lazy(() => import("../pages/Admin/AdminLogin.jsx"));
@@ -52,9 +62,33 @@ function HomeOrBlogPreview() {
   return <Navigate to={`/blog/${encodeURIComponent(previewSlug)}?preview=1`} replace />;
 }
 
+function RouteAnalytics() {
+  const location = useLocation();
+  const lastTrackedPath = useRef("");
+
+  useEffect(() => {
+    ensureAnalyticsInitialized();
+
+    const page = `${location.pathname}${location.search}${location.hash}`;
+
+    // Evita pageview duplicado no StrictMode durante desenvolvimento.
+    if (lastTrackedPath.current === page) return;
+    lastTrackedPath.current = page;
+
+    ReactGA.send({
+      hitType: "pageview",
+      page,
+      title: document.title,
+    });
+  }, [location.hash, location.pathname, location.search]);
+
+  return null;
+}
+
 export default function AppRoutes() {
   return (
     <BrowserRouter>
+      <RouteAnalytics />
       <ScrollToTop />
       <Suspense fallback={null}>
         <Routes>
