@@ -240,6 +240,8 @@ alter table public.projects add column if not exists thumbnail text;
 alter table public.projects add column if not exists image_3 text;
 alter table public.projects add column if not exists image_4 text;
 alter table public.projects add column if not exists image_5 text;
+alter table public.projects add column if not exists published_at timestamptz;
+alter table public.projects add column if not exists badge text;
 
 create index if not exists projects_created_at_idx
 on public.projects (created_at desc);

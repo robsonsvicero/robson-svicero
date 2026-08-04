@@ -16,7 +16,7 @@ export default function Cases() {
     fallback: contentSnapshots.projects,
     mapper: mapProject,
     orderBy: "published_at",
-    select: "slug,title,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
+    select: "slug,title,badge,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 12,
   });
 
@@ -58,24 +58,17 @@ export default function Cases() {
                   aria-label={`Ver case: ${project.title}`}
                   className="case-card clickable-card"
                   key={project.slug}
+                  style={{
+                    backgroundImage: `url('${project.thumbnail}')`,
+                  }}
                 >
-                  {project.thumbnail && (
-                    <figure className="case-card-media">
-                      <img
-                        src={project.thumbnail}
-                        alt={project.alt || project.title}
-                        loading="lazy"
-                        decoding="async"
-                        width="800"
-                        height="500"
-                      />
-                    </figure>
+                  {project.badge && (
+                    <span className="case-card-badge">{project.badge}</span>
                   )}
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
-                  <span className="btn btn-ghost btn-arrow">
-                    Ver case
-                  </span>
+                  <div className="case-card-content">
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                  </div>
                 </Card>
               ))}
             </div>

@@ -15,7 +15,7 @@ export default function Projects() {
     fallback: contentSnapshots.projects.slice(0, 3),
     mapper: mapProject,
     orderBy: "published_at",
-    select: "slug,title,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
+    select: "slug,title,badge,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 3,
   });
 
@@ -60,26 +60,20 @@ export default function Projects() {
             title={`Ver case: ${project.title}`}
             className="case-card clickable-card"
             key={project.title}
+            style={{
+              backgroundImage: `url('${project.thumbnail}')`,
+            }}
             itemScope
             itemType="https://schema.org/CreativeWork"
             itemProp="url"
           >
-            <div className="case-visual">
-              <img
-                src={project.thumbnail}
-                alt={project.alt || `Prévia do projeto ${project.title}`}
-                title={project.alt || `Prévia do projeto ${project.title}`}
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="264"
-              />
+            {project.badge && (
+              <span className="case-card-badge">{project.badge}</span>
+            )}
+            <div className="case-card-content">
+              <h3 itemProp="name">{project.title}</h3>
+              <p itemProp="description">{project.metaDescription}</p>
             </div>
-            <h3 itemProp="name">{project.title}</h3>
-            <p itemProp="description">{project.metaDescription}</p>
-            <span className="btn btn-ghost btn-arrow">
-              Ver case
-            </span>
           </Card>
         ))}
       </div>

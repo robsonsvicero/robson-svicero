@@ -118,6 +118,7 @@ export const adminResources = {
     fields: [
       { name: "title", label: "Título", type: "text", required: true },
       { name: "slug", label: "Slug", type: "text", required: true },
+      { name: "badge", label: "Badge", type: "text", placeholder: "Ex: Site, Landing Page, Loja Virtual" },
       { name: "description", label: "Descrição curta", type: "textarea" },
       {
         name: "full_description",

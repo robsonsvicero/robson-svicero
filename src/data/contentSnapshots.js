@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-03T21:14:55.894Z",
+  "generatedAt": "2026-08-04T00:16:46.206Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-que-escondia-seus-principais-diferenciais/image-2026-07-28T17-19-02-944Z.webp",
@@ -113,10 +113,11 @@ export const contentSnapshots = {
   "projects": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/image-2026-07-03T17-02-54-771Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-07-03T17-02-47-020Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T00-02-04-031Z.webp",
       "slug": "projeto-de-captacao-digital-para-ong",
       "path": "/cases/projeto-de-captacao-digital-para-ong",
       "title": "Projeto de captação digital para ONG",
+      "badge": "Site",
       "publishedAt": "2026-06-19T00:00:00+00:00",
       "description": "Projeto Projeto de captação digital para ONG com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Projeto de captação digital para ONG: estrategia, design e desenvolvimento orientados a resultado.",
@@ -128,6 +129,7 @@ export const contentSnapshots = {
       "slug": "landing-page-estudio-de-estrategia-e-marca",
       "path": "/cases/landing-page-estudio-de-estrategia-e-marca",
       "title": "Landing Page Estúdio de Estratégia e Marca",
+      "badge": "Landing Page",
       "publishedAt": "2026-06-02T00:00:00+00:00",
       "description": "Projeto Landing Page Estúdio de Estratégia e Marca com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Landing Page Estúdio de Estratégia e Marca: estrategia, design e desenvolvimento orientados a resultado.",
@@ -139,6 +141,7 @@ export const contentSnapshots = {
       "slug": "como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao",
       "path": "/cases/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao",
       "title": "Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção”",
+      "badge": "Estratégia",
       "publishedAt": "2026-05-12T00:00:00+00:00",
       "description": "Projeto Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção” com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção”: estrategia, design e desenvolvimento orientados a resultado.",
@@ -150,6 +153,7 @@ export const contentSnapshots = {
       "slug": "plataforma-digital-para-consultor-imobiliario",
       "path": "/cases/plataforma-digital-para-consultor-imobiliario",
       "title": "Plataforma digital para consultor imobiliário",
+      "badge": "Site",
       "publishedAt": "2026-04-30T00:00:00+00:00",
       "description": "Projeto Plataforma digital para consultor imobiliário com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Plataforma digital para consultor imobiliário: estrategia, design e desenvolvimento orientados a resultado.",
@@ -161,6 +165,7 @@ export const contentSnapshots = {
       "slug": "amanda-store",
       "path": "/cases/amanda-store",
       "title": "AMANDA store",
+      "badge": "Loja virtual",
       "publishedAt": "2026-02-10T00:00:00+00:00",
       "description": "Projeto AMANDA store com foco em posicionamento digital e conversao.",
       "metaDescription": "Case AMANDA store: estrategia, design e desenvolvimento orientados a resultado.",
@@ -172,6 +177,7 @@ export const contentSnapshots = {
       "slug": "powerbrain-projeto-de-identidade-visual-website",
       "path": "/cases/powerbrain-projeto-de-identidade-visual-website",
       "title": "PowerBrain - Projeto de Identidade Visual + Website",
+      "badge": "IDV+Site",
       "publishedAt": "2025-03-14T00:00:00+00:00",
       "description": "Projeto PowerBrain - Projeto de Identidade Visual + Website com foco em posicionamento digital e conversao.",
       "metaDescription": "Case PowerBrain - Projeto de Identidade Visual + Website: estrategia, design e desenvolvimento orientados a resultado.",

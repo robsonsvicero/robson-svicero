@@ -26,6 +26,7 @@ export function mapProject(row) {
     slug: row.slug,
     path: `/cases/${row.slug}`,
     title: row.title,
+    badge: row.badge || row.type || "Site",
     publishedAt: row.published_at,
     description: row.description,
     fullDescription: row.full_description,
