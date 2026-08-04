@@ -25,7 +25,7 @@ export default function Cases() {
 
     const candidateImages = projects
       .slice(0, 8)
-      .map((project) => project.thumbnail || project.image)
+      .map((project) => project.thumbnail)
       .filter(Boolean);
 
     prefetchImages(candidateImages, { limit: 8 });
@@ -59,7 +59,7 @@ export default function Cases() {
                   className="case-card clickable-card"
                   key={project.slug}
                   style={{
-                    backgroundImage: `url('${project.thumbnail}')`,
+                    backgroundImage: project.thumbnail ? `url('${project.thumbnail}')` : "none",
                   }}
                 >
                   {project.badge && (

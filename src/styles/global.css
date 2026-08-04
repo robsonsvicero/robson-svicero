@@ -1561,22 +1561,9 @@ h3 {
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-.case-card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.24) 58%, rgba(0, 0, 0, 0.18) 100%);
-  z-index: 1;
-  transition: opacity 0.3s ease;
-}
-
 .case-card:hover {
   border-color: var(--accent);
   box-shadow: 0 12px 24px color-mix(in oklab, var(--accent), transparent 90%);
-}
-
-.case-card:hover::before {
-  opacity: 0.85;
 }
 
 .case-card-image-wrapper {

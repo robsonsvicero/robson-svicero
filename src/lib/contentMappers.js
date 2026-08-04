@@ -34,7 +34,7 @@ export function mapProject(row) {
     seoTitle: row.seo_title || row.title,
     seoDescription: row.seo_description || row.meta_description || row.description,
     image: row.image,
-    thumbnail: row.thumbnail || row.image,
+    thumbnail: row.thumbnail || null,
     galleryImages: [row.image_2, row.image_3, row.image_4, row.image_5].filter(Boolean),
     alt: row.alt,
     externalUrl: row.external_url,

@@ -22,7 +22,7 @@ export default function Projects() {
   useEffect(() => {
     if (projects.length === 0) return;
 
-    const candidateImages = projects.map((project) => project.thumbnail || project.image).filter(Boolean);
+    const candidateImages = projects.map((project) => project.thumbnail).filter(Boolean);
     prefetchImages(candidateImages, { limit: 3 });
   }, [projects]);
 
@@ -61,7 +61,7 @@ export default function Projects() {
             className="case-card clickable-card"
             key={project.title}
             style={{
-              backgroundImage: `url('${project.thumbnail}')`,
+              backgroundImage: project.thumbnail ? `url('${project.thumbnail}')` : "none",
             }}
             itemScope
             itemType="https://schema.org/CreativeWork"

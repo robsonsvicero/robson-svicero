@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-04T00:53:08.735Z",
+  "generatedAt": "2026-08-04T14:29:28.438Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-que-escondia-seus-principais-diferenciais/image-2026-07-28T17-19-02-944Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 8,
+      "viewsCount": 9,
       "readingTime": "8 minutos"
     },
     {
@@ -58,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 19,
+      "viewsCount": 20,
       "readingTime": "6 minutos"
     },
     {
@@ -113,7 +113,7 @@ export const contentSnapshots = {
   "projects": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/image-2026-07-03T17-02-54-771Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T00-46-11-993Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T01-10-32-331Z.webp",
       "slug": "projeto-de-captacao-digital-para-ong",
       "path": "/cases/projeto-de-captacao-digital-para-ong",
       "title": "Projeto de captação digital para ONG",
@@ -125,7 +125,7 @@ export const contentSnapshots = {
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/landing-page-estudio-de-estrategia-e-marca/image-2026-07-03T17-41-03-110Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/landing-page-estudio-de-estrategia-e-marca/thumbnail-2026-07-03T17-40-56-617Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/landing-page-estudio-de-estrategia-e-marca/thumbnail-2026-08-04T02-10-12-232Z.webp",
       "slug": "landing-page-estudio-de-estrategia-e-marca",
       "path": "/cases/landing-page-estudio-de-estrategia-e-marca",
       "title": "Landing Page Estúdio de Estratégia e Marca",
@@ -137,7 +137,7 @@ export const contentSnapshots = {
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao/image-2026-07-16T23-41-28-342Z.jpg",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao/thumbnail-2026-07-16T23-41-17-276Z.jpg",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao/thumbnail-2026-08-04T02-10-41-375Z.webp",
       "slug": "como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao",
       "path": "/cases/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao",
       "title": "Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção”",
@@ -148,8 +148,8 @@ export const contentSnapshots = {
       "alt": "Identidade digital premium"
     },
     {
-      "image": null,
-      "thumbnail": null,
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/plataforma-digital-para-consultor-imobiliario/image-2026-08-04T02-11-16-709Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/plataforma-digital-para-consultor-imobiliario/thumbnail-2026-08-04T02-11-07-164Z.webp",
       "slug": "plataforma-digital-para-consultor-imobiliario",
       "path": "/cases/plataforma-digital-para-consultor-imobiliario",
       "title": "Plataforma digital para consultor imobiliário",
@@ -161,7 +161,7 @@ export const contentSnapshots = {
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/amanda-store/image-2026-07-09T15-10-38-414Z.png",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/amanda-store/thumbnail-2026-07-09T15-10-30-809Z.png",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/amanda-store/thumbnail-2026-08-04T02-11-39-960Z.webp",
       "slug": "amanda-store",
       "path": "/cases/amanda-store",
       "title": "AMANDA store",
@@ -173,7 +173,7 @@ export const contentSnapshots = {
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/powerbrain-projeto-de-identidade-visual-website/image-2026-07-09T17-31-33-793Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/powerbrain-projeto-de-identidade-visual-website/thumbnail-2026-07-09T17-31-28-189Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/powerbrain-projeto-de-identidade-visual-website/thumbnail-2026-08-04T02-12-27-796Z.png",
       "slug": "powerbrain-projeto-de-identidade-visual-website",
       "path": "/cases/powerbrain-projeto-de-identidade-visual-website",
       "title": "PowerBrain - Projeto de Identidade Visual + Website",
