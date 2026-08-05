@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-04T16:54:20.308Z",
+  "generatedAt": "2026-08-05T02:19:02.797Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-saber-se-minha-empresa-precisa-de-um-novo-site/image-2026-08-04T20-33-35-093Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-saber-se-minha-empresa-precisa-de-um-novo-site/thumbnail-2026-08-04T20-33-24-557Z.webp",
+      "slug": "como-saber-se-minha-empresa-precisa-de-um-novo-site",
+      "path": "/blog/como-saber-se-minha-empresa-precisa-de-um-novo-site",
+      "title": "Como saber se minha empresa precisa de um novo site?",
+      "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
+      "category": "Websites Estratégicos",
+      "publishedAt": "2026-08-04T20:34:00+00:00",
+      "viewsCount": 4,
+      "readingTime": "8 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-que-escondia-seus-principais-diferenciais/image-2026-07-28T17-19-02-944Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-que-escondia-seus-principais-diferenciais/thumbnail-2026-07-28T19-26-28-804Z.webp",
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Seu site responde às dúvidas que impedem um cliente de comprar? Entenda como clareza, confiança e orientação reduzem abandonos e facilitam a decisão.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-23T03:05:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 12,
       "readingTime": "6 minutos"
     },
     {
@@ -58,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "6 minutos"
     },
     {

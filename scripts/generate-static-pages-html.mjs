@@ -11,6 +11,7 @@ const CANONICAL_PATHS = [
   "/criacao-de-sites",
   "/precos",
   "/servicos/ux-design",
+  "/servicos/landing-page",
   "/servicos/seo",
   "/servicos/gestao-gmn",
   "/servicos/identidade-visual",

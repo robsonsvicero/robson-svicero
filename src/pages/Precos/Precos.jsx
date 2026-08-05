@@ -10,60 +10,71 @@ import { absoluteUrl } from "../../utils/seo.js";
 const plans = [
   {
     id: "basic",
-    name: "Plano Básico",
+    name: "PLANO ESSENCIAL",
     focus: "Presença digital e manutenção",
-    tone: "Para dar o primeiro passo com profissionalismo",
+    tone: "Site robusto com 5-8 páginas, otimizado para SEO básico",
     highlight: "Mais acessível",
-    setup: "R$ 1.500,00",
-    monthly: "R$ 600,00",
-    totalInstalments: "12x R$ 175,00",
-    totalValue: "R$ 2.100,00",
-    cashValue: "R$ 1.995,00",
+    setup: "R$ 3.500,00",
+    monthly: "12x R$ 50,00",
+    totalMonthly: "R$ 600,00/ano",
+    totalInstalments: "12x R$ 341,67",
+    totalValue: "R$ 4.100,00",
+    cashValue: "R$ 3.895,00",
     composition:
       "Hospedagem (R$ 50) + 2 artigos (R$ 300) + Gestão GMN com 2 posts (R$ 250).",
     bullets: [
       "Criação do site + configuração do GMN",
       "Manutenção mensal essencial",
       "Base de conteúdo para sustentar presença digital",
+      "Design responsivo e moderno",
+      "5-8 páginas estruturadas (Home, Sobre, Serviços, Blog, Contato)",
+      "Otimização on-page (palavras-chave, meta tags)",
+      "Integração Google Analytics e Search Console",
+      "Certificado SSL incluído",
     ],
   },
   {
     id: "essential",
-    name: "Plano Essencial",
+    name: "PLANO PRO",
     focus: "Crescimento e negócios locais",
-    tone: "Para crescer com constância e mais alcance",
-    highlight: "Mais vendido",
-    setup: "R$ 1.000,00",
-    monthly: "R$ 1.300,00",
-    totalInstalments: "12x R$ 191,67",
-    totalValue: "R$ 2.300,00",
-    cashValue: "R$ 2.185,00",
+    tone: "Site completo com estratégia SEO avançada e blog de conteúdo",
+    highlight: "Recomendado",
+    setup: "R$ 5.000,00",
+    monthly: "12x R$ 108,33",
+    totalMonthly: "R$ 1.300,00/ano",
+    totalInstalments: "12x R$ 525,00",
+    totalValue: "R$ 6.300,00",
+    cashValue: "R$ 5.985,00",
     composition:
       "Hospedagem (R$ 50) + 4 artigos (R$ 600) + Gestão GMN com 4 posts (R$ 500) + Estratégia de SEO Local/otimizações on-page recorrentes (R$ 150).",
     bullets: [
-      "Setup do site e configuração do GMN",
-      "Conteúdo mensal mais robusto",
+      "Tudo do ESSENCIAL, mais:",
+      "Blog estruturado com 3 posts de nicho otimizados",
       "SEO local recorrente para ganho de visibilidade",
+      "Rich snippets (FAQ, localização, avaliações)",
     ],
     featured: true,
   },
   {
     id: "premium",
-    name: "Plano Premium",
+    name: "PLANO PREMIUM",
     focus: "Dominação de nicho e alta concorrência",
     tone: "Para competir forte em nichos mais disputados",
     highlight: "Maior suporte",
-    setup: "R$ 1.000,00",
-    monthly: "R$ 2.400,00",
-    totalInstalments: "12x R$ 283,33",
-    totalValue: "R$ 3.400,00",
-    cashValue: "R$ 3.230,00",
+    setup: "R$ 7.500,00",
+    monthly: "12x R$ 200,00",
+    totalMonthly: "R$ 2.400,00/ano",
+    totalInstalments: "12x R$ 825,00",
+    totalValue: "R$ 9.900,00",
+    cashValue: "R$ 9.405,00",
     composition:
       "Hospedagem (R$ 50) + 8 artigos (R$ 1.100) + Gestão GMN com 8 posts (R$ 800) + Consultoria de SEO aprofundada (backlinks, auditorias técnicas, relatórios completos) (R$ 450).",
     bullets: [
+      "Tudo do PRO SEO, mais:",
       "Estrutura para competir em nichos mais disputados",
       "Mais conteúdo e mais presença local",
       "SEO aprofundado com consultoria contínua",
+      "Mapa interativo (se aplicável)",
     ],
   },
 ];
@@ -161,7 +172,7 @@ export default function Planos() {
                   <div className="planos-hero-stats">
                     <div>
                       <span>Setup</span>
-                      <strong>de R$ 1.000 a R$ 1.500</strong>
+                      <strong>de R$ 3.500 a R$ 7.500</strong>
                     </div>
                     <div>
                       <span>Mensalidade</span>
@@ -214,12 +225,13 @@ export default function Planos() {
 
                       <div className="planos-plan-prices">
                         <div className="planos-plan-price">
-                          <span>Taxa de setup</span>
+                          <span>Site (UX/UI Design + Desenvolvimento)</span>
                           <strong>{plan.setup}</strong>
                         </div>
                         <div className="planos-plan-price">
-                          <span>Mensalidade</span>
+                          <span>Hospedagem + SEO</span>
                           <strong>{plan.monthly}</strong>
+                          <small>{plan.totalMonthly}</small>
                         </div>
                         <div className="planos-plan-price planos-plan-price--emphasis">
                           <span>Total a prazo</span>
@@ -234,7 +246,7 @@ export default function Planos() {
                       </div>
 
                       <div className="planos-plan-composition">
-                        <p className="meta">Composição da mensalidade</p>
+                        <p className="meta">Composição do valor de Hospedagem + SEO</p>
                         <p>{plan.composition}</p>
                       </div>
 
@@ -257,7 +269,7 @@ export default function Planos() {
                         >
                           Quero este plano
                         </Button>
-                        
+
                       </div>
                     </Card>
                   ))}

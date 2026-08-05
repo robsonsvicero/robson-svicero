@@ -37,6 +37,7 @@ const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
 const ShortLinkRedirect = lazy(() => import("../pages/ShortLink/ShortLinkRedirect.jsx"));
 const Agendamento = lazy(() => import("../pages/Agendamento/Agendamento.jsx"));
 const UXDesign = lazy(() => import("../pages/Servicos/UXDesign.jsx"));
+const LandingPage = lazy(() => import("../pages/Servicos/LandingPage.jsx"));
 const IdentidadeVisual = lazy(() => import("../pages/Servicos/IdentidadeVisual.jsx"));
 const SeoService = lazy(() => import("../pages/Servicos/SeoService.jsx"));
 const GestaoGMN = lazy(() => import("../pages/Servicos/GestaoGMN.jsx"));
@@ -97,6 +98,7 @@ export default function AppRoutes() {
           <Route path="/precos" element={<Precos />} />
           <Route path="/servicos" element={<Navigate to="/servicos/ux-design" replace />} />
           <Route path="/servicos/ux-design" element={<UXDesign />} />
+          <Route path="/servicos/landing-page" element={<LandingPage />} />
           <Route path="/servicos/identidade-visual" element={<IdentidadeVisual />} />
           <Route path="/servicos/seo" element={<SeoService />} />
           <Route path="/servicos/gestao-gmn" element={<GestaoGMN />} />

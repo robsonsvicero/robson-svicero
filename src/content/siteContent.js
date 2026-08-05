@@ -5,6 +5,7 @@ export const routes = {
   prices: "/precos",
   services: "/servicos",
   uxDesignService: "/servicos/ux-design",
+  landingPageService: "/servicos/landing-page",
   visualIdentityService: "/servicos/identidade-visual",
   seoService: "/servicos/seo",
   gmnService: "/servicos/gestao-gmn",
@@ -41,6 +42,7 @@ export const headerContent = {
       to: routes.services,
       items: [
         { label: "Método C.L.A.R.O.", to: routes.claroMethod },
+        { label: "Landing Page", to: routes.landingPageService },
         { label: "SEO", to: routes.seoService },
         { label: "UX Design", to: routes.uxDesignService },
         { label: "Gestão de GMN", to: routes.gmnService },
@@ -179,6 +181,12 @@ export const servicesContent = {
       description:
         "Seu site nasce rápido, responsivo e preparado para ser encontrado no Google.",
       iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
+    },
+    {
+      title: "Landing Page de conversão",
+      description:
+        "Página única para campanhas, lançamentos e captação de leads, com foco total na ação desejada.",
+      iconPath: "M4 6h16M4 12h12M4 18h8",
     },
   ],
 };
@@ -436,7 +444,7 @@ export const pageCtaContent = {
     eyebrow: "Quer avançar?",
     title: "Nem todo projeto cabe em um pacote pronto.",
     lead:
-      "Me conte o que você precisa vender, qual é sua meta e o que torna seu projeto diferente, que eu retorno com uma proposta sob medida, objetiva e sem desperdício.",
+      "Me conte o que você precisa vender, qual é sua meta e o que torna seu projeto diferente, que eu retorno com uma proposta sob medida para a sua necessidade, seja uma landing page ou um site institucional.",
     bandClass: "cta-home-band",
     primaryAction: {
       label: "Quero uma proposta",
@@ -488,6 +496,22 @@ export const pageCtaContent = {
     bandClass: "dark-band",
     primaryAction: {
       label: "Falar sobre SEO",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver serviços",
+      to: routes.services,
+    },
+  },
+  landingPageService: {
+    eyebrow: "Próximo passo",
+    title: "Vamos transformar sua oferta em uma landing page que conduz à ação.",
+    lead:
+      "Posso estruturar uma página de conversão com narrativa objetiva, prova social e CTA claro para campanhas e lançamentos.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Falar sobre Landing Page",
       href: contactLinks.whatsapp,
       newTab: true,
     },

@@ -27,6 +27,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://robsonsvicero.com.br/servicos/landing-page</loc>
+    <lastmod>2026-08-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://robsonsvicero.com.br/servicos/seo</loc>
     <lastmod>2026-08-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -153,6 +159,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://robsonsvicero.com.br/blog/como-saber-se-minha-empresa-precisa-de-um-novo-site</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://robsonsvicero.com.br/blog/o-site-que-escondia-seus-principais-diferenciais</loc>
     <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -166,7 +178,7 @@
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/blog/seu-site-esta-respondendo-as-perguntas-que-impedem-um-cliente-de-comprar</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-08-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
