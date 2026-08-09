@@ -177,8 +177,8 @@ export default function Footer() {
       {/* ── Giant brand name ── */}
       <div className="footer-wordmark" aria-hidden="true">
         <img
-          src="/assets/images/logo-hor-base.png"
-          alt=""
+          src="/assets/images/logo-hor-base.webp"
+          alt="Robson Svicero Desenvolvimento de sites"
           className="footer-wordmark-img"
         />
       </div>

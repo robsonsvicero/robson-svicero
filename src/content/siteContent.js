@@ -584,7 +584,7 @@ export const footerContent = {
     },
   ],
   navEstudio: {
-    label: "Estúdio",
+    label: "INSTITUCIONAL",
     links: [
       { label: "Home", href: routes.home },
       { label: "Sobre", href: routes.about },
@@ -607,7 +607,7 @@ export const footerContent = {
     ],
   },
   navSuporte: {
-    label: "Suporte",
+    label: "SUPORTE",
     links: [
       { label: "Contato", href: routes.contact },
       { label: "Agendamentos", href: routes.schedule },
