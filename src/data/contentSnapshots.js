@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-09T21:38:58.878Z",
+  "generatedAt": "2026-08-09T22:05:17.473Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/quando-o-whatsapp-virou-o-unico-vendedor-da-empresa/image-2026-08-06T19-51-57-525Z.webp",
