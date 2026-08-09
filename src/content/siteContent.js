@@ -17,6 +17,7 @@ export const routes = {
   homeProjects: "/#projetos",
   homeContact: "/#contato",
   privacy: "/privacidade",
+  exclusao: "/exclusao-dados",
   claroMethod: "/metodo-claro",
 };
 
@@ -63,10 +64,10 @@ export const headerContent = {
 };
 
 export const heroContent = {
-  eyebrow: "Criação de sites - UX Design",
-  title: "Criação de sites que ajudam empresas a conquistar mais clientes.",
+  eyebrow: "Criação de sites Profissionais",
+  title: "Criação de site profissional para pequenas empresas que querem conquistar mais clientes.",
   lead:
-    "Desenvolvo sites rápidos, profissionais e pensados para transformar visitantes em contatos, orçamentos e vendas. Do planejamento à publicação, cada projeto é criado para gerar resultados.",
+    "Desenvolvimento de sites profissionais rápidos, responsivos e pensados para ajudar sua empresa a aparecer melhor no Google e conquistar mais clientes pelo WhatsApp.",
   // note:
   //   "Transformo a sua presença digital em uma ferramenta para gerar contatos e oportunidades.",
   media: {
@@ -173,19 +174,19 @@ export const servicesContent = {
     {
       title: "Design sob medida",
       description:
-        "Um site exclusivo, alinhado à identidade da sua empresa e pensado para transmitir confiança.",
+        "Um site profissional exclusivo, alinhado à identidade da sua empresa e pensado para transmitir confiança.",
       iconPath: "M5 20V8l7-4 7 4v12M9 20v-6h6v6",
     },
     {
       title: "Desenvolvimento + SEO",
       description:
-        "Seu site nasce rápido, responsivo e preparado para ser encontrado no Google.",
+        "Criação de sites profissionais, responsivos, rápidos e preparados para ser encontrados no Google.",
       iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
     },
     {
       title: "Landing Page de conversão",
       description:
-        "Página única para campanhas, lançamentos e captação de leads, com foco total na ação desejada.",
+        "Criamos landing pages para campanhas, lançamentos e captação de leads, com foco total na ação desejada.",
       iconPath: "M4 6h16M4 12h12M4 18h8",
     },
   ],
@@ -194,6 +195,8 @@ export const servicesContent = {
 export const processContent = {
   eyebrow: "Como trabalho",
   title: "Um processo para tirar o site do papel com clareza.",
+  lead:
+  "Do entendimento do negócio à publicação no Google, cada etapa é pensada para transformar a presença digital da sua empresa em uma ferramenta de credibilidade e geração de contatos.",
   steps: [
     {
       number: "01",
@@ -253,7 +256,7 @@ export const testimonialsContent = {
     },
     {
       quote:
-        "O Robson nos ajudou a estruturar nossa proposta de valor. O novo site tornou nossa atuação mais clara e trouxe uma presença digital coerente com o nosso mercado.",
+        "O Robson nos ajudou a estruturar nossa proposta de valor. Com o desenvolvimento de um site profissional, que tornou nossa atuação mais clara e trouxe uma presença digital coerente com o nosso mercado.",
       author: "Marcelo Pelegrini",
       role: "CEO",
       business: "PowerBrain",
@@ -428,7 +431,7 @@ export const pageCtaContent = {
     eyebrow: "Próximo passo",
     title: "Se a sua marca precisa de um site profissional, este é o ponto de partida.",
     lead:
-      "Posso estruturar a página principal da sua presença digital com foco em clareza, credibilidade e conversão.",
+      "Atendo empresas de São Paulo e também projetos em outras cidades do Brasil, com reuniões online e acompanhamento durante o desenvolvimento.",
     bandClass: "dark-band",
     primaryAction: {
       label: "Falar no WhatsApp",
@@ -556,6 +559,66 @@ export const pageCtaContent = {
 
 export const footerContent = {
   copyright: "2026 Robson Svicero",
+  description:
+    "Estratégia, design e tecnologia para transformar sua presença digital em oportunidades de negócio.",
+  socials: [
+    {
+      label: "WhatsApp",
+      href: contactLinks.whatsapp,
+      icon: "whatsapp",
+    },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/robson.svicero",
+      icon: "instagram",
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/robsonsvicero",
+      icon: "github",
+    },
+    {
+      label: "Behance",
+      href: "https://www.behance.net/robsonsvicero",
+      icon: "behance",
+    },
+  ],
+  navEstudio: {
+    label: "Estúdio",
+    links: [
+      { label: "Home", href: routes.home },
+      { label: "Sobre", href: routes.about },
+      { label: "Criação de sites", href: routes.siteCreation },
+      {
+        label: "Serviços",
+        href: routes.services,
+        items: [
+          { label: "Método C.L.A.R.O.", to: routes.claroMethod },
+          { label: "Landing Page", to: routes.landingPageService },
+          { label: "SEO", to: routes.seoService },
+          { label: "UX Design", to: routes.uxDesignService },
+          { label: "Gestão de GMN", to: routes.gmnService },
+          { label: "Identidade Visual", to: routes.visualIdentityService },
+        ],
+      },
+      { label: "Preços", href: routes.prices },
+      { label: "Projetos", href: routes.cases },
+      { label: "Blog", href: routes.blog },
+    ],
+  },
+  navSuporte: {
+    label: "Suporte",
+    links: [
+      { label: "Contato", href: routes.contact },
+      { label: "Agendamentos", href: routes.schedule },
+      { label: "FAQ", href: routes.faq },
+    ],
+  },
+  bottomLinks: [
+    { label: "Privacidade", href: routes.privacy },
+    { label: "Exclusão de Dados", href: routes.exclusao },
+  ],
+  location: "São Paulo, Brasil",
   links: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/robsonsvicero/" },
     {

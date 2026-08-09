@@ -8,7 +8,7 @@ export default function Hero() {
     <section
       className="section hero hero-editorial"
       data-od-id="hero"
-      aria-label="Apresentação principal - Criação de sites, UX/UI Designer, Robson Svicero"
+      aria-label="Apresentação principal - Desenvolvimento de sites profissionais"
     >
       <div className="hero-media" aria-hidden="true">
         <picture>
@@ -16,8 +16,8 @@ export default function Hero() {
           <img
             className="hero-image"
             src={media.desktop}
-            alt="Entrega de projeto de site profissional"
-            title="Criação de sites profissionais com estratégia, UX e SEO"
+            alt="Criação de site profissional para pequena empresa"
+            title="Desenvolvimento de site profissional para pequenas empresas que querem conquistar mais clientes"
             fetchPriority="high"
             decoding="sync"
           />

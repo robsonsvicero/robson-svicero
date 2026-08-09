@@ -171,7 +171,7 @@ export default function Planos() {
 
                   <div className="planos-hero-stats">
                     <div>
-                      <span>Setup</span>
+                      <span>Site (UX/UI Design + Desenvolvimento)</span>
                       <strong>de R$ 3.500 a R$ 7.500</strong>
                     </div>
                     <div>

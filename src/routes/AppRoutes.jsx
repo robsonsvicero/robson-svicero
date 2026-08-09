@@ -41,6 +41,7 @@ const LandingPage = lazy(() => import("../pages/Servicos/LandingPage.jsx"));
 const IdentidadeVisual = lazy(() => import("../pages/Servicos/IdentidadeVisual.jsx"));
 const SeoService = lazy(() => import("../pages/Servicos/SeoService.jsx"));
 const GestaoGMN = lazy(() => import("../pages/Servicos/GestaoGMN.jsx"));
+const ExclusaoDados = lazy(() => import("../pages/ExclusaoDados/ExclusaoDados.jsx"));
 
 function ScrollToTop() {
   useScrollToTop();
@@ -126,6 +127,7 @@ export default function AppRoutes() {
               </ProtectedAdminRoute>
             }
           />
+          <Route path="/exclusao-dados" element={<ExclusaoDados />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>

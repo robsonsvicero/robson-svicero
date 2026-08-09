@@ -1,4 +1,5 @@
 import Layout from "../../components/layout/Layout/Layout.jsx";
+import { Link } from "react-router-dom";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
@@ -7,29 +8,31 @@ import { contactLinks, faqContent, pageCtaContent, routes } from "../../content/
 import { absoluteUrl } from "../../utils/seo.js";
 import Process from "../../sections/Process/Process.jsx";
 import Faq from "../../sections/Faq/Faq.jsx";
+import { ArrowRight } from "lucide-react";
 
 const offerings = [
   {
-    title: "Estratégia e conteúdo",
+    title: "Clareza da oferta",
     description:
       "Organizamos a mensagem, a hierarquia da página e os pontos que precisam ficar claros logo no primeiro contato.",
   },
   {
-    title: "Design sob medida",
+    title: "Confiança no primeiro acesso",
     description:
       "Criamos uma interface alinhada à sua marca, com leitura rápida, presença profissional e comportamento responsivo.",
   },
   {
-    title: "Desenvolvimento e SEO base",
+    title: "Velocidade e presença no Google",
     description:
       "Entregamos o site em React com estrutura semântica, performance, SEO on-page e base preparada para crescer.",
   },
 ];
 
 const aiHighlights = [
-  "Uso IA para acelerar pesquisa, organização de referências e refinamento inicial de texto.",
-  "A direção estratégica, o tom da marca e a revisão final continuam sendo conduzidos por mim.",
-  "Isso ajuda a ganhar velocidade sem abrir mão de consistência, clareza e personalidade.",
+  "Sua empresa já existe, mas o site não transmite confiança.",
+  "Você recebe poucas mensagens pelo site.",
+  "Quer aparecer melhor nas buscas do Google.",
+  "Precisa de uma presença digital profissional sem complicação.",
 ];
 
 const adminHighlights = [
@@ -105,8 +108,8 @@ export default function CriacaoDeSites() {
   return (
     <>
       <SEO
-        title="Criação de Sites Profissionais em São Paulo"
-        description="Criação de sites profissionais em São Paulo com foco em clareza, credibilidade, SEO, conversão e uso de IA como apoio no processo."
+        title="Criação de Sites para Pequenas Empresas em São Paulo | Robson Svicero"
+        description="Desenvolvimento de sites profissionais, rápidos e responsivos para pequenas empresas, prestadores de serviço e negócios locais em São Paulo. SEO básico e WhatsApp integrado."
         path="/criacao-de-sites"
         structuredData={createSiteCreationSchema()}
       />
@@ -115,24 +118,21 @@ export default function CriacaoDeSites() {
           <div className="container service-landing-hero-grid">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Criação de sites</p>
-              <h1 id="services-title">Um foco, um serviço: criar o seu site profissional.</h1>
+              <h1 id="services-title">Criação de sites profissionais para pequenas empresas</h1>
+              <p className="page-description">
+                Um foco, um serviço: criar o seu site profissional.
+              </p>
               <p className="lead">
-                Estruturamos a presença digital da sua marca com uma página clara, responsiva e
-                preparada para apresentar melhor sua oferta, ganhar credibilidade e gerar
-                contato.
+                Desenvolvimento de sites profissionais para pequenas empresas, prestadores de serviço e negócios locais que precisam transmitir confiança, aparecer melhor no Google e gerar mais contatos pelo WhatsApp.
               </p>
               <div className="hero-cta">
                 <Button href={contactLinks.whatsapp} target="_blank" rel="noreferrer noopener">
                   Falar no WhatsApp
                 </Button>
                 <Button variant="secondary" href="#o-que-oferecemos">
-                  Ver a estrutura
+                  Ver o que está incluso
                 </Button>
               </div>
-              <p className="page-description">
-                Sites pensados para empresas e profissionais que precisam sair da presença
-                improvisada e entrar em uma base digital mais confiável.
-              </p>
             </div>
 
             <figure className="service-landing-visual" aria-hidden="true">
@@ -180,6 +180,27 @@ export default function CriacaoDeSites() {
           </div>
         </section>
 
+        <section className="section surface-band" aria-labelledby="ai-title">
+          <div className="container grid-2">
+            <div className="stack" style={{ gap: "var(--space-5)" }}>
+              <p className="eyebrow">Ideal para</p>
+              <h2 id="ai-title">Esse serviço é para você se...</h2>
+              <p className="lead">
+                Seu negócio já existe, mas a sua presença digital ainda não transmite a mesma confiança e profissionalismo do trabalho que você entrega.
+              </p>
+            </div>
+
+            <Card className="stack" as="div">
+              {aiHighlights.map((item) => (
+                <div className="service-check" key={item}>
+                  <span aria-hidden="true">OK</span>
+                  <p>{item}</p>
+                </div>
+              ))}
+            </Card>
+          </div>
+        </section>
+
         <section className="section" id="o-que-oferecemos" aria-labelledby="offerings-title">
           <div className="container stack" style={{ gap: "var(--space-8)" }}>
             <div className="split-title">
@@ -197,30 +218,7 @@ export default function CriacaoDeSites() {
           </div>
         </section>
 
-        <section className="section" aria-labelledby="ai-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">IA no processo</p>
-              <h2 id="ai-title">Crio sites alinhados com o uso de IA como apoio de produção</h2>
-              <p className="lead">
-                A IA entra como uma ferramenta para acelerar pesquisa, estruturar ideias e ajudar
-                no refinamento do conteúdo. O resultado final continua sendo estratégico, humano e
-                ajustado à voz da sua marca.
-              </p>
-            </div>
-
-            <Card className="stack" as="div">
-              {aiHighlights.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </Card>
-          </div>
-        </section>
-
-        <section className="section" aria-labelledby="admin-title">
+        <section className="section surface-band" aria-labelledby="admin-title">
           <div className="container grid-2">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Painel administrativo</p>
@@ -245,18 +243,35 @@ export default function CriacaoDeSites() {
         
         <CTA content={pageCtaContent.siteCreation} titleId="services-cta-title" />
 
-        <section hidden aria-hidden="true" className="section" id="servicos-inclusos">
-          <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <div className="split-title">
+        <section className="section site-included-services" id="servicos-inclusos" aria-labelledby="servicos-inclusos-title">
+          <div className="container stack site-included-services-stack">
+            <div className="site-included-services-header stack">
               <p className="eyebrow">Serviços inclusos na criação do seu site profissional</p>
-              <h2>Base preparada para entregar o projeto completo</h2>
+              <h2 id="servicos-inclusos-title">Base preparada para entregar o projeto completo</h2>
+              <p className="lead">
+                Desenvolvimento de sites profissionais para pequenas empresas e prestadores de serviço em São Paulo, com foco em clareza, desempenho e geração de contatos.
+              </p>
             </div>
-            <div className="grid-3">
+            <div className="site-included-services-grid" role="list">
               {includedServices.map((item) => (
                 <Card className="feature" key={item}>
                   <p>{item}</p>
                 </Card>
+                
               ))}
+            </div>
+
+            <div className="site-included-services-note">
+              <p className="lead">
+                Essa base já contempla os elementos essenciais para um site profissional, mas
+                algumas frentes podem ser aprofundadas de forma estratégica conforme o estágio do
+                seu negócio.
+              </p>
+              <div className="site-included-services-links" aria-label="Serviços complementares">
+                <Link className="included-link" to={routes.claroMethod}>Método C.L.A.R.O. <ArrowRight className="included-arrow" aria-hidden="true" /></Link>
+                <Link className="included-link" to={routes.seoService}>SEO para negócios locais <ArrowRight className="included-arrow" aria-hidden="true" /></Link>
+                <Link className="included-link" to={routes.uxDesignService}>UX Design <ArrowRight className="included-arrow" aria-hidden="true" /></Link>
+              </div>
             </div>
           </div>
         </section>

@@ -7,10 +7,12 @@ export default function Process() {
       data-od-id="processo"
       aria-labelledby="sec-processo"
       containerClassName="container grid-1-2"
+      className="surface-band"
     >
-      <div>
+      <div className="stack" style={{ gap: "var(--space-5)" }}>
         <p className="eyebrow">{processContent.eyebrow}</p>
         <h2 id="sec-processo">{processContent.title}</h2>
+        <p className="lead">{processContent.lead}</p>
       </div>
       <ol className="process-list" aria-label="Processo de trabalho de Robson Svicero">
         {processContent.steps.map((step) => (
