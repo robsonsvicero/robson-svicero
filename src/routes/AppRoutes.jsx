@@ -51,8 +51,9 @@ function ScrollToTop() {
 function GlobalWhatsAppButton() {
   const { pathname } = useLocation();
   const isBlogPage = pathname === "/blog" || pathname.startsWith("/blog/");
+  const isDigitalCardPage = pathname === "/cartao" || pathname.startsWith("/cartao/");
 
-  return isBlogPage ? null : <WhatsAppButton />;
+  return isBlogPage || isDigitalCardPage ? null : <WhatsAppButton />;
 }
 
 function HomeOrBlogPreview() {
