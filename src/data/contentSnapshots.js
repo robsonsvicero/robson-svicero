@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-11T16:54:24.497Z",
+  "generatedAt": "2026-08-13T14:02:38.322Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/image-2026-08-13T13-08-37-545Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/thumbnail-2026-08-13T13-08-30-654Z.webp",
+      "slug": "o-site-bonito-que-nao-dizia-absolutamente-nada",
+      "path": "/blog/o-site-bonito-que-nao-dizia-absolutamente-nada",
+      "title": "O site bonito que não dizia absolutamente nada",
+      "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-08-13T03:00:00+00:00",
+      "viewsCount": 14,
+      "readingTime": "8 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/quanto-custa-criar-um-site-profissional-em-2026/image-2026-08-11T15-37-49-824Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/quanto-custa-criar-um-site-profissional-em-2026/thumbnail-2026-08-11T15-37-44-524Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 2,
+      "viewsCount": 5,
       "readingTime": "7 minutos"
     },
     {
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 16,
+      "viewsCount": 18,
       "readingTime": "7 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 15,
+      "viewsCount": 17,
       "readingTime": "8 minutos"
     },
     {
@@ -70,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Seu site responde às dúvidas que impedem um cliente de comprar? Entenda como clareza, confiança e orientação reduzem abandonos e facilitam a decisão.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-23T03:05:00+00:00",
-      "viewsCount": 16,
+      "viewsCount": 17,
       "readingTime": "6 minutos"
     },
     {
