@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-13T14:02:38.322Z",
+  "generatedAt": "2026-08-14T14:33:01.894Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/image-2026-08-13T13-08-37-545Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 14,
+      "viewsCount": 17,
       "readingTime": "8 minutos"
     },
     {
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 5,
+      "viewsCount": 7,
       "readingTime": "7 minutos"
     },
     {
@@ -34,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 21,
       "readingTime": "7 minutos"
     },
     {
