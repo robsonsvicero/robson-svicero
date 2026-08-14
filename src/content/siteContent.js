@@ -65,11 +65,11 @@ export const headerContent = {
 
 export const heroContent = {
   eyebrow: "Criação de sites Profissionais",
-  title: "Criação de site profissional para pequenas empresas que querem conquistar mais clientes.",
+  title: "Criação de site profissional para empresas que querem transformar visitas em oportunidades de negócio.",
   lead:
-    "Desenvolvimento de sites profissionais rápidos, responsivos e pensados para ajudar sua empresa a aparecer melhor no Google e conquistar mais clientes pelo WhatsApp.",
-  // note:
-  //   "Transformo a sua presença digital em uma ferramenta para gerar contatos e oportunidades.",
+    "Se o seu site hoje é só um cartão de visitas, eu te ajudo a transformar essa presença digital em uma ferramenta que explica, gera confiança e traz contatos qualificados.",
+  note:
+    "Desenvolvimento de sites profissionais rápidos e responsivos.",
   media: {
     desktop: "/assets/images/hero_web.webp",
     mobile: "/assets/images/hero_mobile.webp",

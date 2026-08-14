@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-14T14:33:01.894Z",
+  "generatedAt": "2026-08-14T15:04:18.617Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/image-2026-08-13T13-08-37-545Z.webp",
