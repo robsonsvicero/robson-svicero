@@ -30,6 +30,7 @@ export default function Hero() {
           <p className="eyebrow">{eyebrow}</p>
           <h1>{title}</h1>
           <p className="lead">{lead}</p>
+          <p className="hero-note">{note}</p>
           <div className="hero-cta">
             <Button
               href={primaryCta.href}
@@ -41,7 +42,6 @@ export default function Hero() {
               {secondaryCta.label}
             </Button>
           </div>
-          <p className="hero-note">{note}</p>
         </div>
       </div>
     </section>

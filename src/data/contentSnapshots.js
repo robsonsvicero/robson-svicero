@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-14T15:04:18.617Z",
+  "generatedAt": "2026-08-18T16:53:23.281Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-que-e-seo-e-por-que-ele-e-importante-para-pequenas-empresas/image-2026-08-18T16-25-19-959Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-que-e-seo-e-por-que-ele-e-importante-para-pequenas-empresas/thumbnail-2026-08-18T16-25-14-337Z.webp",
+      "slug": "o-que-e-seo-e-por-que-ele-e-importante-para-pequenas-empresas",
+      "path": "/blog/o-que-e-seo-e-por-que-ele-e-importante-para-pequenas-empresas",
+      "title": "O que é SEO e por que ele é importante para pequenas empresas?",
+      "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-08-18T16:52:00+00:00",
+      "viewsCount": 0,
+      "readingTime": "9 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/image-2026-08-13T13-08-37-545Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/thumbnail-2026-08-13T13-08-30-654Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 17,
+      "viewsCount": 24,
       "readingTime": "8 minutos"
     },
     {
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 13,
       "readingTime": "7 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 21,
+      "viewsCount": 24,
       "readingTime": "7 minutos"
     },
     {
@@ -46,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 17,
+      "viewsCount": 20,
       "readingTime": "8 minutos"
     },
     {
@@ -154,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Adicionar funcionalidades é fácil. O desafio é eliminar o excesso. Entenda por que a simplicidade é uma das maiores vantagens competitivas do Product Design.",
       "category": "UX & Conversão",
       "publishedAt": "2026-06-24T03:00:00+00:00",
-      "viewsCount": 5,
+      "viewsCount": 6,
       "readingTime": "6 minutos"
     }
   ],
