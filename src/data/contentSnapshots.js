@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-18T16:53:23.281Z",
+  "generatedAt": "2026-08-21T00:22:51.317Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca/image-2026-08-21T00-18-43-124Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca/thumbnail-2026-08-21T00-18-36-293Z.webp",
+      "slug": "a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca",
+      "path": "/blog/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca",
+      "title": "A clínica que aparecia no Google, mas não transmitia confiança",
+      "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
+      "category": "Websites Estratégicos",
+      "publishedAt": "2026-08-21T00:16:00+00:00",
+      "viewsCount": 2,
+      "readingTime": "8 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-que-e-seo-e-por-que-ele-e-importante-para-pequenas-empresas/image-2026-08-18T16-25-19-959Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-que-e-seo-e-por-que-ele-e-importante-para-pequenas-empresas/thumbnail-2026-08-18T16-25-14-337Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-18T16:52:00+00:00",
-      "viewsCount": 0,
+      "viewsCount": 1,
       "readingTime": "9 minutos"
     },
     {
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 24,
+      "viewsCount": 31,
       "readingTime": "8 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 13,
+      "viewsCount": 16,
       "readingTime": "7 minutos"
     },
     {
@@ -46,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 24,
+      "viewsCount": 25,
       "readingTime": "7 minutos"
     },
     {
@@ -82,7 +94,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como a percepção de valor influencia a decisão de compra e descubra como comunicar melhor os benefícios da sua empresa para se destacar da concorrência.",
       "category": "Branding & Identidade Visual",
       "publishedAt": "2026-07-28T12:00:00+00:00",
-      "viewsCount": 12,
+      "viewsCount": 13,
       "readingTime": "7 minutos"
     },
     {
