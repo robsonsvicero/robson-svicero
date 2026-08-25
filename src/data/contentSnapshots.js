@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-21T00:22:51.317Z",
+  "generatedAt": "2026-08-25T20:33:29.271Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-ou-instagram-qual-e-mais-importante-para-uma-empresa/image-2026-08-25T20-21-32-198Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-ou-instagram-qual-e-mais-importante-para-uma-empresa/thumbnail-2026-08-25T20-21-28-114Z.webp",
+      "slug": "site-ou-instagram-qual-e-mais-importante-para-uma-empresa",
+      "path": "/blog/site-ou-instagram-qual-e-mais-importante-para-uma-empresa",
+      "title": "Site ou Instagram: qual é mais importante para uma empresa?",
+      "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-08-25T20:29:00+00:00",
+      "viewsCount": 1,
+      "readingTime": "10 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca/image-2026-08-21T00-18-43-124Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca/thumbnail-2026-08-21T00-18-36-293Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 2,
+      "viewsCount": 7,
       "readingTime": "8 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 31,
+      "viewsCount": 35,
       "readingTime": "8 minutos"
     },
     {
@@ -46,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 16,
+      "viewsCount": 17,
       "readingTime": "7 minutos"
     },
     {
