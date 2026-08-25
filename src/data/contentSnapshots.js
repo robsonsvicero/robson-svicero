@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-25T20:33:29.271Z",
+  "generatedAt": "2026-08-25T20:42:20.830Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-ou-instagram-qual-e-mais-importante-para-uma-empresa/image-2026-08-25T20-21-32-198Z.webp",

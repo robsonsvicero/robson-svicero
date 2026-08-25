@@ -93,12 +93,16 @@ export default function SEO({
     setMetaByProperty("og:title", seo.openGraph.title);
     setMetaByProperty("og:description", seo.openGraph.description);
     setMetaByProperty("og:image", seo.openGraph.image);
+    setMetaByProperty("og:image:width", seo.openGraph.width);
+    setMetaByProperty("og:image:height", seo.openGraph.height);
+    setMetaByProperty("og:image:alt", seo.openGraph.alt);
     setMetaByProperty("og:site_name", seo.openGraph.siteName);
     setMetaByProperty("og:locale", seo.openGraph.locale);
     setMetaByName("twitter:card", seo.twitter.card);
     setMetaByName("twitter:title", seo.twitter.title);
     setMetaByName("twitter:description", seo.twitter.description);
     setMetaByName("twitter:image", seo.twitter.image);
+    setMetaByName("twitter:image:alt", seo.twitter.alt);
     setCanonical(seo.canonical);
     setStructuredData(structuredData);
   }, [title, description, path, canonical, image, type, twitterCard, robots, keywords, publisher, structuredData]);

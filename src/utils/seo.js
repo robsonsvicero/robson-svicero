@@ -51,6 +51,9 @@ export function createPageSeo({
       title: resolvedTitle,
       description: resolvedDescription,
       image: resolvedImage,
+      width: 1200,
+      height: 630,
+      alt: resolvedTitle,
       siteName: siteSeo.siteName,
       locale: "pt_BR",
     },
@@ -59,6 +62,7 @@ export function createPageSeo({
       title: resolvedTitle,
       description: resolvedDescription,
       image: resolvedImage,
+      alt: resolvedTitle,
     },
   };
 }
