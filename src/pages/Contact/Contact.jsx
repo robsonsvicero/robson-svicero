@@ -8,6 +8,10 @@ const emailLink =
   contactContent.links.find((link) => link.href.startsWith("mailto:")) ||
   { href: "mailto:ola@robsonsvicero.com.br" };
 
+  const telegramLink =
+  contactContent.links.find((link) => link.href.includes("t.me") || link.label.includes("Telegram")) ||
+  { href: "https://t.me/robsonsvicero" };
+
 const whatsappLink =
   contactContent.links.find((link) => link.href.includes("wa.me") || link.label.includes("WhatsApp")) ||
   { href: "https://wa.me/5511964932007" };
@@ -38,9 +42,14 @@ export default function Contact() {
             </div>
 
             <div className="contact-direct" aria-label="Canais diretos">
-              <a className="contact-method" href={emailLink.href}>
-                <span>E-mail</span>
-                <strong>ola@robsonsvicero.com.br</strong>
+              <a
+                className="contact-method"
+                href={telegramLink.href}
+                target="_blank"
+                rel="noreferrer noopener"
+              >
+                <span>Telegram</span>
+                <strong>@robsonsvicero</strong>
               </a>
               <a
                 className="contact-method"
@@ -50,6 +59,10 @@ export default function Contact() {
               >
                 <span>WhatsApp</span>
                 <strong>11 96493-2007</strong>
+              </a>
+              <a className="contact-method" href={emailLink.href}>
+                <span>E-mail</span>
+                <strong>ola@robsonsvicero.com.br</strong>
               </a>
             </div>
           </div>
@@ -148,16 +161,26 @@ export default function Contact() {
                 objetivo, prazo, escopo e melhor formato de entrega.
               </p>
               <div className="contact-aside-actions">
-                <Button href={emailLink.href} variant="primary">
-                  Enviar e-mail
+                <Button
+                  className="btn-telegram"
+                  href={telegramLink.href}
+                  variant="secondary"
+                  target="_blank"
+                  rel="noreferrer noopener"
+                >
+                  Chamar no Telegram
                 </Button>
                 <Button
+                  className="btn-whatsapp"
                   href={whatsappLink.href}
                   variant="secondary"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   Chamar no WhatsApp
+                </Button>
+                <Button href={emailLink.href} variant="primary">
+                  Enviar e-mail
                 </Button>
               </div>
               <p className="meta">{contactContent.meta}</p>

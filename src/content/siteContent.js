@@ -24,6 +24,7 @@ export const routes = {
 export const contactLinks = {
   whatsapp:
     "https://wa.me/5511964932007?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.",
+  telegram: "https://t.me/robsonsvicero",
 };
 
 export const headerContent = {
@@ -87,7 +88,11 @@ export const heroContent = {
 export const credibilityBarContent = {
   highlight: "+10",
   label: "Há mais de 10 anos desenvolvendo sites que fortalecem empresas e geram novas oportunidades de negócio.",
-  cta: {
+  cta1: {
+    label: "Fale comigo agora",
+    href: contactLinks.telegram,
+  },
+  cta2: {
     label: "Fale comigo agora",
     href: contactLinks.whatsapp,
   },
@@ -562,6 +567,11 @@ export const footerContent = {
   description:
     "Estratégia, design e tecnologia para transformar sua presença digital em oportunidades de negócio.",
   socials: [
+    {
+      label: "Telegram",
+      href: contactLinks.telegram,
+      icon: "telegram",
+    },
     {
       label: "WhatsApp",
       href: contactLinks.whatsapp,
