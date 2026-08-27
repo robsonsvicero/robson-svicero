@@ -4,6 +4,8 @@ const variantClassNames = {
   dark: "btn-dark",
   ghost: "btn-ghost",
   outline: "btn-outline",
+  telegram: "btn-telegram",
+  whatsapp: "btn-whatsapp",
 };
 
 export default function Button({

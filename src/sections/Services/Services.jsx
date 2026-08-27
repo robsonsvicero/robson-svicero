@@ -16,7 +16,7 @@ export default function Services() {
         <p className="eyebrow">{servicesContent.eyebrow}</p>
         <h2 id="sec-servicos">{servicesContent.title}</h2>
       </div>
-      <div className="grid-3">
+      <div className="grid-2">
         {servicesContent.items.map((service) => (
           <Card className="feature" key={service.title}>
             <div className="feature-mark" aria-hidden="true">

@@ -1039,20 +1039,28 @@ h3 {
   transition: transform var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
 }
 
-.trusted-tg {
+.trusted-tg,
+.btn-telegram {
+  color: var(--bg);
   background: #229ED9;
+  border: 1px solid #229ED9;
 }
 
-.trusted-wp {
-  background: #25D366;
+.trusted-wp,
+.btn-whatsapp {
+  color: #25D366;
+  background: var(--bg);
+  border: 1px solid #25D366;
 }
 
 .trusted-tg:hover {
   background: #168AC0;
+  border: 1px solid #168AC0;
   transform: translateY(-2px);
 }
 .trusted-wp:hover {
   background: #1DA851;
+  color: var(--bg);
   transform: translateY(-2px);
 }
 
@@ -2099,6 +2107,37 @@ h3 {
   gap: var(--space-3);
 }
 
+.home-about-cta-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.home-about-cta-trigger {
+  min-height: 50px;
+  padding: 10px 20px;
+  border: 2px solid var(--fg);
+  border-radius: var(--radius-pill);
+  color: var(--fg);
+}
+
+.home-about-cta-trigger:hover,
+.home-about-cta-trigger:focus-visible {
+  background: var(--accent-hover);
+  border: 2px solid var(--accent-hover);
+  color: #ffffff;
+}
+
+.home-about-cta-popover {
+  right: 0;
+  left: auto;
+  top: calc(100% + 14px);
+}
+
+.home-about-cta-popover::before {
+  right: 24px;
+}
+
 .about-page .about-hero {
   display: flex;
   flex-direction: column;
@@ -2458,6 +2497,38 @@ h3 {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: var(--space-3);
+}
+
+.about-final-cta-menu {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.about-final-cta-trigger {
+  min-height: 50px;
+  padding: 10px 20px;
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #ffffff;
+  box-shadow: 0 12px 28px rgba(130, 52, 233, 0.28);
+}
+
+.about-final-cta-trigger:hover,
+.about-final-cta-trigger:focus-visible {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  color: #ffffff;
+}
+
+.about-final-cta-popover {
+  right: 0;
+  left: auto;
+  top: calc(100% + 14px);
+}
+
+.about-final-cta-popover::before {
+  right: 24px;
 }
 
 /* ─── Admin ──────────────────────────────────────────── */

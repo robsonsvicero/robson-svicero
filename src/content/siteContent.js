@@ -23,8 +23,8 @@ export const routes = {
 
 export const contactLinks = {
   whatsapp:
-    "https://wa.me/5511964932007?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20um%20projeto.",
-  telegram: "https://t.me/robsonsvicero",
+    "https://wa.me/5511964932007?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20o%20meu%20projeto.",
+  telegram: "https://t.me/robsonsvicero?text=Ol%C3%A1!%20Gostaria%20de%20conversar%20sobre%20o%20meu%20projeto.%0A%0A",
 };
 
 export const headerContent = {
@@ -376,8 +376,9 @@ export const contactContent = {
   title: "Vamos conversar sobre o seu projeto?",
   lead: "Seja para criar um novo site ou modernizar o que sua empresa já possui, conte um pouco sobre sua necessidade. Em até um dia útil retorno com uma proposta e as melhores opções para o seu projeto.",
   links: [
-    { label: "Enviar e-mail", href: "mailto:ola@robsonsvicero.com.br", variant: "secondary" },
-    { label: "Falar no WhatsApp", href: "https://wa.me/5511964932007", variant: "outline" },
+    { label: "Falar no Telegram", href: "https://t.me/robsonsvicero", variant: "btn-telegram" },
+    { label: "Falar no WhatsApp", href: "https://wa.me/5511964932007", variant: "btn-whatsapp" },
+    { label: "Enviar e-mail", href: "mailto:ola@robsonsvicero.com.br", variant: "outline" },
   ],
   meta: "ola@robsonsvicero.com.br - 11 96493-2007",
   formAction: "https://formspree.io/f/xbdevbne",

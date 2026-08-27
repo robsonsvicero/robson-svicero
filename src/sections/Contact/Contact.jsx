@@ -23,6 +23,7 @@ export default function Contact() {
         <div className="stack" style={{ marginTop: "var(--space-2)" }}>
           {contactContent.links.map((link) => (
             <Button
+              className={link.variant}
               href={link.href}
               variant={link.variant}
               target={link.href.startsWith("http") ? "_blank" : undefined}

@@ -55,7 +55,7 @@ export default function Testimonials() {
             href={cta.primaryAction.href}
             target="_blank"
             rel="noreferrer noopener"
-            title="Falar com Robson pelo WhatsApp"
+            title="Falar com Robson pelo Telegram"
           >
             Falar com Robson
           </Button>

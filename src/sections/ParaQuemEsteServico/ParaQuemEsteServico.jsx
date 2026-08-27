@@ -144,7 +144,7 @@ export default function ParaQuemEsteServico() {
         <div className="para-quem-cta">
           <p>Seu negócio merece uma presença digital à altura do trabalho que você entrega.</p>
           <Button
-            href={contactLinks.whatsapp}
+            href={contactLinks.telegram}
             target="_blank"
             rel="noreferrer noopener"
             title="Quero meu site profissional pelo WhatsApp"
