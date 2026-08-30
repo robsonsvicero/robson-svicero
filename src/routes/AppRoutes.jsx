@@ -31,7 +31,7 @@ const Schedule = lazy(() => import("../pages/Schedule/Schedule.jsx"));
 const DigitalCard = lazy(() => import("../pages/DigitalCard/DigitalCard.jsx"));
 const FaqPage = lazy(() => import("../pages/Faq/FaqPage.jsx"));
 const CriacaoDeSites = lazy(() => import("../pages/CriacaoDeSites/CriacaoDeSites.jsx"));
-const Precos = lazy(() => import("../pages/Precos/Precos.jsx"));
+const Planos = lazy(() => import("../pages/Planos/Planos.jsx"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
 const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
 const ShortLinkRedirect = lazy(() => import("../pages/ShortLink/ShortLinkRedirect.jsx"));
@@ -97,7 +97,7 @@ export default function AppRoutes() {
         <Routes>
           <Route path="/" element={<HomeOrBlogPreview />} />
           <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
-          <Route path="/precos" element={<Precos />} />
+          <Route path="/planos" element={<Planos />} />
           <Route path="/servicos" element={<Navigate to="/servicos/ux-design" replace />} />
           <Route path="/servicos/ux-design" element={<UXDesign />} />
           <Route path="/servicos/landing-page" element={<LandingPage />} />

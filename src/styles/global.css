@@ -738,8 +738,8 @@ h3 {
 
 .btn-outline {
   background: transparent;
-  color: var(--accent-on);
-  border-color: var(--accent-on);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
 .btn-outline:hover {
@@ -4749,7 +4749,7 @@ h3 {
 
 .planos-plan-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-6);
 }
 
@@ -4857,10 +4857,31 @@ h3 {
   font-weight: 800;
 }
 
+.planos-plan-for-who {
+  background: color-mix(in oklab, var(--accent) 5%, transparent);
+  border: 1px solid color-mix(in oklab, var(--accent) 15%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 16px;
+  margin-top: var(--space-4);
+}
+
+.planos-plan-for-who strong {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.planos-plan-for-who p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--fg-2);
+}
+
 .planos-plan-actions {
   display: flex;
   flex-direction: column;
   margin-top: auto;
+  padding-top: var(--space-6);
 }
 
 .planos-page .surface-band {

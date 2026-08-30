@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-27T17:51:34.633Z",
+  "generatedAt": "2026-08-30T04:13:53.902Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-ou-instagram-qual-e-mais-importante-para-uma-empresa/image-2026-08-25T20-21-32-198Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 4,
+      "viewsCount": 7,
       "readingTime": "10 minutos"
     },
     {
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 9,
       "readingTime": "8 minutos"
     },
     {
@@ -34,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-18T16:52:00+00:00",
-      "viewsCount": 1,
+      "viewsCount": 2,
       "readingTime": "9 minutos"
     },
     {
@@ -46,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 37,
+      "viewsCount": 41,
       "readingTime": "8 minutos"
     },
     {
@@ -58,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 17,
+      "viewsCount": 18,
       "readingTime": "7 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 25,
+      "viewsCount": 27,
       "readingTime": "7 minutos"
     },
     {
@@ -82,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "8 minutos"
     },
     {
@@ -106,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como a percepção de valor influencia a decisão de compra e descubra como comunicar melhor os benefícios da sua empresa para se destacar da concorrência.",
       "category": "Branding & Identidade Visual",
       "publishedAt": "2026-07-28T12:00:00+00:00",
-      "viewsCount": 13,
+      "viewsCount": 14,
       "readingTime": "7 minutos"
     },
     {
@@ -142,7 +142,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 27,
+      "viewsCount": 28,
       "readingTime": "6 minutos"
     },
     {
