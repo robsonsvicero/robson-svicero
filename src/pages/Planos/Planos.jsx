@@ -30,7 +30,7 @@ const plans = [
     name: "LANDING PAGE",
     focus: "CAPTAÇÃO DE LEADS",
     tone: "Uma página estratégica focada em conversão",
-    highlight: null,
+    highlight: "FOCO EM CONVERSÃO",
     bullets: [
       "Página única com estrutura de venda",
       "Foco em captação de clientes ou leads",
