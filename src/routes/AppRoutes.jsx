@@ -42,6 +42,7 @@ const IdentidadeVisual = lazy(() => import("../pages/Servicos/IdentidadeVisual.j
 const SeoService = lazy(() => import("../pages/Servicos/SeoService.jsx"));
 const GestaoGMN = lazy(() => import("../pages/Servicos/GestaoGMN.jsx"));
 const ExclusaoDados = lazy(() => import("../pages/ExclusaoDados/ExclusaoDados.jsx"));
+const ProjetoPresenca = lazy(() => import("../pages/ProjetoPresenca/ProjetoPresenca.jsx"));
 
 function ScrollToTop() {
   useScrollToTop();
@@ -129,6 +130,7 @@ export default function AppRoutes() {
             }
           />
           <Route path="/exclusao-dados" element={<ExclusaoDados />} />
+          <Route path="/projeto-presenca" element={<ProjetoPresenca />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
