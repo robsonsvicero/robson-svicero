@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-08-30T04:23:12.409Z",
+  "generatedAt": "2026-09-10T23:25:24.998Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados/image-2026-09-09T03-12-32-900Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados/thumbnail-2026-09-09T03-12-25-834Z.webp",
+      "slug": "como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados",
+      "path": "/blog/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados",
+      "title": "Como um site pode ajudar negócios locais a serem encontrados",
+      "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-09-09T10:21:00+00:00",
+      "viewsCount": 3,
+      "readingTime": "10 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-ou-instagram-qual-e-mais-importante-para-uma-empresa/image-2026-08-25T20-21-32-198Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-ou-instagram-qual-e-mais-importante-para-uma-empresa/thumbnail-2026-08-25T20-21-28-114Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 13,
       "readingTime": "10 minutos"
     },
     {
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 9,
+      "viewsCount": 10,
       "readingTime": "8 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-18T16:52:00+00:00",
-      "viewsCount": 2,
+      "viewsCount": 3,
       "readingTime": "9 minutos"
     },
     {
@@ -46,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 41,
+      "viewsCount": 44,
       "readingTime": "8 minutos"
     },
     {
@@ -58,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 20,
       "readingTime": "7 minutos"
     },
     {
@@ -82,7 +94,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 21,
+      "viewsCount": 22,
       "readingTime": "8 minutos"
     },
     {
@@ -118,7 +130,7 @@ export const contentSnapshots = {
       "excerpt": "Seu site responde às dúvidas que impedem um cliente de comprar? Entenda como clareza, confiança e orientação reduzem abandonos e facilitam a decisão.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-23T03:05:00+00:00",
-      "viewsCount": 17,
+      "viewsCount": 18,
       "readingTime": "6 minutos"
     },
     {
@@ -142,7 +154,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 28,
+      "viewsCount": 31,
       "readingTime": "6 minutos"
     },
     {
