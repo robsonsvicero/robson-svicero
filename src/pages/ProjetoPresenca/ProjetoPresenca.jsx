@@ -272,7 +272,7 @@ function CandidaturaForm() {
   }
 
   return (
-    <form ref={ref} onSubmit={handleSubmit} noValidate className="pp-form" aria-label="Formulario de candidatura ao Projeto Presença">
+    <form ref={ref} onSubmit={handleSubmit} noValidate className="pp-form" aria-label="formulário de candidatura ao Projeto Presença">
       <div className="pp-form-grid-2">
         <Field label="Nome completo" name="nome" type="text" value={values.nome} onChange={handleChange} error={errors.nome} required autoComplete="name" />
         <Field label="WhatsApp" name="whatsapp" type="tel" value={values.whatsapp} onChange={handleChange} error={errors.whatsapp} required placeholder="(99) 99999-9999" autoComplete="tel" />
@@ -340,7 +340,7 @@ function Nav() {
         <div className="pp-nav-right">
           <button className="pp-nav-link" onClick={() => scrollTo("pp-como-funciona")}>Como funciona</button>
           <button className="pp-nav-link" onClick={() => scrollTo("pp-faq")}>Dúvidas</button>
-          <button className="pp-cta-btn pp-cta-sm" onClick={() => scrollTo("pp-formulario")}>Quero participar</button>
+          <button className="pp-cta-btn pp-cta-sm" onClick={() => scrollTo("pp-formulário")}>Quero participar</button>
         </div>
         <button className="pp-hamburger" onClick={() => setMenuOpen((v) => !v)} aria-label={menuOpen ? "Fechar menu" : "Abrir menu"} aria-expanded={menuOpen} aria-controls="pp-mobile-menu">
           <span className="pp-hline" style={{ transform: menuOpen ? "rotate(45deg) translate(5px, 6px)" : "none" }} />
@@ -356,11 +356,11 @@ function Nav() {
             { id: "pp-como-funciona", label: "Como funciona" },
             { id: "pp-incluido", label: "O que está incluído" },
             { id: "pp-faq", label: "Dúvidas" },
-            { id: "pp-formulario", label: "Candidatura" },
+            { id: "pp-formulário", label: "Candidatura" },
           ].map(({ id, label }, i) => (
             <button key={id} onClick={() => scrollTo(id)} className="pp-mobile-link" style={{ transitionDelay: menuOpen ? i * 55 + "ms" : "0ms", transform: menuOpen ? "translateY(0)" : "translateY(24px)", opacity: menuOpen ? 1 : 0 }}>{label}</button>
           ))}
-          <button onClick={() => scrollTo("pp-formulario")} className="pp-cta-btn" style={{ transitionDelay: menuOpen ? "330ms" : "0ms", transform: menuOpen ? "translateY(0)" : "translateY(24px)", opacity: menuOpen ? 1 : 0, marginTop: 16, width: "100%" }}>
+          <button onClick={() => scrollTo("pp-formulário")} className="pp-cta-btn" style={{ transitionDelay: menuOpen ? "330ms" : "0ms", transform: menuOpen ? "translateY(0)" : "translateY(24px)", opacity: menuOpen ? 1 : 0, marginTop: 16, width: "100%" }}>
             Quero participar da seleção
           </button>
         </div>
@@ -385,7 +385,7 @@ function HeroSection() {
             institucional completo sem custo de desenvolvimento. Você paga apenas o registro do
             domínio, que fica no seu nome.
           </p>
-          <a href="#pp-formulario" className="pp-cta-btn" id="pp-hero-cta" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulario")?.scrollIntoView({ behavior: "smooth" }); }}>
+          <a href="#pp-formulário" className="pp-cta-btn" id="pp-hero-cta" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulário")?.scrollIntoView({ behavior: "smooth" }); }}>
             Quero participar da seleção
           </a>
           <p className="pp-hero-note">Candidatura gratuíta · Seleção pessoal · Você recebe uma resposta</p>
@@ -753,16 +753,16 @@ function FaqSection() {
   );
 }
 
-/* ─── Formulario section ─────────────────────────────────── */
+/* ─── formulário section ─────────────────────────────────── */
 function FormSection() {
   const ref = useFadeUp();
   return (
-    <section id="pp-formulario" className="pp-section pp-section-white" ref={ref} aria-labelledby="pp-form-h2">
+    <section id="pp-formulário" className="pp-section pp-section-white" ref={ref} aria-labelledby="pp-form-h2">
       <div className="pp-container">
         <div className="pp-section-header">
           <span className="pp-section-label">candidatura</span>
           <h2 id="pp-form-h2" className="pp-h2">Quero participar da seleção</h2>
-          <p className="pp-section-desc">Preencha o formulario abaixo. Leva menos de 5 minutos. Todos os campos marcados com <span style={{ color: "#dc2626" }}>*</span> sao obrigatórios.</p>
+          <p className="pp-section-desc">Preencha o formulário abaixo. Leva menos de 5 minutos. Todos os campos marcados com <span style={{ color: "#dc2626" }}>*</span> sao obrigatórios.</p>
         </div>
         <div className="pp-form-wrap"><CandidaturaForm /></div>
       </div>
@@ -778,7 +778,7 @@ function CtaFinal() {
       <div className="pp-container pp-cta-final-inner">
         <h2 id="pp-cta-final-h2" className="pp-cta-final-h2">Seu negócio merece uma porta de entrada à altura do seu trabalho.</h2>
         <p className="pp-cta-final-sub">Duas vagas. Sem custo de desenvolvimento. Com acompanhamento real.</p>
-        <a href="#pp-formulario" className="pp-cta-btn pp-cta-light" id="pp-cta-final-btn" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulario")?.scrollIntoView({ behavior: "smooth" }); }}>
+        <a href="#pp-formulário" className="pp-cta-btn pp-cta-light" id="pp-cta-final-btn" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulário")?.scrollIntoView({ behavior: "smooth" }); }}>
           Quero participar da seleção
         </a>
       </div>

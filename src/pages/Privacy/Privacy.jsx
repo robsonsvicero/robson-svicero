@@ -6,13 +6,13 @@ const privacySections = [
   {
     title: "1. Introducao",
     paragraphs: [
-      "Esta Politica de Privacidade descreve como suas informacoes pessoais sao coletadas, usadas e compartilhadas quando voce visita ou preenche o formulario no site robsonsvicero.com.br. O compromisso e garantir a seguranca e a privacidade dos seus dados, de acordo com a Lei Geral de Protecao de Dados (LGPD - Lei no 13.709/2018).",
+      "Esta Politica de Privacidade descreve como suas informacoes pessoais sao coletadas, usadas e compartilhadas quando voce visita ou preenche o formulário no site robsonsvicero.com.br. O compromisso e garantir a seguranca e a privacidade dos seus dados, de acordo com a Lei Geral de Protecao de Dados (LGPD - Lei no 13.709/2018).",
     ],
   },
   {
     title: "2. Dados que coletamos",
     paragraphs: [
-      "Ao utilizar o formulario de contato, coletamos as seguintes informacoes pessoais de forma consentida:",
+      "Ao utilizar o formulário de contato, coletamos as seguintes informacoes pessoais de forma consentida:",
     ],
     items: [
       "Nome: para identificacao e personalizacao do atendimento.",
@@ -34,7 +34,7 @@ const privacySections = [
   {
     title: "4. Armazenamento e seguranca",
     paragraphs: [
-      "Os envios do formulario sao processados por servicos de terceiros e encaminhados para meu e-mail profissional. Adoto boas praticas para proteger suas informacoes contra acessos nao autorizados.",
+      "Os envios do formulário sao processados por servicos de terceiros e encaminhados para meu e-mail profissional. Adoto boas praticas para proteger suas informacoes contra acessos nao autorizados.",
     ],
   },
   {
