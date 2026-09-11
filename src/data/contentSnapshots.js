@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-10T23:25:24.998Z",
+  "generatedAt": "2026-09-11T00:26:31.741Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados/image-2026-09-09T03-12-32-900Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-09T10:21:00+00:00",
-      "viewsCount": 3,
+      "viewsCount": 4,
       "readingTime": "10 minutos"
     },
     {

@@ -21,11 +21,11 @@ function InjectPhosphor() {
   useEffect(() => {
     const id = "pp-phosphor";
     if (document.getElementById(id)) return;
-    const script = document.createElement("script");
-    script.id = id;
-    script.src = "https://unpkg.com/@phosphor-icons/web@2.1.1/src/index.js";
-    script.type = "module";
-    document.head.appendChild(script);
+    const link = document.createElement("link");
+    link.id = id;
+    link.rel = "stylesheet";
+    link.href = "https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css";
+    document.head.appendChild(link);
   }, []);
   return null;
 }
@@ -283,7 +283,7 @@ function CandidaturaForm() {
       </div>
       <Field label="Profissão ou segmento" name="profissão" type="text" value={values.profissão} onChange={handleChange} error={errors.profissão} required placeholder="Ex.: fotógrafa, designer de interiores, nutricionista..." />
       <SelectField
-        label="Você esta se candidatando ou indicando alguém?"
+        label="Você está se candidatando ou indicando alguém?"
         name="tipo" value={values.tipo} onChange={handleChange} error={errors.tipo} required
         options={[
           { value: "", label: "Selecione..." },
@@ -291,11 +291,11 @@ function CandidaturaForm() {
           { value: "indicação", label: "Estou indicando outra pessoa" },
         ]}
       />
-      <TextareaField label="O que você faz?" name="oque" value={values.oque} onChange={handleChange} error={errors.oque} required placeholder="Descreva seu trabalho, seu publico e como você atende hoje..." rows={4} />
-      <TextareaField label="Por que acredita que um site ajudaria seu negocio?" name="porque" value={values.porque} onChange={handleChange} error={errors.porque} required placeholder="Pode ser honesto. Não ha resposta certa ou errada." rows={4} />
+      <TextareaField label="O que você faz?" name="oque" value={values.oque} onChange={handleChange} error={errors.oque} required placeholder="Descreva seu trabalho, seu público e como você atende hoje..." rows={4} />
+      <TextareaField label="Por que acredita que um site ajudaria seu negócio?" name="porque" value={values.porque} onChange={handleChange} error={errors.porque} required placeholder="Pode ser honesto. Não há resposta certa ou errada." rows={4} />
       {status === "error" && (
         <p className="pp-form-err-msg" role="alert">
-          Não foi possivel enviar sua candidatura. Verifique sua conexão e tente novamente.
+          Não foi possível enviar sua candidatura. Verifique sua conexão e tente novamente.
         </p>
       )}
       <button type="submit" className="pp-cta-btn" disabled={status === "loading"} aria-busy={status === "loading"} style={{ opacity: status === "loading" ? 0.7 : 1 }}>
@@ -352,9 +352,9 @@ function Nav() {
         <div className="pp-mobile-links">
           {[
             { id: "pp-hero", label: "Início" },
-            { id: "pp-dores", label: "Para quem e" },
+            { id: "pp-dores", label: "Para quem é" },
             { id: "pp-como-funciona", label: "Como funciona" },
-            { id: "pp-incluido", label: "O que esta incluído" },
+            { id: "pp-incluido", label: "O que está incluído" },
             { id: "pp-faq", label: "Dúvidas" },
             { id: "pp-formulario", label: "Candidatura" },
           ].map(({ id, label }, i) => (
@@ -397,7 +397,7 @@ function HeroSection() {
               <span className="pp-dot" style={{ background: "#FEBC2E" }} />
               <span className="pp-dot" style={{ background: "#28C840" }} />
               <div className="pp-url-bar">
-                <i className="ph ph-lock-simple" style={{ fontSize: 11, color: "#86868b" }} />
+                <i className="ph-bold ph-lock-simple" style={{ fontSize: 11, color: "#86868b" }} />
                 <span className="pp-url-text">seunome.com.br</span>
               </div>
             </div>
@@ -445,7 +445,7 @@ function HeroSection() {
 
 /* ─── Dores ──────────────────────────────────────────────── */
 const DORES = [
-  { icon: "ph-magnifying-glass-minus", title: "Invisível no Google", desc: "Instagram e WhatsApp não aparecem quando alguém pesquisa pelo seu servico. Você depende de indicação e indicação tem limite." },
+  { icon: "ph-magnifying-glass-minus", title: "Invisível no Google", desc: "Instagram e WhatsApp não aparecem quando alguém pesquisa pelo seu serviço. Você depende de indicação, e indicação tem limite." },
   { icon: "ph-instagram-logo", title: "Tudo em uma rede social", desc: "Algoritmo muda, alcance cai, conta pode ser bloqueada. Seu negócio não pode depender de uma plataforma que você não controla." },
   { icon: "ph-handshake", title: "Credibilidade em dúvida", desc: "Sem site, o cliente busca você no Google e não encontra nada. A concorrência tem presença. Você perde a venda antes mesmo de falar." },
   { icon: "ph-chat-dots", title: "Oportunidades que escapam", desc: "Clientes chegam por indicação, buscam mais sobre você antes de entrar em contato e não encontram nada. A dúvida vira desistência." },
@@ -638,7 +638,7 @@ function IncluidoSection() {
               <i className="ph-bold ph-x-circle" style={{ fontSize: 20, color: "#86868b" }} />
               <span className="pp-incluido-header-text" style={{ color: "#86868b" }}>Não incluso</span>
             </div>
-            <ul className="pp-incluido-list" aria-label="O que não esta incluso">
+            <ul className="pp-incluido-list" aria-label="O que não está incluso">
               {NAO_INCLUIDO.map((item, i) => (
                 <li key={i} className="pp-incluido-item pp-nao-incluido-item">
                   <i className="ph-bold ph-minus" style={{ fontSize: 14, color: "#d2d2d7", flexShrink: 0, marginTop: 2 }} />
@@ -662,7 +662,7 @@ function ProvaSocialSection() {
         <div className="pp-section-header">
           <span className="pp-section-label">cases</span>
           <h2 id="pp-prova-h2" className="pp-h2">Os resultados virão aqui</h2>
-          <p className="pp-section-desc">Esta é a primeira edição do Projeto Presença. Os sites estão sendo desenvolvidos agora. A medida que os projetos forem concluídos, os cases serão publicados nesta página com os resultados reais, sem edição.</p>
+          <p className="pp-section-desc">Esta é a primeira edição do Projeto Presença. Os sites estão sendo desenvolvidos agora. À medida que os projetos forem concluídos, os cases serão publicados nesta página com os resultados reais, sem edição.</p>
         </div>
         <div className="pp-prova-placeholder">
           <div className="pp-prova-inner">
@@ -681,10 +681,10 @@ function ProvaSocialSection() {
 
 /* ─── Objeções ───────────────────────────────────────────── */
 const OBJECOES = [
-  { q: "É realmente sem custo de desenvolvimento?", a: "Sim. O desenvolvimento do site, o design e o acompanhamento por 3 meses não tem custo para os participantes selecionados. Você paga apenas o registro do domínio (em media R$ 40,00), que fica registrado no seu nome. Se quiser ferramentas ou integrações pagas de terceiros, essas ficam por conta sua." },
+  { q: "É realmente sem custo de desenvolvimento?", a: "Sim. O desenvolvimento do site, o design e o acompanhamento por 3 meses não têm custo para os participantes selecionados. Você paga apenas o registro do domínio (em média R$ 40,00), que fica registrado no seu nome. Se quiser ferramentas ou integrações pagas de terceiros, essas ficam por conta sua." },
   { q: "Por que só 2 vagas?", a: "Porque cada projeto recebe atenção individual. Não é um template que você preenche. É um processo de briefing, decisão editorial e desenvolvimento personalizado e isso leva tempo. Prefiro entregar dois projetos bem feitos do que dez medíocres." },
   { q: "Preciso conhecer você pessoalmente?", a: "Não. Todo o processo acontece online, via videochamada e WhatsApp. Não importa a cidade." },
-  { q: "O que acontece depois dos 3 meses de acompanhamento?", a: "O site continua seu, hospedado por 1 ano. Após o periodo de acompanhamento, a publicação de artigos e posts no Google Business não está incluída, mas você pode continuar publicando por conta própria, já que a estrutura estará toda configurada." },
+  { q: "O que acontece depois dos 3 meses de acompanhamento?", a: "O site continua seu, hospedado por 1 ano. Após o período de acompanhamento, a publicação de artigos e posts no Google Business não está incluída, mas você pode continuar publicando por conta própria, já que a estrutura estará toda configurada." },
   { q: "Quem escreve os textos do blog e do site?", a: "Você fornece o conteúdo em texto corrido. Eu faço a formatação, a revisão estrutural e a publicação. Os textos das páginas do site também são construídos em conjunto." },
 ];
 
