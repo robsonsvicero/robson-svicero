@@ -265,7 +265,7 @@ function CandidaturaForm() {
         <h3 className="pp-form-success-title">Candidatura recebida</h3>
         <p className="pp-form-success-text">
           Obrigado. Vou analisar sua candidatura e entro em contato pelo WhatsApp informado.
-          A seleção e feita de forma pessoal e você recebera uma resposta, seja qual for o resultado.
+          A seleção é feita de forma pessoal e você receberá uma resposta, seja qual for o resultado.
         </p>
       </div>
     );
@@ -295,14 +295,14 @@ function CandidaturaForm() {
       <TextareaField label="Por que acredita que um site ajudaria seu negocio?" name="porque" value={values.porque} onChange={handleChange} error={errors.porque} required placeholder="Pode ser honesto. Não ha resposta certa ou errada." rows={4} />
       {status === "error" && (
         <p className="pp-form-err-msg" role="alert">
-          Não foi possivel enviar sua candidatura. Verifique sua conexao e tente novamente.
+          Não foi possivel enviar sua candidatura. Verifique sua conexão e tente novamente.
         </p>
       )}
       <button type="submit" className="pp-cta-btn" disabled={status === "loading"} aria-busy={status === "loading"} style={{ opacity: status === "loading" ? 0.7 : 1 }}>
         {status === "loading" ? (<span style={{ display: "flex", alignItems: "center", gap: 8 }}><SpinnerIcon />Enviando...</span>) : "Quero participar da seleção"}
       </button>
       <p className="pp-form-note">
-        Suas informações sao usadas apenas para o processo de seleção e não serão compartilhadas.
+        Suas informações são usadas apenas para o processo de seleção e não serão compartilhadas.
       </p>
     </form>
   );
@@ -377,18 +377,18 @@ function HeroSection() {
         <div className="pp-hero-content">
           <span className="pp-hero-badge">Primeira edição · 2 vagas</span>
           <h1 id="pp-hero-h1" className="pp-hero-h1">
-            Presenca digital para quem já tem o trabalho,{" "}
+            Presença digital para quem já tem o trabalho,{" "}
             <span className="pp-hero-accent">mas ainda não tem o site</span>
           </h1>
           <p className="pp-hero-sub">
-            Duas vagas para profissionais autonomos e pequenos negocios construirem um site
+            Duas vagas para profissionais autônomos e pequenos negócios construírem um site
             institucional completo sem custo de desenvolvimento. Você paga apenas o registro do
             domínio, que fica no seu nome.
           </p>
           <a href="#pp-formulario" className="pp-cta-btn" id="pp-hero-cta" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulario")?.scrollIntoView({ behavior: "smooth" }); }}>
             Quero participar da seleção
           </a>
-          <p className="pp-hero-note">Candidatura gratuita · Seleção pessoal · Você recebe uma resposta</p>
+          <p className="pp-hero-note">Candidatura gratuíta · Seleção pessoal · Você recebe uma resposta</p>
         </div>
         <div className="pp-hero-visual" aria-hidden="true">
           <div className="pp-browser">
@@ -446,9 +446,9 @@ function HeroSection() {
 /* ─── Dores ──────────────────────────────────────────────── */
 const DORES = [
   { icon: "ph-magnifying-glass-minus", title: "Invisível no Google", desc: "Instagram e WhatsApp não aparecem quando alguém pesquisa pelo seu servico. Você depende de indicação e indicação tem limite." },
-  { icon: "ph-instagram-logo", title: "Tudo em uma rede social", desc: "Algoritmo muda, alcance cai, conta pode ser bloqueada. Seu negocio não pode depender de uma plataforma que você não controla." },
-  { icon: "ph-handshake", title: "Credibilidade em duvida", desc: "Sem site, o cliente busca você no Google e não encontra nada. A concorrencia tem presenca. Você perde a venda antes mesmo de falar." },
-  { icon: "ph-chat-dots", title: "Oportunidades que escapam", desc: "Clientes chegam por indicação, buscam mais sobre você antes de entrar em contato e não encontram nada. A duvida vira desistencia." },
+  { icon: "ph-instagram-logo", title: "Tudo em uma rede social", desc: "Algoritmo muda, alcance cai, conta pode ser bloqueada. Seu negócio não pode depender de uma plataforma que você não controla." },
+  { icon: "ph-handshake", title: "Credibilidade em dúvida", desc: "Sem site, o cliente busca você no Google e não encontra nada. A concorrência tem presença. Você perde a venda antes mesmo de falar." },
+  { icon: "ph-chat-dots", title: "Oportunidades que escapam", desc: "Clientes chegam por indicação, buscam mais sobre você antes de entrar em contato e não encontram nada. A dúvida vira desistência." },
 ];
 
 function DoresSection() {
@@ -457,8 +457,8 @@ function DoresSection() {
     <section id="pp-dores" className="pp-section" ref={ref} aria-labelledby="pp-dores-h2">
       <div className="pp-container">
         <div className="pp-section-header">
-          <span className="pp-section-label">para quem e</span>
-          <h2 id="pp-dores-h2" className="pp-h2">Reconhece alguma dessas situacoes?</h2>
+          <span className="pp-section-label">para quem é</span>
+          <h2 id="pp-dores-h2" className="pp-h2">Reconhece alguma dessas situações?</h2>
           <p className="pp-section-desc">O Projeto Presença existe para profissionais que já tem um bom trabalho mas ainda não tem uma porta de entrada digital a altura.</p>
         </div>
         <div className="pp-dores-grid">
@@ -491,11 +491,11 @@ function DoreCard({ icon, title, desc, index }) {
 
 /* ─── Beneficios ─────────────────────────────────────────── */
 const BENEFICIOS = [
-  { icon: "ph-desktop", title: "Site responsivo em até 30 dias", desc: "Cinco paginas com estrutura profissional, design limpo e carregamento rápido. Funciona bem no celular, tablet e computador." },
-  { icon: "ph-magnifying-glass", title: "Encontravel no Google desde o início", desc: "SEO técnico configurado, estrutura semantica e integracao com o Google Business Profile para comecar a criar histórico de buscas." },
-  { icon: "ph-whatsapp-logo", title: "WhatsApp integrado ao site", desc: "De quem te encontra no Google até a conversa que fecha negocio. O contato acontece de forma natural, sem atrito." },
-  { icon: "ph-article", title: "Tres meses de acompanhamento", desc: "Publicacao de até 2 artigos mensais no blog e 1 post no Google Business por mes, desde que você forneca o conteudo." },
-  { icon: "ph-globe", title: "Domínio registrado no seu nome", desc: "O domínio e seu. O site e seu. A hospedagem fica disponivel por 1 ano. Você fica com tudo o que foi construido." },
+  { icon: "ph-desktop", title: "Site responsivo em até 30 dias", desc: "Cinco páginas com estrutura profissional, design limpo e carregamento rápido. Funciona bem no celular, tablet e computador." },
+  { icon: "ph-magnifying-glass", title: "Encontrável no Google desde o início", desc: "SEO técnico configurado, estrutura semântica e integração com o Google Business Profile para começar a criar histórico de buscas." },
+  { icon: "ph-whatsapp-logo", title: "WhatsApp integrado ao site", desc: "De quem te encontra no Google até a conversa que fecha negócio. O contato acontece de forma natural, sem atrito." },
+  { icon: "ph-article", title: "Três meses de acompanhamento", desc: "Publicação de até 2 artigos mensais no blog e 1 post no Google Business por mês, desde que você forneça o conteúdo." },
+  { icon: "ph-globe", title: "Domínio registrado no seu nome", desc: "O domínio é seu. O site é seu. A hospedagem fica disponível por 1 ano. Você fica com tudo o que foi construído." },
 ];
 
 function BeneficiosSection() {
@@ -539,9 +539,9 @@ function BeneficioCard({ icon, title, desc, index }) {
 
 /* ─── Como funciona ──────────────────────────────────────── */
 const PASSOS = [
-  { n: "01", title: "Você se candidata ou e indicado", desc: "Preencha o formulario contando sobre seu trabalho e por que acredita que um site faria diferenca. Indicações também sao bem-vindas." },
-  { n: "02", title: "Eu faco a seleção", desc: "Analiso cada candidatura de forma pessoal. Seleciono dois projetos com base no potencial, no encaixe e na diversidade de segmentos. Todos recebem retorno." },
-  { n: "03", title: "Desenvolvemos o site juntos", desc: "Briefing, definicao de estrutura, design, desenvolvimento e publicacao. Você acompanha as etapas e aprova antes do site ir ao ar. Prazo: até 30 dias." },
+  { n: "01", title: "Você se candidata ou é indicado", desc: "Preencha o formulário contando sobre seu trabalho e por que acredita que um site faria diferença. Indicações também são bem-vindas." },
+  { n: "02", title: "Eu faço a seleção", desc: "Analiso cada candidatura de forma pessoal. Seleciono dois projetos com base no potencial, no encaixe e na diversidade de segmentos. Todos recebem retorno." },
+  { n: "03", title: "Desenvolvemos o site juntos", desc: "Briefing, definição de estrutura, design, desenvolvimento e publicação. Você acompanha as etapas e aprova antes do site ir ao ar. Prazo: até 30 dias." },
 ];
 
 function ComoFuncionaSection() {
@@ -551,7 +551,7 @@ function ComoFuncionaSection() {
       <div className="pp-container">
         <div className="pp-section-header">
           <span className="pp-section-label">o processo</span>
-          <h2 id="pp-como-funciona-h2" className="pp-h2">Como funciona em tres passos</h2>
+          <h2 id="pp-como-funciona-h2" className="pp-h2">Como funciona em três passos</h2>
         </div>
         <div className="pp-passos-wrap">
           {PASSOS.map((p, i) => <PassoItem key={i} {...p} index={i} isLast={i === PASSOS.length - 1} />)}
@@ -588,24 +588,24 @@ function PassoItem({ n, title, desc, index, isLast }) {
 
 /* ─── Incluído / Não incluído ────────────────────────────── */
 const INCLUIDO = [
-  "Site institucional responsivo (até 5 paginas)",
-  "Configuracao inicial de SEO",
-  "Integracao com WhatsApp",
+  "Site institucional responsivo (até 5 páginas)",
+  "Configuração inicial de SEO",
+  "Integração com WhatsApp",
   "Estrutura básica de blog",
   "Hospedagem disponibilizada por 1 ano",
-  "Até 2 rodadas de revisao",
-  "3 meses: publicacao de até 2 artigos mensais no blog",
-  "1 publicacao mensal no Google Business (com texto seu)",
+  "Até 2 rodadas de revisão",
+  "3 meses: publicação de até 2 artigos mensais no blog",
+  "1 publicação mensal no Google Business (com texto seu)",
   "Domínio registrado no seu nome",
 ];
 const NAO_INCLUIDO = [
-  "Redacao dos textos do site e do blog (você fornece o conteudo)",
+  "Redação dos textos do site e do blog (você fornece o conteúdo)",
   "Design de identidade visual ou logotipo",
-  "Fotografia ou producao de imagens",
-  "Integracoes com ferramentas pagas de terceiros",
-  "Desenvolvimento de e-commerce ou area de membros",
-  "Manutencao tecnica após o periodo de acompanhamento",
-  "Gestao de redes sociais",
+  "Fotografia ou produção de imagens",
+  "Integrações com ferramentas pagas de terceiros",
+  "Desenvolvimento de e-commerce ou área de membros",
+  "Manutenção técnica após o período de acompanhamento",
+  "Gestão de redes sociais",
 ];
 
 function IncluidoSection() {
@@ -614,17 +614,17 @@ function IncluidoSection() {
     <section id="pp-incluido" className="pp-section pp-section-white" ref={ref} aria-labelledby="pp-incluido-h2">
       <div className="pp-container">
         <div className="pp-section-header">
-          <span className="pp-section-label">transparencia</span>
-          <h2 id="pp-incluido-h2" className="pp-h2">O que esta dentro e o que não esta</h2>
-          <p className="pp-section-desc">Sem surpresas. Abaixo esta tudo que esta incluído no projeto e tudo que não esta, para que você tome uma decisão informada.</p>
+          <span className="pp-section-label">transparência</span>
+          <h2 id="pp-incluido-h2" className="pp-h2">O que está dentro e o que não está</h2>
+          <p className="pp-section-desc">Sem surpresas. Abaixo está tudo que está incluso no projeto e tudo que não está, para que você tome uma decisão informada.</p>
         </div>
         <div className="pp-incluido-grid">
           <div className="pp-incluido-col pp-incluido-yes">
             <div className="pp-incluido-header pp-incluido-header-yes">
               <i className="ph-bold ph-check-circle" style={{ fontSize: 20, color: "#16a34a" }} />
-              <span className="pp-incluido-header-text" style={{ color: "#16a34a" }}>Incluído</span>
+              <span className="pp-incluido-header-text" style={{ color: "#16a34a" }}>Incluso</span>
             </div>
-            <ul className="pp-incluido-list" aria-label="O que esta incluído">
+            <ul className="pp-incluido-list" aria-label="O que está incluso">
               {INCLUIDO.map((item, i) => (
                 <li key={i} className="pp-incluido-item">
                   <i className="ph-bold ph-check" style={{ fontSize: 14, color: "#16a34a", flexShrink: 0, marginTop: 2 }} />
@@ -636,9 +636,9 @@ function IncluidoSection() {
           <div className="pp-incluido-col pp-incluido-no">
             <div className="pp-incluido-header pp-incluido-header-no">
               <i className="ph-bold ph-x-circle" style={{ fontSize: 20, color: "#86868b" }} />
-              <span className="pp-incluido-header-text" style={{ color: "#86868b" }}>Não incluído</span>
+              <span className="pp-incluido-header-text" style={{ color: "#86868b" }}>Não incluso</span>
             </div>
-            <ul className="pp-incluido-list" aria-label="O que não esta incluído">
+            <ul className="pp-incluido-list" aria-label="O que não esta incluso">
               {NAO_INCLUIDO.map((item, i) => (
                 <li key={i} className="pp-incluido-item pp-nao-incluido-item">
                   <i className="ph-bold ph-minus" style={{ fontSize: 14, color: "#d2d2d7", flexShrink: 0, marginTop: 2 }} />
@@ -661,16 +661,16 @@ function ProvaSocialSection() {
       <div className="pp-container">
         <div className="pp-section-header">
           <span className="pp-section-label">cases</span>
-          <h2 id="pp-prova-h2" className="pp-h2">Os resultados virao aqui</h2>
-          <p className="pp-section-desc">Esta e a primeira edição do Projeto Presença. Os sites estao sendo desenvolvidos agora. A medida que os projetos forem concluídos, os cases serão publicados nesta pagina com os resultados reais, sem edição.</p>
+          <h2 id="pp-prova-h2" className="pp-h2">Os resultados virão aqui</h2>
+          <p className="pp-section-desc">Esta é a primeira edição do Projeto Presença. Os sites estão sendo desenvolvidos agora. A medida que os projetos forem concluídos, os cases serão publicados nesta página com os resultados reais, sem edição.</p>
         </div>
         <div className="pp-prova-placeholder">
           <div className="pp-prova-inner">
             <i className="ph-bold ph-hourglass" style={{ fontSize: 36, color: "#d2d2d7" }} />
-            <p className="pp-prova-text">Espaco reservado para os primeiros cases do projeto.</p>
+            <p className="pp-prova-text">Espaço reservado para os primeiros cases do projeto.</p>
             <p className="pp-prova-sub">
               Você pode acompanhar o andamento pelo Instagram{" "}
-              <a href="https://instagram.com/robsonsvicero" target="_blank" rel="noopener noreferrer" className="pp-link">@robsonsvicero</a>
+              <a href="https://instagram.com/robson.svicero" target="_blank" rel="noopener noreferrer" className="pp-link">@robson.svicero</a>
             </p>
           </div>
         </div>
@@ -681,11 +681,11 @@ function ProvaSocialSection() {
 
 /* ─── Objeções ───────────────────────────────────────────── */
 const OBJECOES = [
-  { q: "É realmente sem custo de desenvolvimento?", a: "Sim. O desenvolvimento do site, o design e o acompanhamento por 3 meses não tem custo para os participantes selecionados. Você paga apenas o registro do domínio (em media R$ 40,00), que fica registrado no seu nome. Se quiser ferramentas ou integracoes pagas de terceiros, essas ficam por conta sua." },
-  { q: "Por que so 2 vagas?", a: "Porque cada projeto recebe atenção individual. Não e um template que você preenche. É um processo de briefing, decisão editorial e desenvolvimento personalizado e isso leva tempo. Prefiro entregar dois projetos bem feitos do que dez medíocres." },
+  { q: "É realmente sem custo de desenvolvimento?", a: "Sim. O desenvolvimento do site, o design e o acompanhamento por 3 meses não tem custo para os participantes selecionados. Você paga apenas o registro do domínio (em media R$ 40,00), que fica registrado no seu nome. Se quiser ferramentas ou integrações pagas de terceiros, essas ficam por conta sua." },
+  { q: "Por que só 2 vagas?", a: "Porque cada projeto recebe atenção individual. Não é um template que você preenche. É um processo de briefing, decisão editorial e desenvolvimento personalizado e isso leva tempo. Prefiro entregar dois projetos bem feitos do que dez medíocres." },
   { q: "Preciso conhecer você pessoalmente?", a: "Não. Todo o processo acontece online, via videochamada e WhatsApp. Não importa a cidade." },
-  { q: "O que acontece depois dos 3 meses de acompanhamento?", a: "O site continua seu, hospedado por 1 ano. Após o periodo de acompanhamento, a publicacao de artigos e posts no Google Business não esta incluida, mas você pode continuar publicando por conta própria, já que a estrutura estara toda configurada." },
-  { q: "Quem escreve os textos do blog e do site?", a: "Você fornece o conteudo em texto corrido, notas de voz ou rascunho. Eu faco a formatacao, a revisao estrutural e a publicacao. Os textos das paginas do site também sao construidos em conjunto." },
+  { q: "O que acontece depois dos 3 meses de acompanhamento?", a: "O site continua seu, hospedado por 1 ano. Após o periodo de acompanhamento, a publicação de artigos e posts no Google Business não está incluída, mas você pode continuar publicando por conta própria, já que a estrutura estará toda configurada." },
+  { q: "Quem escreve os textos do blog e do site?", a: "Você fornece o conteúdo em texto corrido. Eu faço a formatação, a revisão estrutural e a publicação. Os textos das páginas do site também são construídos em conjunto." },
 ];
 
 function ObjSection() {
@@ -726,14 +726,14 @@ function ObjCard({ q, a, index }) {
 
 /* ─── FAQ ────────────────────────────────────────────────── */
 const FAQ = [
-  { q: "Meu segmento se encaixa no projeto?", a: "O projeto e voltado para profissionais autonomos e pequenos negocios que trabalham principalmente pelo Instagram e WhatsApp e ainda não tem um site profissional. Arquitetos, designers, fotografos, consultores, profissionais da saúde, educadores, prestadores de servico em geral." },
-  { q: "Posso indicar outra pessoa?", a: "Sim. Você pode indicar um profissional que acredita que se beneficiaria do projeto. No formulario, ha um campo especifico para indicações. O processo de seleção e o mesmo para candidatos e indicados." },
-  { q: "Como funciona o processo de seleção?", a: "Leio todas as candidaturas de forma pessoal. Seleciono com base no potencial do projeto, no encaixe com o perfil buscado e na diversidade de segmentos. Não ha critério técnico. Todos os candidatos recebem uma resposta." },
-  { q: "Em quanto tempo recebo uma resposta?", a: "Não ha prazo fixo, pois a seleção e feita manualmente. O objetivo e responder a todas as candidaturas dentro de 2 semanas após o encerramento das inscricoes." },
-  { q: "Posso pedir mudancas depois que o site ficar pronto?", a: "Sim. O projeto inclui até 2 rodadas de revisao. Após a aprovação final e a publicacao, ajustes adicionais não estao incluidos, mas podem ser combinados separadamente." },
-  { q: "O domínio .com.br esta incluído?", a: "O custo do domínio não esta incluído. Em media, um domínio .com.br custa R$ 40,00 por ano e e registrado diretamente no seu nome. Você continua sendo o proprietario mesmo após o encerramento do projeto." },
-  { q: "O site fica comigo depois do projeto?", a: "Sim. O site, o domínio e a hospedagem (por 1 ano) ficam com você. Não ha dependencia tecnica ou de contrato após o termino do projeto." },
-  { q: "Quem desenvolve o site?", a: "Robson Svicero, designer e desenvolvedor web com experiência em sites para profissionais autonomos e pequenos negocios. O Projeto Presença e uma iniciativa pessoal, não uma agencia." },
+  { q: "Meu segmento se encaixa no projeto?", a: "O projeto é voltado para profissionais autônomos e pequenos negócios que trabalham principalmente pelo Instagram e WhatsApp e ainda não tem um site profissional. Arquitetos, designers, fotógrafos, consultores, profissionais da saúde, educadores, prestadores de serviço em geral." },
+  { q: "Posso indicar outra pessoa?", a: "Sim. Você pode indicar um profissional que acredita que se beneficiaria do projeto. No formulário, há um campo específico para indicações. O processo de seleção é o mesmo para candidatos e indicados." },
+  { q: "Como funciona o processo de seleção?", a: "Leio todas as candidaturas de forma pessoal. Seleciono com base no potencial do projeto, no encaixe com o perfil buscado e na diversidade de segmentos. Não há critério técnico. Todos os candidatos recebem uma resposta." },
+  { q: "Em quanto tempo recebo uma resposta?", a: "Não há prazo fixo, pois a seleção é feita manualmente. O objetivo é responder a todas as candidaturas dentro de 2 semanas após o encerramento das inscrições." },
+  { q: "Posso pedir mudanças depois que o site ficar pronto?", a: "Sim. O projeto inclui até 2 rodadas de revisão. Após a aprovação final e a publicação, ajustes adicionais não estão inclusos, mas podem ser combinados separadamente." },
+  { q: "O domínio .com.br está incluído?", a: "O custo do domínio não está incluído. Em média, um domínio .com.br custa R$ 40,00 por ano e é registrado diretamente no seu nome. Você continua sendo o proprietário mesmo após o encerramento do projeto." },
+  { q: "O site fica comigo depois do projeto?", a: "Sim. O site, o domínio e a hospedagem (por 1 ano) ficam com você. Não há dependência técnica ou de contrato após o término do projeto." },
+  { q: "Quem desenvolve o site?", a: "Robson Svicero, designer e desenvolvedor web com experiência em sites para profissionais autônomos e pequenos negócios. O Projeto Presença é uma iniciativa pessoal, não uma agência." },
 ];
 
 function FaqSection() {
@@ -776,7 +776,7 @@ function CtaFinal() {
   return (
     <section className="pp-cta-final" ref={ref} aria-labelledby="pp-cta-final-h2">
       <div className="pp-container pp-cta-final-inner">
-        <h2 id="pp-cta-final-h2" className="pp-cta-final-h2">Seu negocio merece uma porta de entrada a altura do seu trabalho.</h2>
+        <h2 id="pp-cta-final-h2" className="pp-cta-final-h2">Seu negócio merece uma porta de entrada à altura do seu trabalho.</h2>
         <p className="pp-cta-final-sub">Duas vagas. Sem custo de desenvolvimento. Com acompanhamento real.</p>
         <a href="#pp-formulario" className="pp-cta-btn pp-cta-light" id="pp-cta-final-btn" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulario")?.scrollIntoView({ behavior: "smooth" }); }}>
           Quero participar da seleção
@@ -795,29 +795,29 @@ function Footer() {
           <div className="pp-footer-brand">
             <span className="pp-footer-logo">Projeto Presença</span>
             <p className="pp-footer-tagline">Uma iniciativa de Robson Svicero</p>
-            <p className="pp-footer-desc">Designer e desenvolvedor web. O Projeto Presença e uma iniciativa pessoal para ajudar profissionais autonomos a construirem presença digital de forma profissional.</p>
+            <p className="pp-footer-desc">Designer e desenvolvedor web. O Projeto Presença é uma iniciativa pessoal para ajudar profissionais autônomos a construírem presença digital de forma profissional.</p>
           </div>
           <div className="pp-footer-col">
             <span className="pp-footer-col-title">Contato</span>
-            <a href="https://wa.me/5548999999999" target="_blank" rel="noopener noreferrer" className="pp-footer-link">
+            <a href="https://wa.me/5511964932007" target="_blank" rel="noopener noreferrer" className="pp-footer-link">
               <i className="ph-bold ph-whatsapp-logo" style={{ fontSize: 14 }} />WhatsApp
             </a>
-            <a href="https://instagram.com/robsonsvicero" target="_blank" rel="noopener noreferrer" className="pp-footer-link">
-              <i className="ph-bold ph-instagram-logo" style={{ fontSize: 14 }} />@robsonsvicero
+            <a href="https://instagram.com/robson.svicero" target="_blank" rel="noopener noreferrer" className="pp-footer-link">
+              <i className="ph-bold ph-instagram-logo" style={{ fontSize: 14 }} />@robson.svicero
             </a>
-            <a href="mailto:oi@robsonsvicero.com.br" className="pp-footer-link">
-              <i className="ph-bold ph-envelope" style={{ fontSize: 14 }} />oi@robsonsvicero.com.br
+            <a href="mailto:ola@robsonsvicero.com.br" className="pp-footer-link">
+              <i className="ph-bold ph-envelope" style={{ fontSize: 14 }} />ola@robsonsvicero.com.br
             </a>
           </div>
           <div className="pp-footer-col">
-            <span className="pp-footer-col-title">Transparencia</span>
-            <p className="pp-footer-transparency">A seleção e feita de forma pessoal por Robson Svicero. Não ha garantia de participacao apenas pelo preenchimento do formulario. Todos os candidatos recebem retorno.</p>
+            <span className="pp-footer-col-title">Transparência</span>
+            <p className="pp-footer-transparency">A seleção é feita de forma pessoal por Robson Svicero. Não há garantia de participação apenas pelo preenchimento do formulário. Todos os candidatos recebem retorno.</p>
           </div>
         </div>
         <div className="pp-footer-bottom">
           <p className="pp-footer-copy">2026 Projeto Presença, Robson Svicero</p>
           <div className="pp-footer-legal">
-            <a href="/privacidade" className="pp-footer-legal-link">Politica de privacidade</a>
+            <a href="/privacidade" className="pp-footer-legal-link">Política de privacidade</a>
           </div>
         </div>
       </div>
@@ -831,7 +831,7 @@ export default function ProjetoPresenca() {
     <>
       <InjectFonts />
       <InjectPhosphor />
-      <a href="#pp-main" className="pp-skip-link">Pular para o conteudo principal</a>
+      <a href="#pp-main" className="pp-skip-link">Pular para o conteúdo principal</a>
       <Nav />
       <main id="pp-main">
         <HeroSection />
