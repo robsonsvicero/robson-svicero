@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-11T01:52:14.911Z",
+  "generatedAt": "2026-09-11T13:39:53.296Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados/image-2026-09-09T03-12-32-900Z.webp",

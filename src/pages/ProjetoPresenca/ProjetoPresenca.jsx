@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import SEO from "../../components/seo/SEO.jsx";
 import {
   AtSign,
   CalendarCheck,
@@ -835,6 +836,12 @@ function Footer() {
 export default function ProjetoPresenca() {
   return (
     <>
+      <SEO
+        title="Projeto Presença"
+        description="Presença digital para quem já tem o trabalho, mas ainda não tem o site. Duas vagas para profissionais autônomos e pequenos negócios construírem um site completo sem custo de desenvolvimento."
+        path="/projeto-presenca"
+        image="/assets/images/logo_projeto_presenca.png"
+      />
       <InjectFonts />
       <a href="#pp-main" className="pp-skip-link">Pular para o conteúdo principal</a>
       <Nav />
