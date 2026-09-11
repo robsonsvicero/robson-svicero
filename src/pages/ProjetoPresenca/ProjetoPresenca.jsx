@@ -1,4 +1,23 @@
 import { useEffect, useRef, useState } from "react";
+import {
+  AtSign,
+  CalendarCheck,
+  Check,
+  CheckCircle2,
+  FileText,
+  Globe2,
+  Handshake,
+  Hourglass,
+  LockKeyhole,
+  Mail,
+  MessageCircle,
+  MessageCircleMore,
+  Minus,
+  Monitor,
+  Search,
+  SearchX,
+  XCircle,
+} from "lucide-react";
 import "./ProjetoPresenca.css";
 
 /* ─── Inject Google Fonts (DM Sans + DM Mono) ──────────── */
@@ -17,19 +36,6 @@ function InjectFonts() {
 }
 
 /* ─── Inject Phosphor Icons CDN ─────────────────────────── */
-function InjectPhosphor() {
-  useEffect(() => {
-    const id = "pp-phosphor";
-    if (document.getElementById(id)) return;
-    const link = document.createElement("link");
-    link.id = id;
-    link.rel = "stylesheet";
-    link.href = "https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css";
-    document.head.appendChild(link);
-  }, []);
-  return null;
-}
-
 /* ─── IntersectionObserver fade-up hook ─────────────────── */
 function useFadeUp(threshold) {
   const t = threshold || 0.12;
@@ -261,7 +267,7 @@ function CandidaturaForm() {
   if (status === "success") {
     return (
       <div className="pp-form-success" role="alert">
-        <i className="ph-bold ph-check-circle" style={{ fontSize: 40, color: "#16a34a" }} />
+        <CheckCircle2 size={40} color="#16a34a" aria-hidden="true" />
         <h3 className="pp-form-success-title">Candidatura recebida</h3>
         <p className="pp-form-success-text">
           Obrigado. Vou analisar sua candidatura e entro em contato pelo WhatsApp informado.
@@ -397,7 +403,7 @@ function HeroSection() {
               <span className="pp-dot" style={{ background: "#FEBC2E" }} />
               <span className="pp-dot" style={{ background: "#28C840" }} />
               <div className="pp-url-bar">
-                <i className="ph-bold ph-lock-simple" style={{ fontSize: 11, color: "#86868b" }} />
+                <LockKeyhole size={11} color="#86868b" aria-hidden="true" />
                 <span className="pp-url-text">seunome.com.br</span>
               </div>
             </div>
@@ -426,15 +432,15 @@ function HeroSection() {
             </div>
           </div>
           <div className="pp-float-card" style={{ top: 12, right: -20 }}>
-            <i className="ph-bold ph-check-circle" style={{ color: "#16a34a", fontSize: 16 }} />
+            <CheckCircle2 size={16} color="#16a34a" aria-hidden="true" />
             <span className="pp-float-text">SEO configurado</span>
           </div>
           <div className="pp-float-card" style={{ bottom: 48, left: -16 }}>
-            <i className="ph-bold ph-whatsapp-logo" style={{ color: "#25d366", fontSize: 16 }} />
+            <MessageCircle size={16} color="#25d366" aria-hidden="true" />
             <span className="pp-float-text">WhatsApp integrado</span>
           </div>
           <div className="pp-float-card" style={{ bottom: -12, right: 20 }}>
-            <i className="ph-bold ph-calendar-check" style={{ color: "#8234E9", fontSize: 16 }} />
+            <CalendarCheck size={16} color="#8234E9" aria-hidden="true" />
             <span className="pp-float-text">Pronto em 30 dias</span>
           </div>
         </div>
@@ -445,10 +451,10 @@ function HeroSection() {
 
 /* ─── Dores ──────────────────────────────────────────────── */
 const DORES = [
-  { icon: "ph-magnifying-glass-minus", title: "Invisível no Google", desc: "Instagram e WhatsApp não aparecem quando alguém pesquisa pelo seu serviço. Você depende de indicação, e indicação tem limite." },
-  { icon: "ph-instagram-logo", title: "Tudo em uma rede social", desc: "Algoritmo muda, alcance cai, conta pode ser bloqueada. Seu negócio não pode depender de uma plataforma que você não controla." },
-  { icon: "ph-handshake", title: "Credibilidade em dúvida", desc: "Sem site, o cliente busca você no Google e não encontra nada. A concorrência tem presença. Você perde a venda antes mesmo de falar." },
-  { icon: "ph-chat-dots", title: "Oportunidades que escapam", desc: "Clientes chegam por indicação, buscam mais sobre você antes de entrar em contato e não encontram nada. A dúvida vira desistência." },
+  { Icon: SearchX, title: "Invisível no Google", desc: "Instagram e WhatsApp não aparecem quando alguém pesquisa pelo seu serviço. Você depende de indicação, e indicação tem limite." },
+  { Icon: AtSign, title: "Tudo em uma rede social", desc: "Algoritmo muda, alcance cai, conta pode ser bloqueada. Seu negócio não pode depender de uma plataforma que você não controla." },
+  { Icon: Handshake, title: "Credibilidade em dúvida", desc: "Sem site, o cliente busca você no Google e não encontra nada. A concorrência tem presença. Você perde a venda antes mesmo de falar." },
+  { Icon: MessageCircleMore, title: "Oportunidades que escapam", desc: "Clientes chegam por indicação, buscam mais sobre você antes de entrar em contato e não encontram nada. A dúvida vira desistência." },
 ];
 
 function DoresSection() {
@@ -469,7 +475,7 @@ function DoresSection() {
   );
 }
 
-function DoreCard({ icon, title, desc, index }) {
+function DoreCard({ Icon, title, desc, index }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -482,7 +488,7 @@ function DoreCard({ icon, title, desc, index }) {
   }, [index]);
   return (
     <div ref={ref} className="pp-dore-card">
-      <div className="pp-dore-icon-wrap"><i className={"ph-bold " + icon} style={{ fontSize: 22, color: "#8234E9" }} /></div>
+      <div className="pp-dore-icon-wrap"><Icon size={22} color="#8234E9" strokeWidth={2.25} aria-hidden="true" /></div>
       <h3 className="pp-dore-title">{title}</h3>
       <p className="pp-dore-desc">{desc}</p>
     </div>
@@ -491,11 +497,11 @@ function DoreCard({ icon, title, desc, index }) {
 
 /* ─── Beneficios ─────────────────────────────────────────── */
 const BENEFICIOS = [
-  { icon: "ph-desktop", title: "Site responsivo em até 30 dias", desc: "Cinco páginas com estrutura profissional, design limpo e carregamento rápido. Funciona bem no celular, tablet e computador." },
-  { icon: "ph-magnifying-glass", title: "Encontrável no Google desde o início", desc: "SEO técnico configurado, estrutura semântica e integração com o Google Business Profile para começar a criar histórico de buscas." },
-  { icon: "ph-whatsapp-logo", title: "WhatsApp integrado ao site", desc: "De quem te encontra no Google até a conversa que fecha negócio. O contato acontece de forma natural, sem atrito." },
-  { icon: "ph-article", title: "Três meses de acompanhamento", desc: "Publicação de até 2 artigos mensais no blog e 1 post no Google Business por mês, desde que você forneça o conteúdo." },
-  { icon: "ph-globe", title: "Domínio registrado no seu nome", desc: "O domínio é seu. O site é seu. A hospedagem fica disponível por 1 ano. Você fica com tudo o que foi construído." },
+  { Icon: Monitor, title: "Site responsivo em até 30 dias", desc: "Cinco páginas com estrutura profissional, design limpo e carregamento rápido. Funciona bem no celular, tablet e computador." },
+  { Icon: Search, title: "Encontrável no Google desde o início", desc: "SEO técnico configurado, estrutura semântica e integração com o Google Business Profile para começar a criar histórico de buscas." },
+  { Icon: MessageCircle, title: "WhatsApp integrado ao site", desc: "De quem te encontra no Google até a conversa que fecha negócio. O contato acontece de forma natural, sem atrito." },
+  { Icon: FileText, title: "Três meses de acompanhamento", desc: "Publicação de até 2 artigos mensais no blog e 1 post no Google Business por mês, desde que você forneça o conteúdo." },
+  { Icon: Globe2, title: "Domínio registrado no seu nome", desc: "O domínio é seu. O site é seu. A hospedagem fica disponível por 1 ano. Você fica com tudo o que foi construído." },
 ];
 
 function BeneficiosSection() {
@@ -515,7 +521,7 @@ function BeneficiosSection() {
   );
 }
 
-function BeneficioCard({ icon, title, desc, index }) {
+function BeneficioCard({ Icon, title, desc, index }) {
   const ref = useRef(null);
   useEffect(() => {
     const el = ref.current;
@@ -528,7 +534,7 @@ function BeneficioCard({ icon, title, desc, index }) {
   }, [index]);
   return (
     <div ref={ref} className="pp-beneficio-card">
-      <div className="pp-beneficio-icon"><i className={"ph-bold " + icon} style={{ fontSize: 20, color: "#8234E9" }} /></div>
+      <div className="pp-beneficio-icon"><Icon size={20} color="#8234E9" strokeWidth={2.25} aria-hidden="true" /></div>
       <div>
         <h3 className="pp-beneficio-title">{title}</h3>
         <p className="pp-beneficio-desc">{desc}</p>
@@ -621,13 +627,13 @@ function IncluidoSection() {
         <div className="pp-incluido-grid">
           <div className="pp-incluido-col pp-incluido-yes">
             <div className="pp-incluido-header pp-incluido-header-yes">
-              <i className="ph-bold ph-check-circle" style={{ fontSize: 20, color: "#16a34a" }} />
+              <CheckCircle2 size={20} color="#16a34a" aria-hidden="true" />
               <span className="pp-incluido-header-text" style={{ color: "#16a34a" }}>Incluso</span>
             </div>
             <ul className="pp-incluido-list" aria-label="O que está incluso">
               {INCLUIDO.map((item, i) => (
                 <li key={i} className="pp-incluido-item">
-                  <i className="ph-bold ph-check" style={{ fontSize: 14, color: "#16a34a", flexShrink: 0, marginTop: 2 }} />
+                  <Check size={14} color="#16a34a" strokeWidth={2.5} aria-hidden="true" style={{ flexShrink: 0, marginTop: 2 }} />
                   <span>{item}</span>
                 </li>
               ))}
@@ -635,13 +641,13 @@ function IncluidoSection() {
           </div>
           <div className="pp-incluido-col pp-incluido-no">
             <div className="pp-incluido-header pp-incluido-header-no">
-              <i className="ph-bold ph-x-circle" style={{ fontSize: 20, color: "#86868b" }} />
+              <XCircle size={20} color="#86868b" aria-hidden="true" />
               <span className="pp-incluido-header-text" style={{ color: "#86868b" }}>Não incluso</span>
             </div>
             <ul className="pp-incluido-list" aria-label="O que não está incluso">
               {NAO_INCLUIDO.map((item, i) => (
                 <li key={i} className="pp-incluido-item pp-nao-incluido-item">
-                  <i className="ph-bold ph-minus" style={{ fontSize: 14, color: "#d2d2d7", flexShrink: 0, marginTop: 2 }} />
+                  <Minus size={14} color="#d2d2d7" strokeWidth={2.5} aria-hidden="true" style={{ flexShrink: 0, marginTop: 2 }} />
                   <span>{item}</span>
                 </li>
               ))}
@@ -666,7 +672,7 @@ function ProvaSocialSection() {
         </div>
         <div className="pp-prova-placeholder">
           <div className="pp-prova-inner">
-            <i className="ph-bold ph-hourglass" style={{ fontSize: 36, color: "#d2d2d7" }} />
+            <Hourglass size={36} color="#d2d2d7" aria-hidden="true" />
             <p className="pp-prova-text">Espaço reservado para os primeiros cases do projeto.</p>
             <p className="pp-prova-sub">
               Você pode acompanhar o andamento pelo Instagram{" "}
@@ -800,13 +806,13 @@ function Footer() {
           <div className="pp-footer-col">
             <span className="pp-footer-col-title">Contato</span>
             <a href="https://wa.me/5511964932007" target="_blank" rel="noopener noreferrer" className="pp-footer-link">
-              <i className="ph-bold ph-whatsapp-logo" style={{ fontSize: 14 }} />WhatsApp
+              <MessageCircle size={14} aria-hidden="true" />WhatsApp
             </a>
             <a href="https://instagram.com/robson.svicero" target="_blank" rel="noopener noreferrer" className="pp-footer-link">
-              <i className="ph-bold ph-instagram-logo" style={{ fontSize: 14 }} />@robson.svicero
+              <AtSign size={14} aria-hidden="true" />@robson.svicero
             </a>
             <a href="mailto:ola@robsonsvicero.com.br" className="pp-footer-link">
-              <i className="ph-bold ph-envelope" style={{ fontSize: 14 }} />ola@robsonsvicero.com.br
+              <Mail size={14} aria-hidden="true" />ola@robsonsvicero.com.br
             </a>
           </div>
           <div className="pp-footer-col">
@@ -830,7 +836,6 @@ export default function ProjetoPresenca() {
   return (
     <>
       <InjectFonts />
-      <InjectPhosphor />
       <a href="#pp-main" className="pp-skip-link">Pular para o conteúdo principal</a>
       <Nav />
       <main id="pp-main">
