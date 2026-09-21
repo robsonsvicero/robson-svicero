@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-11T13:39:53.296Z",
+  "generatedAt": "2026-09-21T14:55:44.210Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/image-2026-09-17T22-31-05-539Z.jpg",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/thumbnail-2026-09-17T20-40-28-857Z.webp",
+      "slug": "a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online",
+      "path": "/blog/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online",
+      "title": "A clínica que tinha boas avaliações, mas não aproveitava sua reputação online",
+      "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
+      "category": "Websites Estratégicos",
+      "publishedAt": "2026-09-17T20:56:00+00:00",
+      "viewsCount": 10,
+      "readingTime": "8 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados/image-2026-09-09T03-12-32-900Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-um-site-pode-ajudar-negocios-locais-a-serem-encontrados/thumbnail-2026-09-09T03-12-25-834Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-09T10:21:00+00:00",
-      "viewsCount": 4,
+      "viewsCount": 7,
       "readingTime": "10 minutos"
     },
     {
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 13,
+      "viewsCount": 21,
       "readingTime": "10 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 12,
       "readingTime": "8 minutos"
     },
     {
@@ -70,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "7 minutos"
     },
     {
@@ -94,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 22,
+      "viewsCount": 23,
       "readingTime": "8 minutos"
     },
     {
@@ -166,7 +178,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que um site de sucesso começa muito antes do layout. Entenda como estratégia, UX Design e branding criam experiências que geram resultados para empresas.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-09T03:00:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 19,
       "readingTime": "4 minutos"
     },
     {
