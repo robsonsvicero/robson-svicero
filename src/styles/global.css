@@ -1937,13 +1937,15 @@ h3 {
   inset: 0;
   display: grid;
   place-items: center;
-  padding: clamp(56px, 8vw, 96px) clamp(56px, 10vw, 144px);
+  padding: clamp(80px, 10vh, 120px) clamp(80px, 12vw, 180px);
   background: rgb(10 10 10 / 92%);
 }
 
 .case-lightbox-image {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
+  max-width: min(100%, 1400px);
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -5682,7 +5684,7 @@ h3 {
   }
 
   .case-lightbox {
-    padding: 64px 16px;
+    padding: 72px 48px;
   }
 
   .case-lightbox-close {
