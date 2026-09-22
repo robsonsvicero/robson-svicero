@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-22T18:31:39.732Z",
+  "generatedAt": "2026-09-22T18:51:18.644Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/image-2026-09-17T22-31-05-539Z.jpg",

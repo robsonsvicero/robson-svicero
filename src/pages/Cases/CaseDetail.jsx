@@ -19,7 +19,7 @@ export default function CaseDetail() {
     mapper: mapProject,
   });
   const [activeImageIndex, setActiveImageIndex] = useState(null);
-  const galleryImages = project ? [project.image, ...(project.galleryImages || [])].filter(Boolean) : [];
+  const galleryImages = project?.galleryImages || [];
   const activeImage = activeImageIndex === null ? null : galleryImages[activeImageIndex];
 
   useEffect(() => {
@@ -83,12 +83,7 @@ export default function CaseDetail() {
               </div>
 
               {project.image && (
-                <button
-                  className="case-detail-hero-media case-image-button"
-                  type="button"
-                  onClick={() => openImage(0)}
-                  aria-label="Ampliar imagem principal"
-                >
+                <figure className="case-detail-hero-media">
                   <img
                     className="case-detail-hero-image"
                     src={project.image}
@@ -97,7 +92,7 @@ export default function CaseDetail() {
                     loading="eager"
                     decoding="async"
                   />
-                </button>
+                </figure>
               )}
             </div>
           </header>
@@ -118,13 +113,13 @@ export default function CaseDetail() {
                   className="case-gallery-strip-item case-image-button"
                   type="button"
                   key={image}
-                  onClick={() => openImage(index + 1)}
-                  aria-label={`Ampliar imagem ${index + 2}`}
+                  onClick={() => openImage(index)}
+                  aria-label={`Ampliar imagem ${index + 1}`}
                 >
                   <img
                     src={image}
-                    alt={`${project.alt || project.title} - imagem ${index + 2}`}
-                    title={`${project.alt || project.title} - imagem ${index + 2}`}
+                    alt={`${project.alt || project.title} - imagem ${index + 1}`}
+                    title={`${project.alt || project.title} - imagem ${index + 1}`}
                     loading="lazy"
                     decoding="async"
                   />
