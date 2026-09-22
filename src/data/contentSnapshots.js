@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-22T01:11:48.592Z",
+  "generatedAt": "2026-09-22T18:26:24.789Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/image-2026-09-17T22-31-05-539Z.jpg",
@@ -220,13 +220,25 @@ export const contentSnapshots = {
   ],
   "projects": [
     {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/maeztro-gestao-app/image-2026-09-22T18-16-52-193Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/maeztro-gestao-app/thumbnail-2026-09-22T18-16-44-577Z.webp",
+      "slug": "maeztro-gestao-app",
+      "path": "/cases/maeztro-gestao-app",
+      "title": "MAEZTRO Gestão - App",
+      "badge": "ux design + site",
+      "publishedAt": "2026-09-14T00:00:00+00:00",
+      "description": "Projeto MAEZTRO Gestão - App com foco em posicionamento digital e conversao.",
+      "metaDescription": "Case MAEZTRO Gestão - App: estrategia, design e desenvolvimento orientados a resultado.",
+      "alt": "Maeztro Gestão"
+    },
+    {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/image-2026-09-22T00-40-09-105Z.jpg",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-09-22T00-45-00-120Z.jpg",
       "slug": "menu-zona-norte-redesign",
       "path": "/cases/menu-zona-norte-redesign",
       "title": "Menu Zona Norte - Redesign",
       "badge": "UI/UX Design",
-      "publishedAt": "2026-09-21T00:00:00+00:00",
+      "publishedAt": "2026-07-19T00:00:00+00:00",
       "description": "Projeto Menu Zona Norte - Redesign com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Menu Zona Norte - Redesign: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Redesign Menu Zon Norte"
@@ -273,23 +285,11 @@ export const contentSnapshots = {
       "slug": "plataforma-digital-para-consultor-imobiliario",
       "path": "/cases/plataforma-digital-para-consultor-imobiliario",
       "title": "Plataforma digital para consultor imobiliário",
-      "badge": "Site",
+      "badge": "Site + IDV",
       "publishedAt": "2026-04-30T00:00:00+00:00",
       "description": "Projeto Plataforma digital para consultor imobiliário com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Plataforma digital para consultor imobiliário: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "André Barbosa Consultor Imobiliário"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/amanda-store/image-2026-07-09T15-10-38-414Z.png",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/amanda-store/thumbnail-2026-08-04T02-11-39-960Z.webp",
-      "slug": "amanda-store",
-      "path": "/cases/amanda-store",
-      "title": "AMANDA store",
-      "badge": "Loja virtual",
-      "publishedAt": "2026-02-10T00:00:00+00:00",
-      "description": "Projeto AMANDA store com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case AMANDA store: estrategia, design e desenvolvimento orientados a resultado.",
-      "alt": "Amanda Store"
     }
   ]
 };

@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import RichTextContent from "../../components/RichTextContent/RichTextContent.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -16,6 +18,39 @@ export default function CaseDetail() {
     slug,
     mapper: mapProject,
   });
+  const [activeImageIndex, setActiveImageIndex] = useState(null);
+  const galleryImages = project ? [project.image, ...(project.galleryImages || [])].filter(Boolean) : [];
+  const activeImage = activeImageIndex === null ? null : galleryImages[activeImageIndex];
+
+  useEffect(() => {
+    if (activeImageIndex === null) return undefined;
+
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") setActiveImageIndex(null);
+      if (event.key === "ArrowLeft") {
+        setActiveImageIndex((currentIndex) => (currentIndex - 1 + galleryImages.length) % galleryImages.length);
+      }
+      if (event.key === "ArrowRight") {
+        setActiveImageIndex((currentIndex) => (currentIndex + 1) % galleryImages.length);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [activeImageIndex, galleryImages.length]);
+
+  const openImage = (index) => setActiveImageIndex(index);
+  const showPreviousImage = () => {
+    setActiveImageIndex((currentIndex) => (currentIndex - 1 + galleryImages.length) % galleryImages.length);
+  };
+  const showNextImage = () => {
+    setActiveImageIndex((currentIndex) => (currentIndex + 1) % galleryImages.length);
+  };
 
   if (!project && isLoading) return null;
   if (!project) return <NotFound />;
@@ -48,7 +83,12 @@ export default function CaseDetail() {
               </div>
 
               {project.image && (
-                <figure className="case-detail-hero-media">
+                <button
+                  className="case-detail-hero-media case-image-button"
+                  type="button"
+                  onClick={() => openImage(0)}
+                  aria-label="Ampliar imagem principal"
+                >
                   <img
                     className="case-detail-hero-image"
                     src={project.image}
@@ -57,7 +97,7 @@ export default function CaseDetail() {
                     loading="eager"
                     decoding="async"
                   />
-                </figure>
+                </button>
               )}
             </div>
           </header>
@@ -74,7 +114,13 @@ export default function CaseDetail() {
           {project.galleryImages?.length > 0 && (
             <div className="case-gallery-strip" aria-label="Galeria do projeto">
               {project.galleryImages.map((image, index) => (
-                <figure className="case-gallery-strip-item" key={image}>
+                <button
+                  className="case-gallery-strip-item case-image-button"
+                  type="button"
+                  key={image}
+                  onClick={() => openImage(index + 1)}
+                  aria-label={`Ampliar imagem ${index + 2}`}
+                >
                   <img
                     src={image}
                     alt={`${project.alt || project.title} - imagem ${index + 2}`}
@@ -82,7 +128,7 @@ export default function CaseDetail() {
                     loading="lazy"
                     decoding="async"
                   />
-                </figure>
+                </button>
               ))}
             </div>
           )}
@@ -90,6 +136,35 @@ export default function CaseDetail() {
           <CTA content={pageCtaContent.caseDetail} titleId="case-detail-cta-title" />
         </article>
       </Layout>
+      {activeImage && (
+        <div
+          className="case-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Visualização da imagem ${activeImageIndex + 1} de ${galleryImages.length}`}
+          onClick={(event) => {
+            if (event.target === event.currentTarget) setActiveImageIndex(null);
+          }}
+        >
+          <button className="case-lightbox-close" type="button" onClick={() => setActiveImageIndex(null)} aria-label="Fechar visualização">
+            <X size={24} aria-hidden="true" />
+          </button>
+          <button className="case-lightbox-control case-lightbox-previous" type="button" onClick={showPreviousImage} aria-label="Imagem anterior">
+            <ChevronLeft size={32} aria-hidden="true" />
+          </button>
+          <img
+            className="case-lightbox-image"
+            src={activeImage}
+            alt={`${project.alt || project.title} - imagem ${activeImageIndex + 1}`}
+          />
+          <button className="case-lightbox-control case-lightbox-next" type="button" onClick={showNextImage} aria-label="Próxima imagem">
+            <ChevronRight size={32} aria-hidden="true" />
+          </button>
+          <p className="case-lightbox-counter" aria-live="polite">
+            {activeImageIndex + 1} / {galleryImages.length}
+          </p>
+        </div>
+      )}
     </>
   );
 }

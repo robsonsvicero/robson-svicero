@@ -105,6 +105,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://robsonsvicero.com.br/cases/maeztro-gestao-app</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://robsonsvicero.com.br/cases/menu-zona-norte-redesign</loc>
     <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -130,13 +136,13 @@
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/cases/plataforma-digital-para-consultor-imobiliario</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://robsonsvicero.com.br/cases/amanda-store</loc>
-    <lastmod>2026-08-07</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
