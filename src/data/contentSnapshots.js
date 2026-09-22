@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-21T14:55:44.210Z",
+  "generatedAt": "2026-09-22T01:11:48.592Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/image-2026-09-17T22-31-05-539Z.jpg",
@@ -220,6 +220,18 @@ export const contentSnapshots = {
   ],
   "projects": [
     {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/image-2026-09-22T00-40-09-105Z.jpg",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-09-22T00-45-00-120Z.jpg",
+      "slug": "menu-zona-norte-redesign",
+      "path": "/cases/menu-zona-norte-redesign",
+      "title": "Menu Zona Norte - Redesign",
+      "badge": "UI/UX Design",
+      "publishedAt": "2026-09-21T00:00:00+00:00",
+      "description": "Projeto Menu Zona Norte - Redesign com foco em posicionamento digital e conversao.",
+      "metaDescription": "Case Menu Zona Norte - Redesign: estrategia, design e desenvolvimento orientados a resultado.",
+      "alt": "Redesign Menu Zon Norte"
+    },
+    {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/image-2026-07-03T17-02-54-771Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T01-10-32-331Z.webp",
       "slug": "projeto-de-captacao-digital-para-ong",
@@ -278,18 +290,6 @@ export const contentSnapshots = {
       "description": "Projeto AMANDA store com foco em posicionamento digital e conversao.",
       "metaDescription": "Case AMANDA store: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Amanda Store"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/powerbrain-projeto-de-identidade-visual-website/image-2026-07-09T17-31-33-793Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/powerbrain-projeto-de-identidade-visual-website/thumbnail-2026-08-04T02-12-27-796Z.png",
-      "slug": "powerbrain-projeto-de-identidade-visual-website",
-      "path": "/cases/powerbrain-projeto-de-identidade-visual-website",
-      "title": "PowerBrain - Projeto de Identidade Visual + Website",
-      "badge": "IDV+Site",
-      "publishedAt": "2025-03-14T00:00:00+00:00",
-      "description": "Projeto PowerBrain - Projeto de Identidade Visual + Website com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case PowerBrain - Projeto de Identidade Visual + Website: estrategia, design e desenvolvimento orientados a resultado.",
-      "alt": "PowerBrain"
     }
   ]
 };
