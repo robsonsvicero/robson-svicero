@@ -2007,6 +2007,7 @@ h3 {
 }
 
 .rich-content h2,
+.rich-content h1,
 .rich-content h3,
 .rich-content p,
 .rich-content div,
@@ -2028,9 +2029,22 @@ h3 {
   font-size: var(--page-h2-size);
 }
 
+.rich-content h1 {
+  color: var(--fg);
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.1;
+}
+
 .rich-content h3 {
   color: var(--fg);
   font-size: var(--text-xl);
+}
+
+.rich-content mark {
+  padding-inline: 0.15em;
+  border-radius: 0.15em;
+  background: #fff19a;
+  color: inherit;
 }
 
 .rich-content p,
@@ -2068,8 +2082,17 @@ h3 {
   display: block;
   width: auto;
   height: auto;
-  max-width: none;
+  max-width: 100%;
   margin-inline: auto;
+}
+
+.rich-content iframe {
+  display: block;
+  width: min(100%, 720px);
+  aspect-ratio: 16 / 9;
+  height: auto;
+  margin-inline: auto;
+  border: 0;
 }
 
 .case-card ul {
@@ -3043,6 +3066,44 @@ h3 {
   margin-top: calc(var(--space-2) * -1);
 }
 
+.rich-editor-toolbar-group {
+  display: inline-flex;
+  gap: var(--space-2);
+  padding-right: var(--space-2);
+  border-right: 1px solid var(--border-soft);
+}
+
+.rich-editor-color {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 34px;
+  min-height: 34px;
+  padding: 4px 7px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-warm);
+  color: var(--fg);
+  font-weight: 700;
+}
+
+.rich-editor-color input {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.rich-editor-toolbar select {
+  min-height: 34px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface-warm);
+  color: var(--fg);
+}
+
 .rich-editor-toolbar button {
   min-width: 38px;
   min-height: 34px;
@@ -3079,6 +3140,38 @@ h3 {
   outline: none;
   overflow-y: auto;
 }
+
+.rich-editor-surface > * + * {
+  margin-top: var(--space-3);
+}
+
+.rich-editor-surface h1,
+.rich-editor-surface h2,
+.rich-editor-surface h3 {
+  line-height: 1.2;
+}
+
+.rich-editor-surface img,
+.rich-editor-surface iframe {
+  max-width: 100%;
+}
+
+.rich-editor-surface iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  border: 0;
+}
+
+.rich-editor-autosave {
+  align-self: center;
+  min-width: 90px;
+  color: var(--muted);
+  font-size: var(--text-xs);
+}
+
+.rich-editor-autosave.is-saving { color: var(--accent); }
+.rich-editor-autosave.is-error { color: #b42318; }
 
 .rich-editor-surface:focus {
   border-color: var(--accent);

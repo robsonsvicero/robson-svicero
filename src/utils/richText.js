@@ -5,11 +5,14 @@ const allowedTags = new Set([
   "BR",
   "EM",
   "DIV",
+  "H1",
   "H2",
   "H3",
   "I",
+  "IFRAME",
   "IMG",
   "LI",
+  "MARK",
   "OL",
   "P",
   "SPAN",
@@ -29,6 +32,10 @@ const allowedStyleProps = new Set([
   "text-align",
   "color",
   "background-color",
+  "line-height",
+  "margin-left",
+  "width",
+  "height",
 ]);
 
 const safeStyleValuePattern = /^[#(),.%\-\s\w]+$/;
@@ -112,7 +119,10 @@ function cleanNode(node) {
       const isAllowedImageAttribute =
         child.tagName === "IMG" && ["src", "alt", "width", "height", "loading"].includes(attribute.name);
 
-      if (!isAllowedLinkAttribute && !isAllowedImageAttribute) {
+      const isAllowedIframeAttribute =
+        child.tagName === "IFRAME" && ["src", "title", "width", "height", "allow", "allowfullscreen", "loading"].includes(attribute.name);
+
+      if (!isAllowedLinkAttribute && !isAllowedImageAttribute && !isAllowedIframeAttribute) {
         child.removeAttribute(attribute.name);
       }
     });
@@ -134,6 +144,16 @@ function cleanNode(node) {
       }
       child.setAttribute("loading", "lazy");
       child.setAttribute("alt", child.getAttribute("alt") || "");
+    }
+
+    if (child.tagName === "IFRAME") {
+      const src = child.getAttribute("src") || "";
+      if (!src.startsWith("https://www.youtube.com/") && !src.startsWith("https://www.youtube-nocookie.com/")) {
+        child.remove();
+        return;
+      }
+      child.setAttribute("loading", "lazy");
+      child.setAttribute("title", child.getAttribute("title") || "Vídeo incorporado");
     }
 
     cleanNode(child);

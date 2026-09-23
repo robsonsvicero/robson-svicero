@@ -11,6 +11,7 @@ import {
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
+import { useAutosave } from "../../hooks/useAutosave.js";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 import { sanitizeRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
@@ -156,6 +157,12 @@ export default function AdminDashboard() {
   const selectedItem = items.find((item) => item.id === selectedId);
   const isPostsResource = activeResource === "posts";
   const isLinksResource = activeResource === "links";
+  const autosaveStatus = useAutosave({
+    table: "blog_posts",
+    id: isPostsResource && postScreen === "edit" ? selectedId : null,
+    value: formValues.content,
+    enabled: isPostsResource && postScreen === "edit" && Boolean(selectedId),
+  });
   const isWhatsAppLink = isLinksResource && formValues.link_type === "whatsapp";
   const generatedUrl = isWhatsAppLink
     ? createWhatsAppUrl(formValues.whatsapp_phone, formValues.whatsapp_message)
@@ -780,6 +787,7 @@ export default function AdminDashboard() {
                             : undefined
                         }
                         required={field.required}
+                        autosaveStatus={isPostsResource && field.name === "content" ? autosaveStatus : "idle"}
                       />
                     ) : field.type === "select" || field.type === "relationSelect" ? (
                       <select

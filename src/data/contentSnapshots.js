@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-22T18:51:18.644Z",
+  "generatedAt": "2026-09-23T22:01:09.376Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-sem-conteudo-tambem-perde-oportunidades-no-google/image-2026-09-23T21-32-12-064Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-sem-conteudo-tambem-perde-oportunidades-no-google/thumbnail-2026-09-23T21-32-07-371Z.webp",
+      "slug": "site-sem-conteudo-tambem-perde-oportunidades-no-google",
+      "path": "/blog/site-sem-conteudo-tambem-perde-oportunidades-no-google",
+      "title": "Site sem conteúdo também perde oportunidades no Google",
+      "excerpt": "Entenda por que um site sem conteúdo perde oportunidades no Google e como páginas relevantes ajudam sua empresa a responder buscas e gerar descoberta orgânica.",
+      "category": "Websites Estratégicos",
+      "publishedAt": "2026-09-23T20:58:00+00:00",
+      "viewsCount": 1,
+      "readingTime": "12 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/image-2026-09-17T22-31-05-539Z.jpg",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/thumbnail-2026-09-17T20-40-28-857Z.webp",
@@ -166,7 +178,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 31,
+      "viewsCount": 32,
       "readingTime": "6 minutos"
     },
     {
@@ -232,16 +244,16 @@ export const contentSnapshots = {
       "alt": "Maeztro Gestão"
     },
     {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/image-2026-09-22T00-40-09-105Z.jpg",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-09-22T00-45-00-120Z.jpg",
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/image-2026-09-23T17-33-13-383Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-09-23T17-33-07-388Z.webp",
       "slug": "menu-zona-norte-redesign",
       "path": "/cases/menu-zona-norte-redesign",
       "title": "Menu Zona Norte - Redesign",
-      "badge": "UI/UX Design",
+      "badge": "UI/UX Design + Site",
       "publishedAt": "2026-07-19T00:00:00+00:00",
       "description": "Projeto Menu Zona Norte - Redesign com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Menu Zona Norte - Redesign: estrategia, design e desenvolvimento orientados a resultado.",
-      "alt": "Redesign Menu Zon Norte"
+      "alt": "Redesign Menu Zona Norte"
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/image-2026-07-03T17-02-54-771Z.webp",
@@ -249,7 +261,7 @@ export const contentSnapshots = {
       "slug": "projeto-de-captacao-digital-para-ong",
       "path": "/cases/projeto-de-captacao-digital-para-ong",
       "title": "Projeto de captação digital para ONG",
-      "badge": "Site",
+      "badge": "UX Design + Site",
       "publishedAt": "2026-06-19T00:00:00+00:00",
       "description": "Projeto Projeto de captação digital para ONG com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Projeto de captação digital para ONG: estrategia, design e desenvolvimento orientados a resultado.",
@@ -285,7 +297,7 @@ export const contentSnapshots = {
       "slug": "plataforma-digital-para-consultor-imobiliario",
       "path": "/cases/plataforma-digital-para-consultor-imobiliario",
       "title": "Plataforma digital para consultor imobiliário",
-      "badge": "Site + IDV",
+      "badge": "IDV + UX e Web design",
       "publishedAt": "2026-04-30T00:00:00+00:00",
       "description": "Projeto Plataforma digital para consultor imobiliário com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Plataforma digital para consultor imobiliário: estrategia, design e desenvolvimento orientados a resultado.",
