@@ -13,6 +13,7 @@ import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import { useAutosave } from "../../hooks/useAutosave.js";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
+import { triggerVercelDeploy } from "../../lib/vercelDeploy.js";
 import { sanitizeRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
 
@@ -505,7 +506,23 @@ export default function AdminDashboard() {
       return;
     }
 
-    setStatus(`${resource.singular} salvo com sucesso.`);
+    const savedItem = Array.isArray(data) && data.length > 0 ? data[0] : null;
+
+    if (isPostsResource) {
+      try {
+        await triggerVercelDeploy({
+          slug: savedItem?.slug || formValues.slug,
+          title: savedItem?.title || formValues.title,
+          event: "blog-post-saved",
+        });
+        setStatus(`${resource.singular} salvo com sucesso. Rebuild do site disparado para atualizar sitemap e OG tags.`);
+      } catch (deployError) {
+        setStatus(`${resource.singular} salvo com sucesso, mas o rebuild automático falhou: ${deployError.message}`);
+      }
+    } else {
+      setStatus(`${resource.singular} salvo com sucesso.`);
+    }
+
     await loadItems();
     if (isPostsResource) {
       returnToPostsList();

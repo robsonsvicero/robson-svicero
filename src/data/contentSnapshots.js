@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-23T22:01:09.376Z",
+  "generatedAt": "2026-09-25T00:57:11.621Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-sem-conteudo-tambem-perde-oportunidades-no-google/image-2026-09-23T21-32-12-064Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site sem conteúdo perde oportunidades no Google e como páginas relevantes ajudam sua empresa a responder buscas e gerar descoberta orgânica.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-09-23T20:58:00+00:00",
-      "viewsCount": 1,
+      "viewsCount": 6,
       "readingTime": "12 minutos"
     },
     {
@@ -46,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 21,
+      "viewsCount": 22,
       "readingTime": "10 minutos"
     },
     {
@@ -106,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 27,
+      "viewsCount": 28,
       "readingTime": "7 minutos"
     },
     {
