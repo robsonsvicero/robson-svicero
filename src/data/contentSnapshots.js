@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-25T20:16:34.448Z",
+  "generatedAt": "2026-09-25T20:44:06.924Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/image-2026-09-25T02-39-12-585Z.webp",

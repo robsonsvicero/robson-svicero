@@ -122,14 +122,14 @@ export default function CaseDetail() {
             </div>
           </header>
 
-          {(project.clientName || project.projectYear || project.projectScope || project.technology) && (
+          {(project.clientName || project.projectYear || project.segment || project.createdSystem) && (
             <section className="case-detail-facts" aria-label="Ficha técnica do projeto">
               <div className="container case-detail-facts-grid">
                 {[
                   ["Cliente", project.clientName],
                   ["Ano", project.projectYear],
-                  ["Escopo", project.projectScope],
-                  ["Tecnologia", project.technology],
+                  ["Segmento", project.segment],
+                  ["Site / sistema criado", project.createdSystem],
                 ].filter(([, value]) => value).map(([label, value]) => (
                   <div className="case-detail-fact" key={label}>
                     <span className="meta">{label}</span>

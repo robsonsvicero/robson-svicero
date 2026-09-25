@@ -122,8 +122,8 @@ export const adminResources = {
       { name: "badge", label: "Badge", type: "text", placeholder: "Ex: Site, Landing Page, Loja Virtual" },
       { name: "client_name", label: "Cliente", type: "text", placeholder: "Nome da empresa ou marca" },
       { name: "project_year", label: "Ano do projeto", type: "text", placeholder: "Ex: 2025" },
-      { name: "project_scope", label: "Escopo / serviço", type: "text", placeholder: "Ex: Site institucional" },
-      { name: "technology", label: "Tecnologia", type: "text", placeholder: "Ex: React, Supabase, SEO técnico" },
+      { name: "segment", label: "Segmento", type: "text", placeholder: "Ex: Incorporadora, clínica, restaurante" },
+      { name: "created_system", label: "Site / sistema criado", type: "text", placeholder: "Ex: Site institucional" },
       { name: "description", label: "Descrição curta", type: "textarea" },
       {
         name: "full_description",
