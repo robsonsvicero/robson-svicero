@@ -31,6 +31,7 @@ const Schedule = lazy(() => import("../pages/Schedule/Schedule.jsx"));
 const DigitalCard = lazy(() => import("../pages/DigitalCard/DigitalCard.jsx"));
 const FaqPage = lazy(() => import("../pages/Faq/FaqPage.jsx"));
 const CriacaoDeSites = lazy(() => import("../pages/CriacaoDeSites/CriacaoDeSites.jsx"));
+const CriacaoDeSitesSaoPaulo = lazy(() => import("../pages/CriacaoDeSitesSaoPaulo/CriacaoDeSitesSaoPaulo.jsx"));
 const Planos = lazy(() => import("../pages/Planos/Planos.jsx"));
 const Privacy = lazy(() => import("../pages/Privacy/Privacy.jsx"));
 const ThankYou = lazy(() => import("../pages/ThankYou/ThankYou.jsx"));
@@ -40,7 +41,6 @@ const UXDesign = lazy(() => import("../pages/Servicos/UXDesign.jsx"));
 const LandingPage = lazy(() => import("../pages/Servicos/LandingPage.jsx"));
 const IdentidadeVisual = lazy(() => import("../pages/Servicos/IdentidadeVisual.jsx"));
 const SeoService = lazy(() => import("../pages/Servicos/SeoService.jsx"));
-const GestaoGMN = lazy(() => import("../pages/Servicos/GestaoGMN.jsx"));
 const ExclusaoDados = lazy(() => import("../pages/ExclusaoDados/ExclusaoDados.jsx"));
 
 function ScrollToTop() {
@@ -97,13 +97,13 @@ export default function AppRoutes() {
         <Routes>
           <Route path="/" element={<HomeOrBlogPreview />} />
           <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
+          <Route path="/criacao-de-sites-sao-paulo" element={<CriacaoDeSitesSaoPaulo />} />
           <Route path="/planos" element={<Planos />} />
           <Route path="/servicos" element={<Navigate to="/servicos/ux-design" replace />} />
           <Route path="/servicos/ux-design" element={<UXDesign />} />
           <Route path="/servicos/landing-page" element={<LandingPage />} />
           <Route path="/servicos/identidade-visual" element={<IdentidadeVisual />} />
           <Route path="/servicos/seo" element={<SeoService />} />
-          <Route path="/servicos/gestao-gmn" element={<GestaoGMN />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/:slug" element={<CaseDetail />} />
           <Route path="/blog" element={<Blog />} />

@@ -2,6 +2,7 @@ export const routes = {
   home: "/",
   about: "/sobre",
   siteCreation: "/criacao-de-sites",
+  siteCreationSaoPaulo: "/criacao-de-sites-sao-paulo",
   prices: "/planos",
   services: "/servicos",
   uxDesignService: "/servicos/ux-design",
@@ -38,16 +39,15 @@ export const headerContent = {
   navItems: [
     { label: "Home", to: routes.home },
     { label: "Sobre", to: routes.about },
-    { label: "Criação de sites", to: routes.siteCreation },
     {
-      label: "Serviços",
-      to: routes.services,
+      label: "Criação de sites",
+      to: routes.siteCreation,
       items: [
         { label: "Método C.L.A.R.O.", to: routes.claroMethod },
+        { label: "Criação de sites em SP", to: routes.siteCreationSaoPaulo },
         { label: "Landing Page", to: routes.landingPageService },
         { label: "SEO", to: routes.seoService },
         { label: "UX Design", to: routes.uxDesignService },
-        { label: "Gestão de GMN", to: routes.gmnService },
         { label: "Identidade Visual", to: routes.visualIdentityService },
       ],
     },
@@ -376,8 +376,8 @@ export const contactContent = {
   title: "Vamos conversar sobre o seu projeto?",
   lead: "Seja para criar um novo site ou modernizar o que sua empresa já possui, conte um pouco sobre sua necessidade. Em até um dia útil retorno com uma proposta e as melhores opções para o seu projeto.",
   links: [
-    { label: "Falar no Telegram", href: "https://t.me/robsonsvicero", variant: "btn-telegram" },
-    { label: "Falar no WhatsApp", href: "https://wa.me/5511964932007", variant: "btn-whatsapp" },
+    // { label: "Conversar no Telegram", href: "https://t.me/robsonsvicero", variant: "btn-telegram" },
+    { label: "Conversar no WhatsApp", href: "https://wa.me/5511964932007", variant: "btn-whatsapp" },
     { label: "Enviar e-mail", href: "mailto:ola@robsonsvicero.com.br", variant: "outline" },
   ],
   meta: "ola@robsonsvicero.com.br - 11 96493-2007",
@@ -392,7 +392,7 @@ export const pageCtaContent = {
       "Se você precisa de um site profissional com clareza estratégica, performance e SEO, posso conduzir o projeto com IA como apoio complementar no processo.",
     bandClass: "cta-home-band",
     primaryAction: {
-      label: "Falar no WhatsApp",
+      label: "Conversar no WhatsApp",
       href: contactLinks.whatsapp,
       newTab: true,
     },
@@ -424,7 +424,7 @@ export const pageCtaContent = {
       "Vamos conversar sobre escopo, objetivo e estratégia para construir uma presença digital forte para a sua marca.",
     bandClass: "cta-case-detail-band",
     primaryAction: {
-      label: "Falar no WhatsApp",
+      label: "Conversar pelo WhatsApp",
       href: contactLinks.whatsapp,
       newTab: true,
     },
@@ -440,7 +440,7 @@ export const pageCtaContent = {
       "Atendo empresas de São Paulo e também projetos em outras cidades do Brasil, com reuniões online e acompanhamento durante o desenvolvimento.",
     bandClass: "dark-band",
     primaryAction: {
-      label: "Falar no WhatsApp",
+      label: "Conversar pelo WhatsApp",
       href: contactLinks.whatsapp,
       newTab: true,
     },
@@ -529,22 +529,6 @@ export const pageCtaContent = {
       to: routes.services,
     },
   },
-  gmnService: {
-    eyebrow: "Próximo passo",
-    title: "Vamos fortalecer sua presença local com uma gestão estratégica de GMN.",
-    lead:
-      "Posso otimizar seu perfil para aumentar relevância nas buscas da região e facilitar o contato de novos clientes.",
-    bandClass: "dark-band",
-    primaryAction: {
-      label: "Falar sobre Gestão de GMN",
-      href: contactLinks.whatsapp,
-      newTab: true,
-    },
-    secondaryAction: {
-      label: "Ver serviços",
-      to: routes.services,
-    },
-  },
   about: {
     eyebrow: "Vamos conversar?",
     title: "Vamos conversar sobre o seu projeto?",
@@ -559,6 +543,22 @@ export const pageCtaContent = {
     secondaryAction: {
       label: "Agendar conversa",
       to: routes.schedule,
+    },
+  },
+  siteCreationSaoPaulo: {
+    eyebrow: "Criação de sites em São Paulo",
+    title: "Seu negócio merece um site profissional para crescer em São Paulo.",
+    lead:
+      "Vamos construir uma presença digital clara, rápida e preparada para transformar buscas locais em contatos qualificados.",
+    bandClass: "dark-band",
+    primaryAction: {
+      label: "Criar meu site em São Paulo",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver projetos",
+      to: routes.cases,
     },
   },
 };
@@ -608,7 +608,6 @@ export const footerContent = {
           { label: "Landing Page", to: routes.landingPageService },
           { label: "SEO", to: routes.seoService },
           { label: "UX Design", to: routes.uxDesignService },
-          { label: "Gestão de GMN", to: routes.gmnService },
           { label: "Identidade Visual", to: routes.visualIdentityService },
         ],
       },

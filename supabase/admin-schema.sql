@@ -242,6 +242,14 @@ alter table public.projects add column if not exists image_4 text;
 alter table public.projects add column if not exists image_5 text;
 alter table public.projects add column if not exists published_at timestamptz;
 alter table public.projects add column if not exists badge text;
+alter table public.projects add column if not exists client_name text;
+alter table public.projects add column if not exists project_year text;
+alter table public.projects add column if not exists project_scope text;
+alter table public.projects add column if not exists technology text;
+alter table public.projects add column if not exists context text;
+alter table public.projects add column if not exists challenge text;
+alter table public.projects add column if not exists solution text;
+alter table public.projects add column if not exists results text;
 
 create index if not exists projects_created_at_idx
 on public.projects (created_at desc);

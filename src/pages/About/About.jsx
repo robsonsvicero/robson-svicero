@@ -111,7 +111,7 @@ export default function About() {
                 trabalhar como webdesigner.
               </p>
               <p>
-                Depois de dois anos nessa função, surgiu um novo convite — trabalhar como UX
+                Depois de dois anos nessa função, surgiu um novo convite: trabalhar como UX
                 Designer. Para ser sincero, eu nem sabia direito o que um UX Designer fazia. Mesmo
                 assim, aceitei o desafio e fui estudar. Passei por algumas empresas, aprendi com
                 equipes e projetos diferentes e, na MAEZTRA, tive a oportunidade de participar do
@@ -127,21 +127,27 @@ export default function About() {
               </p>
             </div>
           </div>
-
-          <figure className="about-story-portrait">
-            <img
-              src="/assets/images/sobre-robson.webp"
-              alt="Robson Svicero, designer e desenvolvedor de sites"
-              width="840"
-              height="840"
-              loading="eager"
-              decoding="async"
-            />
-            <figcaption>
-              <span>Desde 2013</span>
-              Design, UX e criação de sites
-            </figcaption>
-          </figure>
+          <div className="about-story-container">
+            <figure className="about-story-portrait">
+              <img
+                src="/assets/images/sobre-robson.webp"
+                alt="Robson Svicero, designer e desenvolvedor de sites"
+                width="840"
+                height="840"
+                loading="eager"
+                decoding="async"
+              />
+              <figcaption>
+                <span>Desde 2013</span>
+                Design, UX e criação de sites
+              </figcaption>
+            </figure>
+              <span className="image-description" aria-hidden="true">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          </svg>São Paulo, SP · atendimento remoto em todo o Brasil
+              </span>
+          </div>
         </Section>
 
         {/* Seção 2 — Com quem eu trabalho */}
@@ -154,8 +160,7 @@ export default function About() {
             <p className="eyebrow">Com quem eu trabalho</p>
             <h2 id="about-clients-title">Sites profissionais para quem faz o negócio acontecer</h2>
             <p className="lead">
-              Meu foco é ajudar negócios que precisam de um site que realmente funcione — não só
-              que exista.
+              O site deve realmente funcionar e não apenas existir. Ele precisa transmitir credibilidade, responder às dúvidas do cliente sobre como você pode ajudá-lo e orientá-lo na tomada de decisão.
             </p>
           </div>
 
@@ -248,17 +253,23 @@ export default function About() {
             </p>
           </div>
           <div className="about-final-cta-actions">
-            <Button as={Link} to={routes.contact} title="Ir para a página de contato">
-              Falar sobre meu projeto
-            </Button>
             <Button
               href={contactLinks.whatsapp}
+              variant="primary"
+              target="_blank"
+              rel="noreferrer noopener"
+              title="Conversar sobre um projeto"
+            >
+              Conversar sobre um projeto
+            </Button>
+            <Button
+              href={routes.cases}
               variant="secondary"
               target="_blank"
               rel="noreferrer noopener"
-              title="Conversar pelo WhatsApp"
+              title="Ver projetos anteriores"
             >
-              Chamar no WhatsApp
+              Ver projetos anteriores
             </Button>
           </div>
         </Section>

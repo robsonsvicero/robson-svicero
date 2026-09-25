@@ -9,11 +9,11 @@ const SITEMAP_PATH = path.join(PROJECT_ROOT, "public", "sitemap.xml");
 const STATIC_PAGES = [
   { path: "/", changefreq: "monthly", priority: "1.0" },
   { path: "/criacao-de-sites", changefreq: "monthly", priority: "0.9" },
+  { path: "/criacao-de-sites-sao-paulo", changefreq: "monthly", priority: "0.8" },
   { path: "/precos", changefreq: "monthly", priority: "0.9" },
   { path: "/servicos/ux-design", changefreq: "monthly", priority: "0.8" },
   { path: "/servicos/landing-page", changefreq: "monthly", priority: "0.8" },
   { path: "/servicos/seo", changefreq: "monthly", priority: "0.8" },
-  { path: "/servicos/gestao-gmn", changefreq: "monthly", priority: "0.8" },
   { path: "/servicos/identidade-visual", changefreq: "monthly", priority: "0.8" },
   { path: "/cases", changefreq: "monthly", priority: "0.9" },
   { path: "/sobre", changefreq: "monthly", priority: "0.7" },

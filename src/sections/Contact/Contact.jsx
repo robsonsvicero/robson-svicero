@@ -10,7 +10,7 @@ export default function Contact() {
 
   return (
     <Section
-      className="dark-band"
+      className="surface-band"
       id="contato"
       data-od-id="contato"
       aria-labelledby="sec-contato"

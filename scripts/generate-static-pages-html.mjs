@@ -9,11 +9,11 @@ const INDEX_HTML_PATH = path.join(DIST_PATH, "index.html");
 const CANONICAL_PATHS = [
   "/",
   "/criacao-de-sites",
+  "/criacao-de-sites-sao-paulo",
   "/precos",
   "/servicos/ux-design",
   "/servicos/landing-page",
   "/servicos/seo",
-  "/servicos/gestao-gmn",
   "/servicos/identidade-visual",
   "/cases",
   "/sobre",

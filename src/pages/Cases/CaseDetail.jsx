@@ -55,12 +55,37 @@ export default function CaseDetail() {
   if (!project && isLoading) return null;
   if (!project) return <NotFound />;
 
+  const narrativeSections = [
+    { key: "context", eyebrow: "Contexto", title: "O ponto de partida", value: project.context },
+    { key: "challenge", eyebrow: "Desafio", title: "O que precisava ser resolvido", value: project.challenge },
+    { key: "solution", eyebrow: "Solução", title: "Como o projeto foi conduzido", value: project.solution },
+    { key: "results", eyebrow: "Resultado", title: "O que o projeto passou a comunicar", value: project.results },
+  ].filter((section) => section.value);
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.seoDescription || project.description,
+    image: project.image,
+    url: project.path,
+    dateCreated: project.publishedAt,
+    creator: {
+      "@type": "Person",
+      name: "Robson Svicero",
+    },
+    ...(project.clientName ? { about: project.clientName } : {}),
+  };
+
   return (
     <>
       <SEO
         title={project.seoTitle}
         description={project.seoDescription}
         path={project.path}
+        image={project.image}
+        type="article"
+        structuredData={structuredData}
       />
       <Layout>
         <article className="case-detail" aria-labelledby="case-title">
@@ -97,14 +122,49 @@ export default function CaseDetail() {
             </div>
           </header>
 
-          <section className="section" aria-label="Descrição do projeto">
-            <div className="container">
-              <div className="stack" style={{ gap: "var(--space-4)", maxWidth: 820 }}>
-                <span className="meta">Descrição completa</span>
-                <RichTextContent>{project.fullDescription}</RichTextContent>
+          {(project.clientName || project.projectYear || project.projectScope || project.technology) && (
+            <section className="case-detail-facts" aria-label="Ficha técnica do projeto">
+              <div className="container case-detail-facts-grid">
+                {[
+                  ["Cliente", project.clientName],
+                  ["Ano", project.projectYear],
+                  ["Escopo", project.projectScope],
+                  ["Tecnologia", project.technology],
+                ].filter(([, value]) => value).map(([label, value]) => (
+                  <div className="case-detail-fact" key={label}>
+                    <span className="meta">{label}</span>
+                    <strong>{value}</strong>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          <section className="section case-detail-overview" aria-label="Visão geral do projeto">
+            <div className="container case-detail-narrative">
+              <div className="case-detail-narrative-heading">
+                <p className="eyebrow">Sobre o projeto</p>
+                <h2>Uma solução digital construída para comunicar valor.</h2>
+              </div>
+              <div className="case-detail-narrative-copy">
+                <RichTextContent>{project.fullDescription || project.description}</RichTextContent>
               </div>
             </div>
           </section>
+
+          {narrativeSections.map((section) => (
+            <section className="section case-detail-story-section" key={section.key} aria-labelledby={`case-${section.key}-title`}>
+              <div className="container case-detail-narrative">
+                <div className="case-detail-narrative-heading">
+                  <p className="eyebrow">{section.eyebrow}</p>
+                  <h2 id={`case-${section.key}-title`}>{section.title}</h2>
+                </div>
+                <div className="case-detail-narrative-copy">
+                  <RichTextContent>{section.value}</RichTextContent>
+                </div>
+              </div>
+            </section>
+          ))}
 
           {project.galleryImages?.length > 0 && (
             <div className="case-gallery-strip" aria-label="Galeria do projeto">

@@ -1,5 +1,4 @@
 import Layout from "../../components/layout/Layout/Layout.jsx";
-import { Link } from "react-router-dom";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
@@ -8,7 +7,27 @@ import { contactLinks, faqContent, pageCtaContent, routes } from "../../content/
 import { absoluteUrl } from "../../utils/seo.js";
 import Process from "../../sections/Process/Process.jsx";
 import Faq from "../../sections/Faq/Faq.jsx";
-import { ArrowRight } from "lucide-react";
+
+const solutions = [
+  {
+    title: "Site institucional",
+    description:
+      "Uma presença digital completa para apresentar sua empresa, serviços, diferenciais e formas de contato com clareza.",
+    fit: "Para empresas que precisam transmitir confiança",
+  },
+  {
+    title: "Landing page",
+    description:
+      "Uma página direta e focada em conversão para campanhas, lançamentos, anúncios ou uma oferta específica.",
+    fit: "Para campanhas que precisam gerar contatos",
+  },
+  {
+    title: "Blog profissional",
+    description:
+      "Uma estrutura editorial preparada para publicar conteúdo, responder dúvidas e construir autoridade no Google.",
+    fit: "Para negócios que querem crescer com conteúdo",
+  },
+];
 
 const offerings = [
   {
@@ -26,29 +45,6 @@ const offerings = [
     description:
       "Entregamos o site em React com estrutura semântica, performance, SEO on-page e base preparada para crescer.",
   },
-];
-
-const aiHighlights = [
-  "Sua empresa já existe, mas o site não transmite confiança.",
-  "Você recebe poucas mensagens pelo site.",
-  "Quer aparecer melhor nas buscas do Google.",
-  "Precisa de uma presença digital profissional sem complicação.",
-];
-
-const adminHighlights = [
-  "Atualização de textos, imagens e chamadas principais sem refazer o site.",
-  "Edição de seções-chave como serviços, destaques e provas sociais.",
-  "Base pensada para acompanhar novas páginas e ajustes futuros.",
-];
-
-const includedServices = [
-  "Briefing e diagnóstico inicial",
-  "Arquitetura da informação",
-  "Copy base para a página",
-  "Direção visual e UI",
-  "Desenvolvimento em React",
-  "SEO on-page essencial",
-  "Publicação e orientação de uso",
 ];
 
 function createSiteCreationSchema() {
@@ -127,7 +123,7 @@ export default function CriacaoDeSites() {
               </p>
               <div className="hero-cta">
                 <Button href={contactLinks.whatsapp} target="_blank" rel="noreferrer noopener">
-                  Falar no WhatsApp
+                  Conversar pelo WhatsApp
                 </Button>
                 <Button variant="secondary" href="#o-que-oferecemos">
                   Ver o que está incluso
@@ -180,32 +176,32 @@ export default function CriacaoDeSites() {
           </div>
         </section>
 
-        <section className="section surface-band" aria-labelledby="ai-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">Ideal para</p>
-              <h2 id="ai-title">Esse serviço é para você se...</h2>
+        <section className="section surface-band" aria-labelledby="solutions-title">
+          <div className="container stack" style={{ gap: "var(--space-8)" }}>
+            <div className="split-title">
+              <p className="eyebrow">Soluções</p>
+              <h2 id="solutions-title">Uma estrutura para cada objetivo do negócio</h2>
               <p className="lead">
-                Seu negócio já existe, mas a sua presença digital ainda não transmite a mesma confiança e profissionalismo do trabalho que você entrega.
+                O mesmo cuidado estratégico e técnico se adapta ao momento da sua empresa, ao tipo de oferta e à ação que você quer gerar.
               </p>
             </div>
-
-            <Card className="stack" as="div">
-              {aiHighlights.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
+            <div className="grid-3">
+              {solutions.map((solution) => (
+                <Card className="feature" key={solution.title}>
+                  <p className="eyebrow">{solution.fit}</p>
+                  <h3>{solution.title}</h3>
+                  <p>{solution.description}</p>
+                </Card>
               ))}
-            </Card>
+            </div>
           </div>
         </section>
 
         <section className="section" id="o-que-oferecemos" aria-labelledby="offerings-title">
           <div className="container stack" style={{ gap: "var(--space-8)" }}>
             <div className="split-title">
-              <p className="eyebrow">O que oferecemos</p>
-              <h2 id="offerings-title">Uma estrutura completa para o seu site principal</h2>
+              <p className="eyebrow">O que faz um site funcionar</p>
+              <h2 id="offerings-title">Clareza, confiança e presença no Google</h2>
             </div>
             <div className="grid-3">
               {offerings.map((item) => (
@@ -218,66 +214,9 @@ export default function CriacaoDeSites() {
           </div>
         </section>
 
-        <section className="section surface-band" aria-labelledby="admin-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">Painel administrativo</p>
-              <h2 id="admin-title">Um painel simples para manter o site vivo depois da entrega</h2>
-              <p className="lead">
-                Quando o projeto pede autonomia na rotina de atualização, a base pode incluir um
-                painel administrativo para manter textos, imagens e blocos importantes sob
-                controle.
-              </p>
-            </div>
-
-            <Card className="stack">
-              {adminHighlights.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </Card>
-          </div>
-        </section>
-        
-        <CTA content={pageCtaContent.siteCreation} titleId="services-cta-title" />
-
-        <section className="section site-included-services" id="servicos-inclusos" aria-labelledby="servicos-inclusos-title">
-          <div className="container stack site-included-services-stack">
-            <div className="site-included-services-header stack">
-              <p className="eyebrow">Serviços inclusos na criação do seu site profissional</p>
-              <h2 id="servicos-inclusos-title">Base preparada para entregar o projeto completo</h2>
-              <p className="lead">
-                Desenvolvimento de sites profissionais para pequenas empresas e prestadores de serviço em São Paulo, com foco em clareza, desempenho e geração de contatos.
-              </p>
-            </div>
-            <div className="site-included-services-grid" role="list">
-              {includedServices.map((item) => (
-                <Card className="feature" key={item}>
-                  <p>{item}</p>
-                </Card>
-                
-              ))}
-            </div>
-
-            <div className="site-included-services-note">
-              <p className="lead">
-                Essa base já contempla os elementos essenciais para um site profissional, mas
-                algumas frentes podem ser aprofundadas de forma estratégica conforme o estágio do
-                seu negócio.
-              </p>
-              <div className="site-included-services-links" aria-label="Serviços complementares">
-                <Link className="included-link" to={routes.claroMethod}>Método C.L.A.R.O. <ArrowRight className="included-arrow" aria-hidden="true" /></Link>
-                <Link className="included-link" to={routes.seoService}>SEO para negócios locais <ArrowRight className="included-arrow" aria-hidden="true" /></Link>
-                <Link className="included-link" to={routes.uxDesignService}>UX Design <ArrowRight className="included-arrow" aria-hidden="true" /></Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <Process />
-        <Faq />
+        <CTA content={pageCtaContent.siteCreation} titleId="services-cta-title" />
+        <Faq className="surface-band" />
       </Layout>
     </>
   );

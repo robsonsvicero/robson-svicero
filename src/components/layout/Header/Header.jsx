@@ -104,18 +104,40 @@ export default function Header() {
               const isSubmenuOpen = openSubmenu === item.label;
 
               return (
-                <div className="topnav-item topnav-item--has-submenu" key={`${item.label}-${item.to}`}>
+                <div
+                  className="topnav-item topnav-item--has-submenu"
+                  key={`${item.label}-${item.to}`}
+                  onMouseEnter={() => {
+                    if (!isMobile) setOpenSubmenu(item.label);
+                  }}
+                  onMouseLeave={() => {
+                    if (!isMobile) setOpenSubmenu(null);
+                  }}
+                >
+                  <div className="topnav-parent-link">
+                    <NavLink
+                      className="topnav-link"
+                      to={item.to}
+                      title={`Ir para ${item.label}`}
+                      onClick={() => {
+                        setIsOpen(false);
+                        setOpenSubmenu(null);
+                      }}
+                    >
+                      {item.label}
+                    </NavLink>
                   <button
                     className="topnav-link topnav-submenu-toggle"
                     type="button"
                     title={`Abrir submenu de ${item.label}`}
+                    aria-label={`Abrir submenu de ${item.label}`}
                     aria-expanded={isSubmenuOpen}
                     aria-controls={`submenu-${item.label}`}
-                    onClick={() => {
+                    onClick={(event) => {
+                      event.stopPropagation();
                       setOpenSubmenu((current) => (current === item.label ? null : item.label));
                     }}
                   >
-                    {item.label}
                     <span className="topnav-submenu-caret" aria-hidden="true">
                       <svg
                         viewBox="0 0 24 24"
@@ -127,6 +149,7 @@ export default function Header() {
                       </svg>
                     </span>
                   </button>
+                  </div>
 
                   <div
                     className={`topnav-submenu${isSubmenuOpen ? " is-open" : ""}`}

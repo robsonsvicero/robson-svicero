@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-25T13:49:48.555Z",
+  "generatedAt": "2026-09-25T20:16:34.448Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/image-2026-09-25T02-39-12-585Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
       "category": "Raio X",
       "publishedAt": "2026-09-25T11:55:00+00:00",
-      "viewsCount": 1,
+      "viewsCount": 3,
       "readingTime": "7 minutos"
     },
     {

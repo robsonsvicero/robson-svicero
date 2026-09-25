@@ -161,7 +161,7 @@ export default function Planos() {
     <>
       <SEO
         title="Planos de Criação de Sites com Manutenção"
-        description="Página de planos de criação de sites, manutenção, gestão de GMN e conteúdo mensal para diferentes níveis de necessidade."
+        description="Página de planos de criação de sites, manutenção e conteúdo mensal para diferentes níveis de necessidade."
         path={routes.prices}
         structuredData={createPlansSchema()}
       />
@@ -268,7 +268,7 @@ export default function Planos() {
                   <div className="planos-hero-ribbon">
                     <span>Site profissional</span>
                     <span>Manutenção mensal</span>
-                    <span>SEO + GMN</span>
+                    <span>SEO técnico</span>
                   </div>
 
                   <p className="meta">
