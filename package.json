@@ -9,8 +9,8 @@
     "build:snapshots": "node scripts/generate-content-snapshots.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "preview": "vite preview --host 127.0.0.1",
-    "start": "node server.js",
-    "postinstall": "npm run build"
+    "prestart": "npm run build",
+    "start": "node server.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.110.0",
