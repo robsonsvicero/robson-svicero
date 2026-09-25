@@ -54,7 +54,7 @@ app.post("/api/rebuild", async (req, res) => {
 
 app.use(
   express.static(distPath, {
-    index: false,
+    index: "index.html",
     maxAge: "1h",
     etag: true,
     lastModified: true,
