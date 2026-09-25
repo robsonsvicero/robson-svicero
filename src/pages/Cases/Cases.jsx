@@ -18,6 +18,7 @@ export default function Cases() {
     orderBy: "published_at",
     select: "slug,title,badge,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 12,
+    cache: false,
   });
 
   useEffect(() => {

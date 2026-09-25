@@ -17,6 +17,7 @@ export default function Projects() {
     orderBy: "published_at",
     select: "slug,title,badge,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 3,
+    cache: false,
   });
 
   useEffect(() => {

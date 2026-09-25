@@ -122,35 +122,29 @@ export default function CaseDetail() {
             </div>
           </header>
 
-          {(project.clientName || project.projectYear || project.segment || project.createdSystem) && (
+          {(project.clientName || project.projectYear || project.segment || project.createdSystem || project.externalUrl) && (
             <section className="case-detail-facts" aria-label="Ficha técnica do projeto">
               <div className="container case-detail-facts-grid">
                 {[
-                  ["Cliente", project.clientName],
-                  ["Ano", project.projectYear],
-                  ["Segmento", project.segment],
-                  ["Site / sistema criado", project.createdSystem],
-                ].filter(([, value]) => value).map(([label, value]) => (
+                  ["Cliente", project.clientName, null],
+                  ["Ano", project.projectYear, null],
+                  ["Segmento", project.segment, null],
+                  ["Site / sistema criado", project.createdSystem, project.externalUrl],
+                ].filter(([, value]) => value).map(([label, value, href]) => (
                   <div className="case-detail-fact" key={label}>
                     <span className="meta">{label}</span>
-                    <strong>{value}</strong>
+                    {href ? (
+                      <a className="case-detail-fact-link" href={href} target="_blank" rel="noreferrer noopener">
+                        {value}
+                      </a>
+                    ) : (
+                      <strong>{value}</strong>
+                    )}
                   </div>
                 ))}
               </div>
             </section>
           )}
-
-          <section className="section case-detail-overview" aria-label="Visão geral do projeto">
-            <div className="container case-detail-narrative">
-              <div className="case-detail-narrative-heading">
-                <p className="eyebrow">Sobre o projeto</p>
-                <h2>Uma solução digital construída para comunicar valor.</h2>
-              </div>
-              <div className="case-detail-narrative-copy">
-                <RichTextContent>{project.fullDescription || project.description}</RichTextContent>
-              </div>
-            </div>
-          </section>
 
           {narrativeSections.map((section) => (
             <section className="section case-detail-story-section" key={section.key} aria-labelledby={`case-${section.key}-title`}>

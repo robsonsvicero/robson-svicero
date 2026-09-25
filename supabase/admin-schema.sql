@@ -219,7 +219,6 @@ create table if not exists public.projects (
   title text not null,
   slug text not null unique,
   description text,
-  full_description text,
   meta_description text,
   seo_title text,
   seo_description text,

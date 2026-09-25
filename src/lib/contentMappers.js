@@ -33,7 +33,6 @@ export function mapProject(row) {
     createdSystem: row.created_system,
     publishedAt: row.published_at,
     description: row.description,
-    fullDescription: row.full_description,
     context: row.context,
     challenge: row.challenge,
     solution: row.solution,

@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-25T20:44:06.924Z",
+  "generatedAt": "2026-09-25T22:14:58.137Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/image-2026-09-25T02-39-12-585Z.webp",
@@ -270,13 +270,13 @@ export const contentSnapshots = {
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/image-2026-07-03T17-02-54-771Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/projeto-de-captacao-digital-para-ong/thumbnail-2026-08-04T01-10-32-331Z.webp",
-      "slug": "projeto-de-captacao-digital-para-ong",
-      "path": "/cases/projeto-de-captacao-digital-para-ong",
-      "title": "Projeto de captação digital para ONG",
-      "badge": "UX Design + Site",
+      "slug": "instituto-sublim",
+      "path": "/cases/instituto-sublim",
+      "title": "Instituto Sublim - Site",
+      "badge": "Site Institucional",
       "publishedAt": "2026-06-19T00:00:00+00:00",
-      "description": "Projeto Projeto de captação digital para ONG com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Projeto de captação digital para ONG: estrategia, design e desenvolvimento orientados a resultado.",
+      "description": "Projeto Instituto Sublim - Site com foco em posicionamento digital e conversao.",
+      "metaDescription": "Case Instituto Sublim - Site: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Site Instituto Sublim"
     },
     {
@@ -289,30 +289,30 @@ export const contentSnapshots = {
       "publishedAt": "2026-06-02T00:00:00+00:00",
       "description": "Projeto Landing Page Estúdio de Estratégia e Marca com foco em posicionamento digital e conversao.",
       "metaDescription": "Case Landing Page Estúdio de Estratégia e Marca: estrategia, design e desenvolvimento orientados a resultado.",
-      "alt": "Landing page"
+      "alt": "Svicero Studio"
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao/image-2026-07-16T23-41-28-342Z.jpg",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao/thumbnail-2026-08-04T02-10-41-375Z.webp",
-      "slug": "como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao",
-      "path": "/cases/como-reposicionar-uma-clinica-para-ser-percebida-como-referencia-nao-apenas-mais-uma-opcao",
-      "title": "Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção”",
+      "slug": "case-reposicionar-clinica-odontologica",
+      "path": "/cases/case-reposicionar-clinica-odontologica",
+      "title": "Case - Clínica Odontológica",
       "badge": "Estratégia",
       "publishedAt": "2026-05-12T00:00:00+00:00",
-      "description": "Projeto Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção” com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Como reposicionar uma clínica para ser percebida como referência, não apenas “mais uma opção”: estrategia, design e desenvolvimento orientados a resultado.",
+      "description": "Projeto Case - Clínica Odontológica com foco em posicionamento digital e conversao.",
+      "metaDescription": "Case Case - Clínica Odontológica: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Identidade digital premium"
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/plataforma-digital-para-consultor-imobiliario/image-2026-08-04T02-11-16-709Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/plataforma-digital-para-consultor-imobiliario/thumbnail-2026-08-04T02-11-07-164Z.webp",
-      "slug": "plataforma-digital-para-consultor-imobiliario",
-      "path": "/cases/plataforma-digital-para-consultor-imobiliario",
-      "title": "Plataforma digital para consultor imobiliário",
-      "badge": "IDV + UX e Web design",
+      "slug": "andre-barbosa",
+      "path": "/cases/andre-barbosa",
+      "title": "Andre Barbosa",
+      "badge": "Plataforma imobiliária",
       "publishedAt": "2026-04-30T00:00:00+00:00",
-      "description": "Projeto Plataforma digital para consultor imobiliário com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Plataforma digital para consultor imobiliário: estrategia, design e desenvolvimento orientados a resultado.",
+      "description": "Projeto Andre Barbosa com foco em posicionamento digital e conversao.",
+      "metaDescription": "Case Andre Barbosa: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "André Barbosa Consultor Imobiliário"
     }
   ]

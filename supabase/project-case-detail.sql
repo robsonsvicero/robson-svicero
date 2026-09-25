@@ -42,3 +42,6 @@ alter table public.projects
   add column if not exists challenge text,
   add column if not exists solution text,
   add column if not exists results text;
+
+alter table public.projects
+  drop column if exists full_description;

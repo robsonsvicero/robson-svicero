@@ -1927,6 +1927,21 @@ h3 {
   overflow-wrap: anywhere;
 }
 
+.case-detail-fact-link {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.case-detail-fact-link:hover {
+  color: var(--accent-hover);
+}
+
 .case-detail-narrative {
   display: grid;
   grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
@@ -1957,11 +1972,6 @@ h3 {
 
 .case-detail-story-section {
   border-top: 1px solid var(--border-soft);
-}
-
-.case-detail-overview {
-  padding-top: clamp(var(--space-12), 8vw, 112px);
-  padding-bottom: clamp(var(--space-12), 8vw, 112px);
 }
 
 .case-gallery-strip {

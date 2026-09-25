@@ -72,9 +72,10 @@ export function useSupabaseList({
   select = "*",
   limit,
   publishedOnly = false,
+  cache = true,
 }) {
   const cacheKey = getListCacheKey({ table, orderBy, ascending, select, limit, publishedOnly });
-  const cachedItems = listCache.get(cacheKey) || readPersistedList(cacheKey);
+  const cachedItems = cache ? listCache.get(cacheKey) || readPersistedList(cacheKey) : null;
 
   if (cachedItems && !listCache.has(cacheKey)) {
     listCache.set(cacheKey, cachedItems);
@@ -131,8 +132,10 @@ export function useSupabaseList({
       if (!isMounted) return;
 
       if (mappedItems) {
-        listCache.set(cacheKey, mappedItems);
-        persistList(cacheKey, mappedItems);
+        if (cache) {
+          listCache.set(cacheKey, mappedItems);
+          persistList(cacheKey, mappedItems);
+        }
         setItems(mappedItems);
       }
 
@@ -144,7 +147,7 @@ export function useSupabaseList({
     return () => {
       isMounted = false;
     };
-  }, [ascending, cacheKey, limit, mapper, orderBy, publishedOnly, select, table]);
+  }, [ascending, cache, cacheKey, limit, mapper, orderBy, publishedOnly, select, table]);
 
   return { items, isLoading };
 }
