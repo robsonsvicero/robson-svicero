@@ -13,7 +13,7 @@ import Button from "../../components/ui/Button/Button.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import { useAutosave } from "../../hooks/useAutosave.js";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
-import { triggerVercelDeploy } from "../../lib/vercelDeploy.js";
+import { triggerHostingerRebuild } from "../../lib/hostingerDeploy.js";
 import { sanitizeRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
 
@@ -510,12 +510,17 @@ export default function AdminDashboard() {
 
     if (isPostsResource) {
       try {
-        await triggerVercelDeploy({
+        const rebuildResult = await triggerHostingerRebuild({
           slug: savedItem?.slug || formValues.slug,
           title: savedItem?.title || formValues.title,
           event: "blog-post-saved",
         });
-        setStatus(`${resource.singular} salvo com sucesso. Rebuild do site disparado para atualizar sitemap e OG tags.`);
+
+        if (rebuildResult.triggered) {
+          setStatus(`${resource.singular} salvo com sucesso. Rebuild do site disparado para atualizar sitemap e OG tags.`);
+        } else {
+          setStatus(`${resource.singular} salvo com sucesso. Rebuild automático não foi configurado para esta instância.`);
+        }
       } catch (deployError) {
         setStatus(`${resource.singular} salvo com sucesso, mas o rebuild automático falhou: ${deployError.message}`);
       }

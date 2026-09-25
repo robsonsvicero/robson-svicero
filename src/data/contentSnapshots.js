@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-25T01:20:35.440Z",
+  "generatedAt": "2026-09-25T01:24:27.062Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-sem-conteudo-tambem-perde-oportunidades-no-google/image-2026-09-23T21-32-12-064Z.webp",
