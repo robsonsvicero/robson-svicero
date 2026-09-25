@@ -5932,6 +5932,20 @@ h3 {
   max-width: 46ch;
 }
 
+.footer-newsletter {
+  width: min(100%, 360px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.footer-newsletter-title {
+  margin: 0;
+  color: var(--fg);
+  font-size: var(--text-lg);
+  line-height: 1.2;
+}
+
 /* Social icons */
 .footer-socials {
   display: flex;

@@ -92,6 +92,13 @@ export default function Footer() {
           </div>
         </div>
 
+        <section className="footer-newsletter" aria-labelledby="footer-newsletter-title">
+          <h2 id="footer-newsletter-title" className="footer-newsletter-title">
+            Receba novidades por e-mail
+          </h2>
+          <div data-reach-form="377ad5cc-cbdc-42b6-881f-6d91dbd3818e" />
+        </section>
+
         {/* Right: nav columns */}
         <div className="footer-nav-cols">
           <nav className="footer-nav-col" aria-label={footerContent.navEstudio.label}>

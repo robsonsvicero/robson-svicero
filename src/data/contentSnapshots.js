@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-25T01:24:27.062Z",
+  "generatedAt": "2026-09-25T13:49:48.555Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/image-2026-09-25T02-39-12-585Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/thumbnail-2026-09-25T02-39-06-175Z.webp",
+      "slug": "raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google",
+      "path": "/blog/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google",
+      "title": "Raio-X Digital #006 — Seu escritório está no Instagram, mas não aparece no Google?",
+      "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
+      "category": "Raio X",
+      "publishedAt": "2026-09-25T11:55:00+00:00",
+      "viewsCount": 1,
+      "readingTime": "7 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-sem-conteudo-tambem-perde-oportunidades-no-google/image-2026-09-23T21-32-12-064Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/site-sem-conteudo-tambem-perde-oportunidades-no-google/thumbnail-2026-09-23T21-32-07-371Z.webp",
@@ -18,11 +30,11 @@ export const contentSnapshots = {
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online/thumbnail-2026-09-17T20-40-28-857Z.webp",
       "slug": "a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online",
       "path": "/blog/a-clinica-que-tinha-boas-avaliacoes-mas-nao-aproveitava-sua-reputacao-online",
-      "title": "A clínica que tinha boas avaliações, mas não aproveitava sua reputação online",
+      "title": "Raio-X Digital #005 — A clínica que tinha boas avaliações, mas não aproveitava sua reputação online",
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
-      "category": "Websites Estratégicos",
+      "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 11,
       "readingTime": "8 minutos"
     },
     {
@@ -54,9 +66,9 @@ export const contentSnapshots = {
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca/thumbnail-2026-08-21T00-18-36-293Z.webp",
       "slug": "a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca",
       "path": "/blog/a-clinica-que-aparecia-no-google-mas-nao-transmitia-confianca",
-      "title": "A clínica que aparecia no Google, mas não transmitia confiança",
+      "title": "Raio-X Digital #004 — A clínica que aparecia no Google, mas não transmitia confiança",
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
-      "category": "Websites Estratégicos",
+      "category": "Raio X",
       "publishedAt": "2026-08-21T00:16:00+00:00",
       "viewsCount": 12,
       "readingTime": "8 minutos"
@@ -78,9 +90,9 @@ export const contentSnapshots = {
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-bonito-que-nao-dizia-absolutamente-nada/thumbnail-2026-08-13T13-08-30-654Z.webp",
       "slug": "o-site-bonito-que-nao-dizia-absolutamente-nada",
       "path": "/blog/o-site-bonito-que-nao-dizia-absolutamente-nada",
-      "title": "O site bonito que não dizia absolutamente nada",
+      "title": "Raio-X Digital #003 — O site bonito que não dizia absolutamente nada",
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
-      "category": "Experiência Digital",
+      "category": "Raio X",
       "publishedAt": "2026-08-13T03:00:00+00:00",
       "viewsCount": 44,
       "readingTime": "8 minutos"
@@ -102,9 +114,9 @@ export const contentSnapshots = {
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/quando-o-whatsapp-virou-o-unico-vendedor-da-empresa/thumbnail-2026-08-06T19-51-49-691Z.webp",
       "slug": "quando-o-whatsapp-virou-o-unico-vendedor-da-empresa",
       "path": "/blog/quando-o-whatsapp-virou-o-unico-vendedor-da-empresa",
-      "title": "Quando o WhatsApp virou o único vendedor da empresa",
+      "title": "Raio-X Digital #002 — Quando o WhatsApp virou o único vendedor da empresa",
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
-      "category": "Experiência Digital",
+      "category": "Raio X",
       "publishedAt": "2026-08-06T20:16:00+00:00",
       "viewsCount": 28,
       "readingTime": "7 minutos"
@@ -126,9 +138,9 @@ export const contentSnapshots = {
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/o-site-que-escondia-seus-principais-diferenciais/thumbnail-2026-07-28T19-26-28-804Z.webp",
       "slug": "o-site-que-escondia-seus-principais-diferenciais",
       "path": "/blog/o-site-que-escondia-seus-principais-diferenciais",
-      "title": "O site que escondia seus principais diferenciais",
+      "title": "Raio-X Digital #001 — O site que escondia seus principais diferenciais",
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
-      "category": "Websites Estratégicos",
+      "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
       "viewsCount": 10,
       "readingTime": "8 minutos"
