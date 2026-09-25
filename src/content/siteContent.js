@@ -408,12 +408,12 @@ export const pageCtaContent = {
       "Posso aplicar o mesmo processo estratégico desses cases no seu projeto, do diagnóstico à publicação.",
     bandClass: "cta-cases-band",
     primaryAction: {
-      label: "Quero conversar",
+      label: "Conversar no WhatsApp",
       href: contactLinks.whatsapp,
       newTab: true,
     },
     secondaryAction: {
-      label: "Agendar conversa",
+      label: "Agendar uma conversa por vídeo",
       to: routes.schedule,
     },
   },
@@ -599,12 +599,12 @@ export const footerContent = {
     links: [
       { label: "Home", href: routes.home },
       { label: "Sobre", href: routes.about },
-      { label: "Criação de sites", href: routes.siteCreation },
       {
-        label: "Serviços",
-        href: routes.services,
+        label: "Criação de sites",
+        href: routes.siteCreation,
         items: [
           { label: "Método C.L.A.R.O.", to: routes.claroMethod },
+          { label: "Criação de sites em São Paulo", to: routes.siteCreationSaoPaulo },
           { label: "Landing Page", to: routes.landingPageService },
           { label: "SEO", to: routes.seoService },
           { label: "UX Design", to: routes.uxDesignService },

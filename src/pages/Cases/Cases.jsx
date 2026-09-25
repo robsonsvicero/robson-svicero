@@ -35,8 +35,8 @@ export default function Cases() {
   return (
     <>
       <SEO
-        title="Cases de Criação de Sites em São Paulo"
-        description="Projetos e cases de criação de sites em São Paulo com foco em clareza, performance, conversão e uso complementar de IA no processo."
+        title="Projetos de Criação de Sites em São Paulo"
+        description="Projetos de criação de sites em São Paulo com foco em clareza, performance, conversão e uso complementar de IA no processo."
         path="/cases"
       />
       <Layout>
@@ -44,7 +44,7 @@ export default function Cases() {
           <div className="container stack" style={{ gap: "var(--space-12)" }}>
             <div className="stack" style={{ gap: "var(--space-5)", maxWidth: 780 }}>
               <p className="eyebrow">Projetos</p>
-              <h1 id="cases-title">Cases de design e desenvolvimento de sites</h1>
+              <h1 id="cases-title">Projetos de design e desenvolvimento de sites</h1>
               <p className="lead">
                 Projetos que mostram estratégia, UX/UI Design e implementação front-end
                 trabalhando juntos para tornar sites mais claros, confiáveis e preparados para conversão.

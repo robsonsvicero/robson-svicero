@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, X } from "lucide-react";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import RichTextContent from "../../components/RichTextContent/RichTextContent.jsx";
 import SEO from "../../components/seo/SEO.jsx";
@@ -92,19 +92,15 @@ export default function CaseDetail() {
           <header className="case-detail-hero">
             <div className="container case-detail-hero-layout">
               <div className="case-detail-hero-content">
-                <p className="eyebrow">Case</p>
+                <div className="hero-cta">
+                  <Link className="case-detail-back-link" to="/cases">
+                    <ArrowLeft size={16} aria-hidden="true" />
+                    Ver todos os projetos
+                  </Link>
+                </div>
+                <p className="eyebrow">Projeto</p>
                 <h1 id="case-title">{project.title}</h1>
                 <p className="lead">{project.description}</p>
-                <div className="hero-cta">
-                  {project.externalUrl && (
-                    <Button href={project.externalUrl} target="_blank" rel="noreferrer noopener">
-                      Abrir projeto
-                    </Button>
-                  )}
-                  <Button variant="secondary" as={Link} to="/cases">
-                    Ver todos os cases
-                  </Button>
-                </div>
               </div>
 
               {project.image && (
