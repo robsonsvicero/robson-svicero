@@ -55,9 +55,9 @@ export default function Testimonials() {
             href={cta.primaryAction.href}
             target="_blank"
             rel="noreferrer noopener"
-            title="Conversar com Robson pelo WhatsApp"
+            title="Conversar com Robson no WhatsApp"
           >
-            Conversar com Robson
+            Conversar no WhatsApp
           </Button>
           <Button as={Link} to={cta.secondaryAction.to} variant="secondary" title={cta.secondaryAction.label}>
             {cta.secondaryAction.label}

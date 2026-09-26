@@ -389,7 +389,7 @@ export const pageCtaContent = {
     eyebrow: "Vamos criar seu site",
     title: "Seu próximo passo digital pode começar hoje.",
     lead:
-      "Se você precisa de um site profissional com clareza estratégica, performance e SEO, posso conduzir o projeto com IA como apoio complementar no processo.",
+      "Se sua empresa precisa melhorar a forma como se apresenta, se comunica e se conecta com seus clientes no digital, posso conduzir o projeto do entendimento do negócio à implementação da solução.",
     bandClass: "cta-home-band",
     primaryAction: {
       label: "Conversar no WhatsApp",
