@@ -66,9 +66,9 @@ export const headerContent = {
 
 export const heroContent = {
   eyebrow: "Criação de sites Profissionais",
-  title: "Criação de site profissional para empresas que querem transformar visitas em oportunidades de negócio.",
+  title: "Não começamos pelo site. Começamos pelo seu negócio.",
   lead:
-    "Se o seu site hoje é só um cartão de visitas, eu te ajudo a transformar essa presença digital em uma ferramenta que explica, gera confiança e traz contatos qualificados.",
+    "Estratégia, UX/UI Design e desenvolvimento de experiências digitais para empresas que precisam comunicar melhor seu valor, gerar oportunidades e facilitar a jornada de seus clientes. Do entendimento do negócio à implementação, cada decisão é pensada para transformar objetivos em experiências digitais mais claras, relevantes e eficientes.",
   note:
     "Desenvolvimento de sites profissionais rápidos e responsivos.",
   media: {
@@ -77,7 +77,7 @@ export const heroContent = {
   },
   primaryCta: {
     label: "Quero meu site",
-    href: routes.homeContact,
+    href: contactLinks.whatsapp,
   },
   secondaryCta: {
     label: "Ver projetos",
@@ -168,30 +168,30 @@ export const claroMethodContent = {
 
 export const servicesContent = {
   eyebrow: "Sites Profissionais",
-  title: "Seu novo site, do planejamento à publicação.",
+  title: "Do entendimento do negócio à experiência digital",
   items: [
     {
-      title: "Planejamento estratégico",
+      title: "Entendimento do negócio",
       description:
-        "Antes de criar qualquer tela, entendemos seus objetivos, seu público e como seu site pode gerar mais resultados.",
+        "Antes de definir o que será desenvolvido, entendo seus objetivos, público, oferta e os principais desafios que precisam ser resolvidos.",
       iconPath: "M4 6h16M4 12h10M4 18h7",
     },
     {
-      title: "Design sob medida",
+      title: "Estratégia e experiência",
       description:
-        "Um site profissional exclusivo, alinhado à identidade da sua empresa e pensado para transmitir confiança.",
+        "Estruturo a informação, a jornada e os pontos de contato para que sua empresa comunique melhor seu valor e facilite a tomada de decisão.",
       iconPath: "M5 20V8l7-4 7 4v12M9 20v-6h6v6",
     },
     {
-      title: "Desenvolvimento + SEO",
+      title: "UX/UI Design",
       description:
-        "Criação de sites profissionais, responsivos, rápidos e preparados para ser encontrados no Google.",
+        "Transformo essa estratégia em uma experiência visual clara, intuitiva e alinhada à identidade da sua marca.",
       iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
     },
     {
-      title: "Landing Page de conversão",
+      title: "Desenvolvimento",
       description:
-        "Criamos landing pages para campanhas, lançamentos e captação de leads, com foco total na ação desejada.",
+        "Construo a solução com foco em performance, responsividade, acessibilidade e SEO, garantindo que o que foi planejado também funcione na prática.",
       iconPath: "M4 6h16M4 12h12M4 18h8",
     },
   ],
@@ -238,8 +238,8 @@ export const processContent = {
 
 export const projectsContent = {
   eyebrow: "Projetos em destaque",
-  title: "Sites criados para gerar resultados reais.",
-  lead: "Conheça alguns projetos desenvolvidos para empresas que precisavam vender mais, comunicar melhor seu valor e fortalecer sua presença digital.",
+  title: "Projetos que transformaram problemas em experiências digitais",
+  lead: "Cada projeto começa com um contexto diferente: uma empresa que precisava comunicar melhor seu valor, uma organização que precisava facilitar a captação de recursos ou um produto que precisava tornar sua experiência mais simples. Conheça alguns dos projetos em que estratégia, UX/UI Design e desenvolvimento trabalharam juntos para resolver esses desafios.",
   cta: {
     label: "Ver todos",
     href: "/cases",
@@ -248,8 +248,8 @@ export const projectsContent = {
 
 export const testimonialsContent = {
   eyebrow: "Depoimentos",
-  title: "Empresas que confiaram no meu trabalho.",
-  lead: "Mais do que entregar um site bonito, meu objetivo é criar uma ferramenta que ajude cada empresa a crescer.",
+  title: "Projetos pensados para resolver problemas reais",
+  lead: "Cada projeto parte de um desafio específico do negócio. O objetivo não é apenas entregar uma interface bem construída, mas criar uma experiência digital que ajude a empresa a comunicar, orientar e gerar oportunidades.",
   reviews: [
     {
       quote:
@@ -328,7 +328,7 @@ export const homeFaqContent = {
     {
       question: "Quanto custa criar um site",
       answer:
-        "O investimento depende do tipo de site, da quantidade de páginas, do conteúdo disponível, das funcionalidades e de integrações como formulários, agenda ou painel administrativo. Por isso, primeiro entendo o objetivo e o escopo do projeto para preparar uma proposta coerente com o que o negócio realmente precisa, sem incluir recursos desnecessários.",
+        "O investimento depende do problema que precisa ser resolvido e da complexidade da solução. Um projeto pode envolver estratégia, arquitetura da informação, UX/UI Design, desenvolvimento, SEO, integrações e funcionalidades específicas. Por isso, primeiro entendo o objetivo do negócio e o que a experiência precisa entregar. A partir disso, defino o escopo e preparo uma proposta adequada ao projeto, sem incluir recursos que não sejam necessários.",
     },
     {
       question: "Quanto tempo leva para desenvolver um site?",
@@ -373,8 +373,8 @@ export const faqPageContent = {
 
 export const contactContent = {
   eyebrow: "Conversão",
-  title: "Vamos conversar sobre o seu projeto?",
-  lead: "Seja para criar um novo site ou modernizar o que sua empresa já possui, conte um pouco sobre sua necessidade. Em até um dia útil retorno com uma proposta e as melhores opções para o seu projeto.",
+  title: "Vamos entender o que seu negócio precisa resolver",
+  lead: "Se você precisa criar uma nova experiência digital ou repensar uma solução que já existe, conte um pouco sobre seu negócio, seus objetivos e o desafio que precisa enfrentar. A partir dessas informações, avaliamos o projeto e definimos o melhor caminho para desenvolver a solução.",
   links: [
     // { label: "Conversar no Telegram", href: "https://t.me/robsonsvicero", variant: "btn-telegram" },
     { label: "Conversar no WhatsApp", href: "https://wa.me/5511964932007", variant: "btn-whatsapp" },

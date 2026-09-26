@@ -1,13 +1,18 @@
 import {
   ArrowRight,
+  ArrowBigRight,
   BriefcaseBusiness,
   Building2,
   CircleAlert,
-  School,
+  Megaphone,
+  Road,
+  Store,
+  Speech,
   ShieldCheck,
   Stethoscope,
-  Store,
+  Warehouse,
   TrendingUp,
+  Target,
 } from "lucide-react";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
@@ -18,51 +23,64 @@ const audiences = [
   {
     icon: BriefcaseBusiness,
     title: "Prestadores de serviço",
-    pain: "Sites que não explicam claramente o que você faz",
+    pain: "Quando é difícil explicar o valor do serviço ou transformar visitas em contatos.",
   },
   {
     icon: Stethoscope,
     title: "Clínicas e consultórios",
-    pain: "Sites que não transmitem confiança para pacientes",
-  },
-  {
-    icon: School,
-    title: "Escolas pequenas",
-    pain: "Sites desatualizados que não passam credibilidade",
+    pain: "Quando a experiência digital não transmite a mesma confiança que o atendimento presencial.",
   },
   {
     icon: Store,
-    title: "Comércios e pequenos negócios locais",
-    pain: "Presença online fraca ou inexistente",
+    title: "Pequenas empresas",
+    pain: "Quando a empresa cresceu, mas sua presença digital ainda parece estar no início.",
+  },
+  {
+    icon: Warehouse,
+    title: "Negócios locais",
+    pain: "Quando o cliente encontra a empresa nas redes sociais, mas não encontra informações suficientes para avançar na decisão.",
   },
 ];
 
 const commonPains = [
-  "Seu site não transmite profissionalismo",
-  "Os visitantes não entram em contato",
-  "Sua empresa depende apenas das redes sociais",
-  "Você perde oportunidades para concorrentes mais bem posicionados",
-  "Seu site é lento ou antigo",
+  "Sua proposta de valor não fica clara",
+  "Seus diferenciais passam despercebidos",
+  "O cliente não encontra as informações que precisa",
+  "A experiência não transmite a confiança esperada",
+  "O próximo passo não está claro",
+  "A empresa depende demais de canais que não controla",
 ];
 
 const benefits = [
   {
-    icon: ShieldCheck,
-    problem: "Sem credibilidade online",
-    benefit: "Passe mais credibilidade",
-    description: "Seu site mostra que sua empresa é profissional desde o primeiro contato.",
+    icon: Speech,
+    problem: "Explicar",
+    benefit: "Deixar claro o que sua empresa oferece, para quem e qual valor entrega.",
+    description: "",
   },
   {
-    icon: Building2,
-    problem: "Sem geração de contatos",
-    benefit: "Gere mais oportunidades",
-    description: "Transforme visitantes em contatos e pedidos de orçamento.",
+    icon: Megaphone,
+    problem: "Convencer",
+    benefit: "Apresentar informações, diferenciais e evidências que ajudam o visitante a confiar na empresa.",
+    description: "",
   },
   {
-    icon: TrendingUp,
-    problem: "Sem SEO + estratégia",
-    benefit: "Seja encontrado no Google",
-    description: "Tenha uma presença digital preparada para atrair novos clientes.",
+    icon: ArrowBigRight,
+    problem: "Orientar",
+    benefit: "Conduzir o visitante para o próximo passo, sem deixar dúvidas sobre o que fazer.",
+    description: "",
+  },
+  {
+    icon: Target,
+    problem: "Ser encontrada",
+    benefit: "Estruturar conteúdo e tecnologia para facilitar a descoberta da empresa em mecanismos de busca.",
+    description: "",
+  },
+  {
+    icon: Road,
+    problem: "Facilitar o contato",
+    benefit: "Reduzir barreiras entre o interesse do visitante e uma oportunidade comercial.",
+    description: "",
   },
 ];
 
@@ -75,10 +93,10 @@ export default function ParaQuemEsteServico() {
       containerClassName="container stack para-quem-layout"
     >
       <header className="para-quem-header stack">
-        <p className="eyebrow">Seu negócio mais profissional online</p>
-        <h2 id="para-quem-title">Este serviço é para empresas que precisam de um site que trabalhe a favor do negócio.</h2>
+        <p className="eyebrow">Para empresas que precisam resolver problemas digitais</p>
+        <h2 id="para-quem-title">Nem todo negócio precisa apenas de um site novo. Às vezes, o problema está na forma como a empresa apresenta seus serviços, explica seu valor ou conduz o cliente até o contato.</h2>
         <p className="lead">
-          Ideal para quem quer fortalecer sua presença digital, transmitir credibilidade e conquistar mais clientes.
+          O trabalho começa entendendo esse cenário para definir o que a experiência digital precisa fazer pelo negócio.
         </p>
       </header>
 
@@ -104,10 +122,11 @@ export default function ParaQuemEsteServico() {
       <div className="para-quem-pains">
         <div className="stack para-quem-pains-copy">
           <p className="eyebrow">Você se identifica?</p>
-          <h3>Seu site deveria ajudar sua empresa a vender, não atrapalhar.</h3>
+          <h3>Um bom negócio pode perder oportunidades por uma experiência digital ruim</h3>
           <p>
-            Uma presença digital fraca pode fazer bons clientes desistirem antes mesmo de conhecer
-            a qualidade do seu trabalho.
+            Seu cliente pode chegar até sua empresa pelo Google, Instagram, indicação ou anúncio. Mas, antes de entrar em contato, ele precisa entender rapidamente quem você é, o que oferece e por que deveria considerar sua empresa.</p>
+          <p>
+            Quando essa experiência não funciona, algumas oportunidades são perdidas antes mesmo do primeiro contato.
           </p>
         </div>
         <ul className="para-quem-pain-list">
@@ -124,7 +143,7 @@ export default function ParaQuemEsteServico() {
       <div className="para-quem-conversion stack">
         <div className="para-quem-conversion-header">
           <p className="eyebrow">Da dificuldade ao resultado</p>
-          <h3>O que um bom site faz pela sua empresa</h3>
+          <h3>O que uma boa experiência digital precisa fazer</h3>
         </div>
 
         <div className="para-quem-benefit-grid">
