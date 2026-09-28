@@ -58,7 +58,7 @@ export const headerContent = {
     { label: "Agendamentos", to: routes.schedule },
   ],
   cta: {
-    label: "Vamos Conversar",
+    label: "Conversar com Robson ",
     href: contactLinks.whatsapp,
     phone: "(11) 96493-2007",
   },
@@ -76,7 +76,7 @@ export const heroContent = {
     mobile: "/assets/images/hero_mobile.webp",
   },
   primaryCta: {
-    label: "Quero meu site",
+    label: "Conversar no WhatsApp",
     href: contactLinks.whatsapp,
   },
   secondaryCta: {
@@ -88,12 +88,12 @@ export const heroContent = {
 export const credibilityBarContent = {
   highlight: "+10",
   label: "Há mais de 10 anos desenvolvendo sites que fortalecem empresas e geram novas oportunidades de negócio.",
+  // cta1: {
+  //   label: "Fale comigo agora",
+  //   href: contactLinks.telegram,
+  // },
   cta1: {
-    label: "Fale comigo agora",
-    href: contactLinks.telegram,
-  },
-  cta2: {
-    label: "Fale comigo agora",
+    label: "Conversar no WhatsApp",
     href: contactLinks.whatsapp,
   },
 };
