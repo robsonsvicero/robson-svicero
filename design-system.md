@@ -1,315 +1,313 @@
-# Design System · Pattern Library — Robson Svicero
+# Design System · Robson Svicero
 
-> Biblioteca viva com os padrões visuais e de interação deste site.
+> Status: alinhado com a implementação atual do projeto em React + Vite.
 
-Referência central para tipografia, componentes, superfícies, layout e motion usando exatamente as classes, estruturas e comportamentos da implementação original.
-
-Este documento organiza exemplos canônicos para manter consistência entre estratégia visual, experiência de uso e implementação front-end.
+Este documento registra os padrões visuais e de interface realmente usados no site, com base nos tokens do CSS global, nos componentes React e nas estruturas de layout já presentes no projeto atual.
 
 ---
 
-## Navegação
+## Base real do projeto
 
-- [Hero](#hero)
+Os principais arquivos de referência são:
+
+- `src/styles/global.css`
+- `src/components/ui/Button/Button.jsx`
+- `src/components/layout/Footer/Footer.jsx`
+- `src/sections/Hero/Hero.jsx`
+- `src/pages/DesignSystem/DesignSystem.jsx`
+
+A estrutura atual não depende mais de um CSS estático em `assets/css/styles.css`; o visual principal está centralizado em `src/styles/global.css` e em classes utilitárias/componentes React.
+
+---
+
+## Navegação rápida
+
+- [Tokens e cores](#tokens-e-cores)
 - [Tipografia](#tipografia)
-- [Cores & Superfícies](#cores--surfaces)
+- [Hero e CTAs](#hero-e-ctas)
 - [Componentes UI](#componentes-ui)
-- [Layout & Spacing](#layout--spacing)
-- [Motion & Interaction](#motion--interaction)
-- [Ícones](#ícones)
+- [Layout e grids](#layout-e-grids)
+- [Timeline / processo](#timeline--processo)
+- [Arquivos relevantes](#arquivos-relevantes)
 
 ---
 
-## Hero
+## Tokens e cores
 
-**Eyebrow:** Design System · Pattern Library
+Os valores principais estão definidos em `:root` dentro de `src/styles/global.css`.
 
-**Heading (h1):** Biblioteca viva com os padrões visuais e de interação deste site.
+| Token | Valor | Uso |
+| --- | --- | --- |
+| `--bg` | `#faf8f2` | Fundo principal |
+| `--surface` | `#f5f5f7` | Superfícies secundárias |
+| `--surface-warm` | `#fbfbfd` | Fundo alternativo para botões e blocos |
+| `--fg` | `#1d1d1f` | Texto principal |
+| `--fg-2` | `#424245` | Texto secundário |
+| `--muted` | `#6e6e73` | Descrições e apoio |
+| `--meta` | `#86868b` | Metadados |
+| `--border` | `#d2d2d7` | Bordas padrão |
+| `--border-soft` | `#e8e8ed` | Bordas leves |
+| `--accent` | `#8234E9` | Cor primária |
+| `--accent-on` | `#ffffff` | Texto sobre destaque |
+| `--accent-hover` | `#820AFA` | Hover do accent |
+| `--accent-active` | `#341087` | Estado ativo/pressed |
+| `--success` | `#16a34a` | Sucesso |
+| `--warn` | `#eab308` | Alerta |
+| `--danger` | `#dc2626` | Erro |
 
-**Lead:** Referência central para tipografia, componentes, superfícies, layout e motion usando exatamente as classes, estruturas e comportamentos da implementação original.
+### Superfícies e contrastes
 
-**CTAs:**
-- Botão primário → `Explorar estilos` (`btn btn-primary`)
-- Botão secundário → `Ver componentes` (`btn btn-secondary`)
+- `--bg` define a base da página.
+- `--surface` e `--surface-warm` são usados em blocos de apoio e variações de cartão.
+- `--fg` e `--muted` sustentam a hierarquia textual.
+- `--border` e `--border-soft` controlam a separação visual entre blocos e seções.
 
-**Nota:** Este documento organiza exemplos canônicos para manter consistência entre estratégia visual, experiência de uso e implementação front-end.
+### Motion e tokens interativos
 
-**Mídia:** Vídeo em loop com overlay (`hero-video` + `hero-overlay`), poster `assets/images/hero-poster.jpg`, fontes `assets/videos/hero-loop.webm` e `assets/videos/hero-loop.mp4`.
+- `--motion-fast: 150ms`
+- `--motion-base: 220ms`
+- `--ease-standard: cubic-bezier(0.28, 0, 0.22, 1)`
+- `--focus-ring: 0 0 0 4px color-mix(in oklab, var(--accent), transparent 65%)`
+
+O foco visual é sempre reforçado com `box-shadow: var(--focus-ring)` em elementos interativos.
 
 ---
 
 ## Tipografia
 
-> Escala tipográfica em uso real.
+A escala tipográfica atual é definida por tokens do CSS global, sem depender de estilos antigos do HTML estático.
 
-### Heading 1
+### Escala principal
 
-- **Tamanho:** 56px / 59px → 80px / 84px
-- **Exemplo:** *Criação de sites que transformam visitantes em clientes.*
+- `h1` / `.h1`: `56px` com linha `1.05` e tracking negativo
+- `h2` / `.h2`: `42px`
+- `h3` / `.h3`: `26px`
+- `.lead`: `20px`, `font-weight: 600`, texto de apoio em destaque
+- `.meta`: `12px`, com estilo mono espaçado
+- `.eyebrow`: uppercase, `letter-spacing: 0.08em`, cor de destaque
 
-### Heading 2
+### Utilização real
 
-- **Tamanho:** 34px / 37px → 56px / 60px
-- **Exemplo:** *Design e desenvolvimento em uma única entrega.*
-
-### Heading 3
-
-- **Tamanho:** 28px / 32px
-- **Exemplo:** *Landing Pages*
-
-### Bold L
-
-- **Tamanho:** 17px / 25px
-- **Uso:** Texto de botão principal de ação
-- **Classe:** `btn btn-secondary`
-
-### Bold M
-
-- **Tamanho:** 14px / 21px
-- **Uso:** Links de navegação do `topnav`
-- **Exemplo:** `Início`
-
-### Bold S
-
-- **Tamanho:** 12px / 18px
-- **Uso:** Tags / badges
-- **Classe:** `tag`
-- **Exemplo:** `Design Systems`
-
-### Paragraph (Lead)
-
-- **Tamanho:** 21px / 30px
-- **Classe:** `lead`
-- **Exemplo:** *A página certa organiza proposta de valor, remove ruído da decisão e conduz o visitante.*
-
-### Regular L
-
-- **Tamanho:** 17px / 25px
-- **Uso:** Texto de suporte padrão para conteúdo principal e blocos descritivos.
-
-### Regular M
-
-- **Tamanho:** 14px / 21px
-- **Classe:** `quote-author`
-- **Exemplo:** *Cliente de serviços de UX e Dev*
-
-### Regular S
-
-- **Tamanho:** 12px / 18px
-- **Classe:** `meta`
-- **Uso:** Metadados, rótulos e informação auxiliar.
+- `h1` é usado no hero e em títulos de destaque.
+- `h2` é usado para títulos de seção.
+- `h3` é usado em cards e blocos de feature.
+- `.lead` é o texto introdutório de seções importantes e hero.
+- `.meta` é usado para informações complementares, datas e etiquetas.
 
 ---
 
-## Cores & Surfaces
+## Hero e CTAs
 
-> Superfícies, contrastes, bordas e gradientes em contexto.
+O hero da página principal está implementado em `src/sections/Hero/Hero.jsx` e usa as classes:
 
-### Paleta de Cores (Tokens)
+- `.hero-editorial`
+- `.hero-media`
+- `.hero-overlay`
+- `.hero-inner`
+- `.hero-copy`
+- `.hero-cta`
 
-As cores principais são definidas via CSS variables no `styles.css`.
+### Estrutura do hero
 
-| Token | Cor (Hex) | Função |
+```jsx
+<section className="section hero hero-editorial">
+  <div className="hero-media">
+    <img className="hero-image" ... />
+    <div className="hero-overlay" />
+  </div>
+
+  <div className="container hero-inner">
+    <div className="hero-copy">
+      <p className="eyebrow">...</p>
+      <h1>...</h1>
+      <p className="lead">...</p>
+      <div className="hero-cta">...</div>
+    </div>
+  </div>
+</section>
+```
+
+### Botões
+
+A variação começa na estrutura base:
+
+```jsx
+<Component className={`btn ${variantClassName} ${className}`.trim()} ...>
+```
+
+As variantes reais são:
+
+| Variante | Classe | Uso |
 | --- | --- | --- |
-| `--bg` | `#faf8f2` | Background principal da página |
-| `--surface` | `#f5f5f7` | Superfície secundária (cards, seções) |
-| `--surface-warm` | `#fbfbfd` | Superfície alternativa quente (botões sec.) |
-| `--fg` | `#1d1d1f` | Texto principal, fundos escuros |
-| `--fg-2` | `#424245` | Texto secundário, subtítulos |
-| `--muted` | `#6e6e73` | Texto de apoio, descrições |
-| `--meta` | `#86868b` | Metadados, rótulos menores |
-| `--border` | `#d2d2d7` | Bordas e divisores padrão |
-| `--border-soft` | `#e8e8ed` | Bordas mais suaves, seções |
-| `--accent` | `#8234E9` | Cor de destaque primária (Roxo) |
-| `--accent-on` | `#ffffff` | Cor do texto sobre o destaque |
-| `--accent-hover` | `#820AFA` | Hover da cor de destaque |
-| `--accent-active` | `#341087` | Active/Pressed da cor de destaque |
-| `--success` | `#16a34a` | Feedback positivo / Sucesso |
-| `--warn` | `#eab308` | Feedback de alerta / Aviso |
-| `--danger` | `#dc2626` | Feedback negativo / Erro |
+| primária | `btn-primary` | CTA principal |
+| secundária | `btn-secondary` | CTA complementar |
+| dark | `btn-dark` | Fundo escuro |
+| outline | `btn-outline` | Destaque sutil |
+| ghost | `btn-ghost` | Link com aparência leve |
 
-### Superfícies
+Estados interativos:
 
-| Token            | Classe        | Descrição                                                          |
-| ---------------- | ------------- | ------------------------------------------------------------------ |
-| `--bg`           | `card`        | Plano principal com fundo claro e leitura de alto contraste.       |
-| `--surface`      | `card-soft`   | Superfície de apoio para blocos de conteúdo e separação visual.    |
-| `--fg`           | `card-dark`   | Faixa de destaque para conteúdo estratégico e casos.               |
-
-### Borders / Dividers
-
-1. **Borda suave (`--border-soft`)** — Elementos usam separação com variações de contraste leve.
-2. **Divisores (`--border`)** — Seções usam linhas discretas para ritmo vertical.
-
-### Gradients / Overlays
-
-- Overlay do hero aplicado sobre mídia para legibilidade e profundidade.
-- Classe: `hero-overlay`
-- Visual: exibido no bloco `case-visual`
+- `:hover` altera cor e borda
+- `:active` aplica `transform: scale(0.98)`
+- `:focus-visible` usa o `--focus-ring`
+- `btn-arrow::after` adiciona a seta com movimento horizontal
 
 ---
 
 ## Componentes UI
 
-> Elementos de interface e estados interativos.
+### Cards
 
-### Botões
+Os cards usam consolidação visual com border, radius e sombreamento leve, sem depender de classes legacy do HTML antigo.
 
-| Variante              | Classe(s)                         | Label exemplo           |
-| --------------------- | --------------------------------- | ----------------------- |
-| Button Default        | `btn btn-primary`                 | Solicitar orçamento     |
-| Button Hover + Active | `btn btn-primary`                 | Passe o mouse e clique  |
-| Button Focus          | `btn btn-secondary`               | Use Tab para foco       |
-| Button Disabled       | `btn btn-secondary` + `disabled`  | Desabilitado            |
-| Button Secondary      | `btn btn-secondary`               | Ver projetos            |
-| Button Dark           | `btn btn-dark`                    | Enviar mensagem         |
-| Button Ghost / Arrow  | `btn btn-ghost btn-arrow`         | Abrir projeto           |
+Estrutura comum:
 
-### Inputs (Campos de formulário)
+- `.card`
+- `.feature`
+- `.feature-mark`
+- `.card-dark` (para blocos em destaque escuro)
 
-> Estados nativos com foco visual via borda e focus ring.
+### Feature mark
 
-Componente: `contact-panel` com `form-grid`
+O ícone principal de feature usa:
 
-| Campo          | Elemento    | Classe     | Placeholder                                               |
-| -------------- | ----------- | ---------- | --------------------------------------------------------- |
-| Nome           | `input`     | `input`    | Seu nome                                                  |
-| E-mail         | `input`     | `input`    | voce@empresa.com                                          |
-| Sobre o projeto| `textarea`  | `textarea` | Conte em poucas linhas o que você precisa construir.      |
+- contêiner circular: `.feature-mark`
+- SVG com `stroke: currentColor`
+- `width: 38px`, `height: 38px`
+- `border-radius: 50%`
 
-**Status:** "Use Tab para visualizar o estado de foco." (`role="status"`, `aria-live="polite"`)
+```css
+.feature-mark {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: color-mix(in oklab, var(--accent), transparent 90%);
+}
+```
 
----
+### Footer
 
-## Layout & Spacing
-
-> Padrões de composição e ritmo entre blocos.
-
-### Pattern 1 — Grid 2-1 Split
-
-- **Classe:** `grid-2-1`
-- **Descrição:** Relação de proporção 2:1 para hierarquia de leitura.
-- **Uso:** Ideal para seções de explicação, credibilidade e narrativa estratégica.
-- **Estrutura:**
-  - Lado esquerdo (2fr): eyebrow + heading
-  - Lado direito (1fr): lead + parágrafo de suporte
-
-### Pattern 2 — Grid 3 Cards
-
-- **Classe:** `grid-3`
-- **Descrição:** Grade responsiva para apresentar serviços, benefícios ou blocos de valor.
-- **Estrutura:** 3 cards (`card feature`) com:
-  - Ícone SVG dentro de `feature-mark`
-  - Título `h3`
-  - Parágrafo descritivo
-
-| Coluna    | Conteúdo                                                                   |
-| --------- | -------------------------------------------------------------------------- |
-| Coluna 1  | Card com conteúdo curto e ícone para agrupamento funcional.                |
-| Coluna 2  | Grade responsiva para apresentar serviços, benefícios ou blocos de valor.  |
-| Coluna 3  | Espaçamento consistente com ritmo vertical definido por tokens de espaço.  |
-
-### Pattern 3 — Timeline
-
-- **Classe:** `timeline` (`<ol>`)
-- **Item:** `step` (`<li>`) com `.num` + `<strong>` + `<p>`
-
-| Etapa | Título      | Descrição                          |
-| ----- | ----------- | ---------------------------------- |
-| 01    | Descoberta  | Entendimento inicial do problema.  |
-| 02    | UX          | Estrutura de jornada e prioridade. |
-| 03    | UI          | Direção visual e componentes.      |
-| 04    | Dev         | Implementação com consistência.    |
-| 05    | Entrega     | Ajustes e publicação orientada.    |
+`src/components/layout/Footer/Footer.jsx` usa `className="pagefoot"` e mantém a tradição visual do site, com fundo claro e separação simples.
 
 ---
 
-## Motion & Interaction
+## Layout e grids
 
-> Galeria de transições e comportamentos interativos.
+As grades e layouts seguem tokens globais de espaçamento e responsividade.
 
-### Button Hover / Active
+### Padrões de grid
 
-- **Classe:** `btn btn-primary`
-- **Comportamento:** Transição de background, border e escala no ativo.
+- `.grid-3`: `repeat(3, 1fr)`
+- `.grid-2-1`: `2fr 1fr`
+- `.grid-1-2`: `1fr 2fr`
+- `.grid-2`: `repeat(2, 1fr)`
 
-### Ghost Arrow Motion
+### Espaçamento
 
-- **Classe:** `btn btn-ghost btn-arrow`
-- **Comportamento:** Deslocamento horizontal no hover do texto e seta.
+Os tokens de espaçamento em uso são:
 
-### Footer Link Hover
+- `--space-1: 4px`
+- `--space-2: 8px`
+- `--space-3: 12px`
+- `--space-4: 16px`
+- `--space-5: 20px`
+- `--space-6: 24px`
+- `--space-8: 32px`
+- `--space-12: 48px`
 
-- **Classe:** `footer-links > a`
-- **Comportamento:** Links com alteração de cor e leve escala no hover.
+### Container
 
-### Menu Toggle Transition
+```css
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter-desktop);
+}
+```
 
-- **Componente:** `menu-toggle` (barras `toggle-bar1/2/3`)
-- **Comportamento:** Morph das barras em viewport menor (hambúrguer → X).
-- **Nota:** Use o botão de menu no topo em viewport menor para ver o efeito.
-
-### Scroll / Reveal — Back to Top
-
-- **Classe:** `back-to-top` → `is-visible`
-- **Comportamento:** O botão de retorno aparece conforme rolagem e usa transição de opacidade e deslocamento.
-
----
-
-## Ícones
-
-> Sistema de ícones em SVG com classes nativas do projeto.
-
-### Stroke Padrão
-
-- **Container:** `feature-mark` (fundo circular + cor de destaque)
-- **SVG:** `viewBox="0 0 24 24"`, paths com stroke
-- **Exemplo path:** `M4 6h16M4 12h10M4 18h7`
-- **Descrição:** Ícones de feature com stroke, fundo circular e cor de destaque.
-
-### Variação de Forma
-
-- **Container:** `feature-mark` (mesmo container e herança de estilo)
-- **Exemplo path:** `M5 20V8l7-4 7 4v12M9 20v-6h6v6`
-- **Descrição:** Mesmo container e herança de estilo para famílias diferentes de ícone.
-
-### Ícone de Ação
-
-- **Container:** `back-to-top is-visible` (componente de ação circular)
-- **Exemplo path:** `M6 14l6-6 6 6`
-- **Descrição:** Ícone com `currentColor` aplicado em componente de ação circular.
+Isso mantém a estrutura responsiva e alinhada ao projeto atual.
 
 ---
 
-## Rodapé
+## Timeline / processo
 
-- **Classe:** `pagefoot`
-- **Conteúdo:** © 2026 Robson Svicero
-- **Links:**
-  - Início → `/`
-  - Agendamentos → `/agendamentos.html`
-  - Política de Privacidade → `/privacidade.html`
-  - Voltar ao início → `#inicio`
+A timeline do site segue a estrutura real de `src/styles/global.css`:
+
+- `.timeline`
+- `.step`
+- `.step .num`
+- `.step strong`
+- `.step p`
+
+Layout:
+
+```css
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-3);
+}
+```
+
+O visual usa fundo suave, borda leve e destaque do accent no número da etapa.
 
 ---
 
-## Fontes Utilizadas
+## Tipos de elementos de interface em uso
 
-- **Bebas Neue**
-- **Google Sans** (ital, opsz 17–18, wght 400–700)
-- **Montserrat** (ital, wght 100–900)
+### Elementos comuns no projeto
 
-Carregamento via Google Fonts com `media="print" onload="this.media='all'"` para performance.
+- `.eyebrow`
+- `.lead`
+- `.meta`
+- `.card`
+- `.feature-mark`
+- `.hero-editorial`
+- `.timeline`
+- `.pagefoot`
+- `.btn-primary` / `.btn-secondary` / `.btn-dark`
+
+### Padrões de consistência
+
+- Semântica visual clara e forte hierarquia.
+- Fundo principal claro com destaque roxo em ação e pontos de atenção.
+- Bordas sutis, cards com raio controlado e acessibilidade por foco visível.
+- Layout responsivo com grids e espaçamento global padronizado.
 
 ---
 
-## Arquivos Referenciados
+## Fontes e carregamento
 
-| Tipo       | Caminho                              |
-| ---------- | ------------------------------------ |
-| CSS        | `assets/css/styles.css`              |
-| JS         | `assets/js/scripts.js`               |
-| Logo       | `assets/images/logo.png`             |
-| Poster     | `assets/images/hero-poster.jpg`      |
-| Vídeo WebM | `assets/videos/hero-loop.webm`       |
-| Vídeo MP4  | `assets/videos/hero-loop.mp4`        |
+A identidade tipográfica atual usa estes nomes:
+
+- `Montserrat` como fonte principal de display
+- `Google Sans` como fonte de corpo
+- `Bebas Neue` para o logo / destaque
+- `SF Mono`, `JetBrains Mono` e `ui-monospace` para metadados e labels técnicos
+
+Essas fontes são definidas em `:root` via `--font-display`, `--font-body`, `--font-logo` e `--font-mono`.
+
+---
+
+## Arquivos relevantes
+
+| Tipo | Caminho |
+| --- | --- |
+| CSS base | `src/styles/global.css` |
+| Botões | `src/components/ui/Button/Button.jsx` |
+| Hero | `src/sections/Hero/Hero.jsx` |
+| Footer | `src/components/layout/Footer/Footer.jsx` |
+| Página de referência | `src/pages/DesignSystem/DesignSystem.jsx` |
+| Conteúdo do site | `src/content/siteContent.js` |
+
+---
+
+## Observação final
+
+Este design system está atualizado com a implementação atual do projeto. O documento foi revisado para refletir o stack real do site e não a estrutura antiga de HTML estático.
+
+Se houver novos componentes ou refinamentos visuais, a recomendação é manter este arquivo sincronizado sempre que houver mudanças em `src/styles/global.css` ou nos componentes de UI.
