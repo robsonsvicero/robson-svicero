@@ -8,6 +8,7 @@ import {
   LayoutDashboard,
   Link as LinkIcon,
   Mail,
+  Megaphone,
   UserRound,
 } from "lucide-react";
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
@@ -18,12 +19,14 @@ import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 import { triggerHostingerRebuild } from "../../lib/hostingerDeploy.js";
 import { sanitizeRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
+import NewsletterCampaignsPanel from "./NewsletterCampaignsPanel.jsx";
 
 const mediaBucket = "site-media";
 const resourceKeys = Object.keys(adminResources);
 const adminNavigation = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
   { key: "subscribers", label: "Newsletter", icon: Mail },
+  { key: "campaigns", label: "Campanhas", icon: Megaphone },
   { key: "authors", label: adminResources.authors.label, icon: UserRound },
   { key: "links", label: adminResources.links.label, icon: LinkIcon },
   { key: "posts", label: adminResources.posts.label, icon: FileText },
@@ -163,6 +166,7 @@ export default function AdminDashboard() {
   const isPostsResource = activeResource === "posts";
   const isLinksResource = activeResource === "links";
   const isSubscribersResource = activeResource === "subscribers";
+  const isNewsletterCampaigns = activeResource === "campaigns";
   const autosaveStatus = useAutosave({
     table: "blog_posts",
     id: isPostsResource && postScreen === "edit" ? selectedId : null,
@@ -293,10 +297,13 @@ export default function AdminDashboard() {
     if (resource) {
       loadItems();
       loadRelationOptions();
-    } else {
+    } else if (activeResource === "dashboard") {
       setItems([]);
       setRelationOptions({});
       loadDashboardStats();
+    } else {
+      setItems([]);
+      setRelationOptions({});
     }
   }, [activeResource, emptyRecord, resource]);
 
@@ -685,7 +692,7 @@ export default function AdminDashboard() {
                 <p>Acompanhe os conteúdos cadastrados e acesse rapidamente cada área.</p>
               </div>
             </div>
-          ) : (
+          ) : isNewsletterCampaigns ? null : (
             <div className="admin-header">
               <div>
                 <p className="eyebrow">Conteúdo</p>
@@ -726,7 +733,9 @@ export default function AdminDashboard() {
 
           {status && <p className="admin-status">{status}</p>}
 
-          {activeResource === "dashboard" ? (
+          {isNewsletterCampaigns ? (
+            <NewsletterCampaignsPanel />
+          ) : activeResource === "dashboard" ? (
             <div className="admin-dashboard-grid">
               {isLoading && <p className="meta">Carregando indicadores...</p>}
               {!isLoading &&

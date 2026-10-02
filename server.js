@@ -3,6 +3,7 @@ import path from "node:path";
 import { exec } from "node:child_process";
 import { promisify } from "node:util";
 import { fileURLToPath } from "node:url";
+import { createNewsletterRouter } from "./server/newsletterRoutes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -14,6 +15,7 @@ const execAsync = promisify(exec);
 
 app.disable("x-powered-by");
 app.use(express.json());
+app.use("/api/newsletter", createNewsletterRouter());
 
 app.post("/api/rebuild", async (req, res) => {
   const providedSecret = String(req.headers["x-rebuild-secret"] || "");
