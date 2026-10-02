@@ -27,6 +27,11 @@ function personalizeNameToken(value: string): string {
   return value.replaceAll("{nome_cadastro}", `{{contact.${brevoFirstNameAttribute}}}`);
 }
 
+function addUnsubscribeLink(html: string): string {
+  if (/\{\{\s*unsubscribe\s*\}\}|\[UNSUBSCRIBE\]/i.test(html)) return html;
+  return `${html}<p style="margin:32px 0 0;font-size:13px;color:#5f6368">Se não quiser mais receber a newsletter, <a href="{{unsubscribe}}">descadastre-se aqui</a>.</p>`;
+}
+
 async function ensureBrevoFirstNameAttribute(brevo: ReturnType<typeof createBrevoApi>) {
   const { data } = await brevo.getAttributes();
   const attributes = Array.isArray(data?.attributes) ? data.attributes : [];
@@ -286,7 +291,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
       sender: { name: senderName, email: senderEmail },
       subject: personalizeNameToken(campaign.subject),
       previewText: campaign.preview_text ? personalizeNameToken(campaign.preview_text) : undefined,
-      htmlContent: personalizeNameToken(campaign.html_content),
+      htmlContent: addUnsubscribeLink(personalizeNameToken(campaign.html_content)),
       recipients: { listIds: [campaignListId] },
     });
     providerCampaignId = Number(providerCampaign?.id);
