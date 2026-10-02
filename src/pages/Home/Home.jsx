@@ -9,6 +9,7 @@ import Hero from "../../sections/Hero/Hero.jsx";
 import Projects from "../../sections/Projects/Projects.jsx";
 import Services from "../../sections/Services/Services.jsx";
 import Testimonials from "../../sections/Testimonials/Testimonials.jsx";
+import LatestArticles from "../../sections/LatestArticles/LatestArticles.jsx";
 
 function createHomeSchema() {
   const homeUrl = absoluteUrl("/");
@@ -61,6 +62,7 @@ export default function Home() {
         <Services />
         <Projects />
         <Testimonials />
+        <LatestArticles />
         <Contact />
       </Layout>
       {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}
