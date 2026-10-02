@@ -3211,11 +3211,6 @@ h3 {
   color: var(--muted);
 }
 
-.newsletter-campaign-body {
-  min-height: 240px;
-  resize: vertical;
-}
-
 .newsletter-email-preview {
   display: grid;
   gap: var(--space-3);
@@ -3241,6 +3236,16 @@ h3 {
   padding-top: var(--space-3);
   border-top: 1px solid var(--border-soft);
   line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.newsletter-preview-body > div {
+  white-space: normal;
+}
+
+.newsletter-preview-body img {
+  max-width: 100%;
+  height: auto;
 }
 
 .newsletter-campaign-editor-actions {

@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-02T00:42:45.805Z",
+  "generatedAt": "2026-10-02T13:44:59.013Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto/image-2026-10-01T23-53-19-780Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Acessibilidade em UX vai além de cumprir requisitos: contraste, teclado, linguagem e estrutura podem melhorar a experiência e ampliar o alcance do produto.",
       "category": "UX Insights",
       "publishedAt": "2026-10-01T23:54:00+00:00",
-      "viewsCount": 1,
+      "viewsCount": 3,
       "readingTime": "7 minutos"
     },
     {
@@ -166,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 11,
       "readingTime": "8 minutos"
     },
     {

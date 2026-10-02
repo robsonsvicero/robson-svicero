@@ -9,7 +9,9 @@ import {
   Trash2,
 } from "lucide-react";
 import Button from "../../components/ui/Button/Button.jsx";
+import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
+import { sanitizeRichText } from "../../utils/richText.js";
 
 const pageSize = 1000;
 const insertBatchSize = 500;
@@ -22,31 +24,13 @@ const initialDraft = {
   recipientMode: "all",
 };
 
-function escapeHtml(value) {
-  return value.replace(/[&<>"']/g, (character) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  })[character]);
-}
-
 function createEmailHtml(body) {
-  const paragraphs = body
-    .trim()
-    .split(/\n\s*\n/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean)
-    .map((paragraph) => `<p style="margin:0 0 16px">${escapeHtml(paragraph).replace(/\n/g, "<br>")}</p>`)
-    .join("");
-
-  return `<div style="font-family:Arial,sans-serif;font-size:16px;line-height:1.6;color:#202124">${paragraphs}</div>`;
+  return `<div style="font-family:Arial,sans-serif;font-size:16px;line-height:1.6;color:#202124">${sanitizeRichText(body)}</div>`;
 }
 
-function htmlToText(html) {
-  const documentFragment = new DOMParser().parseFromString(html || "", "text/html");
-  return (documentFragment.body.textContent || "").trim();
+function hasEmailBodyContent(body) {
+  const documentFragment = new DOMParser().parseFromString(body || "", "text/html");
+  return Boolean(documentFragment.body.textContent?.trim() || documentFragment.body.querySelector("img"));
 }
 
 function formatDate(value) {
@@ -182,7 +166,7 @@ export default function NewsletterCampaignsPanel() {
         name: campaignResult.data.name,
         subject: campaignResult.data.subject,
         previewText: campaignResult.data.preview_text || "",
-        body: htmlToText(campaignResult.data.html_content),
+        body: campaignResult.data.html_content || "",
         recipientMode: campaignResult.data.recipient_mode,
       });
       const activeSubscriberIds = new Set(subscriberList.map((subscriber) => subscriber.id));
@@ -201,6 +185,30 @@ export default function NewsletterCampaignsPanel() {
 
   function updateDraft(name, value) {
     setDraft((current) => ({ ...current, [name]: value }));
+  }
+
+  async function uploadCampaignImage(file) {
+    if (!file || !isSupabaseConfigured) {
+      setStatus("Configure o Supabase antes de enviar imagens.");
+      setStatusType("error");
+      return "";
+    }
+
+    const extension = file.name.includes(".") ? file.name.split(".").pop().toLowerCase() : "webp";
+    const storagePath = `campaigns/${Date.now()}-${crypto.randomUUID()}.${extension}`;
+    const { error } = await supabase.storage.from("site-media").upload(storagePath, file, {
+      cacheControl: "31536000",
+      contentType: file.type,
+      upsert: false,
+    });
+
+    if (error) {
+      setStatus(`Não foi possível enviar a imagem: ${error.message}`);
+      setStatusType("error");
+      return "";
+    }
+
+    return supabase.storage.from("site-media").getPublicUrl(storagePath).data.publicUrl || "";
   }
 
   function updateRecipientMode(value) {
@@ -232,7 +240,7 @@ export default function NewsletterCampaignsPanel() {
 
   async function saveDraft({ sendAfterSave = false } = {}) {
     if (isSaving || !isSupabaseConfigured) return null;
-    if (!draft.name.trim() || !draft.subject.trim() || !draft.body.trim()) {
+    if (!draft.name.trim() || !draft.subject.trim() || !hasEmailBodyContent(draft.body)) {
       setStatus("Preencha o nome, o assunto e o corpo do e-mail.");
       setStatusType("error");
       return null;
@@ -509,7 +517,13 @@ export default function NewsletterCampaignsPanel() {
 
           <div className="field">
             <label htmlFor="campaign-body">Corpo do e-mail</label>
-            <textarea className="textarea newsletter-campaign-body" id="campaign-body" maxLength={50000} value={draft.body} onChange={(event) => updateDraft("body", event.target.value)} placeholder="Escreva o conteúdo da newsletter..." required />
+            <RichTextEditor
+              id="campaign-body"
+              name="campaign-body"
+              value={draft.body}
+              onChange={(value) => updateDraft("body", value)}
+              onImageUpload={uploadCampaignImage}
+            />
             <p className="meta">Use {"{nome_cadastro}"} no assunto, na prévia ou no corpo para inserir o primeiro nome de cada inscrito.</p>
           </div>
 
@@ -517,7 +531,11 @@ export default function NewsletterCampaignsPanel() {
             <p className="eyebrow">Prévia</p>
             <h3>{draft.subject || "Assunto da campanha"}</h3>
             {draft.previewText && <p className="newsletter-preview-text">{draft.previewText}</p>}
-            <div className="newsletter-preview-body">{draft.body || "O corpo do e-mail aparecerá aqui."}</div>
+            <div className="newsletter-preview-body">
+              {draft.body.trim()
+                ? <div dangerouslySetInnerHTML={{ __html: sanitizeRichText(draft.body) }} />
+                : "O corpo do e-mail aparecerá aqui."}
+            </div>
           </div>
 
           <div className="newsletter-campaign-editor-actions">
