@@ -126,6 +126,7 @@ alter table public.newsletter_campaign_recipients
   check (status in ('pending', 'queued', 'sent', 'delivered', 'soft_bounced', 'bounced', 'complained', 'unsubscribed', 'failed', 'skipped'));
 
 alter table public.newsletter_campaigns
+  add column if not exists queued_count integer not null default 0 check (queued_count >= 0),
   add column if not exists delivered_count integer not null default 0 check (delivered_count >= 0),
   add column if not exists bounced_count integer not null default 0 check (bounced_count >= 0),
   add column if not exists soft_bounce_count integer not null default 0 check (soft_bounce_count >= 0),

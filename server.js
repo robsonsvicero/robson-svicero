@@ -67,7 +67,7 @@ app.get("/health", (_req, res) => {
   res.status(200).json({ ok: true, status: "healthy" });
 });
 
-app.get("/*", (_req, res) => {
+app.get("/{*splat}", (_req, res) => {
   res.sendFile(path.join(distPath, "index.html"));
 });
 
