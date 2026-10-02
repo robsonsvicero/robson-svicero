@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { footerContent } from "../../../content/siteContent.js";
+import { isSupabaseConfigured, supabase } from "../../../lib/supabaseClient.js";
 
 /* ── Social icon SVGs ── */
 function TelegramIcon() {
@@ -54,6 +55,58 @@ const socialIconMap = {
 
 export default function Footer() {
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [newsletterForm, setNewsletterForm] = useState({ firstName: "", email: "", consent: false });
+  const [newsletterStatus, setNewsletterStatus] = useState("");
+  const [newsletterStatusType, setNewsletterStatusType] = useState("");
+  const [isNewsletterSubmitting, setIsNewsletterSubmitting] = useState(false);
+
+  function handleNewsletterChange(event) {
+    const { name, value, checked, type } = event.target;
+    setNewsletterForm((current) => ({
+      ...current,
+      [name]: type === "checkbox" ? checked : value,
+    }));
+  }
+
+  async function handleNewsletterSubmit(event) {
+    event.preventDefault();
+    if (isNewsletterSubmitting) return;
+
+    if (!isSupabaseConfigured) {
+      setNewsletterStatus("Cadastro indisponível no momento. Tente novamente mais tarde.");
+      setNewsletterStatusType("error");
+      return;
+    }
+
+    setIsNewsletterSubmitting(true);
+    setNewsletterStatus("");
+    setNewsletterStatusType("");
+
+    try {
+      const { error } = await supabase.from("newsletter_subscribers").insert({
+        first_name: newsletterForm.firstName.trim(),
+        email: newsletterForm.email.trim().toLowerCase(),
+        consent: newsletterForm.consent,
+      });
+
+      if (error?.code === "23505") {
+        setNewsletterStatus("Este e-mail já está inscrito.");
+        setNewsletterStatusType("success");
+        return;
+      }
+
+      if (error) throw error;
+
+      setNewsletterForm({ firstName: "", email: "", consent: false });
+      setNewsletterStatus("Inscrição realizada com sucesso. Seja bem-vindo(a)!");
+      setNewsletterStatusType("success");
+    } catch {
+      setNewsletterStatus("Não foi possível concluir sua inscrição. Tente novamente.");
+      setNewsletterStatusType("error");
+    } finally {
+      setIsNewsletterSubmitting(false);
+    }
+  }
 
   return (
     <footer className="pagefoot" data-od-id="footer" aria-label="Rodape do site de Robson Svicero">
@@ -96,7 +149,67 @@ export default function Footer() {
           <h2 id="footer-newsletter-title" className="footer-newsletter-title">
             Receba novidades por e-mail
           </h2>
-          <div data-reach-form="377ad5cc-cbdc-42b6-881f-6d91dbd3818e" />
+          <div className="footer-newsletter-content">
+            <h3>Mantenha-se à frente com nosso conteúdo exclusivo</h3>
+            <p>Receba insights valiosos e seja o primeiro a saber das nossas novidades.</p>
+
+            <form className="footer-newsletter-form" onSubmit={handleNewsletterSubmit}>
+              <div className="footer-newsletter-field">
+                <label htmlFor="footer-newsletter-name">Primeiro nome</label>
+                <input
+                  id="footer-newsletter-name"
+                  name="firstName"
+                  type="text"
+                  autoComplete="given-name"
+                  minLength={2}
+                  maxLength={100}
+                  value={newsletterForm.firstName}
+                  onChange={handleNewsletterChange}
+                  required
+                />
+              </div>
+
+              <div className="footer-newsletter-field">
+                <label htmlFor="footer-newsletter-email">E-mail</label>
+                <input
+                  id="footer-newsletter-email"
+                  name="email"
+                  type="email"
+                  autoComplete="email"
+                  maxLength={254}
+                  placeholder="seu@email.com"
+                  value={newsletterForm.email}
+                  onChange={handleNewsletterChange}
+                  required
+                />
+              </div>
+
+              <label className="footer-newsletter-consent">
+                <input
+                  name="consent"
+                  type="checkbox"
+                  checked={newsletterForm.consent}
+                  onChange={handleNewsletterChange}
+                  required
+                />
+                <span>Concordo com o processamento dos meus dados para receber comunicações.</span>
+              </label>
+
+              <button className="footer-newsletter-submit" type="submit" disabled={isNewsletterSubmitting}>
+                {isNewsletterSubmitting ? "Enviando..." : "Junte-se ao clube"}
+              </button>
+
+              {newsletterStatus && (
+                <p
+                  className={`footer-newsletter-status is-${newsletterStatusType}`}
+                  role="status"
+                  aria-live="polite"
+                >
+                  {newsletterStatus}
+                </p>
+              )}
+            </form>
+          </div>
         </section>
 
         {/* Right: nav columns */}

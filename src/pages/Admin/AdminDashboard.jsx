@@ -1,11 +1,13 @@
 import { useEffect, useMemo, useState } from "react";
 import {
   ArrowUpDown,
+  Download,
   ExternalLink,
   FileText,
   FolderKanban,
   LayoutDashboard,
   Link as LinkIcon,
+  Mail,
   UserRound,
 } from "lucide-react";
 import RichTextEditor from "../../components/RichTextEditor/RichTextEditor.jsx";
@@ -21,6 +23,7 @@ const mediaBucket = "site-media";
 const resourceKeys = Object.keys(adminResources);
 const adminNavigation = [
   { key: "dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { key: "subscribers", label: "Newsletter", icon: Mail },
   { key: "authors", label: adminResources.authors.label, icon: UserRound },
   { key: "links", label: adminResources.links.label, icon: LinkIcon },
   { key: "posts", label: adminResources.posts.label, icon: FileText },
@@ -154,10 +157,12 @@ export default function AdminDashboard() {
   const [relationOptions, setRelationOptions] = useState({});
   const [postScreen, setPostScreen] = useState("list");
   const [postSort, setPostSort] = useState({ key: "published_at", ascending: false });
+  const [isExportingSubscribers, setIsExportingSubscribers] = useState(false);
 
   const selectedItem = items.find((item) => item.id === selectedId);
   const isPostsResource = activeResource === "posts";
   const isLinksResource = activeResource === "links";
+  const isSubscribersResource = activeResource === "subscribers";
   const autosaveStatus = useAutosave({
     table: "blog_posts",
     id: isPostsResource && postScreen === "edit" ? selectedId : null,
@@ -204,6 +209,79 @@ export default function AdminDashboard() {
       setStatus(isWhatsAppLink ? "Link do WhatsApp copiado." : "URL encurtada copiada.");
     } catch (_error) {
       setStatus("Não foi possível copiar automaticamente. Selecione e copie a URL.");
+    }
+  }
+
+  async function exportSubscribers() {
+    if (!isSupabaseConfigured || isExportingSubscribers) return;
+
+    setIsExportingSubscribers(true);
+    setStatus("");
+
+    try {
+      const subscribers = [];
+      let offset = 0;
+      const pageSize = 1000;
+      let hasMore = true;
+
+      while (hasMore) {
+        const { data, error } = await supabase
+          .from(adminResources.subscribers.table)
+          .select("first_name, email, consent_at, created_at")
+          .order("created_at", { ascending: false })
+          .range(offset, offset + pageSize - 1);
+
+        if (error) throw error;
+
+        const page = data || [];
+        subscribers.push(...page);
+        hasMore = page.length === pageSize;
+        offset += pageSize;
+      }
+
+      if (subscribers.length === 0) {
+        setStatus("Não há inscritos para exportar.");
+        return;
+      }
+
+      const { default: ExcelJS } = await import("exceljs");
+      const workbook = new ExcelJS.Workbook();
+      const worksheet = workbook.addWorksheet("Inscritos");
+      worksheet.columns = [
+        { header: "Nome", key: "firstName", width: 28 },
+        { header: "E-mail", key: "email", width: 36 },
+        { header: "Consentimento registrado em", key: "consentAt", width: 28 },
+        { header: "Data de cadastro", key: "createdAt", width: 24 },
+      ];
+
+      const formatDate = (value) => value
+        ? new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" }).format(new Date(value))
+        : "";
+
+      worksheet.addRows(subscribers.map((subscriber) => ({
+        firstName: subscriber.first_name,
+        email: subscriber.email,
+        consentAt: formatDate(subscriber.consent_at),
+        createdAt: formatDate(subscriber.created_at),
+      })));
+      worksheet.views = [{ state: "frozen", ySplit: 1 }];
+      worksheet.autoFilter = "A1:D1";
+
+      const buffer = await workbook.xlsx.writeBuffer();
+      const file = new Blob([buffer], {
+        type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      });
+      const downloadUrl = URL.createObjectURL(file);
+      const downloadLink = document.createElement("a");
+      downloadLink.href = downloadUrl;
+      downloadLink.download = `inscritos-newsletter-${new Date().toISOString().slice(0, 10)}.xlsx`;
+      downloadLink.click();
+      window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 1000);
+      setStatus(`${subscribers.length} inscritos exportados para Excel.`);
+    } catch {
+      setStatus("Não foi possível gerar o arquivo Excel. Tente novamente.");
+    } finally {
+      setIsExportingSubscribers(false);
     }
   }
 
@@ -489,6 +567,9 @@ export default function AdminDashboard() {
         );
         payload.author = selectedAuthor?.label || null;
       }
+      if (isSubscribersResource) {
+        payload = { ...payload, email: String(payload.email || "").trim().toLowerCase(), consent: true };
+      }
     } catch (error) {
       setStatus(error.message || "Revise os campos informados.");
       return;
@@ -621,9 +702,23 @@ export default function AdminDashboard() {
                     {postScreen === "list" ? "Novo artigo" : "Voltar para artigos"}
                   </Button>
                 ) : (
-                  <Button as="button" type="button" onClick={startCreate}>
-                    Novo {resource.singular}
-                  </Button>
+                  <>
+                    {isSubscribersResource && (
+                      <Button
+                        as="button"
+                        variant="secondary"
+                        type="button"
+                        onClick={exportSubscribers}
+                        disabled={isExportingSubscribers}
+                      >
+                        <Download aria-hidden="true" />
+                        {isExportingSubscribers ? "Gerando Excel..." : "Exportar Excel"}
+                      </Button>
+                    )}
+                    <Button as="button" type="button" onClick={startCreate}>
+                      Novo {resource.singular}
+                    </Button>
+                  </>
                 )}
               </div>
             </div>
@@ -640,6 +735,8 @@ export default function AdminDashboard() {
                     ? FileText
                     : stat.key === "links"
                       ? LinkIcon
+                      : stat.key === "subscribers"
+                        ? Mail
                       : stat.key === "authors"
                         ? UserRound
                         : FolderKanban;

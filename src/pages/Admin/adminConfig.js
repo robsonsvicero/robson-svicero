@@ -1,4 +1,17 @@
 export const adminResources = {
+  subscribers: {
+    table: "newsletter_subscribers",
+    label: "Inscritos da newsletter",
+    singular: "inscrito",
+    description: "Visualize, adicione e remova os cadastros da newsletter.",
+    orderBy: "created_at",
+    titleField: "first_name",
+    subtitleField: "email",
+    fields: [
+      { name: "first_name", label: "Primeiro nome", type: "text", required: true },
+      { name: "email", label: "E-mail", type: "email", required: true },
+    ],
+  },
   authors: {
     table: "blog_authors",
     label: "Autores",

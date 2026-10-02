@@ -1,6 +1,30 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-09-26T02:29:45.426Z",
+  "generatedAt": "2026-10-02T00:42:45.805Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto/image-2026-10-01T23-53-19-780Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto/thumbnail-2026-10-01T23-53-14-952Z.webp",
+      "slug": "acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto",
+      "path": "/blog/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto",
+      "title": "Acessibilidade em UX: de obrigação técnica a estratégia de produto",
+      "excerpt": "Acessibilidade em UX vai além de cumprir requisitos: contraste, teclado, linguagem e estrutura podem melhorar a experiência e ampliar o alcance do produto.",
+      "category": "UX Insights",
+      "publishedAt": "2026-10-01T23:54:00+00:00",
+      "viewsCount": 1,
+      "readingTime": "7 minutos"
+    },
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/arquivo/image-2026-09-29T19-53-53-979Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/arquivo/thumbnail-2026-09-29T19-53-49-862Z.webp",
+      "slug": "por-que-seu-site-precisa-ser-pensado-primeiro-para-o-celular",
+      "path": "/blog/por-que-seu-site-precisa-ser-pensado-primeiro-para-o-celular",
+      "title": "Por que seu site precisa ser pensado primeiro para o celular?",
+      "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-09-29T20:24:00+00:00",
+      "viewsCount": 2,
+      "readingTime": "11 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/image-2026-09-25T02-39-12-585Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-006-seu-escritorio-esta-no-instagram-mas-nao-aparece-no-google/thumbnail-2026-09-25T02-39-06-175Z.webp",
@@ -10,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
       "category": "Raio X",
       "publishedAt": "2026-09-25T11:55:00+00:00",
-      "viewsCount": 4,
+      "viewsCount": 7,
       "readingTime": "7 minutos"
     },
     {
@@ -34,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 11,
+      "viewsCount": 12,
       "readingTime": "8 minutos"
     },
     {
@@ -46,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-09T10:21:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 9,
       "readingTime": "10 minutos"
     },
     {
@@ -58,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 22,
+      "viewsCount": 24,
       "readingTime": "10 minutos"
     },
     {
@@ -94,7 +118,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Raio X",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 44,
+      "viewsCount": 45,
       "readingTime": "8 minutos"
     },
     {
@@ -166,7 +190,7 @@ export const contentSnapshots = {
       "excerpt": "Seu site responde às dúvidas que impedem um cliente de comprar? Entenda como clareza, confiança e orientação reduzem abandonos e facilitam a decisão.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-23T03:05:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 19,
       "readingTime": "6 minutos"
     },
     {
@@ -178,7 +202,7 @@ export const contentSnapshots = {
       "excerpt": "Instagram atrai visitantes, mas é o site que transforma interesse em clientes. Descubra por que muitas empresas perdem vendas no destino do clique e como evitar esse erro.",
       "category": "Experiência Digital",
       "publishedAt": "2026-07-21T03:00:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 20,
       "readingTime": "5 minutos"
     },
     {
@@ -190,7 +214,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 32,
+      "viewsCount": 34,
       "readingTime": "6 minutos"
     },
     {
@@ -216,30 +240,6 @@ export const contentSnapshots = {
       "publishedAt": "2026-07-04T03:00:00+00:00",
       "viewsCount": 8,
       "readingTime": "4 minutos"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/por-que-tantos-sites-escondem-seus-principais-diferenciais/image-2026-07-03T17-30-19-063Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/por-que-tantos-sites-escondem-seus-principais-diferenciais/image-2026-07-03T17-30-19-063Z.webp",
-      "slug": "por-que-tantos-sites-escondem-seus-principais-diferenciais",
-      "path": "/blog/por-que-tantos-sites-escondem-seus-principais-diferenciais",
-      "title": "Por que tantos sites escondem seus principais diferenciais?",
-      "excerpt": "Muitos sites têm bons diferenciais, mas falham em comunicá-los logo nas primeiras telas. Neste artigo, você vai entender por que isso acontece e como tornar o valor da sua marca mais visível.",
-      "category": "UX Insights",
-      "publishedAt": "2026-07-01T03:00:00+00:00",
-      "viewsCount": 7,
-      "readingTime": "7 minutos"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/arquivo/image-2026-07-04T18-47-01-334Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/arquivo/thumbnail-2026-07-04T18-46-53-288Z.webp",
-      "slug": "simplicidade-e-estrategia-o-verdadeiro-valor-de-um-product-designer",
-      "path": "/blog/simplicidade-e-estrategia-o-verdadeiro-valor-de-um-product-designer",
-      "title": "Simplicidade é Estratégia: o verdadeiro valor de um Product Designer",
-      "excerpt": "Adicionar funcionalidades é fácil. O desafio é eliminar o excesso. Entenda por que a simplicidade é uma das maiores vantagens competitivas do Product Design.",
-      "category": "UX & Conversão",
-      "publishedAt": "2026-06-24T03:00:00+00:00",
-      "viewsCount": 6,
-      "readingTime": "6 minutos"
     }
   ],
   "projects": [
