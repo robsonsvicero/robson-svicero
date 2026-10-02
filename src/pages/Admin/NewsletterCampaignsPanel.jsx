@@ -5,6 +5,7 @@ import {
   MailPlus,
   Pencil,
   RefreshCw,
+  RotateCcw,
   Send,
   Trash2,
 } from "lucide-react";
@@ -81,7 +82,7 @@ export default function NewsletterCampaignsPanel() {
     setIsLoading(true);
     const { data, error } = await supabase
       .from("newsletter_campaigns")
-      .select("id, name, subject, recipient_mode, recipient_count, queued_count, sent_count, failed_count, delivered_count, bounced_count, soft_bounce_count, complained_count, unsubscribed_count, opened_count, clicked_count, status, created_at, sent_at")
+      .select("id, name, subject, recipient_mode, recipient_count, queued_count, sent_count, failed_count, delivered_count, bounced_count, soft_bounce_count, complained_count, unsubscribed_count, opened_count, clicked_count, status, failure_reason, created_at, sent_at")
       .order("created_at", { ascending: false });
     setIsLoading(false);
 
@@ -328,13 +329,7 @@ export default function NewsletterCampaignsPanel() {
     }
   }
 
-  async function sendCampaign(campaignId) {
-    if (sendingCampaignId) return;
-    const confirmed = window.confirm("Enviar esta campanha agora? O envio não poderá ser desfeito.");
-    if (!confirmed) return;
-
-    setSendingCampaignId(campaignId);
-    setStatus("");
+  async function executeCampaignSend(campaignId) {
     try {
       const { data: result, error } = await supabase.functions.invoke("newsletter-send", {
         body: { campaignId },
@@ -356,23 +351,130 @@ export default function NewsletterCampaignsPanel() {
       setStatusType("error");
       setScreen("list");
       await loadCampaigns();
+    }
+  }
+
+  async function sendCampaign(campaignId) {
+    if (sendingCampaignId) return;
+    const confirmed = window.confirm("Enviar esta campanha agora? O envio não poderá ser desfeito.");
+    if (!confirmed) return;
+
+    setSendingCampaignId(campaignId);
+    setStatus("");
+    try {
+      await executeCampaignSend(campaignId);
     } finally {
       setSendingCampaignId(null);
     }
   }
 
-  async function deleteDraft(campaign) {
-    if (campaign.status !== "draft") return;
-    if (!window.confirm(`Excluir o rascunho “${campaign.name}”?`)) return;
+  async function resendCampaign(campaign) {
+    if (sendingCampaignId || ["preparing", "scheduled", "sending"].includes(campaign.status)) return;
+    const audience = campaign.recipient_mode === "all" ? "todos os inscritos ativos" : "os destinatários selecionados";
+    if (!window.confirm(`Reenviar “${campaign.name}” para ${audience}? Será criada uma nova campanha no Brevo; o histórico anterior será preservado.`)) return;
 
-    const { error } = await supabase.from("newsletter_campaigns").delete().eq("id", campaign.id).eq("status", "draft");
+    setSendingCampaignId(campaign.id);
+    setStatus("");
+    let copiedCampaignId = null;
+    let sendStarted = false;
+
+    try {
+      const { data: source, error: sourceError } = await supabase
+        .from("newsletter_campaigns")
+        .select("name, subject, preview_text, html_content, recipient_mode")
+        .eq("id", campaign.id)
+        .eq("status", campaign.status)
+        .single();
+      if (sourceError) throw sourceError;
+
+      let selectedRecipients = [];
+      if (source.recipient_mode === "selected") {
+        selectedRecipients = [];
+        let offset = 0;
+        let hasMore = true;
+        while (hasMore) {
+          const { data, error } = await supabase
+            .from("newsletter_campaign_recipients")
+            .select("subscriber_id, first_name_snapshot, email_snapshot")
+            .eq("campaign_id", campaign.id)
+            .range(offset, offset + pageSize - 1);
+          if (error) throw error;
+          const page = data || [];
+          selectedRecipients.push(...page);
+          hasMore = page.length === pageSize;
+          offset += pageSize;
+        }
+        if (selectedRecipients.length === 0) throw new Error("A campanha não tem destinatários selecionados para reenviar.");
+      }
+
+      const { data: copiedCampaign, error: copyError } = await supabase
+        .from("newsletter_campaigns")
+        .insert({
+          name: `${source.name} (reenvio)`.slice(0, 160),
+          subject: source.subject,
+          preview_text: source.preview_text,
+          html_content: source.html_content,
+          recipient_mode: source.recipient_mode,
+          recipient_count: selectedRecipients.length,
+        })
+        .select("id")
+        .single();
+      if (copyError) throw copyError;
+      copiedCampaignId = copiedCampaign.id;
+
+      for (let offset = 0; offset < selectedRecipients.length; offset += insertBatchSize) {
+        const batch = selectedRecipients.slice(offset, offset + insertBatchSize).map((recipient) => ({
+          campaign_id: copiedCampaignId,
+          subscriber_id: recipient.subscriber_id,
+          first_name_snapshot: recipient.first_name_snapshot,
+          email_snapshot: recipient.email_snapshot,
+          brevo_contact_id: null,
+        }));
+        if (batch.length === 0) continue;
+        const { error } = await supabase.from("newsletter_campaign_recipients").insert(batch);
+        if (error) throw error;
+      }
+
+      sendStarted = true;
+      setSendingCampaignId(copiedCampaignId);
+      await executeCampaignSend(copiedCampaignId);
+    } catch (error) {
+      if (copiedCampaignId && !sendStarted) {
+        await supabase.from("newsletter_campaigns").delete().eq("id", copiedCampaignId).eq("status", "draft");
+      }
+      setStatus(`Não foi possível preparar o reenvio: ${error.message}`);
+      setStatusType("error");
+      setScreen("list");
+      await loadCampaigns();
+    } finally {
+      setSendingCampaignId(null);
+    }
+  }
+
+  async function deleteCampaign(campaign) {
+    if (["preparing", "scheduled", "sending"].includes(campaign.status)) return;
+    const confirmed = window.confirm(`Excluir “${campaign.name}” do painel? Isso remove o histórico e as métricas locais, mas não apaga a campanha no Brevo nem desfaz e-mails enviados.`);
+    if (!confirmed) return;
+
+    const { data, error } = await supabase
+      .from("newsletter_campaigns")
+      .delete()
+      .eq("id", campaign.id)
+      .eq("status", campaign.status)
+      .select("id")
+      .maybeSingle();
     if (error) {
-      setStatus(`Não foi possível excluir o rascunho: ${error.message}`);
+      setStatus(`Não foi possível excluir a campanha: ${error.message}`);
+      setStatusType("error");
+      return;
+    }
+    if (!data) {
+      setStatus("A campanha mudou de estado e não foi excluída. Atualize a lista e tente novamente.");
       setStatusType("error");
       return;
     }
 
-    setStatus("Rascunho excluído.");
+    setStatus("Campanha excluída do painel.");
     setStatusType("success");
     await loadCampaigns();
   }
@@ -429,6 +531,9 @@ export default function NewsletterCampaignsPanel() {
                   </span>
                 </div>
                 <p>{campaign.subject}</p>
+                {campaign.failure_reason && (
+                  <p className="admin-status is-error" role="status">{campaign.failure_reason}</p>
+                )}
                 <span className="meta">
                   {campaign.recipient_mode === "all" ? "Todos os inscritos ativos" : `${campaign.recipient_count} selecionados`}
                   {campaign.queued_count > 0 ? ` · ${campaign.queued_count} na fila` : ""}
@@ -444,20 +549,33 @@ export default function NewsletterCampaignsPanel() {
               </div>
               <div className="newsletter-campaign-actions">
                 {campaign.status === "draft" && (
-                  <>
-                    <Button as="button" variant="secondary" type="button" onClick={() => startEditCampaign(campaign)}>
-                      <Pencil aria-hidden="true" />
-                      Editar
-                    </Button>
-                    <Button as="button" type="button" onClick={() => sendCampaign(campaign.id)} disabled={sendingCampaignId !== null}>
-                      <Send aria-hidden="true" />
-                      {sendingCampaignId === campaign.id ? "Enviando..." : "Enviar agora"}
-                    </Button>
-                    <button className="newsletter-campaign-delete" type="button" aria-label={`Excluir rascunho ${campaign.name}`} onClick={() => deleteDraft(campaign)}>
-                      <Trash2 aria-hidden="true" />
-                    </button>
-                  </>
+                  <Button as="button" variant="secondary" type="button" onClick={() => startEditCampaign(campaign)}>
+                    <Pencil aria-hidden="true" />
+                    Editar
+                  </Button>
                 )}
+                <Button
+                  as="button"
+                  variant="secondary"
+                  type="button"
+                  onClick={() => campaign.status === "draft" ? sendCampaign(campaign.id) : resendCampaign(campaign)}
+                  disabled={sendingCampaignId !== null || ["preparing", "scheduled", "sending"].includes(campaign.status)}
+                  title={["preparing", "scheduled", "sending"].includes(campaign.status) ? "Indisponível enquanto a campanha está ativa." : undefined}
+                >
+                  {campaign.status === "draft" ? <Send aria-hidden="true" /> : <RotateCcw aria-hidden="true" />}
+                  {sendingCampaignId === campaign.id ? "Enviando..." : campaign.status === "draft" ? "Enviar agora" : "Reenviar"}
+                </Button>
+                <Button
+                  as="button"
+                  variant="secondary"
+                  type="button"
+                  onClick={() => deleteCampaign(campaign)}
+                  disabled={sendingCampaignId !== null || ["preparing", "scheduled", "sending"].includes(campaign.status)}
+                  title={["preparing", "scheduled", "sending"].includes(campaign.status) ? "Indisponível enquanto a campanha está ativa." : undefined}
+                >
+                  <Trash2 aria-hidden="true" />
+                  Excluir
+                </Button>
               </div>
             </article>
           ))}

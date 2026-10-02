@@ -133,7 +133,8 @@ alter table public.newsletter_campaigns
   add column if not exists complained_count integer not null default 0 check (complained_count >= 0),
   add column if not exists unsubscribed_count integer not null default 0 check (unsubscribed_count >= 0),
   add column if not exists opened_count integer not null default 0 check (opened_count >= 0),
-  add column if not exists clicked_count integer not null default 0 check (clicked_count >= 0);
+  add column if not exists clicked_count integer not null default 0 check (clicked_count >= 0),
+  add column if not exists failure_reason text;
 
 alter table public.newsletter_campaign_recipients
   add column if not exists delivered_at timestamptz,

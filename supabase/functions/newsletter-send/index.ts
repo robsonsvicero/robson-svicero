@@ -132,6 +132,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
 
   let campaignListId: number | null = null;
   let providerCampaignId: number | null = null;
+  let failureStage = "Preparando destinatários";
 
   try {
     const recipients: Array<Record<string, unknown>> = [];
@@ -211,6 +212,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
 
     const brevo = createBrevoApi();
     const folderId = getFolderId();
+    failureStage = "Criando lista de contatos no Brevo";
     const { data: list } = await brevo.createList({
       folderId,
       name: `Newsletter ${campaignId.slice(0, 8)}`,
@@ -222,6 +224,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
       .update({ brevo_list_id: campaignListId, recipient_count: recipients.length })
       .eq("id", campaignId);
 
+    failureStage = "Sincronizando contatos no Brevo";
     const contactResults = await mapConcurrent(eligible, contactConcurrency, async ({ recipient, subscriber }) => {
       try {
         const result = await syncBrevoContact(supabase, brevo, subscriber);
@@ -244,6 +247,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
     const ready = contactResults.filter((result) => result.contactId !== null);
     if (!ready.length) throw new Error("No contacts could be synchronized with Brevo.");
     const failedIds = new Set<string>();
+    failureStage = "Adicionando contatos à lista do Brevo";
     for (const batch of chunk(ready, brevoListBatchSize)) {
       const { data } = await brevo.addContactsToList(campaignListId, batch.map((result) => Number(result.contactId)));
       for (const id of Array.isArray(data?.failure) ? data.failure : []) failedIds.add(String(id));
@@ -258,6 +262,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
     const senderEmail = Deno.env.get("BREVO_SENDER_EMAIL") || "";
     const senderName = Deno.env.get("BREVO_SENDER_NAME") || "";
     if (!senderEmail || !senderName) throw new Error("Brevo sender is not configured.");
+    failureStage = "Criando campanha no Brevo";
     const { data: providerCampaign } = await brevo.createCampaign({
       name: campaign.name,
       sender: { name: senderName, email: senderEmail },
@@ -269,6 +274,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
     providerCampaignId = Number(providerCampaign?.id);
     if (!providerCampaignId) throw new Error("Brevo did not return the campaign ID.");
     await supabase.from("newsletter_campaigns").update({ brevo_campaign_id: providerCampaignId }).eq("id", campaignId);
+    failureStage = "Solicitando o envio ao Brevo";
     await brevo.sendCampaignNow(providerCampaignId);
 
     const { error: recipientError } = await supabase
@@ -301,10 +307,12 @@ async function sendCampaign(campaignId: string, adminId: string) {
       status: 200,
     };
   } catch (error) {
+    const failureReason = `${failureStage}: ${getSafeErrorMessage(error)}`;
+    console.error("[newsletter-send] Campaign failed", { campaignId, failureReason });
     if (providerCampaignId) {
       await supabase.from("newsletter_campaigns").update({ brevo_campaign_id: providerCampaignId }).eq("id", campaignId);
     }
-    await supabase.from("newsletter_campaigns").update({ status: "failed" }).eq("id", campaignId).eq("status", "preparing");
+    await supabase.from("newsletter_campaigns").update({ status: "failed", failure_reason: failureReason }).eq("id", campaignId).eq("status", "preparing");
     if (campaignListId && !providerCampaignId) {
       try {
         await createBrevoApi().deleteList(campaignListId);
@@ -313,7 +321,7 @@ async function sendCampaign(campaignId: string, adminId: string) {
       }
     }
     const status = error instanceof BrevoApiError ? (error.status === 402 ? 402 : 502) : 422;
-    return { error: getSafeErrorMessage(error), status };
+    return { error: failureReason, status };
   }
 }
 

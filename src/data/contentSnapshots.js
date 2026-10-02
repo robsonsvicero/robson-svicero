@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-02T13:44:59.013Z",
+  "generatedAt": "2026-10-02T14:11:01.557Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto/image-2026-10-01T23-53-19-780Z.webp",
