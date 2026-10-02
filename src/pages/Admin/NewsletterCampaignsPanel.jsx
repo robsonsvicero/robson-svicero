@@ -510,6 +510,7 @@ export default function NewsletterCampaignsPanel() {
           <div className="field">
             <label htmlFor="campaign-body">Corpo do e-mail</label>
             <textarea className="textarea newsletter-campaign-body" id="campaign-body" maxLength={50000} value={draft.body} onChange={(event) => updateDraft("body", event.target.value)} placeholder="Escreva o conteúdo da newsletter..." required />
+            <p className="meta">Use {"{nome_cadastro}"} no assunto, na prévia ou no corpo para inserir o primeiro nome de cada inscrito.</p>
           </div>
 
           <div className="newsletter-email-preview" aria-label="Prévia do e-mail">

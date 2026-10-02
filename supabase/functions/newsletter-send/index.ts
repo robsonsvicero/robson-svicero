@@ -21,6 +21,10 @@ function getFolderId(): number {
   return folderId;
 }
 
+function personalizeNameToken(value: string): string {
+  return value.replaceAll("{nome_cadastro}", "{{ contact.FNAME }}");
+}
+
 function getSafeErrorMessage(error: unknown): string {
   if (error instanceof BrevoApiError) {
     return `Brevo returned error ${error.status}${error.code ? ` (${error.code})` : ""}.`;
@@ -257,9 +261,9 @@ async function sendCampaign(campaignId: string, adminId: string) {
     const { data: providerCampaign } = await brevo.createCampaign({
       name: campaign.name,
       sender: { name: senderName, email: senderEmail },
-      subject: campaign.subject,
-      previewText: campaign.preview_text || undefined,
-      htmlContent: campaign.html_content,
+      subject: personalizeNameToken(campaign.subject),
+      previewText: campaign.preview_text ? personalizeNameToken(campaign.preview_text) : undefined,
+      htmlContent: personalizeNameToken(campaign.html_content),
       recipients: { listIds: [campaignListId] },
     });
     providerCampaignId = Number(providerCampaign?.id);
