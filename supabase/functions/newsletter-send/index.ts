@@ -22,7 +22,7 @@ function getFolderId(): number {
 }
 
 function personalizeNameToken(value: string): string {
-  return value.replaceAll("{nome_cadastro}", "{{ contact.FNAME }}");
+  return value.replaceAll("{nome_cadastro}", "{{contact.FNAME}}");
 }
 
 function getSafeErrorMessage(error: unknown): string {
