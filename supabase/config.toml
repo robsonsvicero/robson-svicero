@@ -1,0 +1,7 @@
+project_id = "rddufuzsjzschmuyadma"
+
+[functions.newsletter-send]
+verify_jwt = true
+
+[functions.newsletter-brevo-webhook]
+verify_jwt = false

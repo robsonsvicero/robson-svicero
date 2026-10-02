@@ -328,17 +328,16 @@ export default function NewsletterCampaignsPanel() {
     setSendingCampaignId(campaignId);
     setStatus("");
     try {
-      const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
-      if (sessionError || !sessionData.session?.access_token) {
-        throw new Error("Sua sessão expirou. Entre novamente no painel.");
-      }
-
-      const response = await fetch(`/api/newsletter/campaigns/${campaignId}/send`, {
-        method: "POST",
-        headers: { Authorization: `Bearer ${sessionData.session.access_token}` },
+      const { data: result, error } = await supabase.functions.invoke("newsletter-send", {
+        body: { campaignId },
       });
-      const result = await response.json().catch(() => null);
-      if (!response.ok) throw new Error(result?.message || "O servidor recusou o envio.");
+      if (error) {
+        const errorResponse = error.context instanceof Response
+          ? await error.context.clone().json().catch(() => null)
+          : null;
+        throw new Error(errorResponse?.error || error.message || "O servidor recusou o envio.");
+      }
+      if (result?.error) throw new Error(result.error);
 
       setStatus(`Campanha aceita pelo Brevo. ${result.queuedRecipients} destinatário(s) na fila, ${result.skippedRecipients} ignorado(s) e ${result.failedRecipients} com falha.`);
       setStatusType("success");
