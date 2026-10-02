@@ -132,6 +132,15 @@ export function createBrevoApi() {
     updateContact(identifier: string, payload: Record<string, unknown>) {
       return request(`/contacts/${encodeURIComponent(identifier)}`, { method: "PUT", body: payload });
     },
+    getAttributes() {
+      return request("/contacts/attributes");
+    },
+    createAttribute(category: string, name: string, payload: Record<string, unknown>) {
+      return request(`/contacts/attributes/${encodeURIComponent(category)}/${encodeURIComponent(name)}`, {
+        method: "POST",
+        body: payload,
+      });
+    },
     createList(payload: Record<string, unknown>) {
       return request("/contacts/lists", { method: "POST", body: payload });
     },

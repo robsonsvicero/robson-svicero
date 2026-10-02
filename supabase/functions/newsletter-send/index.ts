@@ -13,6 +13,8 @@ import {
   subscriberBatchSize,
 } from "../_shared/newsletter.ts";
 
+const brevoFirstNameAttribute = "NEWSLETTER_FIRST_NAME";
+
 function getFolderId(): number {
   const folderId = Number(Deno.env.get("BREVO_CONTACTS_FOLDER_ID"));
   if (!Number.isSafeInteger(folderId) || folderId < 1) {
@@ -22,7 +24,21 @@ function getFolderId(): number {
 }
 
 function personalizeNameToken(value: string): string {
-  return value.replaceAll("{nome_cadastro}", "{{contact.FNAME}}");
+  return value.replaceAll("{nome_cadastro}", `{{contact.${brevoFirstNameAttribute}}}`);
+}
+
+async function ensureBrevoFirstNameAttribute(brevo: ReturnType<typeof createBrevoApi>) {
+  const { data } = await brevo.getAttributes();
+  const attributes = Array.isArray(data?.attributes) ? data.attributes : [];
+  const attributeExists = attributes.some((attribute) =>
+    attribute && typeof attribute === "object"
+    && (attribute as Record<string, unknown>).name === brevoFirstNameAttribute
+    && (attribute as Record<string, unknown>).category === "normal"
+  );
+
+  if (!attributeExists) {
+    await brevo.createAttribute("normal", brevoFirstNameAttribute, { type: "text" });
+  }
 }
 
 function getSafeErrorMessage(error: unknown): string {
@@ -53,7 +69,7 @@ async function syncBrevoContact(supabase: ReturnType<typeof createServiceClient>
     try {
       const { data } = await brevo.createContact({
         email,
-        attributes: { FNAME: subscriber.first_name },
+        attributes: { [brevoFirstNameAttribute]: subscriber.first_name },
       });
       contact = data?.id ? { id: data.id, emailBlacklisted: false } : null;
     } catch (error) {
@@ -63,7 +79,7 @@ async function syncBrevoContact(supabase: ReturnType<typeof createServiceClient>
     }
   } else if (subscriber.first_name) {
     await brevo.updateContact(String(contact.id), {
-      attributes: { FNAME: subscriber.first_name },
+      attributes: { [brevoFirstNameAttribute]: subscriber.first_name },
     });
   }
 
@@ -212,6 +228,8 @@ async function sendCampaign(campaignId: string, adminId: string) {
 
     const brevo = createBrevoApi();
     const folderId = getFolderId();
+    failureStage = "Configurando atributo de nome no Brevo";
+    await ensureBrevoFirstNameAttribute(brevo);
     failureStage = "Criando lista de contatos no Brevo";
     const { data: list } = await brevo.createList({
       folderId,
