@@ -109,7 +109,7 @@ export default function Footer() {
   }
 
   return (
-    <footer className="pagefoot" data-od-id="footer" aria-label="Rodape do site de Robson Svicero">
+    <footer id="footer" className="pagefoot" data-od-id="footer" aria-label="Rodape do site de Robson Svicero">
 
       {/* ── Main area ── */}
       <div className="footer-main content">
