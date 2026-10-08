@@ -201,7 +201,7 @@ export const processContent = {
   eyebrow: "Como trabalho",
   title: "Um processo para tirar o site do papel com clareza.",
   lead:
-  "Do entendimento do negócio à publicação no Google, cada etapa é pensada para transformar a presença digital da sua empresa em uma ferramenta de credibilidade e geração de contatos.",
+  "Da definição do escopo à publicação do site, cada etapa é alinhada às necessidades do projeto para construir uma presença digital clara, funcional e preparada para evoluir.",
   steps: [
     {
       number: "01",
@@ -231,7 +231,7 @@ export const processContent = {
       number: "05",
       title: "Entrega e acompanhamento",
       description:
-        "Fecho ajustes, preparo o handoff/publicação e acompanho os primeiros refinamentos da página.",
+        "Revisamos o funcionamento, concluímos os ajustes previstos e organizamos a entrega ou publicação conforme o escopo.",
     },
   ],
 };
