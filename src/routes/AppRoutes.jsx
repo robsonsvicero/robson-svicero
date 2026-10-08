@@ -5,12 +5,14 @@ import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton.jsx";
 import Home from "../pages/Home/Home.jsx";
 import useScrollToTop from "../hooks/useScrollToTop.js";
 
-const GA_MEASUREMENT_ID = "G-WP7DM0BXVE";
+const GA_MEASUREMENT_ID = "G-2CH2RN5QX0";
 let analyticsInitialized = false;
 
 function ensureAnalyticsInitialized() {
   if (analyticsInitialized || typeof window === "undefined") return;
-  ReactGA.initialize(GA_MEASUREMENT_ID);
+  ReactGA.initialize(GA_MEASUREMENT_ID, {
+    gaOptions: { send_page_view: false },
+  });
   analyticsInitialized = true;
 }
 
