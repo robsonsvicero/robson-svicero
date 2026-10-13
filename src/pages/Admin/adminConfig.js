@@ -104,6 +104,7 @@ export const adminResources = {
           "Websites Estratégicos",
           "Método C.L.A.R.O.",
           "Branding & Identidade Visual",
+          "Tecnologia e Design",
           "Experiência Digital",
           "Raio X",
           "UX Insights",
