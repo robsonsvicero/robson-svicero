@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-02T16:03:22.046Z",
+  "generatedAt": "2026-10-13T21:36:48.245Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/thumbnail-2026-10-13T21-20-41-501Z.webp",
+      "slug": "como-usar-ia-para-criar-interfaces-web-menos-genericas",
+      "path": "/blog/como-usar-ia-para-criar-interfaces-web-menos-genericas",
+      "title": "Como usar IA para criar interfaces web menos genéricas",
+      "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-10-13T21:32:00+00:00",
+      "viewsCount": 1,
+      "readingTime": "10 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto/image-2026-10-01T23-53-19-780Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/acessibilidade-em-ux-de-obrigacao-tecnica-a-estrategia-de-produto/thumbnail-2026-10-01T23-53-14-952Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Acessibilidade em UX vai além de cumprir requisitos: contraste, teclado, linguagem e estrutura podem melhorar a experiência e ampliar o alcance do produto.",
       "category": "UX Insights",
       "publishedAt": "2026-10-01T23:54:00+00:00",
-      "viewsCount": 3,
+      "viewsCount": 4,
       "readingTime": "7 minutos"
     },
     {
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 2,
+      "viewsCount": 8,
       "readingTime": "11 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
       "category": "Raio X",
       "publishedAt": "2026-09-25T11:55:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 8,
       "readingTime": "7 minutos"
     },
     {
@@ -58,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 12,
+      "viewsCount": 15,
       "readingTime": "8 minutos"
     },
     {
@@ -70,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-09T10:21:00+00:00",
-      "viewsCount": 9,
+      "viewsCount": 10,
       "readingTime": "10 minutos"
     },
     {
@@ -82,7 +94,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 24,
+      "viewsCount": 25,
       "readingTime": "10 minutos"
     },
     {
@@ -94,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Raio X",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 12,
+      "viewsCount": 13,
       "readingTime": "8 minutos"
     },
     {
@@ -106,7 +118,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-18T16:52:00+00:00",
-      "viewsCount": 3,
+      "viewsCount": 5,
       "readingTime": "9 minutos"
     },
     {
@@ -130,7 +142,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 21,
+      "viewsCount": 22,
       "readingTime": "7 minutos"
     },
     {
@@ -154,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 23,
+      "viewsCount": 24,
       "readingTime": "8 minutos"
     },
     {
@@ -166,7 +178,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 11,
+      "viewsCount": 12,
       "readingTime": "8 minutos"
     },
     {
@@ -178,7 +190,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como a percepção de valor influencia a decisão de compra e descubra como comunicar melhor os benefícios da sua empresa para se destacar da concorrência.",
       "category": "Branding & Identidade Visual",
       "publishedAt": "2026-07-28T12:00:00+00:00",
-      "viewsCount": 14,
+      "viewsCount": 16,
       "readingTime": "7 minutos"
     },
     {
@@ -214,7 +226,7 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 34,
+      "viewsCount": 36,
       "readingTime": "6 minutos"
     },
     {
@@ -226,19 +238,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que um site de sucesso começa muito antes do layout. Entenda como estratégia, UX Design e branding criam experiências que geram resultados para empresas.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-09T03:00:00+00:00",
-      "viewsCount": 19,
-      "readingTime": "4 minutos"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/arquivo/image-2026-07-03T23-56-08-995Z.png",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/arquivo/thumbnail-2026-07-03T23-55-42-431Z.png",
-      "slug": "como-otimizar-sua-empresa-para-as-respostas-do-chatgpt-e-google-ia",
-      "path": "/blog/como-otimizar-sua-empresa-para-as-respostas-do-chatgpt-e-google-ia",
-      "title": "Como Otimizar sua Empresa para as Respostas do ChatGPT e Google IA",
-      "excerpt": "Seu site está pronto para a era da Inteligência Artificial? Descubra o que é GEO (Otimização para IA) e como fazer sua empresa aparecer nas respostas dos assistentes.",
-      "category": "Marketing Digital",
-      "publishedAt": "2026-07-04T03:00:00+00:00",
-      "viewsCount": 8,
+      "viewsCount": 20,
       "readingTime": "4 minutos"
     }
   ],
