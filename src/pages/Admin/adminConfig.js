@@ -133,7 +133,8 @@ export const adminResources = {
     fields: [
       { name: "title", label: "Título", type: "text", required: true },
       { name: "slug", label: "Slug", type: "text", required: true },
-      { name: "badge", label: "Badge", type: "text", placeholder: "Ex: Site, Landing Page, Loja Virtual" },
+      { name: "badge", label: "Badge", type: "text", placeholder: "Ex: Site, Landing Page, Loja Virtual (separe por vírgula)", help: "Separe múltiplos badges por vírgula. Cada um será exibido separadamente." },
+      { name: "niche", label: "Nicho do site", type: "text", placeholder: "Ex: Restaurante, Clínica, E-commerce" },
       { name: "client_name", label: "Cliente", type: "text", placeholder: "Nome da empresa ou marca" },
       { name: "project_year", label: "Ano do projeto", type: "text", placeholder: "Ex: 2025" },
       { name: "segment", label: "Segmento", type: "text", placeholder: "Ex: Incorporadora, clínica, restaurante" },

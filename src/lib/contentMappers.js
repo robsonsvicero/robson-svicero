@@ -29,6 +29,7 @@ export function mapProject(row) {
     path: `/cases/${row.slug}`,
     title: row.title,
     badge: row.badge || row.type || "Site",
+    niche: row.niche || null,
     clientName: row.client_name,
     projectYear: row.project_year,
     segment: row.segment,

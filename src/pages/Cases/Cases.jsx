@@ -17,7 +17,7 @@ export default function Cases() {
     fallback: contentSnapshots.projects,
     mapper: mapProject,
     orderBy: "published_at",
-    select: "slug,title,badge,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
+    select: "slug,title,badge,niche,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url,segment",
     limit: 12,
     cache: false,
   });
@@ -60,16 +60,35 @@ export default function Cases() {
                   aria-label={`Ver case: ${project.title}`}
                   className="case-card clickable-card"
                   key={project.slug}
-                  style={{
-                    backgroundImage: project.thumbnail ? `url('${project.thumbnail}')` : "none",
-                  }}
                 >
-                  {project.badge && (
-                    <span className="case-card-badge">{project.badge}</span>
+                  {project.thumbnail && (
+                    <div className="case-card-image">
+                      <img src={project.thumbnail} alt={project.alt || project.title} loading="lazy" />
+                    </div>
                   )}
-                  <div className="case-card-content">
-                    <h3>{project.title}</h3>
-                    <p>{project.metaDescription || stripRichText(project.description)}</p>
+                  <div className="case-card-body">
+                    {project.badge && (
+                      <div className="case-card-badges">
+                        {project.badge.split(",").map((b) => b.trim()).filter(Boolean).map((b) => (
+                          <span className="case-card-badge" key={b}>{b}</span>
+                        ))}
+                      </div>
+                    )}
+                    <div className="case-card-content">
+                      <h3>{project.title}</h3>
+                      <p>{project.metaDescription || stripRichText(project.description)}</p>
+                    </div>
+                  </div>
+                  <div className="case-card-footer">
+                    <span className="case-card-niche">{project.niche || project.segment || ""}</span>
+                    <span className="case-card-link">
+                      Ver case
+                      <span className="case-card-link-icon" aria-hidden="true">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                      </span>
+                    </span>
                   </div>
                 </Card>
               ))}
