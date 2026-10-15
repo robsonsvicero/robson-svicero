@@ -8,6 +8,7 @@ import { projectsContent } from "../../content/siteContent.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 import { prefetchImages } from "../../utils/imagePrefetch.js";
+import { stripRichText } from "../../utils/richText.js";
 
 export default function Projects() {
   const { items: projects } = useSupabaseList({
@@ -73,7 +74,7 @@ export default function Projects() {
             )}
             <div className="case-card-content">
               <h3 itemProp="name">{project.title}</h3>
-              <p itemProp="description">{project.metaDescription}</p>
+              <p itemProp="description">{project.metaDescription || stripRichText(project.description)}</p>
             </div>
           </Card>
         ))}

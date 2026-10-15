@@ -9,6 +9,7 @@ import { mapProject } from "../../lib/contentMappers.js";
 import CTA from "../../components/CTA/CTA.jsx";
 import { pageCtaContent } from "../../content/siteContent.js";
 import { prefetchImages } from "../../utils/imagePrefetch.js";
+import { stripRichText } from "../../utils/richText.js";
 
 export default function Cases() {
   const { items: projects } = useSupabaseList({
@@ -68,7 +69,7 @@ export default function Cases() {
                   )}
                   <div className="case-card-content">
                     <h3>{project.title}</h3>
-                    <p>{project.description}</p>
+                    <p>{project.metaDescription || stripRichText(project.description)}</p>
                   </div>
                 </Card>
               ))}

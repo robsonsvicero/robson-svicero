@@ -17,7 +17,7 @@ import SEO from "../../components/seo/SEO.jsx";
 import { useAutosave } from "../../hooks/useAutosave.js";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 import { triggerHostingerRebuild } from "../../lib/hostingerDeploy.js";
-import { sanitizeRichText } from "../../utils/richText.js";
+import { sanitizeRichText, stripRichText } from "../../utils/richText.js";
 import { adminResources, getEmptyRecord } from "./adminConfig.js";
 import NewsletterCampaignsPanel from "./NewsletterCampaignsPanel.jsx";
 
@@ -78,10 +78,11 @@ function parsePayload(fields, formValues) {
 }
 
 function createProjectSeoPayload(formValues) {
+  const rawDescription =
+    formValues.meta_description || formValues.description || formValues.full_description || null;
   return {
     seo_title: formValues.title || null,
-    seo_description:
-      formValues.meta_description || formValues.description || formValues.full_description || null,
+    seo_description: rawDescription ? stripRichText(rawDescription) : null,
   };
 }
 
@@ -507,7 +508,7 @@ export default function AdminDashboard() {
 
     const loadingKey = `${fieldName}-content-image`;
     setImageLoadingFields((current) => [...new Set([...current, loadingKey])]);
-    setStatus("Enviando imagem do artigo para o Supabase Storage...");
+    setStatus("Enviando imagem para o Supabase Storage...");
 
     const storagePath = createStoragePath({
       activeResource,
@@ -910,7 +911,7 @@ export default function AdminDashboard() {
                         value={formValues[field.name] || ""}
                         onChange={(value) => updateField(field.name, value)}
                         onImageUpload={
-                          activeResource === "posts"
+                          activeResource === "posts" || activeResource === "projects"
                             ? (file) => handleRichTextImageUpload(field.name, file)
                             : undefined
                         }

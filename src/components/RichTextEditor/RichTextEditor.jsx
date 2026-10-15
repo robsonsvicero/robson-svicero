@@ -10,6 +10,7 @@ import { TextStyle } from "@tiptap/extension-text-style";
 import Underline from "@tiptap/extension-underline";
 import Youtube from "@tiptap/extension-youtube";
 import { useEffect, useRef, useState } from "react";
+import { formatRichText } from "../../utils/richText.js";
 
 const editorBlockTypes = ["paragraph", "heading", "listItem"];
 
@@ -110,14 +111,23 @@ export default function RichTextEditor({ id, name, value = "", onChange, onImage
       TextAlign.configure({ types: ["heading", "paragraph"] }),
       LayoutAttributes,
     ],
-    content: value || "",
+    content: formatRichText(value || ""),
     editorProps: { attributes: { class: "rich-editor-surface", "aria-label": name, role: "textbox" } },
     onUpdate: ({ editor: currentEditor }) => onChange(currentEditor.getHTML()),
   });
 
   useEffect(() => {
-    if (!editor || editor.isDestroyed || editor.getHTML() === (value || "")) return;
-    editor.commands.setContent(value || "", false);
+    if (!editor || editor.isDestroyed) return;
+    const currentHtml = editor.getHTML();
+    const formattedValue = formatRichText(value || "");
+    if (
+      currentHtml === (value || "") ||
+      currentHtml === formattedValue ||
+      (editor.isEmpty && !value)
+    ) {
+      return;
+    }
+    editor.commands.setContent(formattedValue, false);
   }, [editor, value]);
 
   function insertLink() {

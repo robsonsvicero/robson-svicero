@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-13T21:36:48.245Z",
+  "generatedAt": "2026-10-15T14:53:07.397Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 1,
+      "viewsCount": 5,
       "readingTime": "10 minutos"
     },
     {
@@ -58,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site sem conteúdo perde oportunidades no Google e como páginas relevantes ajudam sua empresa a responder buscas e gerar descoberta orgânica.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-09-23T20:58:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 8,
       "readingTime": "12 minutos"
     },
     {
@@ -154,7 +154,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Raio X",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 28,
+      "viewsCount": 29,
       "readingTime": "7 minutos"
     },
     {

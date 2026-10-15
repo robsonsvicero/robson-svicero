@@ -144,7 +144,7 @@ export const adminResources = {
         placeholder: "Ex: Site institucional",
         help: "Nome exibido na ficha técnica. O clique usará a URL externa cadastrada abaixo.",
       },
-      { name: "description", label: "Descrição curta", type: "textarea" },
+      { name: "description", label: "Descrição curta", type: "richtext" },
       { name: "context", label: "Contexto do projeto", type: "richtext" },
       { name: "challenge", label: "Desafio", type: "richtext" },
       { name: "solution", label: "Solução", type: "richtext" },

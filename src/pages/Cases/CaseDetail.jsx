@@ -7,6 +7,7 @@ import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import CTA from "../../components/CTA/CTA.jsx";
 import { pageCtaContent } from "../../content/siteContent.js";
+import { stripRichText } from "../../utils/richText.js";
 import { useSupabaseItem } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
 import NotFound from "../NotFound/NotFound.jsx";
@@ -66,7 +67,7 @@ export default function CaseDetail() {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     name: project.title,
-    description: project.seoDescription || project.description,
+    description: project.seoDescription || stripRichText(project.description),
     image: project.image,
     url: project.path,
     dateCreated: project.publishedAt,
@@ -100,7 +101,11 @@ export default function CaseDetail() {
                 </div>
                 <p className="eyebrow">Projeto</p>
                 <h1 id="case-title">{project.title}</h1>
-                <p className="lead">{project.description}</p>
+                {project.description && (
+                  <RichTextContent className="lead case-detail-lead">
+                    {project.description}
+                  </RichTextContent>
+                )}
               </div>
 
               {project.image && (

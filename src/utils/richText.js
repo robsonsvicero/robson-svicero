@@ -160,11 +160,43 @@ function cleanNode(node) {
   });
 }
 
+export function formatRichText(htmlOrText = "") {
+  if (!htmlOrText) return "";
+
+  // If already contains HTML markup, preserve it
+  if (/<([a-z][a-z0-9]*)\b[^>]*>/i.test(htmlOrText)) {
+    return htmlOrText;
+  }
+
+  // If plain text with newlines, convert to HTML paragraphs and breaks
+  return htmlOrText
+    .split(/\r?\n\r?\n/)
+    .map((paragraph) => `<p>${paragraph.replace(/\r?\n/g, "<br>")}</p>`)
+    .join("");
+}
+
+export function stripRichText(html = "") {
+  if (!html) return "";
+  return html
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 export function sanitizeRichText(html = "") {
   if (!html) return "";
 
+  const formatted = formatRichText(html);
   const template = document.createElement("template");
-  template.innerHTML = html;
+  template.innerHTML = formatted;
   cleanNode(template.content);
 
   return template.innerHTML;
