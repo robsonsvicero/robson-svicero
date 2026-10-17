@@ -562,7 +562,7 @@ export const pageCtaContent = {
 };
 
 export const footerContent = {
-  copyright: "2026 Robson Svicero",
+  copyright: "Robson Svicero - Estúdio de Design",
   description:
     "Estratégia, design e tecnologia para transformar sua presença digital em oportunidades de negócio.",
   socials: [

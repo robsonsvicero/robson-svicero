@@ -277,7 +277,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="footer_bottom">
           <div className="footer_copyright">
-            &copy; {footerContent.copyright}. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} {footerContent.copyright}. Todos os direitos reservados.
           </div>
           <div className="footer_legal">
             {footerContent.bottomLinks.map((item) => (
