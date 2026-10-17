@@ -50,7 +50,7 @@ const approach = [
   {
     icon: Lightbulb,
     title: "Clareza",
-    description: "O site precisa comunicar bem o que você faz — não apenas ser bonito.",
+    description: "O site precisa comunicar bem o que você faz e não apenas ser bonito.",
   },
   {
     icon: Target,
@@ -135,32 +135,27 @@ export default function About() {
         >
           <HeroParticles />
           <div className="stack about-story-copy">
-            <p className="eyebrow">Sobre mim</p>
-            <h1 id="about-title">Minha história</h1>
-            <p className="lead">Como a curiosidade por programação se transformou no trabalho que faço hoje.</p>
+            <p className="eyebrow">Sobre o estúdio</p>
+            <h1 id="about-title">Criação de sites profissionais, pensados para o seu negócio.</h1>
+            <p className="lead">Desde a curiosidade por programação até a criação de sites que ajudam negócios a crescer.</p>
 
             <div className="about-story-text">
               <p>
-                Minha história com sites começou em 2013, muito antes de eu imaginar onde isso me
-                levaria. Eu gostava de programação e comecei criando sites para amigos próximos,
-                usando apenas HTML e CSS. Na época, eu já trabalhava como designer e foi justamente
-                essa mistura de interesses que abriu a primeira porta: recebi uma proposta para
-                trabalhar como webdesigner.
+                O <strong>Robson Svicero Estúdio de Design</strong> cria sites profissionais que unem estratégia, design e experiência do usuário. Cada projeto é desenvolvido para apresentar sua marca com clareza, transmitir confiança e ajudar seu negócio a alcançar seus objetivos.
               </p>
               <p>
-                Depois de dois anos nessa função, surgiu um novo convite: trabalhar como UX
-                Designer. Para ser sincero, eu nem sabia direito o que um UX Designer fazia. Mesmo
-                assim, aceitei o desafio e fui estudar. Passei por algumas empresas, aprendi com
-                equipes e projetos diferentes e, na MAEZTRA, tive a oportunidade de participar do
-                que considero o maior projeto da minha carreira até hoje: a atualização do site da
-                Universal Music Store.
+                Minha trajetória na área começou em <strong>2013</strong>, com a criação de sites em HTML e CSS. Desde então, trabalhei como designer e webdesigner e ampliei minha atuação para UX, identidade visual e SEO — conhecimentos que hoje contribuem para criar sites mais completos, intuitivos e bem preparados para o ambiente digital.
               </p>
               <p>
-                Em 2025, decidi dar um novo passo e assumir meus próprios projetos como autônomo.
-                Hoje, reúno tudo o que aprendi ao longo dessa trajetória para criar sites
-                estratégicos, claros e pensados com técnicas de UX. Meu objetivo é ajudar cada
-                negócio a se apresentar melhor e transformar sua presença online em uma ferramenta
-                que realmente trabalhe a seu favor.
+                O processo começa pela compreensão do negócio, do público e dos objetivos do projeto. A partir disso, cada site ganha uma estrutura clara, uma identidade visual coerente e uma experiência simples de navegar. Quando necessário, também integro fundamentos de SEO para ajudar o site a ser encontrado nos mecanismos de busca.
+              </p>
+              <p>
+                O atendimento é próximo e cada projeto é acompanhado com atenção aos detalhes, da primeira conversa à entrega. O objetivo é criar um site que represente bem sua marca e funcione como uma ferramenta para o seu negócio.
+              </p>
+              <p>
+                <strong>
+                  São Paulo, SP · Atendimento remoto em todo o Brasil
+                </strong>
               </p>
             </div>
           </div>
@@ -194,7 +189,7 @@ export default function About() {
           containerClassName="container stack about-section-layout"
         >
           <SectionHeader
-            label="Com quem eu trabalho"
+            label="Com quem trabalhamos"
             title="Sites profissionais para quem faz o negócio acontecer"
             subtitle="O site deve realmente funcionar e não apenas existir. Ele precisa transmitir credibilidade, responder às dúvidas do cliente sobre como você pode ajudá-lo e orientá-lo na tomada de decisão."
             id="about-clients-title"
@@ -215,7 +210,7 @@ export default function About() {
           </div>
         </Section>
 
-        {/* Seção 3 — Minha abordagem */}
+        {/* Seção 3 — Nossa abordagem */}
         <Section
           className="about-approach-section"
           aria-labelledby="about-approach-title"
@@ -223,14 +218,14 @@ export default function About() {
         >
           <div className="about-approach-copy">
             <SectionHeader
-              label="Minha abordagem"
+              label="Nossa abordagem"
               title="Não é só sobre design bonito"
               subtitle={"Um bom site precisa fazer sentido para o seu negócio e para as pessoas que chegam até ele."}
               id="about-approach-title"
               align="left"
               style={{ marginBottom: 0 }}
             />
-            <p className="about-approach-detail">Antes de pensar nas cores ou no visual, procuro entender o que você oferece, quem precisa encontrar essa informação e qual ação esperamos dessa pessoa. É isso que transforma uma página bonita em uma ferramenta de negócio.</p>
+            <p className="about-approach-detail">Antes de pensar nas cores ou no visual, procuramos entender o que você oferece, quem precisa encontrar essa informação e qual ação esperamos dessa pessoa. É isso que transforma uma página bonita em uma ferramenta de negócio.</p>
           </div>
 
           <div className="about-approach-list">

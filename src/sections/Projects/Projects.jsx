@@ -68,14 +68,7 @@ export default function Projects() {
           align="left"
           style={{ marginBottom: 0 }}
         />
-        <Button
-          variant="secondary"
-          as={Link}
-          to={projectsContent.cta.href}
-          title="Ver todos os cases"
-        >
-          {projectsContent.cta.label}
-        </Button>
+
       </div>
 
       <div className="projects-scroll-stage">
@@ -93,6 +86,17 @@ export default function Projects() {
             </motion.div>
           ))}
         </div>
+
+      </div>
+      <div className="projects-btn">
+        <Button
+          variant="secondary"
+          as={Link}
+          to={projectsContent.cta.href}
+          title="Ver todos os cases"
+        >
+          {projectsContent.cta.label}
+        </Button>
       </div>
     </Section>
   );

@@ -84,11 +84,7 @@ export default function LatestArticles({
           align="left"
           style={{ marginBottom: 0 }}
         />
-        {showCta && (
-          <Button variant="secondary" as={Link} to="/blog" title="Ver todos os artigos">
-            Ver todos
-          </Button>
-        )}
+        
       </div>
 
       <motion.div
@@ -113,6 +109,13 @@ export default function LatestArticles({
           </motion.div>
         ))}
       </motion.div>
+      {showCta && (
+        <div className="blog-btn">
+          <Button variant="secondary" as={Link} to="/blog" title="Ver todos os artigos">
+            Ver todos
+          </Button>
+        </div>
+      )}
     </Section>
   );
 }

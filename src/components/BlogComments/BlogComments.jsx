@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
 import Button from "../ui/Button/Button.jsx";
+import HeroParticles from "../../sections/Hero/HeroParticles.jsx";
 
 const initialForm = {
   name: "",
@@ -90,107 +91,117 @@ export default function BlogComments({ postSlug }) {
 
   return (
     <section className="blog-comments" aria-labelledby="blog-comments-title">
-      <div className="blog-comments-header">
-        <p className="eyebrow">Comunidade</p>
-        <h2 id="blog-comments-title">Comentários</h2>
-      </div>
+      <HeroParticles />
 
-      <form className="blog-comments-form" onSubmit={handleSubmit}>
-        <div className="blog-comments-fields">
-          <div className="field">
-            <label htmlFor="comment-name">Nome</label>
-            <input
-              className="input"
-              id="comment-name"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              autoComplete="name"
-              minLength={2}
-              maxLength={80}
-              required
-              placeholder="Seu nome"
-            />
-          </div>
+      <div className="blog-comments-inner">
+        <header className="blog-comments-header">
+          <h2 id="blog-comments-title">Comentários</h2>
+          <p>Compartilhe sua opinião sobre este artigo.</p>
+        </header>
 
-          <div className="field">
-            <label htmlFor="comment-email">E-mail</label>
-            <input
-              className="input"
-              id="comment-email"
-              name="email"
-              type="email"
-              value={form.email}
-              onChange={handleChange}
-              autoComplete="email"
-              maxLength={254}
-              required
-              placeholder="voce@exemplo.com"
-            />
-          </div>
-        </div>
-
-        <div className="field blog-comments-message">
-          <label htmlFor="comment-content">Comentário</label>
-          <textarea
-            className="textarea"
-            id="comment-content"
-            name="content"
-            value={form.content}
-            onChange={handleChange}
-            minLength={2}
-            maxLength={2000}
-            required
-            placeholder="Escreva seu comentário..."
-          />
-          <span className="meta">{form.content.length}/2000 caracteres</span>
-        </div>
-
-        <div className="blog-comments-honeypot" aria-hidden="true">
-          <label htmlFor="comment-website">Website</label>
-          <input
-            id="comment-website"
-            name="website"
-            value={form.website}
-            onChange={handleChange}
-            tabIndex={-1}
-            autoComplete="off"
-          />
-        </div>
-
-        <div className="blog-comments-submit">
-          <Button as="button" type="submit" variant="dark" disabled={isSubmitting || !isSupabaseConfigured}>
-            {isSubmitting ? "Publicando..." : "Publicar comentário"}
-          </Button>
-          <p className="meta">Seu e-mail é obrigatório, mas não será exibido publicamente.</p>
-        </div>
-
-        {status && (
-          <p
-            className="status"
-            role="status"
-            aria-live="polite"
-            style={{ color: statusType === "error" ? "var(--danger)" : "var(--success)" }}
-          >
-            {status}
-          </p>
-        )}
-      </form>
-
-      <div className="blog-comments-list" aria-live="polite">
-        {isLoading && <p className="meta">Carregando comentários...</p>}
-        {!isLoading && comments.length === 0 && (
-          <p className="meta">Ainda não há comentários. Seja a primeira pessoa a comentar.</p>
-        )}
-        {comments.map((comment) => (
-          <article className="blog-comment" key={comment.id}>
-            <div className="blog-comment-heading">
-              <strong>{comment.author_name}</strong>
-              <time dateTime={comment.created_at}>{formatCommentDate(comment.created_at)}</time>
+        <form className="blog-comments-form" onSubmit={handleSubmit}>
+          <div className="blog-comments-fields">
+            <div className="field">
+              <label htmlFor="comment-name">Nome</label>
+              <input
+                className="input"
+                id="comment-name"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                autoComplete="name"
+                minLength={2}
+                maxLength={80}
+                required
+                placeholder="Seu nome"
+              />
             </div>
-            <p>{comment.content}</p>
-          </article>
-        ))}
+
+            <div className="field">
+              <label htmlFor="comment-email">E-mail</label>
+              <input
+                className="input"
+                id="comment-email"
+                name="email"
+                type="email"
+                value={form.email}
+                onChange={handleChange}
+                autoComplete="email"
+                maxLength={254}
+                required
+                placeholder="voce@exemplo.com"
+              />
+            </div>
+          </div>
+
+          <div className="field blog-comments-message">
+            <label htmlFor="comment-content">Comentário</label>
+            <textarea
+              className="textarea"
+              id="comment-content"
+              name="content"
+              value={form.content}
+              onChange={handleChange}
+              minLength={2}
+              maxLength={2000}
+              required
+              placeholder="Escreva seu comentário..."
+            />
+            <span className="meta">{form.content.length}/2000 caracteres</span>
+          </div>
+
+          <div className="blog-comments-honeypot" aria-hidden="true">
+            <label htmlFor="comment-website">Website</label>
+            <input
+              id="comment-website"
+              name="website"
+              value={form.website}
+              onChange={handleChange}
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
+          <div className="blog-comments-submit">
+            <Button as="button" type="submit" variant="dark" disabled={isSubmitting || !isSupabaseConfigured}>
+              {isSubmitting ? "Publicando..." : "Publicar comentário"}
+            </Button>
+            <p className="meta">Seu e-mail é obrigatório, mas não será exibido publicamente.</p>
+          </div>
+
+          {status && (
+            <p
+              className="status"
+              role="status"
+              aria-live="polite"
+              style={{ color: statusType === "error" ? "var(--danger)" : "var(--success)" }}
+            >
+              {status}
+            </p>
+          )}
+        </form>
+
+        <div className="blog-comments-list" aria-live="polite">
+          <div className="blog-comments-list-heading">
+            <h3>Comentários publicados</h3>
+            <p>
+              {comments.length} {comments.length === 1 ? "comentário" : "comentários"}
+            </p>
+          </div>
+          {isLoading && <p className="meta">Carregando comentários...</p>}
+          {!isLoading && comments.length === 0 && (
+            <p className="meta">Ainda não há comentários. Seja a primeira pessoa a comentar.</p>
+          )}
+          {comments.map((comment) => (
+            <article className="blog-comment" key={comment.id}>
+              <div className="blog-comment-heading">
+                <strong>{comment.author_name}</strong>
+                <time dateTime={comment.created_at}>{formatCommentDate(comment.created_at)}</time>
+              </div>
+              <p>{comment.content}</p>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
   );
