@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-17T19:35:20.278Z",
+  "generatedAt": "2026-10-17T19:45:22.485Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 12,
+      "viewsCount": 13,
       "readingTime": "10 minutos"
     },
     {
@@ -142,7 +142,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 22,
+      "viewsCount": 23,
       "readingTime": "7 minutos"
     },
     {

@@ -3715,7 +3715,7 @@ h6 {
 
 .blog-page-header {
   width: min(100%, 900px);
-  margin-inline: auto;
+  margin-inline: 0;
   text-align: left;
 }
 
@@ -5509,6 +5509,92 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 .admin-form-grid {
   display: grid;
   gap: var(--space-4);
+}
+
+.admin-auth .input,
+.admin-shell .input,
+.admin-shell .textarea {
+  border-color: var(--ink-500);
+  background: var(--white);
+  color: var(--ink-900);
+  color-scheme: light;
+}
+
+.admin-auth .input::placeholder,
+.admin-shell .input::placeholder,
+.admin-shell .textarea::placeholder {
+  color: var(--ink-500);
+  opacity: 1;
+}
+
+.admin-auth .input:hover:not(:disabled),
+.admin-shell .input:hover:not(:disabled),
+.admin-shell .textarea:hover:not(:disabled) {
+  border-color: var(--accent-600);
+}
+
+.admin-auth .input:focus,
+.admin-shell .input:focus,
+.admin-shell .textarea:focus {
+  border-color: var(--accent-600);
+  box-shadow: var(--focus-ring);
+}
+
+.admin-auth .input:disabled,
+.admin-shell .input:disabled,
+.admin-shell .textarea:disabled {
+  border-color: var(--ink-500);
+  background: var(--light-100);
+}
+
+.admin-auth input[type="file"].input::file-selector-button,
+.admin-shell input[type="file"].input::file-selector-button {
+  margin-right: var(--space-3);
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--ink-500);
+  border-radius: var(--radius-sm);
+  background: var(--light-50);
+  color: var(--ink-900);
+  cursor: pointer;
+}
+
+.admin-auth input[type="file"].input::file-selector-button:hover,
+.admin-shell input[type="file"].input::file-selector-button:hover {
+  border-color: var(--accent-600);
+  background: var(--accent-50);
+}
+
+.admin-shell input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent-600);
+}
+
+.admin-shell input[type="checkbox"]:focus-visible {
+  outline: 2px solid var(--accent-600);
+  outline-offset: 2px;
+}
+
+.admin-shell .rich-editor-color,
+.admin-shell .rich-editor-toolbar select,
+.admin-shell .rich-editor-surface {
+  border-color: var(--ink-500);
+}
+
+.admin-shell .rich-editor-color,
+.admin-shell .rich-editor-toolbar select,
+.admin-shell .rich-editor-surface {
+  background-color: var(--white);
+  color: var(--ink-900);
+}
+
+.admin-shell .rich-editor-toolbar select {
+  color-scheme: light;
+}
+
+.admin-shell .rich-editor-surface:focus {
+  border-color: var(--accent-600);
+  box-shadow: var(--focus-ring);
 }
 
 .admin-shell {
