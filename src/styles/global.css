@@ -8241,7 +8241,7 @@ justify-content: space-between;
   color: var(--bg);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0.08em;
   line-height: 1;
   text-transform: uppercase;
@@ -8296,12 +8296,13 @@ justify-content: space-between;
   display: grid;
   gap: var(--space-6);
   padding: 40px;
-  background: var(--fg);
+  border-radius: var(--radius-lg);
+  background: var(--light-100);
 }
 
 .blog-article-content h2,
 .blog-article-content h3 {
-  color: var(--surface);
+  color: var(--navy-900);
 }
 
 .blog-article-content h2 {
@@ -8314,13 +8315,14 @@ justify-content: space-between;
 
 .blog-article-content p {
   margin: 0;
-  color: var(--surface);
+  color: var(--text-secondary);
   font-size: var(--text-lg);
   line-height: 1.7;
 }
 
 .blog-article-intro {
-  color: var(--bg) !important;
+  color: var(--navy-900) !important;
+  font-style: italic;
   font-weight: 600;
 }
 
