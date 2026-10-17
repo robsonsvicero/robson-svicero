@@ -1,3 +1,5 @@
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "../../components/ui/Button/Button.jsx";
@@ -27,76 +29,45 @@ function TelegramIcon() {
 const plans = [
   {
     id: "landing",
-    name: "LANDING PAGE",
-    focus: "CAPTAÇÃO DE LEADS",
-    tone: "Uma página estratégica focada em conversão",
-    highlight: "FOCO EM CONVERSÃO",
+    name: "Landing Page",
+    focus: "LANDING PAGE",
+    tone: "Página única para campanha em São Paulo, Google Ads ou tráfego direto. Foco em conversão.",
+    price: "590",
     bullets: [
-      "Página única com estrutura de venda",
-      "Foco em captação de clientes ou leads",
-      "Integração com WhatsApp e botões de ação",
-      "Design responsivo e moderno",
-      "Estrutura pensada para campanhas e anúncios",
-      "Otimização básica para o Google",
+      "1 página otimizada",
+      "WhatsApp + formulário",
+      "Pronto em 5 a 7 dias",
+      "Hospedagem 12 meses",
     ],
-    forWho: "Ideal para divulgar um produto ou serviço específico, rodar campanhas de tráfego pago e validar ofertas sem precisar de um site completo.",
   },
   {
-    id: "essential",
-    name: "PLANO ESSENCIAL",
-    focus: "PRESENÇA DIGITAL E MANUTENÇÃO",
-    tone: "Tudo o que sua empresa precisa para ter uma presença digital profissional",
-    highlight: "MAIS ACESSÍVEL",
+    id: "institutional",
+    name: "Site Institucional",
+    focus: "SITE INSTITUCIONAL",
+    tone: "Site completo com SEO local técnico para empresas de São Paulo que querem aparecer no Google.",
+    price: "790",
     bullets: [
-      "Desenvolvimento de site institucional",
-      "Hospedagem + Certificado SSL + Manutenção mensal essencial",
-      "Base de conteúdo para sustentar presença digital",
-      "Design responsivo e moderno",
-      "Estrutura otimizada para SEO básico",
-      "Integração Google Analytics e Search Console",
-      "Suporte técnico conforme necessidade",
+      "5 a 10 páginas",
+      "SEO local + schema",
+      "Pronto em 15 dias",
+      "Suporte 90 dias",
     ],
-    forWho: "Para empresas e prestadores de serviço que precisam de um site profissional para apresentar seus produtos ou serviços, gerar credibilidade, apoiar campanhas e fortalecer sua presença online, sem depender de produção constante de conteúdo.",
-  },
-  {
-    id: "pro",
-    name: "PLANO PRO",
-    focus: "CRESCIMENTO E NEGÓCIOS LOCAIS",
-    tone: "Mais estrutura para crescer e atrair mais clientes",
-    highlight: "RECOMENDADO",
-    bullets: [
-      "Tudo do ESSENCIAL, mais:",
-      "Blog integrado e estruturado para publicações de conteúdo",
-      "SEO avançado (estrutura ampliada)",
-      "Rich snippets (FAQ, localização, avaliações)",
-      "Melhor potencial de ranqueamento no Google",
-    ],
-    forWho: "Para empresas e prestadores de serviço que querem crescer no Google, gerar tráfego orgânico e transformar o site em uma ferramenta ativa de marketing e captação de clientes.",
     featured: true,
   },
   {
-    id: "premium",
-    name: "PLANO PREMIUM",
-    focus: "DOMINAÇÃO DE NICHO E ALTA CONCORRÊNCIA",
-    tone: "Soluções sob medida para o seu negócio",
-    highlight: "MAIOR SUPORTE",
+    id: "ecommerce",
+    name: "E-commerce",
+    focus: "E-COMMERCE",
+    tone: "Loja virtual com Pix, boleto e cartão para empresas de São Paulo venderem online.",
+    price: "2.499",
     bullets: [
-      "Tudo do PRO, mais:",
-      "Estrutura planejada de acordo com o seu objetivo",
-      "Arquitetura pensada para performance e crescimento",
-      "Integrações, se necessárias (sistemas, APIs, etc)",
-      "Mapa interativo (se aplicável)",
+      "Catálogo + carrinho",
+      "Integração de pagamento",
+      "Pronto em 25 a 45 dias",
+      "Treinamento completo",
     ],
-    forWho: "Para empresas e prestadores de serviço que precisam de uma solução mais avançada, com integrações, regras específicas ou uma estrutura personalizada além de um site institucional ou landing page.",
   },
 ];
-
-function createWhatsAppHref(planName) {
-  const text = encodeURIComponent(
-    `Olá! Gostaria de conversar sobre o ${planName} da criação de sites.`,
-  );
-  return `https://wa.me/5511964932007?text=${text}`;
-}
 
 function createPlansSchema() {
   const pageUrl = absoluteUrl(routes.prices);
@@ -169,20 +140,23 @@ export default function Planos() {
         <div className="planos-page">
 
           <main>
-            <section className="section planos-hero" aria-labelledby="planos-title">
+            <ScrollReveal as="section" className="section planos-hero" aria-labelledby="planos-title">
               <div className="container planos-hero-grid">
                 <div className="stack planos-hero-copy">
-                  <p className="eyebrow">Criação de sites com manutenção</p>
+                  <p className="eyebrow">Criação de sites profissionais</p>
                   <h1 id="planos-title">Seu site pode vender mais quando a oferta certa aparece no lugar certo.</h1>
                   <p className="lead">
                     Eu organizo seu site e Google Meu Negócio para colocar a oferta certa diante das pessoas certas para transformar visitas em contatos.
                   </p>
                   <div className="hero-cta">
-                    <div className="topnav-cta-wrapper" ref={contactMenuRef}>
+                    <p className="page-description">
+                      Planos pensados para negócio que precisa de presença, manutenção e evolução contínua sem improviso.
+                    </p>
+                    <div className="planos-proposal-wrap" ref={contactMenuRef}>
                       <Button
                         as="button"
                         type="button"
-                        className="topnav-cta topnav-cta-whatsapp"
+                        variant="primary"
                         aria-expanded={isContactMenuOpen}
                         aria-haspopup="menu"
                         onClick={(event) => {
@@ -190,9 +164,7 @@ export default function Planos() {
                           setIsContactMenuOpen((current) => !current);
                         }}
                       >
-                        <span className="topnav-cta-text">
-                          <strong>Quero a minha proposta</strong>
-                        </span>
+                        Quero a minha proposta
                       </Button>
 
                       {isContactMenuOpen && (
@@ -236,9 +208,6 @@ export default function Planos() {
                       )}
                     </div>
                   </div>
-                  <p className="page-description">
-                    Planos pensados para negócio que precisa de presença, manutenção e evolução contínua sem improviso.
-                  </p>
                 </div>
 
                 <Card className="stack planos-hero-panel" aria-label="Resumo dos planos">
@@ -254,14 +223,14 @@ export default function Planos() {
                         Site institucional ou landing page com foco em clareza, experiência e conversão.</span>
                     </div>
                     <div>
-                      <strong>ESTRUTURE</strong>
-                      <span>Melhore sua presença digital
-                        Redesign, ajustes de UX, SEO e melhorias para transformar seu site em uma ferramenta de negócio.</span>
-                    </div>
-                    <div>
                       <strong>EVOLUA</strong>
                       <span>Mantenha e faça seu site crescer
                         Manutenção, conteúdo, SEO e melhorias contínuas de acordo com novas necessidades.</span>
+                    </div>
+                    <div>
+                      <strong>ESTRUTURE</strong>
+                      <span>Melhore sua presença digital
+                        Redesign, ajustes de UX, SEO e melhorias para transformar seu site em uma ferramenta de negócio.</span>
                     </div>
                   </div>
 
@@ -276,72 +245,52 @@ export default function Planos() {
                   </p>
                 </Card>
               </div>
-            </section>
+            </ScrollReveal>
 
-            <section className="section" id="planos" aria-labelledby="plans-title">
-              <div className="container stack" style={{ gap: "var(--space-8)" }}>
-                <div className="split-title">
-                  <p className="eyebrow">Planos</p>
-                  <h2 id="plans-title">Planos criados para atender diferentes níveis de demanda e crescimento</h2>
-                  <p className="lead">
-                    Compare abaixo o setup e a composição de cada pacote para escolher o formato que faz mais sentido para o seu momento.
-                  </p>
-                </div>
+            <ScrollReveal as="section" className="section surface-band planos-investment" id="planos" aria-labelledby="plans-title">
+              <div className="container stack planos-investment-container">
+                <SectionHeader
+                  label="Investimento"
+                  title="Quanto preciso investir para criar um site em São Paulo"
+                  subtitle="Valores transparentes para tirar seu site do papel. Todos os planos incluem hospedagem, certificado SSL e domínio .com.br no primeiro ano, sem custos escondidos."
+                  id="plans-title"
+                  align="center"
+                />
 
-                <div className="planos-plan-grid" role="list">
+                <div className="planos-plan-grid planos-investment-grid" role="list">
                   {plans.map((plan) => (
                     <Card
                       key={plan.id}
-                      className={`stack planos-plan-card${plan.featured ? " planos-plan-card--featured" : ""}`}
+                      className={`stack planos-plan-card planos-investment-card${plan.featured ? " planos-plan-card--featured" : ""}`}
                       role="listitem"
                     >
-                      <div className="planos-plan-head">
-                        <div>
-                          <p className="eyebrow">{plan.focus}</p>
-                          <h3>{plan.name}</h3>
-                          <p className="planos-plan-tone">{plan.tone}</p>
-                        </div>
-                        <span className="planos-plan-badge">{plan.highlight}</span>
+                      <div className="planos-investment-copy">
+                        <p className="eyebrow">{plan.focus}</p>
+                        <p className="planos-plan-tone">{plan.tone}</p>
                       </div>
 
-
+                      <p className="planos-investment-price"><span>a partir de</span> R$ {plan.price}</p>
 
                       <ul className="planos-plan-list">
                         {plan.bullets.map((bullet) => (
                           <li key={bullet}>
-                            <span className="planos-check" aria-hidden="true">
-                              OK
-                            </span>
+                            <span className="planos-investment-dot" aria-hidden="true" />
                             <span>{bullet}</span>
                           </li>
                         ))}
                       </ul>
-
-                      <div className="planos-plan-for-who">
-                        <strong>Para quem é este modelo?</strong>
-                        <p>{plan.forWho}</p>
-                      </div>
-
-                      <div className="planos-plan-actions">
-                        <Button
-                          href={createWhatsAppHref(plan.name)}
-                          target="_blank"
-                          rel="noreferrer noopener"
-                          variant={plan.featured ? "primary" : "outline"}
-                        >
-                          Quero este plano
-                        </Button>
-
-                      </div>
                     </Card>
                   ))}
                 </div>
+                <p className="planos-investment-note">Precisa de algo customizado? <Link to={routes.contact}>Solicite um orçamento sob medida para sua empresa em São Paulo.</Link></p>
               </div>
-            </section>
+            </ScrollReveal>
 
 
 
-            <CTA content={pageCtaContent.planosSiteCreation} titleId="planos-cta-title" />
+            <ScrollReveal>
+              <CTA content={pageCtaContent.planosSiteCreation} titleId="planos-cta-title" />
+            </ScrollReveal>
           </main>
         </div>
       </Layout>

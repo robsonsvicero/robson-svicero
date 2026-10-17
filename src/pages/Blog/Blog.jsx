@@ -39,8 +39,8 @@ export default function Blog() {
       />
       <Layout>
         <section className="section blog-page" aria-labelledby="blog-title">
-          <div className="container stack blog-page-stack" style={{ gap: "var(--space-12)" }}>
-            <div className="stack blog-page-header" style={{ gap: "var(--space-5)" }}>
+          <div className="container stack blog-page-stack">
+            <div className="stack blog-page-header">
               <p className="eyebrow">Conteúdo</p>
               <h1 id="blog-title">Observatório Digital</h1>
               <p className="lead">Onde estratégia, experiência e tecnologia se encontram.</p>

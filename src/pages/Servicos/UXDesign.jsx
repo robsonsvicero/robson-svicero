@@ -1,24 +1,30 @@
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { Link } from "react-router-dom";
 import CTA from "../../components/CTA/CTA.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
+import { SearchCheck, LayoutTemplate, PenTool, Target } from "lucide-react";
 import { contactLinks, pageCtaContent, routes } from "../../content/siteContent.js";
 import { absoluteUrl } from "../../utils/seo.js";
 
 const pillars = [
   {
+    icon: SearchCheck,
     title: "Pesquisa orientada por objetivo",
     description:
       "Entendimento de contexto, público e pontos de fricção para definir o que precisa ser priorizado na experiência.",
   },
   {
+    icon: LayoutTemplate,
     title: "Arquitetura e fluxo",
     description:
       "Estruturação de jornadas e hierarquia de informação para facilitar compreensão e tomada de decisão.",
   },
   {
+    icon: PenTool,
     title: "Protótipos para validar",
     description:
       "Wireframes e protótipos navegáveis para testar hipóteses antes da implementação final.",
@@ -26,10 +32,26 @@ const pillars = [
 ];
 
 const deliverables = [
-  "Diagnóstico da experiência atual com pontos críticos e oportunidades.",
-  "Mapa de fluxo com etapas principais da jornada do usuário.",
-  "Estrutura de conteúdo e hierarquia de informação por tela.",
-  "Protótipo navegável com orientações para design e desenvolvimento.",
+  {
+    icon: SearchCheck,
+    title: "Diagnóstico da experiência",
+    description: "Diagnóstico da experiência atual com pontos críticos e oportunidades.",
+  },
+  {
+    icon: Target,
+    title: "Mapa da jornada",
+    description: "Mapa de fluxo com etapas principais da jornada do usuário.",
+  },
+  {
+    icon: LayoutTemplate,
+    title: "Arquitetura de informação",
+    description: "Estrutura de conteúdo e hierarquia de informação por tela.",
+  },
+  {
+    icon: PenTool,
+    title: "Protótipo navegável",
+    description: "Protótipo navegável com orientações para design e desenvolvimento.",
+  },
 ];
 
 const stages = [
@@ -97,7 +119,7 @@ export default function UXDesign() {
       />
 
       <Layout>
-        <section className="section service-hero" aria-labelledby="ux-design-title">
+        <ScrollReveal as="section" className="section service-hero" aria-labelledby="ux-design-title">
           <div className="container service-landing-hero-grid">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Serviços • UX Design</p>
@@ -162,54 +184,78 @@ export default function UXDesign() {
               </div>
             </figure>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="ux-pillars-title">
-          <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <div className="split-title">
-              <p className="eyebrow">O que inclui</p>
-              <h2 id="ux-pillars-title">Pilares do serviço de UX Design</h2>
-            </div>
+        <ScrollReveal as="section" className="section landing-includes-section" aria-labelledby="ux-pillars-title">
+          <div className="container stack landing-includes-container" style={{ gap: "var(--space-8)" }}>
+            <SectionHeader
+              label="O que inclui"
+              title="Pilares do serviço de UX Design"
+              subtitle="Fundamentos essenciais para criar experiências intuitivas, envolventes e orientadas à conversão."
+              id="ux-pillars-title"
+              align="center"
+              className="landing-includes-header"
+            />
 
-            <div className="grid-3" role="list">
-              {pillars.map((pillar) => (
-                <Card className="feature" key={pillar.title} role="listitem">
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </Card>
-              ))}
+            <div className="grid-3 landing-includes-grid" role="list">
+              {pillars.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <Card className="feature landing-includes-card" key={pillar.title} role="listitem">
+                    <span className="landing-includes-icon" aria-hidden="true">
+                      <Icon size={24} strokeWidth={1.8} />
+                    </span>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.description}</p>
+                  </Card>
+                );
+              })}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section dark-band" aria-labelledby="ux-deliverables-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">Entregáveis</p>
-              <h2 id="ux-deliverables-title">O que você recebe ao final do projeto</h2>
-              <p className="lead">
-                Um direcionamento prático para corrigir fricções da experiência e evoluir sua presença
-                digital com mais consistência.
-              </p>
+        <ScrollReveal as="section" className="section landing-deliverables-section" aria-labelledby="ux-deliverables-title">
+          <div className="container landing-deliverables-layout">
+            <SectionHeader
+              label="Entregáveis"
+              title="O que você recebe ao final do projeto"
+              subtitle="Um direcionamento prático para corrigir fricções da experiência e evoluir sua presença digital com mais consistência."
+              id="ux-deliverables-title"
+              align="left"
+              className="landing-deliverables-header"
+              style={{ marginBottom: 0 }}
+            />
+
+            <div className="landing-deliverables-grid" role="list" aria-label="Entregáveis do serviço de UX Design">
+              {deliverables.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Card className="landing-deliverable-card" key={item.title} role="listitem">
+                    <div className="landing-deliverable-topline">
+                      <span className="landing-deliverable-icon" aria-hidden="true">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </span>
+                      <span className="landing-deliverable-number">0{index + 1}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </Card>
+                );
+              })}
             </div>
-
-            <Card className="stack" as="div">
-              {deliverables.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </Card>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="ux-stages-title">
+        <ScrollReveal as="section" className="section process-section--creation landing-how-it-works-section" aria-labelledby="ux-stages-title">
           <div className="container grid-1-2">
-            <div>
-              <p className="eyebrow">Como funciona</p>
-              <h2 id="ux-stages-title">Etapas do trabalho em UX Design</h2>
-            </div>
+            <SectionHeader
+              label="Como funciona"
+              title="Etapas do trabalho em UX Design"
+              subtitle="Processo claro e colaborativo para assegurar que cada decisão de design atenda aos objetivos do seu usuário e do seu negócio."
+              id="ux-stages-title"
+              align="left"
+              style={{ marginBottom: 0 }}
+            />
 
             <ol className="process-list" aria-label="Etapas do serviço de UX Design">
               {stages.map((stage) => (
@@ -223,9 +269,11 @@ export default function UXDesign() {
               ))}
             </ol>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <CTA content={pageCtaContent.uxDesignService} titleId="ux-design-cta-title" />
+        <ScrollReveal>
+          <CTA content={pageCtaContent.uxDesignService} titleId="ux-design-cta-title" />
+        </ScrollReveal>
       </Layout>
     </>
   );

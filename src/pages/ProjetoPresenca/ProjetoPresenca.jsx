@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import SEO from "../../components/seo/SEO.jsx";
+import Button from "../../components/ui/Button/Button.jsx";
 import {
   AtSign,
   CalendarCheck,
@@ -305,9 +306,15 @@ function CandidaturaForm() {
           Não foi possível enviar sua candidatura. Verifique sua conexão e tente novamente.
         </p>
       )}
-      <button type="submit" className="pp-cta-btn" disabled={status === "loading"} aria-busy={status === "loading"} style={{ opacity: status === "loading" ? 0.7 : 1 }}>
-        {status === "loading" ? (<span style={{ display: "flex", alignItems: "center", gap: 8 }}><SpinnerIcon />Enviando...</span>) : "Quero participar da seleção"}
-      </button>
+      <Button
+        type="submit"
+        variant="primary"
+        fullWidth
+        loading={status === "loading"}
+        disabled={status === "loading"}
+      >
+        Quero participar da seleção
+      </Button>
       <p className="pp-form-note">
         Suas informações são usadas apenas para o processo de seleção e não serão compartilhadas.
       </p>
@@ -392,9 +399,18 @@ function HeroSection() {
             institucional completo sem custo de desenvolvimento. Você paga apenas o registro do
             domínio, que fica no seu nome.
           </p>
-          <a href="#pp-formulário" className="pp-cta-btn" id="pp-hero-cta" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulário")?.scrollIntoView({ behavior: "smooth" }); }}>
+          <Button
+            href="#pp-formulário"
+            variant="primary"
+            size="lg"
+            id="pp-hero-cta"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("pp-formulário")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
             Quero participar da seleção
-          </a>
+          </Button>
           <p className="pp-hero-note">Candidatura gratuíta · Seleção pessoal · Você recebe uma resposta</p>
         </div>
         <div className="pp-hero-visual" aria-hidden="true">
@@ -785,9 +801,18 @@ function CtaFinal() {
       <div className="pp-container pp-cta-final-inner">
         <h2 id="pp-cta-final-h2" className="pp-cta-final-h2">Seu negócio merece uma porta de entrada à altura do seu trabalho.</h2>
         <p className="pp-cta-final-sub">Duas vagas. Sem custo de desenvolvimento. Com acompanhamento real.</p>
-        <a href="#pp-formulário" className="pp-cta-btn pp-cta-light" id="pp-cta-final-btn" onClick={(e) => { e.preventDefault(); document.getElementById("pp-formulário")?.scrollIntoView({ behavior: "smooth" }); }}>
+        <Button
+          href="#pp-formulário"
+          variant="white"
+          size="lg"
+          id="pp-cta-final-btn"
+          onClick={(e) => {
+            e.preventDefault();
+            document.getElementById("pp-formulário")?.scrollIntoView({ behavior: "smooth" });
+          }}
+        >
           Quero participar da seleção
-        </a>
+        </Button>
       </div>
     </section>
   );

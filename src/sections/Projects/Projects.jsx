@@ -1,22 +1,44 @@
 import { useEffect } from "react";
+import { ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
 import { Link } from "react-router-dom";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { contentSnapshots } from "../../data/contentSnapshots.js";
 import { projectsContent } from "../../content/siteContent.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
-import { mapProject } from "../../lib/contentMappers.js";
+import { getProjectBadges, mapProject } from "../../lib/contentMappers.js";
 import { prefetchImages } from "../../utils/imagePrefetch.js";
-import { stripRichText } from "../../utils/richText.js";
+
+function ProjectScrollCard({ project }) {
+  const badges = getProjectBadges(project);
+  return (
+    <Card as={Link} to={project.path} aria-label={`Ver case: ${project.title}`} title={`Ver case: ${project.title}`} className="case-card clickable-card" itemScope itemType="https://schema.org/CreativeWork" itemProp="url">
+      <div className="case-card-image">
+        {project.thumbnail && <img src={project.thumbnail} alt={project.alt || `Projeto ${project.title}`} loading="lazy" />}
+      </div>
+      <div className="case-card-body">
+        {badges.length > 0 && <div className="case-card-badges">{badges.map((badge) => <span className="case-card-badge" key={badge}>{badge}</span>)}</div>}
+        <div className="case-card-content">
+          <h3 itemProp="name">{project.title}</h3>
+          <p itemProp="description">{project.metaDescription}</p>
+        </div>
+      </div>
+      <div className="case-card-footer"><span>{project.niche || project.clientName || "Projeto digital"}</span><strong>Ver case <i><ArrowUpRight size={18} /></i></strong></div>
+    </Card>
+  );
+}
 
 export default function Projects() {
+  const reducedMotion = useReducedMotion();
   const { items: projects } = useSupabaseList({
     table: "projects",
     fallback: contentSnapshots.projects.slice(0, 3),
     mapper: mapProject,
     orderBy: "published_at",
-    select: "slug,title,badge,niche,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url,segment",
+    select: "slug,title,badge,niche,client_name,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 3,
     cache: false,
   });
@@ -30,73 +52,47 @@ export default function Projects() {
 
   return (
     <Section
-      className="surface-band"
+      className="surface-band projects-section"
       id="projetos"
       data-od-id="projetos"
       aria-labelledby="sec-projetos"
-      containerClassName="container stack"
+      containerClassName="container stack projects-container"
       containerStyle={{ gap: "var(--space-12)" }}
     >
-      <div className="row-between">
-        <div className="projects-header stack" style={{ maxWidth: 700 }}>
-          <p className="eyebrow">{projectsContent.eyebrow}</p>
-          <h2 id="sec-projetos">{projectsContent.title}</h2>
-          <p className="lead">{projectsContent.lead}</p>
-        </div>
+      <div className="row-between" style={{ alignItems: "flex-start", flexWrap: "wrap", gap: "1.5rem" }}>
+        <SectionHeader
+          label={projectsContent.eyebrow || "Cases & Projetos"}
+          title={projectsContent.title}
+          subtitle={projectsContent.lead}
+          id="sec-projetos"
+          align="left"
+          style={{ marginBottom: 0 }}
+        />
         <Button
           variant="secondary"
           as={Link}
-            to={projectsContent.cta.href}
-            title="Ver todos os cases"
+          to={projectsContent.cta.href}
+          title="Ver todos os cases"
         >
           {projectsContent.cta.label}
         </Button>
       </div>
 
-      <div className="grid-3">
-        {projects.map((project) => (
-          <Card
-            as={Link}
-            to={project.path}
-            aria-label={`Ver case: ${project.title}`}
-            title={`Ver case: ${project.title}`}
-            className="case-card clickable-card"
-            key={project.title}
-            itemScope
-            itemType="https://schema.org/CreativeWork"
-            itemProp="url"
-          >
-            {project.thumbnail && (
-              <div className="case-card-image">
-                <img src={project.thumbnail} alt={project.alt || project.title} loading="lazy" />
-              </div>
-            )}
-            <div className="case-card-body">
-              {project.badge && (
-                <div className="case-card-badges">
-                  {project.badge.split(",").map((b) => b.trim()).filter(Boolean).map((b) => (
-                    <span className="case-card-badge" key={b}>{b}</span>
-                  ))}
-                </div>
-              )}
-              <div className="case-card-content">
-                <h3 itemProp="name">{project.title}</h3>
-                <p itemProp="description">{project.metaDescription || stripRichText(project.description)}</p>
-              </div>
-            </div>
-            <div className="case-card-footer">
-              <span className="case-card-niche">{project.niche || project.segment || ""}</span>
-              <span className="case-card-link">
-                Ver case
-                <span className="case-card-link-icon" aria-hidden="true">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.5 7H11.5M8 3.5L11.5 7L8 10.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </span>
-              </span>
-            </div>
-          </Card>
-        ))}
+      <div className="projects-scroll-stage">
+        <div className="grid-3 projects-grid">
+          {projects.map((project, index) => (
+            <motion.div
+              className="projects-card-motion"
+              key={project.title}
+              initial={reducedMotion ? false : { opacity: 0, y: 36 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.18 }}
+              transition={{ duration: 0.7, delay: reducedMotion ? 0 : index * 0.12, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <ProjectScrollCard project={project} />
+            </motion.div>
+          ))}
+        </div>
       </div>
     </Section>
   );

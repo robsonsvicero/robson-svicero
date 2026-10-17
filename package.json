@@ -30,6 +30,7 @@
     "exceljs": "^4.4.0",
     "express": "^5.2.1",
     "lucide-react": "^1.49.0",
+    "motion": "^14.1.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0",
     "react-ga4": "^3.0.1",

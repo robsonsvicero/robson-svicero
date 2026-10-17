@@ -104,7 +104,7 @@ async function fetchBlogSnapshots(supabase) {
 async function fetchProjectSnapshots(supabase) {
   const { data, error } = await supabase
     .from("projects")
-    .select("slug,title,published_at,image,thumbnail,alt,badge")
+    .select("slug,title,published_at,image,thumbnail,alt,badge,niche,client_name,meta_description")
     .order("published_at", { ascending: false })
     .limit(6);
 
@@ -117,6 +117,9 @@ async function fetchProjectSnapshots(supabase) {
     path: `/cases/${row.slug}`,
     title: row.title,
     badge: row.badge || null,
+    niche: row.niche || null,
+    clientName: row.client_name || null,
+    metaDescription: row.meta_description || null,
     publishedAt: row.published_at,
     description: `Projeto ${row.title} com foco em posicionamento digital e conversao.`,
     metaDescription: `Case ${row.title}: estrategia, design e desenvolvimento orientados a resultado.`,

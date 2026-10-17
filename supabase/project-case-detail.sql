@@ -37,6 +37,7 @@ alter table public.projects
   add column if not exists client_name text,
   add column if not exists project_year text,
   add column if not exists segment text,
+  add column if not exists niche text,
   add column if not exists created_system text,
   add column if not exists context text,
   add column if not exists challenge text,

@@ -1,33 +1,58 @@
-import Card from "../../components/ui/Card/Card.jsx";
+import { List, PencilRuler, Search, SquareTerminal, Workflow } from "lucide-react";
+import IconInfoCard from "../../components/IconInfoCard/IconInfoCard.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { servicesContent } from "../../content/siteContent.js";
+
+const serviceIcons = {
+  "list-search": ListSearchIcon,
+  workflow: Workflow,
+  "pencil-ruler": PencilRuler,
+  "square-terminal": SquareTerminal,
+};
+
+function ListSearchIcon() {
+  return (
+    <span className="services-list-search">
+      <List />
+      <Search />
+    </span>
+  );
+}
 
 export default function Services() {
   return (
     <Section
-      className="surface-band"
+      className="section_testimonial--navy"
       id="servicos"
       data-od-id="servicos"
       aria-labelledby="sec-servicos"
-      containerClassName="container stack"
-      containerStyle={{ gap: "var(--space-12)" }}
+      containerClassName="container services-container"
     >
-      <div style={{ maxWidth: 680 }}>
-        <p className="eyebrow">{servicesContent.eyebrow}</p>
-        <h2 id="sec-servicos">{servicesContent.title}</h2>
-      </div>
-      <div className="grid-2">
-        {servicesContent.items.map((service) => (
-          <Card className="feature" key={service.title}>
-            <div className="feature-mark" aria-hidden="true">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d={service.iconPath} />
-              </svg>
-            </div>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-          </Card>
-        ))}
+      <SectionHeader
+        label={servicesContent.eyebrow || "O Que Fazemos"}
+        title={servicesContent.title}
+        subtitle="Estratégia, conteúdo, design e desenvolvimento integrados para lançar uma presença digital de alto impacto e resultados duradouros."
+        id="sec-servicos"
+        align="center"
+        isDark={true}
+      />
+      <div className="services-grid">
+        {servicesContent.items.map((service, index) => {
+          const Icon = serviceIcons[service.icon];
+
+          return (
+            <ScrollReveal className="services-card-reveal" key={service.title}>
+              <IconInfoCard
+                icon={Icon}
+                title={service.title}
+                description={service.description}
+                stage={`ETAPA ${String(index + 1).padStart(2, "0")}`}
+              />
+            </ScrollReveal>
+          );
+        })}
       </div>
     </Section>
   );

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <style>
+    .mark { fill: #000; }
+    @media (prefers-color-scheme: dark) {
+      .mark { fill: #fff; }
+    }
+  </style>
+  <g transform="translate(5, 0)">
+    <path class="mark" d="m7.131 22.89 1.414-1.376 1.413 1.375V28H7.13v-5.11Zm0-22.89h2.827v5.11H7.131z"/>
+    <path class="mark" d="M2.734 23.697H0L7.156 8.434H9.93l7.155 15.263h-2.783L8.52 17.85l-5.785 5.846Z"/>
+  </g>
+</svg>

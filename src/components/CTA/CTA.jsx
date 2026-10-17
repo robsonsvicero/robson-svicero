@@ -42,9 +42,9 @@ export default function CTA({
     >
       <div className="container cta-section-layout">
         <div className="stack cta-section-copy" style={{ gap: "var(--space-3)" }}>
-          {content.eyebrow ? <p className="eyebrow">{content.eyebrow}</p> : null}
-          <h2 id={titleId}>{content.title}</h2>
-          {content.lead ? <p className="lead">{content.lead}</p> : null}
+          {content.eyebrow ? <span className="section-label">{content.eyebrow}</span> : null}
+          <h2 id={titleId} className="section_heading" style={{ marginBottom: "0.5rem" }}>{content.title}</h2>
+          {content.lead ? <p className="section_lede">{content.lead}</p> : null}
         </div>
 
         <div className="hero-cta cta-section-actions">

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trajectory Design System</title>
+  <link rel="stylesheet" href="assets/overview/css/global.a80986c7.css">
+  <style>
+    :root{color-scheme:dark;scroll-behavior:smooth}
+    html,body{width:100%;height:100%;margin:0;overflow:hidden;background:var(--navy-900);color:var(--white)}
+    body{font-family:var(--font-body)}
+    #catalog-nav{position:fixed;inset:0 0 auto;height:4.5rem;background:transparent;z-index:10}
+    #catalog-nav .navbar{position:relative;height:100%;background:transparent}
+    #catalog-nav .navbar_inner{min-height:4.5rem}
+    #catalog-nav .navbar_menu{display:flex!important;gap:clamp(.75rem,2vw,2.25rem)}
+    #catalog-nav .navbar_link{color:rgba(255,255,255,.72)}
+    #catalog-nav .navbar_link:hover,#catalog-nav .navbar_link.is-active{color:var(--white)}
+    #catalog-nav .navbar_link[aria-current=page]{color:var(--white)}
+    main{position:fixed;inset:0;min-height:0;overflow:hidden}
+    #overview-view,#components-view{position:absolute;inset:0}
+    #overview-view[hidden],#components-view[hidden]{display:none!important}
+    #overview-frame{display:block;width:100%;height:100%;border:0}
+    #components-backdrop{position:fixed;inset:0;z-index:0;width:100%;height:100%;border:0;pointer-events:none}
+    #components-backdrop[hidden]{display:none!important}
+    #components-view{isolation:isolate}
+    #components-view::before{position:fixed;inset:0;z-index:0;background:rgba(7,26,69,.72);content:"";pointer-events:none}
+    .component-layout{position:relative;z-index:1;display:grid;grid-template-columns:minmax(11rem,15rem) minmax(0,1fr);height:100%;padding-top:4.5rem;box-sizing:border-box}
+    .component-sidebar{position:sticky;top:0;align-self:start;display:flex;flex-direction:column;gap:.15rem;height:calc(100vh - 4.5rem);overflow:auto;padding:2rem 1.25rem;border-right:1px solid rgba(255,255,255,.18);box-sizing:border-box}
+    .component-sidebar a{padding:.6rem .5rem;color:rgba(255,255,255,.76);font:500 .95rem/1.3 var(--font-heading);text-decoration:none}
+    .component-sidebar a:hover,.component-sidebar a:focus-visible{color:var(--white);text-decoration:underline;text-underline-offset:.25em}
+    .component-content{min-width:0;height:calc(100vh - 4.5rem);overflow:auto;padding:2.25rem clamp(1.25rem,4vw,4.5rem) 6rem;box-sizing:border-box}
+    .component-group{max-width:88rem;margin:0 auto 5rem;scroll-margin-top:1.5rem}
+    .component-group>h1,.component-group>h2{margin:0 0 1.5rem;color:var(--white);font:500 clamp(1.75rem,3vw,2.5rem)/1.15 var(--font-heading);letter-spacing:-.02em}
+    .component-group>h3{margin:2.5rem 0 1rem;color:var(--white);font:500 1.2rem/1.3 var(--font-heading)}
+    .group-intro{max-width:48rem;margin:-.5rem 0 1.75rem;color:rgba(255,255,255,.76);font-size:1rem;line-height:1.6}
+    .background-grid,.surface-grid,.action-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+    .background-specimen,.live-specimen{min-width:0;margin:0}
+    .background-specimen--hero{grid-column:1/-1}
+    .background-specimen iframe,.live-specimen iframe{display:block;width:100%;border:0;background:var(--navy-900)}
+    .background-specimen iframe{height:22rem}
+    .background-specimen--hero iframe{height:26rem}
+    .live-specimen iframe{height:34rem}
+    .live-specimen--short iframe{height:16rem}
+    .specimen-caption{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 1rem;padding:.75rem 0;color:rgba(255,255,255,.85);font-size:.9rem}
+    .specimen-caption code,.specimen-code{color:var(--accent-200);font:400 .8rem/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+    .color-group{margin:2.5rem 0 0}
+    .color-group>h3{margin:0 0 1rem;color:var(--white);font:500 1.1rem/1.3 var(--font-heading)}
+    .color-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+    .color-item{min-width:0}
+    .color-swatch{display:flex;min-height:6rem;align-items:flex-end;padding:.75rem;box-sizing:border-box;border:1px solid rgba(255,255,255,.22);color:var(--white);font:500 .9rem/1.3 var(--font-heading)}
+    .color-swatch--light{color:var(--ink-900);border-color:var(--card-hairline-on-light)}
+    .color-meta{padding:.65rem 0 0}
+    .color-meta strong,.color-meta code,.color-meta small{display:block}
+    .color-meta strong{color:var(--white);font-size:.9rem;font-weight:500}
+    .color-meta code{margin-top:.2rem;color:var(--accent-200);font:400 .8rem/1.5 ui-monospace,SFMono-Regular,Consolas,monospace}
+    .color-meta small{margin-top:.3rem;color:rgba(255,255,255,.68);font-size:.82rem;line-height:1.45}
+    .type-list{border-top:1px solid rgba(255,255,255,.2)}
+    .type-row{display:grid;grid-template-columns:minmax(8rem,13rem) minmax(0,1fr) minmax(8rem,12rem);align-items:center;gap:1.5rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,.2)}
+    .type-role{color:rgba(255,255,255,.84);font-size:.9rem;line-height:1.5}
+    .type-role strong,.type-role code{display:block}
+    .type-role strong{color:var(--white);font-weight:500}
+    .type-role code{margin-top:.3rem;color:var(--accent-200);font:400 .75rem/1.45 ui-monospace,SFMono-Regular,Consolas,monospace}
+    .type-sample{min-width:0;margin:0;color:var(--white)}
+    .type-hero-context{height:auto!important;min-height:0!important;margin:0!important;padding:0!important;background:transparent!important;overflow:visible!important}
+    .type-hero-context .hero_heading{margin:0!important}
+    .type-services-context{min-height:0!important;margin:0!important;padding:1rem!important}
+    .type-sample.body-type{color:rgba(255,255,255,.85)!important}
+    .type-sample.label-type{color:var(--accent-600)!important}
+    .type-sample.button-type{display:inline-flex}
+    .type-size{justify-self:end;color:rgba(255,255,255,.78);font:400 .8rem/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;text-align:right}
+    .surface-grid .specimen-caption{padding-top:.75rem}
+    @media(max-width:900px){
+      .component-layout{grid-template-columns:10rem minmax(0,1fr)}
+      .component-sidebar{padding-inline:.75rem}
+      .component-content{padding-inline:1.5rem}
+      .type-row{grid-template-columns:8rem minmax(0,1fr);gap:1rem}
+      .type-size{grid-column:2;justify-self:start;text-align:left}
+      .color-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    }
+    @media(max-width:640px){
+      #catalog-nav .navbar_inner{grid-template-columns:auto 1fr;gap:.5rem}
+      #catalog-nav .navbar_logo{width:clamp(6rem,28vw,9.5rem)}
+      #catalog-nav .navbar_menu{justify-self:end;gap:.65rem!important}
+      #catalog-nav .navbar_link{font-size:.9rem}
+      .component-layout{grid-template-columns:7.5rem minmax(0,1fr)}
+      .component-sidebar{gap:0;padding:1.25rem .45rem}
+      .component-sidebar a{padding:.55rem .35rem;font-size:.82rem}
+      .component-content{padding:1.5rem 1rem 4rem}
+      .component-group{margin-bottom:3.5rem}
+      .background-grid,.surface-grid,.action-grid{grid-template-columns:1fr}
+      .background-specimen--hero{grid-column:auto}
+      .background-specimen iframe,.background-specimen--hero iframe{height:19rem}
+      .live-specimen iframe{height:30rem}
+      .live-specimen--short iframe{height:14rem}
+      .color-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+      .color-swatch{min-height:4.5rem}
+      .type-row{grid-template-columns:1fr;gap:.7rem;padding:1.15rem 0}
+      .type-size{grid-column:1}
+      .type-sample.hero-type{font-size:2.1rem!important}
+    }
+  </style>
+</head>
+<body>
+  <iframe id="components-backdrop" title="Animated Overview background" src="assets/overview/index.html?ds-background=hero" aria-hidden="true" tabindex="-1" hidden></iframe>
+  <header id="catalog-nav"><nav class="navbar navbar--over-dark" id="navbar" aria-label="Primary"><div class="container navbar_inner"><a href="#overview" class="navbar_logo" aria-label="Trajectory Web Design — Home"><svg xmlns="http://www.w3.org/2000/svg" width="100%" fill="none" viewBox="0 0 176 24"><g clip-path="url(#logo-h)"><path fill="currentColor" d="M5.154 20.311V9.123h-5.16V7.229H12.37v1.894H7.236V20.31H5.154Zm13.141-6.697h6.775c1.758 0 2.636-.606 2.636-2.246 0-1.601-.878-2.245-2.636-2.245h-6.775V7.229h6.795c2.968 0 4.803 1.405 4.803 3.846 0 2.168-1.425 3.495-3.885 3.626v.14c1.015.279 1.484.86 1.952 1.674l2.187 3.788h-2.421l-2.092-3.613c-.586-1.035-1.191-1.464-2.831-1.464h-2.4v5.077h-2.108m36.553-4.971v-.605h2.232v.624c0 2.148.722 3.125 3.28 3.125s3.32-.957 3.32-3.027v-8.22h2.206v8.2c0 3.007-1.523 5.077-5.526 5.077-3.97 0-5.512-2.089-5.512-5.174Zm17.594 4.979V7.229h10.46v1.894h-8.357v3.67h8.064v1.875h-8.064v3.749h8.357v1.894h-10.46Zm16.401-6.543c0-4.081 2.695-6.737 6.756-6.737 3.69 0 6.268 1.953 6.268 5.077v.279h-2.323v-.279c0-1.992-1.27-3.068-3.925-3.068-3.069 0-4.55 1.464-4.55 4.725 0 3.26 1.481 4.71 4.55 4.71 2.65 0 3.925-1.055 3.925-3.068v-.254h2.323v.254c0 3.143-2.558 5.096-6.268 5.096-4.061.001-6.756-2.654-6.756-6.735Zm23.685 6.543V9.123h-5.161V7.229h12.38v1.894h-5.136V20.31h-2.083Zm12.751-6.543c0-4.081 2.714-6.737 6.814-6.737 4.14 0 6.835 2.65 6.835 6.737 0 4.086-2.695 6.736-6.835 6.736-4.1 0-6.814-2.655-6.814-6.736Zm11.423 0c0-3.261-1.504-4.726-4.603-4.726-3.099 0-4.589 1.465-4.589 4.726 0 3.26 1.484 4.706 4.589 4.706 3.105 0 4.603-1.445 4.603-4.706Zm8.483-.155h6.766c1.758 0 2.636-.606 2.636-2.246 0-1.6-.878-2.245-2.636-2.245l-6.766-.078-.009-1.814h6.789c2.968 0 4.804 1.406 4.804 3.847 0 2.168-1.426 3.495-3.886 3.626v.14c1.015.279 1.484.859 1.952 1.674l2.187 3.788h-2.421l-2.092-3.613c-.586-1.035-1.191-1.464-2.831-1.464h-2.402v5.077h-2.109m22.444.006v-4.51l-5.744-8.572h2.578l3.085 4.647 1.093 1.66h.156l1.074-1.66 3.069-4.647h2.597l-5.819 8.61v4.472h-2.089Z"></path></g><path fill="currentColor" d="m41.24 19.62 1.211-1.179 1.212 1.18V24H41.24v-4.38Zm0-19.62h2.423v4.38H41.24z"></path><path fill="currentColor" d="M37.47 20.311h-2.342L41.26 7.229h2.378l6.133 13.082h-2.385l-4.958-5.01-4.958 5.01Z"></path><defs><clipPath id="logo-h"><path fill="currentColor" d="M0 7.031h175.519v13.473H0z"></path></clipPath></defs></svg></a><div class="navbar_menu"><a href="#overview" id="tab-overview" class="navbar_link is-active" aria-current="page">Overview</a> <a href="#components" id="tab-components" class="navbar_link">Components</a></div><div class="navbar_actions"></div></div></nav></header>
+  <main>
+    <section id="overview-view" aria-label="Overview">
+      <iframe id="overview-frame" title="Trajectory website overview" src="assets/overview/index.html"></iframe>
+    </section>
+    <section id="components-view" aria-label="Components" hidden>
+      <div class="component-layout">
+        <aside class="component-sidebar" aria-label="Component groups">
+          <a href="#components" data-scroll-to="backgrounds">Backgrounds</a>
+          <a href="#components" data-scroll-to="colors">Colors</a>
+          <a href="#components" data-scroll-to="typography">Typography</a>
+          <a href="#components" data-scroll-to="surfaces">Surfaces</a>
+          <a href="#components" data-scroll-to="navigation">Navigation</a>
+          <a href="#components" data-scroll-to="actions">Actions</a>
+          <a href="#components" data-scroll-to="content">Content</a>
+        </aside>
+        <div class="component-content">
+          <section class="component-group" id="backgrounds">
+            <h1>Backgrounds</h1>
+            <p class="group-intro">Live background treatments from the Overview, including the hero's original canvas animation, gradients, masks, and layered surfaces.</p>
+            <div class="background-grid">
+              <figure class="background-specimen background-specimen--hero">
+                <iframe title="Animated hero background" src="assets/overview/index.html?ds-background=hero" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Hero / animated orbit field</span><code>.section_hero--blue · .hero_orbits · canvas.hero_particles</code></figcaption>
+              </figure>
+              <figure class="background-specimen">
+                <iframe title="Featured work background" src="assets/overview/index.html?ds-background=featured" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Featured work / light base surface</span><code>.section_featured</code></figcaption>
+              </figure>
+              <figure class="background-specimen">
+                <iframe title="Services background" src="assets/overview/index.html?ds-background=services" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Services / pale radial field</span><code>.section_services</code></figcaption>
+              </figure>
+              <figure class="background-specimen">
+                <iframe title="Differentiators background" src="assets/overview/index.html?ds-background=differentiators" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Differentiators / soft radial field</span><code>.section_differentiators</code></figcaption>
+              </figure>
+              <figure class="background-specimen">
+                <iframe title="Testimonial background" src="assets/overview/index.html?ds-background=testimonial" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Testimonials / navy radial</span><code>.section_testimonial--navy</code></figcaption>
+              </figure>
+              <figure class="background-specimen">
+                <iframe title="Call to action background" src="assets/overview/index.html?ds-background=cta" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Call to action / layered arcs</span><code>.section_cta--navy · .cta_arcs</code></figcaption>
+              </figure>
+              <figure class="background-specimen">
+                <iframe title="Footer background" src="assets/overview/index.html?ds-background=footer" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Footer / perspective grid</span><code>.footer::before</code></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="component-group" id="colors">
+            <h2>Colors</h2>
+            <div class="color-group">
+              <h3>Brand and Accent</h3>
+              <div class="color-grid">
+                <div class="color-item"><div class="color-swatch" style="background:var(--accent-700)">Lorem ipsum</div><div class="color-meta"><strong>Deep accent</strong><code>#1D3095 · --accent-700</code><small>Hero gradient and interactive hover.</small></div></div>
+                <div class="color-item"><div class="color-swatch" style="background:var(--accent-600)">Lorem ipsum</div><div class="color-meta"><strong>Primary accent</strong><code>#0052CC · --accent-600</code><small>Primary actions, labels, and links.</small></div></div>
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--accent-50)">Lorem ipsum</div><div class="color-meta"><strong>Pale accent surface</strong><code>#EAF1FB · --accent-50</code><small>Services section background.</small></div></div>
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--accent-300)">Lorem ipsum</div><div class="color-meta"><strong>Soft accent</strong><code>#8FB2EC · --accent-300</code><small>Hero orbit details and dark-surface emphasis.</small></div></div>
+              </div>
+            </div>
+            <div class="color-group">
+              <h3>Surfaces</h3>
+              <div class="color-grid">
+                <div class="color-item"><div class="color-swatch" style="background:var(--navy-900)">Lorem ipsum</div><div class="color-meta"><strong>Primary dark surface</strong><code>#071A45 · --navy-900</code><small>Hero, testimonials, call to action, and footer.</small></div></div>
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--light-50)">Lorem ipsum</div><div class="color-meta"><strong>Light surface</strong><code>#F7F9FC · --light-50</code><small>Light page and card surfaces.</small></div></div>
+              </div>
+            </div>
+            <div class="color-group">
+              <h3>Text and Icons</h3>
+              <div class="color-grid">
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--light-50);color:var(--ink-900)">Lorem ipsum</div><div class="color-meta"><strong>Primary text</strong><code>#0D1521 · --ink-900</code><small>Headings on light backgrounds.</small></div></div>
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--light-50);color:var(--ink-700)">Lorem ipsum</div><div class="color-meta"><strong>Body text</strong><code>#3B444F · --ink-700</code><small>Paragraphs on light backgrounds.</small></div></div>
+                <div class="color-item"><div class="color-swatch" style="background:var(--navy-900);color:var(--white)">Lorem ipsum</div><div class="color-meta"><strong>Inverse text and icons</strong><code>#FFFFFF · --white</code><small>Logo, navigation, and copy on dark surfaces.</small></div></div>
+              </div>
+            </div>
+            <div class="color-group">
+              <h3>Borders and Interactive States</h3>
+              <div class="color-grid">
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--light-50);border:1px solid var(--card-hairline-on-light)">Lorem ipsum</div><div class="color-meta"><strong>Light card border</strong><code>rgba(29, 48, 149, 0.10) · --card-hairline-on-light</code><small>Services card boundary on a pale surface.</small></div></div>
+                <div class="color-item"><div class="color-swatch color-swatch--light" style="background:var(--light-200)">Lorem ipsum</div><div class="color-meta"><strong>Outline border</strong><code>#E2E9F2 · --light-200</code><small>Outline action and subtle component boundaries.</small></div></div>
+                <div class="color-item"><div class="color-swatch" style="background:var(--accent-600)">Default action</div><div class="color-meta"><strong>Primary action / default</strong><code>#0052CC · --accent-600</code><small>Primary button fill and border.</small></div></div>
+                <div class="color-item"><div class="color-swatch" style="background:var(--accent-700)">Hover action</div><div class="color-meta"><strong>Primary action / hover</strong><code>#1D3095 · --accent-700</code><small>Button fill and border on hover.</small></div></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="component-group" id="typography">
+            <h2>Typography</h2>
+            <div class="type-list">
+              <div class="type-row">
+                <div class="type-role"><strong>Heading 1</strong><code>Tosh A · 500</code></div>
+                <div class="type-sample type-hero-context section_hero--blue"><div class="hero_heading">Trajectory<br><em>Design System</em></div></div>
+                <code class="type-size">clamp(2.75rem, 7vw, 5.75rem)<br>clamp(2.5rem, 9vw, 3.25rem)</code>
+              </div>
+              <div class="type-row">
+                <div class="type-role"><strong>Heading 2</strong><code>Tosh A · 500</code></div>
+                <div class="type-sample type-services-context section_services"><div class="services_heading">Lorem ipsum dolor sit amet</div></div>
+                <code class="type-size">3rem</code>
+              </div>
+              <div class="type-row">
+                <div class="type-role"><strong>Body</strong><code>Tosh A · 400</code></div>
+                <p class="type-sample body-type hero_description">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+                <code class="type-size">var(--text-body-lg) · 1.15rem</code>
+              </div>
+              <div class="type-row">
+                <div class="type-role"><strong>Section label</strong><code>Tosh A · 500</code></div>
+                <span class="type-sample label-type hero_eyebrow">Lorem ipsum</span>
+                <code class="type-size">var(--text-h5) · 0.8125rem</code>
+              </div>
+              <div class="type-row">
+                <div class="type-role"><strong>Button</strong><code>Tosh A · 500</code></div>
+                <a class="type-sample button-type button button--primary" href="#components">Lorem ipsum</a>
+                <code class="type-size">1rem</code>
+              </div>
+            </div>
+          </section>
+
+          <section class="component-group" id="surfaces">
+            <h2>Surfaces</h2>
+            <div class="surface-grid">
+              <figure class="live-specimen">
+                <iframe title="Service cards" src="assets/overview/index.html?ds-specimen=services" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Service cards / elevated light surface</span><code>.services_card</code></figcaption>
+              </figure>
+              <figure class="live-specimen">
+                <iframe title="Featured work cards" src="assets/overview/index.html?ds-specimen=featured" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Featured work / image cards</span><code>.featured-card</code></figcaption>
+              </figure>
+              <figure class="live-specimen">
+                <iframe title="Testimonial surface" src="assets/overview/index.html?ds-specimen=testimonial" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Testimonial / navy panel and carousel</span><code>.testimonial_component · .testimonial_slide</code></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="component-group" id="navigation">
+            <h2>Navigation</h2>
+            <figure class="live-specimen live-specimen--short">
+              <iframe title="Source navigation" src="assets/overview/index.html?ds-specimen=navigation" loading="lazy"></iframe>
+              <figcaption class="specimen-caption"><span>Primary navigation / original logo and responsive menu</span><code>nav#navbar · .navbar_menu · .navbar_hamburger</code></figcaption>
+            </figure>
+          </section>
+
+          <section class="component-group" id="actions">
+            <h2>Actions</h2>
+            <div class="action-grid">
+              <figure class="live-specimen live-specimen--short">
+                <iframe title="Hero actions" src="assets/overview/index.html?ds-specimen=actions" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Hero action pair / filled and outline</span><code>.button--primary · .button--outline-light</code></figcaption>
+              </figure>
+              <figure class="live-specimen live-specimen--short">
+                <iframe title="Call to action" src="assets/overview/index.html?ds-specimen=cta" loading="lazy"></iframe>
+                <figcaption class="specimen-caption"><span>Call to action / white action on navy</span><code>.cta_component · .cta_button</code></figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section class="component-group" id="content">
+            <h2>Content</h2>
+            <figure class="live-specimen">
+              <iframe title="Team section" src="assets/overview/index.html?ds-specimen=team" loading="lazy"></iframe>
+              <figcaption class="specimen-caption"><span>Team introduction / editorial section and portraits</span><code>.section_about</code></figcaption>
+            </figure>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const overviewTab = document.getElementById('tab-overview');
+      const componentsTab = document.getElementById('tab-components');
+      const overviewView = document.getElementById('overview-view');
+      const componentsView = document.getElementById('components-view');
+      const backgroundFrame = document.getElementById('components-backdrop');
+      const selectView = () => {
+        const componentsSelected = location.hash === '#components';
+        overviewView.hidden = componentsSelected;
+        componentsView.hidden = !componentsSelected;
+        backgroundFrame.hidden = !componentsSelected;
+        overviewTab.classList.toggle('is-active', !componentsSelected);
+        componentsTab.classList.toggle('is-active', componentsSelected);
+        overviewTab.toggleAttribute('aria-current', !componentsSelected);
+        componentsTab.toggleAttribute('aria-current', componentsSelected);
+        if (!componentsSelected) overviewTab.setAttribute('aria-current', 'page');
+        if (componentsSelected) componentsTab.setAttribute('aria-current', 'page');
+      };
+      document.querySelectorAll('.component-sidebar [data-scroll-to]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          event.preventDefault();
+          document.getElementById(link.dataset.scrollTo)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+      window.addEventListener('hashchange', selectView);
+      if (!location.hash) history.replaceState(null, '', '#overview');
+      selectView();
+    })();
+  </script>
+</body>
+</html>

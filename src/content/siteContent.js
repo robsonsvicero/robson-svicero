@@ -31,10 +31,10 @@ export const contactLinks = {
 export const headerContent = {
   logo: {
     href: "#inicio",
-    src: "/assets/images/logo.png",
+    src: "/assets/logo_branco.svg",
     alt: "Robson Svicero - Criação de sites profissionais",
-    width: 91,
-    height: 64,
+    width: 200,
+    height: 30,
   },
   navItems: [
     { label: "Home", to: routes.home },
@@ -53,9 +53,8 @@ export const headerContent = {
     },
     { label: "Planos", to: routes.prices },
     { label: "Projetos", to: routes.cases },
-    { label: "Blog", to: routes.blog },
     { label: "Contato", to: routes.contact },
-    { label: "Agendamentos", to: routes.schedule },
+    { label: "Blog", to: routes.blog },
   ],
   cta: {
     label: "Conversar com Robson ",
@@ -65,15 +64,14 @@ export const headerContent = {
 };
 
 export const heroContent = {
-  eyebrow: "Criação de sites Profissionais",
-  title: "Não começamos pelo site. Começamos pelo seu negócio.",
+  title: "Não começamos pelo site.",
+  subtitle: "Começamos pelo seu negócio.",
   lead:
     "Estratégia, UX/UI Design e desenvolvimento de experiências digitais para empresas que precisam comunicar melhor seu valor, gerar oportunidades e facilitar a jornada de seus clientes. Do entendimento do negócio à implementação, cada decisão é pensada para transformar objetivos em experiências digitais mais claras, relevantes e eficientes.",
   note:
-    "Desenvolvimento de sites profissionais rápidos e responsivos.",
+    "Desenvolvimento de sites profissionais rápidos, sem ruído e 100% responsivos.",
   media: {
-    desktop: "/assets/images/hero_web.webp",
-    mobile: "/assets/images/hero_mobile.webp",
+    desktop: "/assets/images/hero-robson-consultancy.png",
   },
   primaryCta: {
     label: "Conversar no WhatsApp",
@@ -174,25 +172,25 @@ export const servicesContent = {
       title: "Entendimento do negócio",
       description:
         "Antes de definir o que será desenvolvido, entendo seus objetivos, público, oferta e os principais desafios que precisam ser resolvidos.",
-      iconPath: "M4 6h16M4 12h10M4 18h7",
+      icon: "list-search",
     },
     {
       title: "Estratégia e experiência",
       description:
         "Estruturo a informação, a jornada e os pontos de contato para que sua empresa comunique melhor seu valor e facilite a tomada de decisão.",
-      iconPath: "M5 20V8l7-4 7 4v12M9 20v-6h6v6",
+      icon: "workflow",
     },
     {
       title: "UX/UI Design",
       description:
         "Transformo essa estratégia em uma experiência visual clara, intuitiva e alinhada à identidade da sua marca.",
-      iconPath: "M4 5h16v14H4zM4 10h16M9 10v9",
+      icon: "pencil-ruler",
     },
     {
       title: "Desenvolvimento",
       description:
         "Construo a solução com foco em performance, responsividade, acessibilidade e SEO, garantindo que o que foi planejado também funcione na prática.",
-      iconPath: "M4 6h16M4 12h12M4 18h8",
+      icon: "square-terminal",
     },
   ],
 };
@@ -470,7 +468,7 @@ export const pageCtaContent = {
     title: "Vamos organizar a experiência do seu site com mais clareza e objetivo.",
     lead:
       "Se sua página não está convertendo como deveria, posso mapear fricções e desenhar uma jornada mais objetiva para o seu público.",
-    bandClass: "dark-band",
+    bandClass: "landing-page-cta-light",
     primaryAction: {
       label: "Falar sobre UX Design",
       href: contactLinks.whatsapp,
@@ -486,7 +484,7 @@ export const pageCtaContent = {
     title: "Vamos alinhar sua identidade visual ao posicionamento da sua marca.",
     lead:
       "Posso estruturar uma direção visual consistente para fortalecer percepção, confiança e reconhecimento.",
-    bandClass: "dark-band",
+    bandClass: "landing-page-cta-light",
     primaryAction: {
       label: "Falar sobre identidade visual",
       href: contactLinks.whatsapp,
@@ -502,7 +500,7 @@ export const pageCtaContent = {
     title: "Vamos melhorar sua visibilidade orgânica com SEO técnico e conteúdo.",
     lead:
       "Posso diagnosticar gargalos, priorizar ajustes e estruturar uma base de SEO mais consistente para atrair tráfego qualificado.",
-    bandClass: "dark-band",
+    bandClass: "landing-page-cta-light",
     primaryAction: {
       label: "Falar sobre SEO",
       href: contactLinks.whatsapp,
@@ -518,7 +516,7 @@ export const pageCtaContent = {
     title: "Vamos transformar sua oferta em uma landing page que conduz à ação.",
     lead:
       "Posso estruturar uma página de conversão com narrativa objetiva, prova social e CTA claro para campanhas e lançamentos.",
-    bandClass: "dark-band",
+    bandClass: "landing-page-cta-light",
     primaryAction: {
       label: "Falar sobre Landing Page",
       href: contactLinks.whatsapp,

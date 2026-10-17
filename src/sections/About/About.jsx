@@ -58,9 +58,9 @@ export default function About() {
           <Button as={Link} to={primaryCta.to} variant="dark" title={primaryCta.label}>{primaryCta.label}</Button>
 
           <div className="home-about-cta-menu" ref={contactMenuRef}>
-            <button
-              type="button"
-              className="topnav-cta home-about-cta-trigger"
+            <Button
+              variant="outline"
+              className="home-about-cta-trigger"
               aria-label="Abrir opções de contato"
               title={secondaryCta.label}
               aria-expanded={isContactMenuOpen}
@@ -70,10 +70,8 @@ export default function About() {
                 setIsContactMenuOpen((current) => !current);
               }}
             >
-              <span className="topnav-cta-text">
-                <strong>{secondaryCta.label}</strong>
-              </span>
-            </button>
+              {secondaryCta.label}
+            </Button>
 
             {isContactMenuOpen && (
               <div className="topnav-cta-popover home-about-cta-popover" role="menu" aria-label="Opções de contato">

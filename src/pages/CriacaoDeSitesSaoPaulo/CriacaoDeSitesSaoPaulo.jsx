@@ -1,3 +1,5 @@
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
@@ -79,7 +81,7 @@ export default function CriacaoDeSitesSaoPaulo() {
         structuredData={createLocalPageSchema()}
       />
       <Layout>
-        <section className="section service-hero" aria-labelledby="sao-paulo-title">
+        <ScrollReveal as="section" className="section service-hero" aria-labelledby="sao-paulo-title">
           <div className="container service-landing-hero-grid">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Criação de sites em São Paulo</p>
@@ -145,33 +147,42 @@ export default function CriacaoDeSitesSaoPaulo() {
               </div>
             </figure>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section surface-band" id="beneficios-locais" aria-labelledby="local-benefits-title">
-          <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <div className="split-title">
-              <p className="eyebrow">Por que criar seu site em São Paulo</p>
-              <h2 id="local-benefits-title">Uma presença digital preparada para o seu mercado</h2>
-              <p className="lead">
-                Seu site precisa explicar o valor do negócio, facilitar a decisão e criar um caminho simples até o contato.
-              </p>
-            </div>
+        <ScrollReveal as="section" className="section surface-band local-benefits-section" id="beneficios-locais" aria-labelledby="local-benefits-title">
+          <div className="container stack local-benefits-container" style={{ gap: "var(--space-8)" }}>
+            <SectionHeader
+              label="Por que criar seu site em São Paulo"
+              title="Uma presença digital preparada para o seu mercado"
+              subtitle="Seu site precisa explicar o valor do negócio, facilitar a decisão e criar um caminho simples até o contato."
+              id="local-benefits-title"
+              align="center"
+              className="local-benefits-header"
+            />
 
-            <div className="grid-3" role="list">
+            <div className="grid-3 local-benefits-grid" role="list">
               {localBenefits.map((benefit) => (
-                <Card className="feature" key={benefit.title} role="listitem">
+                <Card className="feature local-benefit-card" key={benefit.title} role="listitem">
                   <h3>{benefit.title}</h3>
                   <p>{benefit.description}</p>
                 </Card>
               ))}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <Projects />
-        <Process />
-        <CTA content={pageCtaContent.siteCreationSaoPaulo} titleId="sao-paulo-cta-title" />
-        <LatestArticles limit={3} />
+        <ScrollReveal>
+          <Projects />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Process className="process-section--creation" />
+        </ScrollReveal>
+        <ScrollReveal>
+          <CTA className="surface-band"content={pageCtaContent.siteCreationSaoPaulo} titleId="sao-paulo-cta-title" />
+        </ScrollReveal>
+        <ScrollReveal>
+          <LatestArticles limit={3} />
+        </ScrollReveal>
       </Layout>
     </>
   );

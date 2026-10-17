@@ -10,7 +10,7 @@ export default function Faq({
   return (
     <Section
       id={id}
-      className={className}
+      className={`faq-reference-layout ${className}`.trim()}
       data-od-id="faq"
       aria-labelledby={titleId}
       itemScope

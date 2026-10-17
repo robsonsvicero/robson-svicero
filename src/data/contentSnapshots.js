@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-15T14:53:07.397Z",
+  "generatedAt": "2026-10-17T02:32:55.096Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 5,
+      "viewsCount": 7,
       "readingTime": "10 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 15,
+      "viewsCount": 17,
       "readingTime": "8 minutos"
     },
     {
@@ -118,7 +118,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-18T16:52:00+00:00",
-      "viewsCount": 5,
+      "viewsCount": 6,
       "readingTime": "9 minutos"
     },
     {
@@ -249,22 +249,26 @@ export const contentSnapshots = {
       "slug": "maeztro-gestao-app",
       "path": "/cases/maeztro-gestao-app",
       "title": "MAEZTRO Gestão - App",
-      "badge": "ux design + site",
+      "badge": "Landing Page",
+      "niche": "App de gestão",
+      "clientName": "GestFros Soluções Digitais",
+      "metaDescription": "Case MAEZTRO Gestão - App: estrategia, design e desenvolvimento orientados a resultado.",
       "publishedAt": "2026-09-14T00:00:00+00:00",
       "description": "Projeto MAEZTRO Gestão - App com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case MAEZTRO Gestão - App: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Maeztro Gestão"
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/image-2026-09-23T17-33-13-383Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-09-23T17-33-07-388Z.webp",
-      "slug": "menu-zona-norte-redesign",
-      "path": "/cases/menu-zona-norte-redesign",
-      "title": "Menu Zona Norte - Redesign",
-      "badge": "UI/UX Design + Site",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-10-15T17-32-05-407Z.jpg",
+      "slug": "menu-zona-norte",
+      "path": "/cases/menu-zona-norte",
+      "title": "Menu Zona Norte",
+      "badge": "Site Institucional, SEO",
+      "niche": "Guia Gastronômico",
+      "clientName": "Menu Zona Norte",
+      "metaDescription": "Case Menu Zona Norte: estrategia, design e desenvolvimento orientados a resultado.",
       "publishedAt": "2026-07-19T00:00:00+00:00",
-      "description": "Projeto Menu Zona Norte - Redesign com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Menu Zona Norte - Redesign: estrategia, design e desenvolvimento orientados a resultado.",
+      "description": "Projeto Menu Zona Norte com foco em posicionamento digital e conversao.",
       "alt": "Redesign Menu Zona Norte"
     },
     {
@@ -273,10 +277,12 @@ export const contentSnapshots = {
       "slug": "instituto-sublim",
       "path": "/cases/instituto-sublim",
       "title": "Instituto Sublim - Site",
-      "badge": "Site Institucional",
+      "badge": "Site Institucional, SEO",
+      "niche": "ONG",
+      "clientName": "Instituto Sublim",
+      "metaDescription": "Case Instituto Sublim - Site: estrategia, design e desenvolvimento orientados a resultado.",
       "publishedAt": "2026-06-19T00:00:00+00:00",
       "description": "Projeto Instituto Sublim - Site com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Instituto Sublim - Site: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Site Instituto Sublim"
     },
     {
@@ -286,9 +292,11 @@ export const contentSnapshots = {
       "path": "/cases/landing-page-estudio-de-estrategia-e-marca",
       "title": "Landing Page Estúdio de Estratégia e Marca",
       "badge": "Landing Page",
+      "niche": "Estúdio digital",
+      "clientName": "Svicero Studio",
+      "metaDescription": "Case Landing Page Estúdio de Estratégia e Marca: estrategia, design e desenvolvimento orientados a resultado.",
       "publishedAt": "2026-06-02T00:00:00+00:00",
       "description": "Projeto Landing Page Estúdio de Estratégia e Marca com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Landing Page Estúdio de Estratégia e Marca: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Svicero Studio"
     },
     {
@@ -298,9 +306,11 @@ export const contentSnapshots = {
       "path": "/cases/case-reposicionar-clinica-odontologica",
       "title": "Case - Clínica Odontológica",
       "badge": "Estratégia",
+      "niche": "Clínica odontológica",
+      "clientName": "Sigilo",
+      "metaDescription": "Case Case - Clínica Odontológica: estrategia, design e desenvolvimento orientados a resultado.",
       "publishedAt": "2026-05-12T00:00:00+00:00",
       "description": "Projeto Case - Clínica Odontológica com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Case - Clínica Odontológica: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "Identidade digital premium"
     },
     {
@@ -309,10 +319,12 @@ export const contentSnapshots = {
       "slug": "andre-barbosa",
       "path": "/cases/andre-barbosa",
       "title": "Andre Barbosa",
-      "badge": "Plataforma imobiliária",
+      "badge": "Plataforma, Estratégia",
+      "niche": "Imobiliário",
+      "clientName": "André Barbosa Consultor Imobiliário",
+      "metaDescription": "Case Andre Barbosa: estrategia, design e desenvolvimento orientados a resultado.",
       "publishedAt": "2026-04-30T00:00:00+00:00",
       "description": "Projeto Andre Barbosa com foco em posicionamento digital e conversao.",
-      "metaDescription": "Case Andre Barbosa: estrategia, design e desenvolvimento orientados a resultado.",
       "alt": "André Barbosa Consultor Imobiliário"
     }
   ]

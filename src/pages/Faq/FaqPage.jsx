@@ -32,22 +32,11 @@ export default function FaqPage() {
       />
 
       <Layout>
-        <section className="section faq-page-hero" aria-labelledby="faq-page-title">
-          <div className="container stack faq-page-hero-copy">
-            <p className="eyebrow">Perguntas frequentes</p>
-            <h1 id="faq-page-title">Dúvidas antes de criar seu site?</h1>
-            <p className="lead">
-              Encontre respostas claras sobre como funciona o projeto, o que está incluído e o que
-              considerar antes de começar.
-            </p>
-          </div>
-        </section>
-
         <Faq
           content={faqPageContent}
           id="perguntas"
           titleId="faq-list-title"
-          className="surface-band faq-page-list"
+          className="faq-page-list"
         />
 
         <CTA

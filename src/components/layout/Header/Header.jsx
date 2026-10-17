@@ -1,11 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { NavLink } from "react-router-dom";
-import Button from "../../ui/Button/Button.jsx";
+import { NavLink, useLocation } from "react-router-dom";
+import Button, { TrajectoryArrow } from "../../ui/Button/Button.jsx";
 import { contactLinks, headerContent } from "../../../content/siteContent.js";
 
 function WhatsAppIcon() {
   return (
-    <svg viewBox="0 0 24 24" role="presentation" focusable="false" aria-hidden="true">
+    <svg viewBox="0 0 24 24" role="presentation" focusable="false" aria-hidden="true" width="20" height="20" fill="currentColor">
       <path d="M20.52 3.48A11.83 11.83 0 0 0 12.01 0C5.4 0 .02 5.37.02 11.99c0 2.11.55 4.17 1.58 5.97L0 24l6.18-1.62a11.96 11.96 0 0 0 5.82 1.5h.01C18.63 23.88 24 18.51 24 11.89c0-3.21-1.25-6.22-3.48-8.41Zm-8.51 18.3h-.01a9.94 9.94 0 0 1-5.07-1.39l-.36-.21-3.67.96.98-3.58-.23-.37A9.93 9.93 0 0 1 2.52 12C2.52 6.8 6.76 2.56 11.99 2.56c2.53 0 4.9.99 6.67 2.77a9.37 9.37 0 0 1 2.77 6.63c0 5.21-4.24 9.82-9.42 9.82Zm5.5-7.06c-.3-.15-1.75-.86-2.02-.95-.27-.1-.46-.15-.66.15-.19.3-.76.95-.93 1.14-.17.19-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.8-1.49-1.79-1.66-2.09-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.37-.02-.53-.07-.15-.66-1.59-.9-2.18-.24-.57-.48-.5-.66-.51h-.56c-.19 0-.5.07-.76.37-.26.3-1 1-1 2.45s1.03 2.85 1.18 3.05c.15.2 2.1 3.21 5.09 4.5.71.31 1.26.49 1.7.63.71.23 1.35.2 1.86.12.57-.08 1.75-.72 2-1.41.24-.69.24-1.28.17-1.41-.07-.14-.26-.22-.56-.37Z" />
     </svg>
   );
@@ -13,7 +13,7 @@ function WhatsAppIcon() {
 
 function TelegramIcon() {
   return (
-    <svg viewBox="0 0 24 24" role="presentation" focusable="false" aria-hidden="true">
+    <svg viewBox="0 0 24 24" role="presentation" focusable="false" aria-hidden="true" width="20" height="20" fill="currentColor">
       <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0Zm5.14 6.27-1.89 8.91c-.14.63-.52.79-1.05.49l-2.9-2.13-1.4 1.35c-.15.15-.28.28-.58.28l.21-2.94 5.35-4.83c.23-.2-.05-.31-.35-.11L7.76 12.4l-2.9-.9c-.63-.2-.64-.63.13-.94l11.38-4.39c.53-.2 1 .12.82.92Z" />
     </svg>
   );
@@ -21,302 +21,307 @@ function TelegramIcon() {
 
 export default function Header() {
   const { logo, navItems, cta } = headerContent;
+  const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
   const [openSubmenu, setOpenSubmenu] = useState(null);
-  const [isContactMenuOpen, setIsContactMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(() => typeof window !== "undefined" ? window.innerWidth <= 920 : false);
-  const topnavRef = useRef(null);
-  const desktopContactMenuRef = useRef(null);
-  const mobileContactMenuRef = useRef(null);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isContactPopoverOpen, setIsContactPopoverOpen] = useState(false);
+  const contactPopoverRef = useRef(null);
+
+  const isHomePage = location.pathname === "/";
+  const isOverDark = isHomePage && !isScrolled;
 
   useEffect(() => {
-    const handleViewportChange = () => {
-      const mobile = window.innerWidth <= 920;
-      setIsMobile(mobile);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 40);
+    };
 
-      if (!mobile) {
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close mobile overlay on route change
+  useEffect(() => {
+    setIsOpen(false);
+    setOpenSubmenu(null);
+    setIsContactPopoverOpen(false);
+  }, [location.pathname]);
+
+  // Handle escape and outside clicks
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === "Escape") {
         setIsOpen(false);
+        setIsContactPopoverOpen(false);
         setOpenSubmenu(null);
-        setIsContactMenuOpen(false);
       }
     };
 
-    const closeOnOutsideClick = (event) => {
-      if (!topnavRef.current?.contains(event.target)) {
-        setIsOpen(false);
-        setOpenSubmenu(null);
-        setIsContactMenuOpen(false);
-        return;
-      }
-
-      const desktopTrigger = desktopContactMenuRef.current;
-      const mobileTrigger = mobileContactMenuRef.current;
-      const currentTrigger = isMobile ? mobileTrigger : desktopTrigger;
-
-      if (currentTrigger && !currentTrigger.contains(event.target)) {
-        setIsContactMenuOpen(false);
+    const handleClickOutside = (event) => {
+      if (contactPopoverRef.current && !contactPopoverRef.current.contains(event.target)) {
+        setIsContactPopoverOpen(false);
       }
     };
 
-    handleViewportChange();
-    window.addEventListener("resize", handleViewportChange);
-    document.addEventListener("click", closeOnOutsideClick);
-
+    document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      window.removeEventListener("resize", handleViewportChange);
-      document.removeEventListener("click", closeOnOutsideClick);
+      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("click", handleClickOutside);
     };
-  }, [isMobile]);
+  }, []);
+
+  // Prevent background scroll when mobile overlay is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
   return (
-    <header
-      className={`topnav ${isOpen ? "open" : ""}`.trim()}
-      data-od-id="topnav"
-      ref={topnavRef}
-    >
-      <div className="container topnav-inner">
-        <NavLink className="logo" to="/" aria-label="Robson Svicero - Início" title="Ir para o início">
-          <img
-            src={logo.src}
-            alt={logo.alt}
-            title={logo.alt}
-            width={logo.width}
-            height={logo.height}
-          />
-        </NavLink>
+    <>
+      <header
+        className={`navbar ${isOverDark ? "navbar--over-dark" : ""} ${isScrolled ? "is-scrolled" : ""}`.trim()}
+        id="navbar"
+        aria-label="Navegação principal"
+      >
+        <div className="container navbar_inner">
+          {/* Logo */}
+          <NavLink
+            className="navbar_logo"
+            to="/"
+            aria-label="Robson Svicero — Criação de sites profissionais"
+            title="Ir para o início"
+          >
+            <img
+              src={isOverDark || isScrolled ? logo.src : "/assets/images/logo_azul.svg"}
+              alt="Robson Svicero"
+              className="navbar_logo-img"
+              width="200"
+              height="30"
+            />
+          </NavLink>
 
-        <button
-          className="menu-toggle"
-          type="button"
-          aria-label="Abrir menu de navegacao"
-          aria-expanded={isOpen}
-          aria-controls="primary-nav"
-          onClick={() => setIsOpen((current) => !current)}
-        >
-          <span className="toggle-bar1" />
-          <span className="toggle-bar2" />
-          <span className="toggle-bar3" />
-        </button>
+          {/* Desktop Nav Menu */}
+          <nav className="navbar_menu" aria-label="Menu principal">
+            {navItems.map((item) => {
+              if (item.items?.length) {
+                const isSubmenuOpen = openSubmenu === item.label;
 
-        <nav id="primary-nav" aria-label="Navegacao principal">
-          {navItems.map((item) => {
-            if (item.items?.length) {
-              const isSubmenuOpen = openSubmenu === item.label;
-
-              return (
-                <div
-                  className="topnav-item topnav-item--has-submenu"
-                  key={`${item.label}-${item.to}`}
-                  onMouseEnter={() => {
-                    if (!isMobile) setOpenSubmenu(item.label);
-                  }}
-                  onMouseLeave={() => {
-                    if (!isMobile) setOpenSubmenu(null);
-                  }}
-                >
-                  <div className="topnav-parent-link">
+                return (
+                  <div
+                    className="navbar_item navbar_item--has-dropdown"
+                    key={`${item.label}-${item.to}`}
+                    onMouseEnter={() => setOpenSubmenu(item.label)}
+                    onMouseLeave={() => setOpenSubmenu(null)}
+                  >
                     <NavLink
-                      className="topnav-link"
+                      className="navbar_link"
                       to={item.to}
-                      title={`Ir para ${item.label}`}
-                      onClick={() => {
-                        setIsOpen(false);
-                        setOpenSubmenu(null);
-                      }}
+                      title={item.label}
                     >
                       {item.label}
-                    </NavLink>
-                  <button
-                    className="topnav-link topnav-submenu-toggle"
-                    type="button"
-                    title={`Abrir submenu de ${item.label}`}
-                    aria-label={`Abrir submenu de ${item.label}`}
-                    aria-expanded={isSubmenuOpen}
-                    aria-controls={`submenu-${item.label}`}
-                    onClick={(event) => {
-                      event.stopPropagation();
-                      setOpenSubmenu((current) => (current === item.label ? null : item.label));
-                    }}
-                  >
-                    <span className="topnav-submenu-caret" aria-hidden="true">
                       <svg
-                        viewBox="0 0 24 24"
-                        role="presentation"
-                        focusable="false"
-                        className={`topnav-submenu-caret-icon${isSubmenuOpen ? " is-open" : ""}`}
+                        className={`navbar_caret ${isSubmenuOpen ? "is-open" : ""}`}
+                        width="10"
+                        height="6"
+                        viewBox="0 0 10 6"
+                        fill="none"
+                        aria-hidden="true"
                       >
-                        <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        <path
+                          d="M1 1L5 5L9 1"
+                          stroke="currentColor"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
                       </svg>
-                    </span>
-                  </button>
-                  </div>
+                    </NavLink>
 
-                  <div
-                    className={`topnav-submenu${isSubmenuOpen ? " is-open" : ""}`}
-                    id={`submenu-${item.label}`}
-                    aria-label={`Submenu de ${item.label}`}
-                  >
-                    {item.items.map((subItem) => (
-                      <NavLink
-                        key={`${item.label}-${subItem.label}-${subItem.to}`}
-                        className="topnav-sublink"
-                        to={subItem.to}
-                        title={`Ir para ${subItem.label}`}
-                        onClick={() => {
-                          setIsOpen(false);
-                          setOpenSubmenu(null);
-                        }}
-                      >
-                        {subItem.label}
-                      </NavLink>
-                    ))}
+                    {isSubmenuOpen && (
+                      <div className="navbar_dropdown" role="menu">
+                        {item.items.map((subItem) => (
+                          <NavLink
+                            key={`${item.label}-${subItem.label}-${subItem.to}`}
+                            className="navbar_dropdown-link"
+                            to={subItem.to}
+                            role="menuitem"
+                            title={subItem.label}
+                            onClick={() => setOpenSubmenu(null)}
+                          >
+                            {subItem.label}
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
                   </div>
-                </div>
+                );
+              }
+
+              return (
+                <NavLink
+                  key={`${item.label}-${item.to}`}
+                  className="navbar_link"
+                  to={item.to}
+                  end={item.to === "/"}
+                  title={item.label}
+                >
+                  {item.label}
+                </NavLink>
               );
-            }
+            })}
+          </nav>
 
-            return (
-              <NavLink
-                key={`${item.label}-${item.to}`}
-                className="topnav-link"
-                to={item.to}
-                end={item.to === "/"}
-                title={`Ir para ${item.label}`}
-                onClick={() => {
-                  setIsOpen(false);
-                  setOpenSubmenu(null);
-                }}
-              >
-                {item.label}
-              </NavLink>
-            );
-          })}
-
-          {isMobile && isOpen && (
-            <div className="topnav-mobile-cta-wrap" ref={mobileContactMenuRef}>
+          {/* Actions: CTA & Hamburger */}
+          <div className="navbar_actions">
+            <div className="navbar_cta-wrap" ref={contactPopoverRef}>
               <Button
-                as="button"
-                type="button"
-                className="topnav-cta topnav-cta-whatsapp topnav-mobile-cta"
+                variant="primary"
+                size="sm"
+                className="navbar_cta-link"
                 aria-label={cta.label}
-                title={cta.label}
-                aria-expanded={isContactMenuOpen}
                 aria-haspopup="menu"
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setIsContactMenuOpen((current) => !current);
+                aria-expanded={isContactPopoverOpen}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsContactPopoverOpen((prev) => !prev);
                 }}
               >
-                <span className="topnav-cta-text">
-                  <strong>{cta.label}</strong>
-                </span>
+                Falar com Especialista
               </Button>
 
-              {isContactMenuOpen && (
-                <div className="topnav-cta-popover topnav-cta-popover--mobile" role="menu" aria-label="Opções de contato">
-                  <p className="topnav-cta-popover-title">Como você prefere falar comigo?</p>
-
+              {isContactPopoverOpen && (
+                <div className="navbar_popover" role="menu" aria-label="Canais de contato">
+                  <p className="navbar_popover-title">Como prefere conversar?</p>
                   <a
-                    className="topnav-cta-option"
+                    className="navbar_popover-item"
                     href={contactLinks.whatsapp}
                     target="_blank"
                     rel="noreferrer noopener"
                     role="menuitem"
-                    onClick={() => setIsContactMenuOpen(false)}
+                    onClick={() => setIsContactPopoverOpen(false)}
                   >
-                    <span className="topnav-cta-option-icon topnav-cta-option-icon--whatsapp" aria-hidden="true">
+                    <span className="navbar_popover-icon navbar_popover-icon--whatsapp">
                       <WhatsAppIcon />
                     </span>
-                    <span className="topnav-cta-option-copy">
+                    <div className="navbar_popover-copy">
                       <strong>WhatsApp</strong>
-                      <span>Conversar pelo WhatsApp</span>
-                    </span>
+                      <span>Conversar em tempo real</span>
+                    </div>
                   </a>
-
                   <a
-                    className="topnav-cta-option"
+                    className="navbar_popover-item"
                     href={contactLinks.telegram}
                     target="_blank"
                     rel="noreferrer noopener"
                     role="menuitem"
-                    onClick={() => setIsContactMenuOpen(false)}
+                    onClick={() => setIsContactPopoverOpen(false)}
                   >
-                    <span className="topnav-cta-option-icon topnav-cta-option-icon--telegram" aria-hidden="true">
+                    <span className="navbar_popover-icon navbar_popover-icon--telegram">
                       <TelegramIcon />
                     </span>
-                    <span className="topnav-cta-option-copy">
+                    <div className="navbar_popover-copy">
                       <strong>Telegram</strong>
-                      <span>Conversar pelo Telegram</span>
-                    </span>
+                      <span>Mensagem direta segura</span>
+                    </div>
                   </a>
                 </div>
               )}
             </div>
-          )}
-        </nav>
 
-        {!isMobile && (
-          <div className="topnav-cta-wrapper" ref={desktopContactMenuRef}>
-            <Button
-              as="button"
+            {/* Hamburger Button */}
+            <button
+              className={`navbar_hamburger ${isOpen ? "is-open" : ""}`}
+              id="nav-toggle"
               type="button"
-              className="topnav-cta topnav-cta-whatsapp"
-              aria-label={cta.label}
-              title={cta.label}
-              aria-expanded={isContactMenuOpen}
-              aria-haspopup="menu"
-              onClick={(event) => {
-                event.stopPropagation();
-                setIsContactMenuOpen((current) => !current);
-              }}
+              aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+              aria-expanded={isOpen}
+              onClick={() => setIsOpen((prev) => !prev)}
             >
-              <span className="topnav-cta-text">
-                <strong>{cta.label}</strong>
-              </span>
+              <span />
+              <span />
+              <span />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Trajectory Fullscreen Mobile Overlay */}
+      <div
+        className={`navbar_overlay ${isOpen ? "is-open" : ""}`}
+        id="navOverlay"
+        aria-hidden={!isOpen}
+      >
+        <div className="navbar_overlay-inner">
+          <nav className="navbar_overlay-menu" aria-label="Navegação mobile">
+            {navItems.map((item) => (
+              <div key={`mobile-${item.label}-${item.to}`} className="navbar_overlay-group">
+                <NavLink
+                  className="navbar_overlay-link"
+                  to={item.to}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </NavLink>
+                {item.items && (
+                  <div className="navbar_overlay-subitems">
+                    {item.items.map((sub) => (
+                      <NavLink
+                        key={`mob-sub-${sub.to}`}
+                        to={sub.to}
+                        className="navbar_overlay-sublink"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {sub.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+
+          <div className="navbar_overlay-foot">
+            <Button
+              href={contactLinks.whatsapp}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="navbar_overlay-cta"
+              onClick={() => setIsOpen(false)}
+            >
+              Vamos Conversar
             </Button>
 
-            {isContactMenuOpen && (
-              <div className="topnav-cta-popover" role="menu" aria-label="Opções de contato">
-                <p className="topnav-cta-popover-title">Como você prefere falar comigo?</p>
-
-                <a
-                  className="topnav-cta-option"
-                  href={contactLinks.whatsapp}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  role="menuitem"
-                  onClick={() => setIsContactMenuOpen(false)}
-                >
-                  <span className="topnav-cta-option-icon topnav-cta-option-icon--whatsapp" aria-hidden="true">
-                    <WhatsAppIcon />
-                  </span>
-                  <span className="topnav-cta-option-copy">
-                    <strong>WhatsApp</strong>
-                    <span>Conversar pelo WhatsApp</span>
-                  </span>
-                </a>
-
-                <a
-                  className="topnav-cta-option"
-                  href={contactLinks.telegram}
-                  target="_blank"
-                  rel="noreferrer noopener"
-                  role="menuitem"
-                  onClick={() => setIsContactMenuOpen(false)}
-                >
-                  <span className="topnav-cta-option-icon topnav-cta-option-icon--telegram" aria-hidden="true">
-                    <TelegramIcon />
-                  </span>
-                  <span className="topnav-cta-option-copy">
-                    <strong>Telegram</strong>
-                    <span>Conversar pelo Telegram</span>
-                  </span>
-                </a>
-              </div>
-            )}
+            <div className="navbar_overlay-channels">
+              <a
+                href={contactLinks.whatsapp}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="navbar_overlay-chip"
+              >
+                <WhatsAppIcon />
+                <span>WhatsApp</span>
+              </a>
+              <a
+                href={contactLinks.telegram}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="navbar_overlay-chip"
+              >
+                <TelegramIcon />
+                <span>Telegram</span>
+              </a>
+            </div>
           </div>
-        )}
+        </div>
       </div>
-    </header>
+    </>
   );
 }

@@ -1,24 +1,30 @@
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { Link } from "react-router-dom";
 import CTA from "../../components/CTA/CTA.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
+import { Target, LayoutTemplate, Gauge, SearchCheck, PenTool, Code2 } from "lucide-react";
 import { contactLinks, pageCtaContent, routes } from "../../content/siteContent.js";
 import { absoluteUrl } from "../../utils/seo.js";
 
 const pillars = [
   {
+    icon: Target,
     title: "Mensagem orientada à conversão",
     description:
       "Organização da oferta, do argumento principal e da chamada para ação para facilitar a decisão do visitante.",
   },
   {
+    icon: LayoutTemplate,
     title: "Estrutura pensada para campanhas",
     description:
       "Blocos curtos, prova social e fluxo de leitura que funcionam bem para anúncios, lançamentos e captação de leads.",
   },
   {
+    icon: Gauge,
     title: "Base pronta para medir resultados",
     description:
       "Landing page desenvolvida com SEO essencial, performance e rastreio preparados para acompanhar a campanha.",
@@ -26,10 +32,26 @@ const pillars = [
 ];
 
 const deliverables = [
-  "Diagnóstico da oferta e do objetivo da campanha.",
-  "Estrutura da landing page com hierarquia de conteúdo.",
-  "Direção visual e texto base orientados à conversão.",
-  "Implementação em React com SEO e responsividade.",
+  {
+    icon: SearchCheck,
+    title: "Diagnóstico da oferta",
+    description: "Objetivo da campanha, público e proposta de valor alinhados à conversão.",
+  },
+  {
+    icon: LayoutTemplate,
+    title: "Estrutura da página",
+    description: "Hierarquia de conteúdo organizada para conduzir a leitura e a decisão.",
+  },
+  {
+    icon: PenTool,
+    title: "Direção visual e textual",
+    description: "Interface e texto-base pensados para comunicar valor e gerar ação.",
+  },
+  {
+    icon: Code2,
+    title: "Implementação pronta",
+    description: "Desenvolvimento em React com SEO essencial e experiência responsiva.",
+  },
 ];
 
 const stages = [
@@ -97,7 +119,7 @@ export default function LandingPage() {
       />
 
       <Layout>
-        <section className="section service-hero" aria-labelledby="landing-page-title">
+        <ScrollReveal as="section" className="section service-hero" aria-labelledby="landing-page-title">
           <div className="container service-landing-hero-grid">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Serviços • Landing Page</p>
@@ -162,54 +184,78 @@ export default function LandingPage() {
               </div>
             </figure>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="landing-pillars-title">
-          <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <div className="split-title">
-              <p className="eyebrow">O que inclui</p>
-              <h2 id="landing-pillars-title">Pilares do serviço de Landing Page</h2>
-            </div>
+        <ScrollReveal as="section" className="section landing-includes-section" aria-labelledby="landing-pillars-title">
+          <div className="container stack landing-includes-container" style={{ gap: "var(--space-8)" }}>
+            <SectionHeader
+              label="O que inclui"
+              title="Pilares do serviço de Landing Page"
+              subtitle="Elementos estratégicos de copy, design persuasivo e infraestrutura veloz para maximizar conversões."
+              id="landing-pillars-title"
+              align="center"
+              className="landing-includes-header"
+            />
 
-            <div className="grid-3" role="list">
-              {pillars.map((pillar) => (
-                <Card className="feature" key={pillar.title} role="listitem">
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </Card>
-              ))}
+            <div className="grid-3 landing-includes-grid" role="list">
+              {pillars.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <Card className="feature landing-includes-card" key={pillar.title} role="listitem">
+                    <span className="landing-includes-icon" aria-hidden="true">
+                      <Icon size={24} strokeWidth={1.8} />
+                    </span>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.description}</p>
+                  </Card>
+                );
+              })}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section dark-band" aria-labelledby="landing-deliverables-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">Entregáveis</p>
-              <h2 id="landing-deliverables-title">O que você recebe ao final do projeto</h2>
-              <p className="lead">
-                Uma landing page pronta para publicar, com a base necessária para comunicar, medir
-                e otimizar a oferta com mais clareza.
-              </p>
+        <ScrollReveal as="section" className="section landing-deliverables-section" aria-labelledby="landing-deliverables-title">
+          <div className="container landing-deliverables-layout">
+            <SectionHeader
+              label="Entregáveis"
+              title="Tudo o que sua campanha precisa para sair do papel."
+              subtitle="Uma entrega completa para publicar, medir e evoluir sua landing page com segurança."
+              id="landing-deliverables-title"
+              align="left"
+              className="landing-deliverables-header"
+              style={{ marginBottom: 0 }}
+            />
+
+            <div className="landing-deliverables-grid" role="list" aria-label="Entregáveis do projeto">
+              {deliverables.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Card className="landing-deliverable-card" key={item.title} role="listitem">
+                    <div className="landing-deliverable-topline">
+                      <span className="landing-deliverable-icon" aria-hidden="true">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </span>
+                      <span className="landing-deliverable-number">0{index + 1}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </Card>
+                );
+              })}
             </div>
-
-            <Card className="stack" as="div">
-              {deliverables.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </Card>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="landing-stages-title">
+        <ScrollReveal as="section" className="section process-section--creation landing-how-it-works-section" aria-labelledby="landing-stages-title">
           <div className="container grid-1-2">
-            <div>
-              <p className="eyebrow">Como funciona</p>
-              <h2 id="landing-stages-title">Etapas do trabalho em Landing Page</h2>
-            </div>
+            <SectionHeader
+              label="Como funciona"
+              title="Etapas do trabalho em Landing Page"
+              subtitle="Do diagnóstico do público ao teste e publicação da página com rastreamento completo de métricas."
+              id="landing-stages-title"
+              align="left"
+              style={{ marginBottom: 0 }}
+            />
 
             <ol className="process-list" aria-label="Etapas do serviço de Landing Page">
               {stages.map((stage) => (
@@ -223,9 +269,11 @@ export default function LandingPage() {
               ))}
             </ol>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <CTA content={pageCtaContent.landingPageService} titleId="landing-page-cta-title" />
+        <ScrollReveal>
+          <CTA content={pageCtaContent.landingPageService} titleId="landing-page-cta-title" />
+        </ScrollReveal>
       </Layout>
     </>
   );

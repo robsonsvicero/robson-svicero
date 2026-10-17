@@ -1,6 +1,38 @@
+import { createRef, useRef } from "react";
+import { motion, useInView, useReducedMotion } from "motion/react";
+import ScrollReveal from "../../components/ScrollReveal.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import CTA from "../../components/CTA/CTA.jsx";
+import HeroParticles from "../../sections/Hero/HeroParticles.jsx";
+
+function ClaroPillar({ pillar, itemRef, previousRef }) {
+  const shouldReduceMotion = useReducedMotion();
+  const isVisible = useInView(itemRef, { amount: 0.5, once: true });
+  const previousIsVisible = useInView(previousRef || itemRef, {
+    amount: previousRef ? 1 : 0.15,
+    once: true,
+  });
+  const hasEntered = isVisible && (!previousRef || previousIsVisible);
+
+  return (
+    <motion.li
+      ref={itemRef}
+      initial={{ opacity: 0, x: shouldReduceMotion ? 0 : 32 }}
+      animate={hasEntered ? { opacity: 1, x: 0 } : undefined}
+      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <span className="claro-method-page-initial" aria-hidden="true">
+        {pillar.initial}
+      </span>
+      <div>
+        <h3>{pillar.name}</h3>
+        <p className="claro-method-page-question">{pillar.question}</p>
+        <p>{pillar.description}</p>
+      </div>
+    </motion.li>
+  );
+}
 
 const pillars = [
   {
@@ -50,6 +82,11 @@ const methodCta = {
 };
 
 export default function ClaroMethodPage() {
+  const pillarRefs = useRef([]);
+  if (pillarRefs.current.length !== pillars.length) {
+    pillarRefs.current = pillars.map(() => createRef());
+  }
+
   return (
     <>
       <SEO
@@ -60,7 +97,7 @@ export default function ClaroMethodPage() {
       />
 
       <Layout>
-        <section className="section claro-method-page-hero" aria-labelledby="claro-method-page-title">
+        <ScrollReveal as="section" className="section claro-method-page-hero" aria-labelledby="claro-method-page-title">
           <div className="container claro-method-page-hero-grid">
             <div className="stack claro-method-page-hero-copy" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Framework estratégico</p>
@@ -83,9 +120,10 @@ export default function ClaroMethodPage() {
               </picture>
             </figure>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section claro-method-page-intro" aria-labelledby="claro-method-intro-title">
+        <ScrollReveal as="section" className="section claro-method-page-intro service-area-home-background" aria-labelledby="claro-method-intro-title">
+          <HeroParticles />
           <div className="container claro-method-page-intro-grid">
             <div className="stack" style={{ gap: "var(--space-4)" }}>
               <p className="eyebrow">Definição oficial</p>
@@ -108,9 +146,9 @@ export default function ClaroMethodPage() {
               </p>
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section surface-band" aria-labelledby="claro-principle-title">
+        <ScrollReveal as="section" className="section surface-band" aria-labelledby="claro-principle-title">
           <div className="container claro-method-principle">
             <p className="eyebrow">Princípio fundamental</p>
             <h2 id="claro-principle-title">
@@ -131,7 +169,7 @@ export default function ClaroMethodPage() {
               <span>Decisões mais fáceis</span>
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
         <section className="section claro-method-page-pillars-section" id="pilares" aria-labelledby="claro-pillars-title">
           <div className="container">
@@ -145,23 +183,19 @@ export default function ClaroMethodPage() {
             </div>
 
             <ol className="claro-method-page-pillars">
-              {pillars.map((pillar) => (
-                <li key={pillar.initial}>
-                  <span className="claro-method-page-initial" aria-hidden="true">
-                    {pillar.initial}
-                  </span>
-                  <div>
-                    <h3>{pillar.name}</h3>
-                    <p className="claro-method-page-question">{pillar.question}</p>
-                    <p>{pillar.description}</p>
-                  </div>
-                </li>
+              {pillars.map((pillar, index) => (
+                <ClaroPillar
+                  key={pillar.initial}
+                  pillar={pillar}
+                  itemRef={pillarRefs.current[index]}
+                  previousRef={pillarRefs.current[index - 1]}
+                />
               ))}
             </ol>
           </div>
         </section>
 
-        <section className="section claro-method-page-scope" aria-labelledby="claro-scope-title">
+        <ScrollReveal as="section" className="section claro-method-page-scope" aria-labelledby="claro-scope-title">
           <div className="container claro-method-page-scope-grid">
             <div className="stack" style={{ gap: "var(--space-4)" }}>
               <p className="eyebrow">Um modelo de interpretação</p>
@@ -190,9 +224,11 @@ export default function ClaroMethodPage() {
               </article>
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <CTA content={methodCta} titleId="claro-method-cta-title" />
+        <ScrollReveal>
+          <CTA content={methodCta} titleId="claro-method-cta-title" />
+        </ScrollReveal>
       </Layout>
     </>
   );

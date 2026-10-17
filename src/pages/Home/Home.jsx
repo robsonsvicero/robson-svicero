@@ -3,9 +3,9 @@ import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import { useHomeInteractions } from "../../hooks/useHomeInteractions.js";
 import { absoluteUrl } from "../../utils/seo.js";
-import Contact from "../../sections/Contact/Contact.jsx";
 import CredibilityBar from "../../sections/CredibilityBar/CredibilityBar.jsx";
 import Hero from "../../sections/Hero/Hero.jsx";
+import HomeCta from "../../sections/HomeCta/HomeCta.jsx";
 import Projects from "../../sections/Projects/Projects.jsx";
 import Services from "../../sections/Services/Services.jsx";
 import Testimonials from "../../sections/Testimonials/Testimonials.jsx";
@@ -58,12 +58,11 @@ export default function Home() {
       />
       <Layout mainProps={{ id: "inicio" }}>
         <Hero />
-        <CredibilityBar />
         <Services />
         <Projects />
         <Testimonials />
         <LatestArticles />
-        <Contact />
+        <HomeCta />
       </Layout>
       {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}
     </>

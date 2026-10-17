@@ -1,24 +1,30 @@
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { Link } from "react-router-dom";
 import CTA from "../../components/CTA/CTA.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
+import { SearchCheck, LayoutTemplate, Gauge, Target, PenTool } from "lucide-react";
 import { contactLinks, pageCtaContent, routes } from "../../content/siteContent.js";
 import { absoluteUrl } from "../../utils/seo.js";
 
 const pillars = [
   {
+    icon: SearchCheck,
     title: "Diagnóstico técnico",
     description:
       "Análise de estrutura, performance, rastreabilidade e indexação para identificar barreiras que prejudicam seu posicionamento.",
   },
   {
+    icon: LayoutTemplate,
     title: "SEO on-page estratégico",
     description:
       "Ajustes de arquitetura de conteúdo, headings, metadados e intenção de busca para melhorar relevância nas páginas-chave.",
   },
   {
+    icon: Gauge,
     title: "Plano de evolução",
     description:
       "Prioridades claras para evoluir o SEO com consistência, focando no que traz impacto real de visibilidade e conversão.",
@@ -26,10 +32,26 @@ const pillars = [
 ];
 
 const deliverables = [
-  "Relatório de diagnóstico com gargalos técnicos e oportunidades.",
-  "Mapa de ajustes on-page por página prioritária.",
-  "Recomendações para estrutura de conteúdo e intenção de busca.",
-  "Plano de ações com prioridade de implementação.",
+  {
+    icon: SearchCheck,
+    title: "Diagnóstico técnico",
+    description: "Relatório de diagnóstico com gargalos técnicos e oportunidades.",
+  },
+  {
+    icon: LayoutTemplate,
+    title: "Ajustes on-page",
+    description: "Mapa de ajustes on-page por página prioritária.",
+  },
+  {
+    icon: PenTool,
+    title: "Direção de conteúdo",
+    description: "Recomendações para estrutura de conteúdo e intenção de busca.",
+  },
+  {
+    icon: Target,
+    title: "Plano de implementação",
+    description: "Plano de ações com prioridade de implementação.",
+  },
 ];
 
 const stages = [
@@ -97,7 +119,7 @@ export default function SeoService() {
       />
 
       <Layout>
-        <section className="section service-hero" aria-labelledby="seo-service-title">
+        <ScrollReveal as="section" className="section service-hero" aria-labelledby="seo-service-title">
           <div className="container service-landing-hero-grid">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Serviços • SEO</p>
@@ -162,54 +184,78 @@ export default function SeoService() {
               </div>
             </figure>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="seo-pillars-title">
-          <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <div className="split-title">
-              <p className="eyebrow">O que inclui</p>
-              <h2 id="seo-pillars-title">Pilares do serviço de SEO</h2>
-            </div>
+        <ScrollReveal as="section" className="section landing-includes-section" aria-labelledby="seo-pillars-title">
+          <div className="container stack landing-includes-container" style={{ gap: "var(--space-8)" }}>
+            <SectionHeader
+              label="O que inclui"
+              title="Pilares do serviço de SEO"
+              subtitle="Otimizações técnicas, arquitetura semântica e conteúdo estratégico para atrair tráfego qualificado de forma consistente."
+              id="seo-pillars-title"
+              align="center"
+              className="landing-includes-header"
+            />
 
-            <div className="grid-3" role="list">
-              {pillars.map((pillar) => (
-                <Card className="feature" key={pillar.title} role="listitem">
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </Card>
-              ))}
+            <div className="grid-3 landing-includes-grid" role="list">
+              {pillars.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <Card className="feature landing-includes-card" key={pillar.title} role="listitem">
+                    <span className="landing-includes-icon" aria-hidden="true">
+                      <Icon size={24} strokeWidth={1.8} />
+                    </span>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.description}</p>
+                  </Card>
+                );
+              })}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section dark-band" aria-labelledby="seo-deliverables-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">Entregáveis</p>
-              <h2 id="seo-deliverables-title">O que você recebe ao final do projeto</h2>
-              <p className="lead">
-                Um direcionamento objetivo para melhorar performance orgânica com prioridades
-                claras, implementação orientada e evolução contínua.
-              </p>
+        <ScrollReveal as="section" className="section landing-deliverables-section" aria-labelledby="seo-deliverables-title">
+          <div className="container landing-deliverables-layout">
+            <SectionHeader
+              label="Entregáveis"
+              title="O que você recebe ao final do projeto"
+              subtitle="Um direcionamento objetivo para melhorar performance orgânica com prioridades claras, implementação orientada e evolução contínua."
+              id="seo-deliverables-title"
+              align="left"
+              className="landing-deliverables-header"
+              style={{ marginBottom: 0 }}
+            />
+
+            <div className="landing-deliverables-grid" role="list" aria-label="Entregáveis do serviço de SEO">
+              {deliverables.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Card className="landing-deliverable-card" key={item.title} role="listitem">
+                    <div className="landing-deliverable-topline">
+                      <span className="landing-deliverable-icon" aria-hidden="true">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </span>
+                      <span className="landing-deliverable-number">0{index + 1}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </Card>
+                );
+              })}
             </div>
-
-            <Card className="stack" as="div">
-              {deliverables.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </Card>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="seo-stages-title">
+        <ScrollReveal as="section" className="section process-section--creation landing-how-it-works-section" aria-labelledby="seo-stages-title">
           <div className="container grid-1-2">
-            <div>
-              <p className="eyebrow">Como funciona</p>
-              <h2 id="seo-stages-title">Etapas do trabalho em SEO</h2>
-            </div>
+            <SectionHeader
+              label="Como funciona"
+              title="Etapas do trabalho em SEO"
+              subtitle="Auditoria minuciosa, planejamento de palavras-chave, ajustes estruturais e acompanhamento de posicionamento."
+              id="seo-stages-title"
+              align="left"
+              style={{ marginBottom: 0 }}
+            />
 
             <ol className="process-list" aria-label="Etapas do serviço de SEO">
               {stages.map((stage) => (
@@ -223,9 +269,11 @@ export default function SeoService() {
               ))}
             </ol>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <CTA content={pageCtaContent.seoService} titleId="seo-service-cta-title" />
+        <ScrollReveal>
+          <CTA content={pageCtaContent.seoService} titleId="seo-service-cta-title" />
+        </ScrollReveal>
       </Layout>
     </>
   );

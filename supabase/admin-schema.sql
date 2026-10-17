@@ -244,6 +244,7 @@ alter table public.projects add column if not exists badge text;
 alter table public.projects add column if not exists client_name text;
 alter table public.projects add column if not exists project_year text;
 alter table public.projects add column if not exists segment text;
+alter table public.projects add column if not exists niche text;
 alter table public.projects add column if not exists created_system text;
 alter table public.projects add column if not exists context text;
 alter table public.projects add column if not exists challenge text;

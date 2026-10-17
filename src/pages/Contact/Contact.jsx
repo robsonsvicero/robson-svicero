@@ -78,6 +78,12 @@ export default function Contact() {
             >
               <input type="hidden" name="_subject" value="Novo contato pelo site" />
 
+              <div className="contact-form-heading">
+                <p className="eyebrow">Vamos conversar</p>
+                <h2>Conte sobre seu projeto</h2>
+                <p>Compartilhe o essencial e eu retorno para alinharmos o melhor caminho.</p>
+              </div>
+
               <div className="field">
                 <label htmlFor="contact-name">Nome</label>
                 <input
@@ -162,18 +168,16 @@ export default function Contact() {
               </p>
               <div className="contact-aside-actions">
                 <Button
-                  className="btn-telegram"
                   href={telegramLink.href}
-                  variant="secondary"
+                  variant="telegram"
                   target="_blank"
                   rel="noreferrer noopener"
                 >
                   Chamar no Telegram
                 </Button>
                 <Button
-                  className="btn-whatsapp"
                   href={whatsappLink.href}
-                  variant="secondary"
+                  variant="whatsapp"
                   target="_blank"
                   rel="noreferrer noopener"
                 >

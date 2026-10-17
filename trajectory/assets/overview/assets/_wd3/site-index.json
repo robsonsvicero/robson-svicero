@@ -1,0 +1,813 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "trajectorywebdesign.com-f33f7549",
+ "capturedAt": "2026-10-15T19:16:40+00:00",
+ "entry": {
+  "url": "https://www.trajectorywebdesign.com/",
+  "path": "/",
+  "search": "",
+  "file": "assets/www.trajectorywebdesign.com/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.trajectorywebdesign.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/html; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/index.html",
+   "size": 46279,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/css/global.a80986c7.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/css/global.a80986c7.css",
+   "size": 200103,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/js/main.41d02327.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/js/main.41d02327.js",
+   "size": 1988,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/fonts/ToshA-Regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/fonts/ToshA-Regular.woff2",
+   "size": 50720,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/js/testimonials.10d56d24.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/js/testimonials.10d56d24.js",
+   "size": 991,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/m/js/script.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "accept-ch": "Sec-CH-UA-Platform, Sec-CH-UA",
+    "access-control-allow-origin": "*",
+    "application": "127.0.0.1",
+    "cdn-cache": "MISS",
+    "cdn-cachedat": "10/13/2026 04:50:50",
+    "cdn-edgestorageid": "1313",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "682664",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "6fa6f8545f9d4bce312cbdf1a2b720eb",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "cdn-tag": "tracker_script::pa-gIjW7rzLpL7AJkVtBg8R3",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/m/js/script.js",
+   "size": 5983,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--atlanta-habitat-for-humanity--6876f3bc796cdf00c8cc29ca_687590e7948c3d74fad67dbe_ahfh4/w=2000,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=140+19 c=153+285 v=2026.9.11 l=222432 f=false c2=2",
+    "content-type": "image/webp",
+    "priority": "u=1,i",
+    "warning": "cf-images 299 \"image too large for AVIF\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--atlanta-habitat-for-humanity--6876f3bc796cdf00c8cc29ca_687590e7948c3d74fad67dbe_ahfh4/w=2000,format=auto,quality=80.webp",
+   "size": 222432,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/js/hero-particles.a2caccf9.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/js/hero-particles.a2caccf9.js",
+   "size": 3338,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/fonts/ToshA-Medium.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/fonts/ToshA-Medium.woff2",
+   "size": 55420,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--praxis3--671ae7049fa8a9653228fc98_PRAXIS_Cover/w=2000,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=150+14 c=15+587 v=2026.9.11 l=84333 f=false c2=0",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--praxis3--671ae7049fa8a9653228fc98_PRAXIS_Cover/w=2000,format=auto,quality=80.avif",
+   "size": 84333,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-gsga/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=320+253 c=0+0 v=2026.9.3 l=10185 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-gsga/w=400,format=auto,quality=70.avif",
+   "size": 10185,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-rmhc/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=142+109 c=0+0 v=2026.8.5 l=9789 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-rmhc/w=400,format=auto,quality=70.avif",
+   "size": 9789,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-coa/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=277+165 c=0+0 v=2026.10.1 l=17130 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-coa/w=400,format=auto,quality=70.avif",
+   "size": 17130,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-emory/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=184+343 c=0+0 v=2026.10.1 l=9037 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-emory/w=400,format=auto,quality=70.avif",
+   "size": 9037,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ahfh/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=141+357 c=0+0 v=2026.9.3 l=6504 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ahfh/w=400,format=auto,quality=70.avif",
+   "size": 6504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--ajc-ads--ajc-ads-hero/w=2000,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=250+226 c=0+0 v=2026.10.1 l=134598 f=false",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "warning": "cf-images 299 \"image too large for AVIF\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--ajc-ads--ajc-ads-hero/w=2000,format=auto,quality=80.webp",
+   "size": 134598,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ajc/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=140+88 c=0+0 v=2026.9.2 l=4187 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ajc/w=400,format=auto,quality=70.avif",
+   "size": 4187,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-wic/w=400,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=240+408 c=0+0 v=2026.9.3 l=9705 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-wic/w=400,format=auto,quality=70.avif",
+   "size": 9705,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/fonts/ToshA-Bold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/fonts/ToshA-Bold.woff2",
+   "size": 55332,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/favicon/favicon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/favicon/favicon.svg",
+   "size": 469,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--atlanta-habitat-for-humanity--6876f3bc796cdf00c8cc29ca_687590e7948c3d74fad67dbe_ahfh4/w=1200,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=147+157 c=0+0 v=2026.8.2 l=74919 f=false",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--atlanta-habitat-for-humanity--6876f3bc796cdf00c8cc29ca_687590e7948c3d74fad67dbe_ahfh4/w=1200,format=auto,quality=80.avif",
+   "size": 74919,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--praxis3--671ae7049fa8a9653228fc98_PRAXIS_Cover/w=1200,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=132+154 c=0+0 v=2026.8.5 l=43276 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--praxis3--671ae7049fa8a9653228fc98_PRAXIS_Cover/w=1200,format=auto,quality=80.avif",
+   "size": 43276,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-gsga/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=133+272 c=0+0 v=2026.9.13 l=17316 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-gsga/w=600,format=auto,quality=70.avif",
+   "size": 17316,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ahfh/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=154+357 c=0+0 v=2026.9.13 l=9270 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ahfh/w=600,format=auto,quality=70.avif",
+   "size": 9270,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ajc/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=283+298 c=0+0 v=2026.9.13 l=6223 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-ajc/w=600,format=auto,quality=70.avif",
+   "size": 6223,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-emory/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=155+138 c=0+0 v=2026.10.1 l=14900 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-emory/w=600,format=auto,quality=70.avif",
+   "size": 14900,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-coa/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=257+154 c=0+0 v=2026.10.1 l=31866 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-coa/w=600,format=auto,quality=70.avif",
+   "size": 31866,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--ajc-ads--ajc-ads-hero/w=1200,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=223+152 c=0+0 v=2026.10.1 l=47524 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/work--ajc-ads--ajc-ads-hero/w=1200,format=auto,quality=80.avif",
+   "size": 47524,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-wic/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=128+15 c=0+174 v=2026.9.13 l=8516 f=false c2=0",
+    "content-type": "image/png",
+    "priority": "u=4,i",
+    "warning": "cf-images 299 \"original is 13724B smaller\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-wic/w=600,format=auto,quality=70.png",
+   "size": 8516,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-rmhc/w=600,format=auto,quality=70",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=167+185 c=0+0 v=2026.9.13 l=16388 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/logo-rmhc/w=600,format=auto,quality=70.avif",
+   "size": 16388,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/bg-gradient-planet/w=3200,format=auto,quality=85",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=124+59 c=50+612 v=2026.9.13 l=235726 f=false c2=0",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "warning": "cf-images 299 \"image too large for AVIF\", cf-images 299 \"original is 11094B smaller\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/bg-gradient-planet/w=3200,format=auto,quality=85.webp",
+   "size": 235726,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/bg-gradient-planet/w=1200,format=auto,quality=85",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=164+94 c=107+402 v=2026.10.0 l=11874 f=false c2=0",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/bg-gradient-planet/w=1200,format=auto,quality=85.avif",
+   "size": 11874,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/awards-badges-white/w=1200,format=auto,quality=80",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-images": "internal=ok/- q=0 n=154+138 c=0+0 v=2026.10.1 l=30929 f=false",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/imagedelivery.net/hj7jOXQ7wJCIf6fWb3Dukw/awards-badges-white/w=1200,format=auto,quality=80.avif",
+   "size": 30929,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/favicon/apple-touch-icon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/favicon/apple-touch-icon.png",
+   "size": 2861
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/favicon/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "content-type": "image/vnd.microsoft.icon",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/favicon/favicon.ico",
+   "size": 402
+  },
+  {
+   "url": "https://www.trajectorywebdesign.com/favicon/site.webmanifest",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/manifest+json",
+   "headers": {
+    "content-type": "application/manifest+json",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/www.trajectorywebdesign.com/favicon/site.webmanifest",
+   "size": 385
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

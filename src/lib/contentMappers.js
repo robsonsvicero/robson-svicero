@@ -1,5 +1,3 @@
-import { stripRichText } from "../utils/richText.js";
-
 export function mapBlogPost(row) {
   return {
     slug: row.slug,
@@ -24,15 +22,19 @@ export function mapBlogPost(row) {
 }
 
 export function mapProject(row) {
+  const badges = String(row.badge || row.type || "Site")
+    .split(",")
+    .map((badge) => badge.trim())
+    .filter(Boolean);
   return {
     slug: row.slug,
     path: `/cases/${row.slug}`,
     title: row.title,
-    badge: row.badge || row.type || "Site",
-    niche: row.niche || null,
+    badge: badges,
     clientName: row.client_name,
     projectYear: row.project_year,
     segment: row.segment,
+    niche: row.niche || row.site_niche || row.segment || "",
     createdSystem: row.created_system,
     publishedAt: row.published_at,
     description: row.description,
@@ -42,11 +44,19 @@ export function mapProject(row) {
     results: row.results,
     metaDescription: row.meta_description,
     seoTitle: row.seo_title || row.title,
-    seoDescription: row.seo_description || row.meta_description || stripRichText(row.description),
+    seoDescription: row.seo_description || row.meta_description || row.description,
     image: row.image,
     thumbnail: row.thumbnail || null,
     galleryImages: [row.image_2, row.image_3, row.image_4, row.image_5].filter(Boolean),
     alt: row.alt,
     externalUrl: row.external_url,
   };
+}
+
+export function getProjectBadges(project) {
+  const badges = Array.isArray(project?.badge)
+    ? project.badge
+    : String(project?.badge || "").split(",");
+
+  return badges.map((badge) => String(badge).trim()).filter(Boolean);
 }

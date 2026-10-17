@@ -1,6 +1,7 @@
 import { Eye } from "lucide-react";
 import { Link } from "react-router-dom";
 import Card from "../ui/Card/Card.jsx";
+import { TrajectoryArrow } from "../ui/Button/Button.jsx";
 
 function formatLongPostDate(date) {
   if (!date) return "";
@@ -84,7 +85,12 @@ export default function BlogArticleCard({
           </p>
         )}
         <span className="blog-card-link">
-          {linkLabel} <span aria-hidden="true">-&gt;</span>
+          {linkLabel}{" "}
+          {featured ? (
+            <TrajectoryArrow className="button-icon" />
+          ) : (
+            <span aria-hidden="true">→</span>
+          )}
         </span>
       </div>
     </Card>

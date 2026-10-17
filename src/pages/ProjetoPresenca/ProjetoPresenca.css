@@ -791,7 +791,8 @@
   background: #fff;
   border: 1px solid #d2d2d7;
   border-radius: 8px;
-  padding: 10px 14px;
+  min-height: 44px;
+  padding: 8px 16px;
   outline: none;
   width: 100%;
   transition: border-color 0.25s var(--pp-ease), box-shadow 0.25s var(--pp-ease);
@@ -800,10 +801,12 @@
 }
 .pp-input:focus {
   border-color: var(--pp-purple);
-  box-shadow: 0 0 0 3px rgba(130, 52, 233, 0.15);
+  box-shadow: 0 0 0 2px rgba(130, 52, 233, 0.4);
 }
+.pp-input::placeholder { color: #6e6e73; opacity: 1; }
+.pp-input:disabled { cursor: not-allowed; opacity: 0.58; }
 .pp-input-err { border-color: #dc2626 !important; }
-.pp-input-err:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.15) !important; }
+.pp-input-err:focus { box-shadow: 0 0 0 2px rgba(220, 38, 38, 0.4) !important; }
 .pp-textarea { resize: vertical; }
 .pp-field-error {
   font-size: 12px;

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useEffect, useRef } from "react";
+import { animate, motion, useInView, useMotionValue, useReducedMotion, useTransform } from "motion/react";
 import {
   BadgeCheck,
   Building2,
@@ -14,8 +16,11 @@ import {
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
-import Card from "../../components/ui/Card/Card.jsx";
+import IconInfoCard from "../../components/IconInfoCard/IconInfoCard.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
+import HeroParticles from "../../sections/Hero/HeroParticles.jsx";
 import { contactLinks, routes } from "../../content/siteContent.js";
 
 const clients = [
@@ -81,6 +86,37 @@ const experience = [
   },
 ];
 
+function CountUp({ value, prefix = "" }) {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "0px 0px -10% 0px" });
+  const reducedMotion = useReducedMotion();
+  const count = useMotionValue(reducedMotion ? value : 0);
+  const roundedCount = useTransform(count, (latest) => `${prefix}${Math.round(latest)}`);
+
+  useEffect(() => {
+    if (!isInView) return undefined;
+    if (reducedMotion) {
+      count.set(value);
+      return undefined;
+    }
+
+    const controls = animate(count, value, {
+      duration: 2.2,
+      ease: [0.16, 1, 0.3, 1],
+    });
+    return () => controls.stop();
+  }, [count, isInView, reducedMotion, value]);
+
+  return <motion.strong ref={ref}>{roundedCount}</motion.strong>;
+}
+
+function StatValue({ value }) {
+  const numericValue = /^\+\d+$/.test(value);
+  if (!numericValue) return <strong>{value}</strong>;
+
+  return <CountUp value={Number(value.slice(1))} prefix="+" />;
+}
+
 export default function About() {
   return (
     <>
@@ -97,6 +133,7 @@ export default function About() {
           aria-labelledby="about-title"
           containerClassName="container about-story-layout"
         >
+          <HeroParticles />
           <div className="stack about-story-copy">
             <p className="eyebrow">Sobre mim</p>
             <h1 id="about-title">Minha história</h1>
@@ -143,7 +180,7 @@ export default function About() {
               </figcaption>
             </figure>
               <span className="image-description" aria-hidden="true">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                           </svg>São Paulo, SP · atendimento remoto em todo o Brasil
               </span>
@@ -156,23 +193,24 @@ export default function About() {
           aria-labelledby="about-clients-title"
           containerClassName="container stack about-section-layout"
         >
-          <div className="about-section-heading stack">
-            <p className="eyebrow">Com quem eu trabalho</p>
-            <h2 id="about-clients-title">Sites profissionais para quem faz o negócio acontecer</h2>
-            <p className="lead">
-              O site deve realmente funcionar e não apenas existir. Ele precisa transmitir credibilidade, responder às dúvidas do cliente sobre como você pode ajudá-lo e orientá-lo na tomada de decisão.
-            </p>
-          </div>
+          <SectionHeader
+            label="Com quem eu trabalho"
+            title="Sites profissionais para quem faz o negócio acontecer"
+            subtitle="O site deve realmente funcionar e não apenas existir. Ele precisa transmitir credibilidade, responder às dúvidas do cliente sobre como você pode ajudá-lo e orientá-lo na tomada de decisão."
+            id="about-clients-title"
+            align="center"
+          />
 
           <div className="about-client-grid">
             {clients.map(({ icon: Icon, title, description }) => (
-              <Card className="about-client-card" key={title}>
-                <span className="about-card-icon" aria-hidden="true">
-                  <Icon />
-                </span>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </Card>
+              <ScrollReveal className="about-client-reveal" key={title}>
+                <IconInfoCard
+                  icon={Icon}
+                  title={title}
+                  description={description}
+                  className="about-client-card"
+                />
+              </ScrollReveal>
             ))}
           </div>
         </Section>
@@ -183,57 +221,59 @@ export default function About() {
           aria-labelledby="about-approach-title"
           containerClassName="container about-approach-layout"
         >
-          <div className="stack about-approach-copy">
-            <p className="eyebrow">Minha abordagem</p>
-            <h2 id="about-approach-title">Não é só sobre design bonito</h2>
-            <p className="lead">
-              Um bom site precisa fazer sentido para o seu negócio e para as pessoas que chegam até
-              ele.
-            </p>
-            <p>
-              Antes de pensar nas cores ou no visual, procuro entender o que você oferece, quem
-              precisa encontrar essa informação e qual ação esperamos dessa pessoa. É isso que
-              transforma uma página bonita em uma ferramenta de negócio.
-            </p>
+          <div className="about-approach-copy">
+            <SectionHeader
+              label="Minha abordagem"
+              title="Não é só sobre design bonito"
+              subtitle={"Um bom site precisa fazer sentido para o seu negócio e para as pessoas que chegam até ele."}
+              id="about-approach-title"
+              align="left"
+              style={{ marginBottom: 0 }}
+            />
+            <p className="about-approach-detail">Antes de pensar nas cores ou no visual, procuro entender o que você oferece, quem precisa encontrar essa informação e qual ação esperamos dessa pessoa. É isso que transforma uma página bonita em uma ferramenta de negócio.</p>
           </div>
 
           <div className="about-approach-list">
             {approach.map(({ icon: Icon, title, description }) => (
-              <article className="about-approach-item" key={title}>
-                <span className="about-card-icon" aria-hidden="true">
-                  <Icon />
-                </span>
-                <div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
-                </div>
-              </article>
+              <ScrollReveal className="about-approach-reveal" key={title}>
+                <article className="about-approach-item">
+                  <span className="about-card-icon" aria-hidden="true">
+                    <Icon />
+                  </span>
+                  <div>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </Section>
 
         {/* Seção 4 — Experiência em números */}
         <Section
-          className="dark-band about-experience-section"
+          className="surface-band about-experience-section"
           aria-labelledby="about-experience-title"
           containerClassName="container stack about-section-layout"
         >
-          <div className="about-section-heading stack">
+          <ScrollReveal className="about-section-heading stack">
             <p className="eyebrow">Trajetória e experiência</p>
             <h2 id="about-experience-title">Experiência construída projeto após projeto</h2>
-          </div>
+          </ScrollReveal>
 
           <div className="about-stats-grid">
             {experience.map(({ icon: Icon, value, label, description, featured }) => (
-              <article
-                className={`about-stat-card${featured ? " about-stat-card-featured" : ""}`}
+              <ScrollReveal
+                className={`about-stat-reveal${featured ? " about-stat-reveal-featured" : ""}`}
                 key={label}
               >
-                <Icon aria-hidden="true" />
-                <strong>{value}</strong>
-                <span>{label}</span>
-                <p>{description}</p>
-              </article>
+                <article className={`about-stat-card${featured ? " about-stat-card-featured" : ""}`}>
+                  <Icon aria-hidden="true" />
+                  <StatValue value={value} />
+                  <span>{label}</span>
+                  <p>{description}</p>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </Section>

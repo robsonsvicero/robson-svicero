@@ -1,313 +1,112 @@
-# Design System · Robson Svicero
+# Design System · Robson Svicero (Trajectory Standard)
 
-> Status: alinhado com a implementação atual do projeto em React + Vite.
+> Status: Trajectory Design System integralmente aplicado ao projeto (Cores, Tipografia Tosh A, Espaçamento, Botões, Header, Hero com Canvas de Órbitas, Cards e Footer com Grid 3D em Perspectiva).
 
-Este documento registra os padrões visuais e de interface realmente usados no site, com base nos tokens do CSS global, nos componentes React e nas estruturas de layout já presentes no projeto atual.
-
----
-
-## Base real do projeto
-
-Os principais arquivos de referência são:
-
-- `src/styles/global.css`
-- `src/components/ui/Button/Button.jsx`
-- `src/components/layout/Footer/Footer.jsx`
-- `src/sections/Hero/Hero.jsx`
-- `src/pages/DesignSystem/DesignSystem.jsx`
-
-A estrutura atual não depende mais de um CSS estático em `assets/css/styles.css`; o visual principal está centralizado em `src/styles/global.css` e em classes utilitárias/componentes React.
+Este documento registra a implementação do sistema visual de `trajectory/design-system.html` no site React + Vite.
 
 ---
 
-## Navegação rápida
+## 1. Tokens e Cores
 
-- [Tokens e cores](#tokens-e-cores)
-- [Tipografia](#tipografia)
-- [Hero e CTAs](#hero-e-ctas)
-- [Componentes UI](#componentes-ui)
-- [Layout e grids](#layout-e-grids)
-- [Timeline / processo](#timeline--processo)
-- [Arquivos relevantes](#arquivos-relevantes)
-
----
-
-## Tokens e cores
-
-Os valores principais estão definidos em `:root` dentro de `src/styles/global.css`.
+Definidos em `:root` dentro de `src/styles/global.css`:
 
 | Token | Valor | Uso |
 | --- | --- | --- |
-| `--bg` | `#faf8f2` | Fundo principal |
-| `--surface` | `#f5f5f7` | Superfícies secundárias |
-| `--surface-warm` | `#fbfbfd` | Fundo alternativo para botões e blocos |
-| `--fg` | `#1d1d1f` | Texto principal |
-| `--fg-2` | `#424245` | Texto secundário |
-| `--muted` | `#6e6e73` | Descrições e apoio |
-| `--meta` | `#86868b` | Metadados |
-| `--border` | `#d2d2d7` | Bordas padrão |
-| `--border-soft` | `#e8e8ed` | Bordas leves |
-| `--accent` | `#8234E9` | Cor primária |
-| `--accent-on` | `#ffffff` | Texto sobre destaque |
-| `--accent-hover` | `#820AFA` | Hover do accent |
-| `--accent-active` | `#341087` | Estado ativo/pressed |
-| `--success` | `#16a34a` | Sucesso |
-| `--warn` | `#eab308` | Alerta |
-| `--danger` | `#dc2626` | Erro |
-
-### Superfícies e contrastes
-
-- `--bg` define a base da página.
-- `--surface` e `--surface-warm` são usados em blocos de apoio e variações de cartão.
-- `--fg` e `--muted` sustentam a hierarquia textual.
-- `--border` e `--border-soft` controlam a separação visual entre blocos e seções.
-
-### Motion e tokens interativos
-
-- `--motion-fast: 150ms`
-- `--motion-base: 220ms`
-- `--ease-standard: cubic-bezier(0.28, 0, 0.22, 1)`
-- `--focus-ring: 0 0 0 4px color-mix(in oklab, var(--accent), transparent 65%)`
-
-O foco visual é sempre reforçado com `box-shadow: var(--focus-ring)` em elementos interativos.
+| `--navy-900` | `#071A45` | Superfície escura principal (Hero, Depoimentos, CTA, Footer) |
+| `--navy-800` | `#0A2160` | Superfície escura secundária e hover escuro |
+| `--accent-700` | `#1D3095` | Gradiente profundo da Hero e hover interativo |
+| `--accent-600` | `#0052CC` | Destaque primário (Ações, Botões, Links, Badges) |
+| `--accent-500` | `#3D6FD0` | Destaque intermediário e halos radiais |
+| `--accent-300` | `#8FB2EC` | Órbitas da Hero, destaques e links sobre superfícies escuras |
+| `--accent-200` | `#C1D4F5` | Realces claros e código |
+| `--accent-50` | `#EAF1FB` | Superfície pale de fundo da seção de serviços |
+| `--light-50` | `#F7F9FC` | Superfície clara base das páginas |
+| `--light-100` | `#EEF3F9` | Superfície de apoio e fundos alternados |
+| `--light-200` | `#E2E9F2` | Bordas sutis e divisores padrão |
+| `--ink-900` | `#0D1521` | Texto principal em títulos em fundos claros |
+| `--ink-700` | `#3B444F` | Texto de leitura e parágrafos |
+| `--ink-500` | `#6C737D` | Metadados, legendas e apoios secundários |
+| `--ink-300` | `#8A93A0` | Metadados suaves e marcadores |
+| `--white` | `#FFFFFF` | Branco puro, cards elevados e tipografia em áreas escuras |
+| `--card-hairline-on-light` | `rgba(29, 48, 149, 0.10)` | Borda hairline para cards sobre fundos claros |
+| `--card-hairline-on-dark` | `rgba(255, 255, 255, 0.16)` | Borda hairline translúcida sobre superfícies escuras |
 
 ---
 
-## Tipografia
+## 2. Tipografia (Tosh A)
 
-A escala tipográfica atual é definida por tokens do CSS global, sem depender de estilos antigos do HTML estático.
+Fontes locais em `public/fonts/`:
+- `ToshA-Regular.woff2` (400)
+- `ToshA-Medium.woff2` (500)
+- `ToshA-Bold.woff2` (700)
 
-### Escala principal
-
-- `h1` / `.h1`: `56px` com linha `1.05` e tracking negativo
-- `h2` / `.h2`: `42px`
-- `h3` / `.h3`: `26px`
-- `.lead`: `20px`, `font-weight: 600`, texto de apoio em destaque
-- `.meta`: `12px`, com estilo mono espaçado
-- `.eyebrow`: uppercase, `letter-spacing: 0.08em`, cor de destaque
-
-### Utilização real
-
-- `h1` é usado no hero e em títulos de destaque.
-- `h2` é usado para títulos de seção.
-- `h3` é usado em cards e blocos de feature.
-- `.lead` é o texto introdutório de seções importantes e hero.
-- `.meta` é usado para informações complementares, datas e etiquetas.
+### Escala tipográfica:
+- **Heading 1**: `clamp(2.75rem, 7vw, 5.75rem)` (Desktop) / `var(--text-h1): 3.75rem`. Ênfase em itálico `em` com cor `--accent-300` na Hero ou `--accent-600` em seções claras.
+- **Heading 2**: `var(--text-h2): 3.0rem` / Tosh A 700.
+- **Heading 3**: `var(--text-h3): 1.5rem` / Tosh A 600.
+- **Body Large / Lead**: `var(--text-body-lg): 1.15rem`, line-height `1.6`.
+- **Body**: `var(--text-body): 1.0625rem`.
+- **Eyebrow / Section Label**: `12px`, uppercase, `letter-spacing: 0.18em`, acompanhado do traço horizontal autoral em `::before` (`width: 24px; height: 1.5px;`).
 
 ---
 
-## Hero e CTAs
+## 3. Botões e Ações (`Button.jsx`)
 
-O hero da página principal está implementado em `src/sections/Hero/Hero.jsx` e usa as classes:
+Componente universal unificado com suporte a polimorfismo automático (`to` gera `<Link>`, `href` gera `<a>`, e sem ambos gera `<button>`).
 
-- `.hero-editorial`
-- `.hero-media`
-- `.hero-overlay`
-- `.hero-inner`
-- `.hero-copy`
-- `.hero-cta`
+### Variantes (`variant`):
+- `primary`: Fundo `#0052CC`, borda `#0052CC`, texto `#fff`, hover `#1D3095` com elevação.
+- `secondary`: Fundo translúcido com blur, borda hairline e texto branco para superfícies escuras.
+- `outline`: Fundo branco, borda hairline `var(--card-hairline-on-light)` e texto escuro para superfícies claras.
+- `outline-light`: Fundo transparente, borda `rgba(255, 255, 255, 0.35)` e texto branco.
+- `white`: Fundo branco `#fff`, texto `#0D1521`, hover `var(--accent-50)` (para seções escuras e faixas de CTA).
+- `dark`: Fundo `var(--navy-900)`, borda escura e texto branco.
+- `ghost`: Fundo e borda transparentes com texto em cor de destaque e translação no hover.
+- `whatsapp`: Fundo oficial WhatsApp `#25D366` com sombra suave e hover `#1EB956`.
+- `telegram`: Fundo oficial Telegram `#229ED9` com sombra suave e hover `#1A8CC2`.
+- `shiny`: Efeito AuraGen com borda gradiente rotativa para CTAs de altíssimo destaque.
 
-### Estrutura do hero
+### Tamanhos (`size`):
+- `sm`: 36px de altura, padding compacto `0.55rem 1rem`, fonte `0.875rem` (ideal para header e chips).
+- `md` (Padrão): 46px de altura, padding `0.875rem 1.4rem`, fonte `1rem`.
+- `lg`: 54px de altura, padding `1.05rem 1.85rem`, fonte `1.125rem` (ideal para hero e faixas finais de CTA).
 
-```jsx
-<section className="section hero hero-editorial">
-  <div className="hero-media">
-    <img className="hero-image" ... />
-    <div className="hero-overlay" />
-  </div>
-
-  <div className="container hero-inner">
-    <div className="hero-copy">
-      <p className="eyebrow">...</p>
-      <h1>...</h1>
-      <p className="lead">...</p>
-      <div className="hero-cta">...</div>
-    </div>
-  </div>
-</section>
-```
-
-### Botões
-
-A variação começa na estrutura base:
-
-```jsx
-<Component className={`btn ${variantClassName} ${className}`.trim()} ...>
-```
-
-As variantes reais são:
-
-| Variante | Classe | Uso |
-| --- | --- | --- |
-| primária | `btn-primary` | CTA principal |
-| secundária | `btn-secondary` | CTA complementar |
-| dark | `btn-dark` | Fundo escuro |
-| outline | `btn-outline` | Destaque sutil |
-| ghost | `btn-ghost` | Link com aparência leve |
-
-Estados interativos:
-
-- `:hover` altera cor e borda
-- `:active` aplica `transform: scale(0.98)`
-- `:focus-visible` usa o `--focus-ring`
-- `btn-arrow::after` adiciona a seta com movimento horizontal
+### Modificadores & Estados:
+- `pill`: boolean (`border-radius: 9999px`).
+- `fullWidth`: boolean (`width: 100%`).
+- `loading`: boolean (exibe spinner animado acessível).
+- `disabled`: boolean (desabilita interação e ajusta opacidade).
+- `showArrow`: boolean (exibe ou oculta a seta direcional Trajectory; padrão `true`).
+- `icon` & `iconPosition`: suporte a ícones customizados (`left` ou `right`).
 
 ---
 
-## Componentes UI
+## 4. Header & Navbar (`Header.jsx`)
 
-### Cards
-
-Os cards usam consolidação visual com border, radius e sombreamento leve, sem depender de classes legacy do HTML antigo.
-
-Estrutura comum:
-
-- `.card`
-- `.feature`
-- `.feature-mark`
-- `.card-dark` (para blocos em destaque escuro)
-
-### Feature mark
-
-O ícone principal de feature usa:
-
-- contêiner circular: `.feature-mark`
-- SVG com `stroke: currentColor`
-- `width: 38px`, `height: 38px`
-- `border-radius: 50%`
-
-```css
-.feature-mark {
-  width: 38px;
-  height: 38px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: var(--accent);
-  background: color-mix(in oklab, var(--accent), transparent 90%);
-}
-```
-
-### Footer
-
-`src/components/layout/Footer/Footer.jsx` usa `className="pagefoot"` e mantém a tradição visual do site, com fundo claro e separação simples.
+- Estrutura `.navbar` com grid `1fr auto 1fr`.
+- Efeito dinâmico:
+  - No topo da Home sobre a Hero: `.navbar--over-dark` (fundo transparente, texto branco).
+  - Ao rolar a página ou páginas internas: `.navbar.is-scrolled` com fundo `rgba(7, 26, 69, 0.94)` ou blur translúcido `backdrop-filter: saturate(180%) blur(12px)`.
+- Botão de ação `.navbar_cta-link` com chevron e popover para WhatsApp/Telegram.
+- Menu hambúrguer animado com 3 spans e overlay mobile `.navbar_overlay` em Navy 900.
 
 ---
 
-## Layout e grids
+## 5. Hero Section com Canvas de Órbitas (`Hero.jsx` & `HeroParticles.jsx`)
 
-As grades e layouts seguem tokens globais de espaçamento e responsividade.
-
-### Padrões de grid
-
-- `.grid-3`: `repeat(3, 1fr)`
-- `.grid-2-1`: `2fr 1fr`
-- `.grid-1-2`: `1fr 2fr`
-- `.grid-2`: `repeat(2, 1fr)`
-
-### Espaçamento
-
-Os tokens de espaçamento em uso são:
-
-- `--space-1: 4px`
-- `--space-2: 8px`
-- `--space-3: 12px`
-- `--space-4: 16px`
-- `--space-5: 20px`
-- `--space-6: 24px`
-- `--space-8: 32px`
-- `--space-12: 48px`
-
-### Container
-
-```css
-.container {
-  width: 100%;
-  max-width: var(--container-max);
-  margin-inline: auto;
-  padding-inline: var(--container-gutter-desktop);
-}
-```
-
-Isso mantém a estrutura responsiva e alinhada ao projeto atual.
+- Fundo gradiente cósmico em `.section_hero--blue`:
+  `background: radial-gradient(120% 130% at 80% 0%, var(--accent-700), var(--navy-900))`
+- Camada `.hero_orbits` com trilhas concêntricas em radial gradient.
+- Canvas interativo `HeroParticles.jsx`: partículas e cometas com cauda em rotação orbital contínua, pausando via `IntersectionObserver` quando fora da tela.
+- Barra de confiança `.hero_logos` com indicadores de autoridade.
 
 ---
 
-## Timeline / processo
+## 6. Footer com Grid 3D em Perspectiva (`Footer.jsx`)
 
-A timeline do site segue a estrutura real de `src/styles/global.css`:
-
-- `.timeline`
-- `.step`
-- `.step .num`
-- `.step strong`
-- `.step p`
-
-Layout:
-
-```css
-.timeline {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-3);
-}
-```
-
-O visual usa fundo suave, borda leve e destaque do accent no número da etapa.
-
----
-
-## Tipos de elementos de interface em uso
-
-### Elementos comuns no projeto
-
-- `.eyebrow`
-- `.lead`
-- `.meta`
-- `.card`
-- `.feature-mark`
-- `.hero-editorial`
-- `.timeline`
-- `.pagefoot`
-- `.btn-primary` / `.btn-secondary` / `.btn-dark`
-
-### Padrões de consistência
-
-- Semântica visual clara e forte hierarquia.
-- Fundo principal claro com destaque roxo em ação e pontos de atenção.
-- Bordas sutis, cards com raio controlado e acessibilidade por foco visível.
-- Layout responsivo com grids e espaçamento global padronizado.
-
----
-
-## Fontes e carregamento
-
-A identidade tipográfica atual usa estes nomes:
-
-- `Montserrat` como fonte principal de display
-- `Google Sans` como fonte de corpo
-- `Bebas Neue` para o logo / destaque
-- `SF Mono`, `JetBrains Mono` e `ui-monospace` para metadados e labels técnicos
-
-Essas fontes são definidas em `:root` via `--font-display`, `--font-body`, `--font-logo` e `--font-mono`.
-
----
-
-## Arquivos relevantes
-
-| Tipo | Caminho |
-| --- | --- |
-| CSS base | `src/styles/global.css` |
-| Botões | `src/components/ui/Button/Button.jsx` |
-| Hero | `src/sections/Hero/Hero.jsx` |
-| Footer | `src/components/layout/Footer/Footer.jsx` |
-| Página de referência | `src/pages/DesignSystem/DesignSystem.jsx` |
-| Conteúdo do site | `src/content/siteContent.js` |
-
----
-
-## Observação final
-
-Este design system está atualizado com a implementação atual do projeto. O documento foi revisado para refletir o stack real do site e não a estrutura antiga de HTML estático.
-
-Se houver novos componentes ou refinamentos visuais, a recomendação é manter este arquivo sincronizado sempre que houver mudanças em `src/styles/global.css` ou nos componentes de UI.
+- Fundo `.footer` em `var(--navy-900)`.
+- Grade perspectiva animada em `.footer::before`:
+  `transform: translateX(-50%) perspective(1100px) rotateX(62deg)`
+  com linhas em gradiente `rgba(143, 178, 236, 0.1)` e máscara elíptica suave.
+- Grid de 4 colunas: Marca, Institucional, Especialidades (2 colunas) e Formulário de Newsletter.
+- Barra inferior `.footer_bottom` com copyright e links de privacidade.

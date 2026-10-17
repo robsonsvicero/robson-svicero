@@ -1,24 +1,30 @@
+import ScrollReveal from "../../components/ScrollReveal.jsx";
+import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { Link } from "react-router-dom";
 import CTA from "../../components/CTA/CTA.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import Button from "../../components/ui/Button/Button.jsx";
 import Card from "../../components/ui/Card/Card.jsx";
+import { Target, LayoutTemplate, Gauge, SearchCheck, PenTool } from "lucide-react";
 import { contactLinks, pageCtaContent, routes } from "../../content/siteContent.js";
 import { absoluteUrl } from "../../utils/seo.js";
 
 const pillars = [
   {
+    icon: Target,
     title: "Posicionamento visual",
     description:
       "Direção criativa baseada no posicionamento da marca para garantir coerência entre discurso e percepção.",
   },
   {
+    icon: LayoutTemplate,
     title: "Sistema de identidade",
     description:
       "Definição de logo, paleta, tipografia e elementos de apoio para uma comunicação consistente em todos os pontos de contato.",
   },
   {
+    icon: Gauge,
     title: "Aplicação com clareza",
     description:
       "Guia prático para manter unidade visual em site, redes sociais, materiais institucionais e apresentações.",
@@ -26,10 +32,26 @@ const pillars = [
 ];
 
 const deliverables = [
-  "Diagnóstico visual da presença atual com oportunidades de melhoria.",
-  "Conceito criativo com direção estética e verbal da marca.",
-  "Kit de identidade com logo, cores, tipografia e componentes base.",
-  "Guia de uso para manter consistência no dia a dia.",
+  {
+    icon: SearchCheck,
+    title: "Diagnóstico visual",
+    description: "Diagnóstico visual da presença atual com oportunidades de melhoria.",
+  },
+  {
+    icon: Target,
+    title: "Conceito criativo",
+    description: "Conceito criativo com direção estética e verbal da marca.",
+  },
+  {
+    icon: LayoutTemplate,
+    title: "Kit de identidade",
+    description: "Kit de identidade com logo, cores, tipografia e componentes base.",
+  },
+  {
+    icon: PenTool,
+    title: "Guia de uso",
+    description: "Guia de uso para manter consistência no dia a dia.",
+  },
 ];
 
 const stages = [
@@ -97,7 +119,7 @@ export default function IdentidadeVisual() {
       />
 
       <Layout>
-        <section className="section service-hero" aria-labelledby="identidade-visual-title">
+        <ScrollReveal as="section" className="section service-hero" aria-labelledby="identidade-visual-title">
           <div className="container service-landing-hero-grid">
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Serviços • Identidade Visual</p>
@@ -162,54 +184,78 @@ export default function IdentidadeVisual() {
               </div>
             </figure>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="identidade-pillars-title">
-          <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <div className="split-title">
-              <p className="eyebrow">O que inclui</p>
-              <h2 id="identidade-pillars-title">Pilares do serviço de Identidade Visual</h2>
-            </div>
+        <ScrollReveal as="section" className="section landing-includes-section" aria-labelledby="identidade-pillars-title">
+          <div className="container stack landing-includes-container" style={{ gap: "var(--space-8)" }}>
+            <SectionHeader
+              label="O que inclui"
+              title="Pilares do serviço de Identidade Visual"
+              subtitle="Criação de marcas, tipografia, paletas de cores e manuais de identidade preparados para escala."
+              id="identidade-pillars-title"
+              align="center"
+              className="landing-includes-header"
+            />
 
-            <div className="grid-3" role="list">
-              {pillars.map((pillar) => (
-                <Card className="feature" key={pillar.title} role="listitem">
-                  <h3>{pillar.title}</h3>
-                  <p>{pillar.description}</p>
-                </Card>
-              ))}
+            <div className="grid-3 landing-includes-grid" role="list">
+              {pillars.map((pillar) => {
+                const Icon = pillar.icon;
+                return (
+                  <Card className="feature landing-includes-card" key={pillar.title} role="listitem">
+                    <span className="landing-includes-icon" aria-hidden="true">
+                      <Icon size={24} strokeWidth={1.8} />
+                    </span>
+                    <h3>{pillar.title}</h3>
+                    <p>{pillar.description}</p>
+                  </Card>
+                );
+              })}
             </div>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section dark-band" aria-labelledby="identidade-deliverables-title">
-          <div className="container grid-2">
-            <div className="stack" style={{ gap: "var(--space-5)" }}>
-              <p className="eyebrow">Entregáveis</p>
-              <h2 id="identidade-deliverables-title">O que você recebe ao final do projeto</h2>
-              <p className="lead">
-                Uma base visual clara para sustentar sua comunicação com mais profissionalismo em
-                campanhas, canais digitais e materiais institucionais.
-              </p>
+        <ScrollReveal as="section" className="section landing-deliverables-section" aria-labelledby="identidade-deliverables-title">
+          <div className="container landing-deliverables-layout">
+            <SectionHeader
+              label="Entregáveis"
+              title="O que você recebe ao final do projeto"
+              subtitle="Uma base visual clara para sustentar sua comunicação com mais profissionalismo em campanhas, canais digitais e materiais institucionais."
+              id="identidade-deliverables-title"
+              align="left"
+              className="landing-deliverables-header"
+              style={{ marginBottom: 0 }}
+            />
+
+            <div className="landing-deliverables-grid" role="list" aria-label="Entregáveis do serviço de identidade visual">
+              {deliverables.map((item, index) => {
+                const Icon = item.icon;
+                return (
+                  <Card className="landing-deliverable-card" key={item.title} role="listitem">
+                    <div className="landing-deliverable-topline">
+                      <span className="landing-deliverable-icon" aria-hidden="true">
+                        <Icon size={22} strokeWidth={1.8} />
+                      </span>
+                      <span className="landing-deliverable-number">0{index + 1}</span>
+                    </div>
+                    <h3>{item.title}</h3>
+                    <p>{item.description}</p>
+                  </Card>
+                );
+              })}
             </div>
-
-            <Card className="stack" as="div">
-              {deliverables.map((item) => (
-                <div className="service-check" key={item}>
-                  <span aria-hidden="true">OK</span>
-                  <p>{item}</p>
-                </div>
-              ))}
-            </Card>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <section className="section" aria-labelledby="identidade-stages-title">
+        <ScrollReveal as="section" className="section process-section--creation landing-how-it-works-section" aria-labelledby="identidade-stages-title">
           <div className="container grid-1-2">
-            <div>
-              <p className="eyebrow">Como funciona</p>
-              <h2 id="identidade-stages-title">Etapas do trabalho em Identidade Visual</h2>
-            </div>
+            <SectionHeader
+              label="Como funciona"
+              title="Etapas do trabalho em Identidade Visual"
+              subtitle="Imersão na história e valores da sua marca, exploração de caminhos criativos e consolidação das diretrizes."
+              id="identidade-stages-title"
+              align="left"
+              style={{ marginBottom: 0 }}
+            />
 
             <ol className="process-list" aria-label="Etapas do serviço de identidade visual">
               {stages.map((stage) => (
@@ -223,9 +269,11 @@ export default function IdentidadeVisual() {
               ))}
             </ol>
           </div>
-        </section>
+        </ScrollReveal>
 
-        <CTA content={pageCtaContent.visualIdentityService} titleId="identidade-visual-cta-title" />
+        <ScrollReveal>
+          <CTA content={pageCtaContent.visualIdentityService} titleId="identidade-visual-cta-title" />
+        </ScrollReveal>
       </Layout>
     </>
   );

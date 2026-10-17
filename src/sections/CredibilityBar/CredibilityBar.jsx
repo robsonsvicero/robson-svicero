@@ -1,7 +1,7 @@
 import { credibilityBarContent } from "../../content/siteContent.js";
 
 export default function CredibilityBar() {
-  const { highlight, label, cta1, cta2 } = credibilityBarContent;
+  const { highlight, label, cta1 } = credibilityBarContent;
 
   return (
     <section
@@ -17,18 +17,6 @@ export default function CredibilityBar() {
           <p>{label}</p>
         </div>
 
-        {/* <a
-          className="trusted-cta trusted-tg"
-          href={cta1.href}
-          target="_blank"
-          rel="noreferrer noopener"
-          title={cta1.label}
-        >
-          <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
-            <path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0Zm5.14 6.27-1.89 8.91c-.14.63-.52.79-1.05.49l-2.9-2.13-1.4 1.35c-.15.15-.28.28-.58.28l.21-2.94 5.35-4.83c.23-.2-.05-.31-.35-.11L7.76 12.4l-2.9-.9c-.63-.2-.64-.63.13-.94l11.38-4.39c.53-.2 1 .12.82.92Z" />
-          </svg>
-          <span>{cta1.label}</span>
-        </a> */}
         <a
           className="trusted-cta trusted-wp"
           href={cta1.href}

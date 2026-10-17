@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { isSupabaseConfigured, supabase } from "../../lib/supabaseClient.js";
+import Button from "../../components/ui/Button/Button.jsx";
 
 export default function ShortLinkRedirect() {
   const { slug } = useParams();
@@ -35,7 +36,7 @@ export default function ShortLinkRedirect() {
         <div className="stack">
           <p className="eyebrow">Link indisponível</p>
           <h1>{error}</h1>
-          <Link className="btn" to="/">Voltar ao início</Link>
+          <Button to="/" variant="primary">Voltar ao início</Button>
         </div>
       ) : (
         <p>Redirecionando...</p>
