@@ -8,7 +8,8 @@ export default function HeroParticles() {
     if (!canvas || !canvas.getContext) return undefined;
 
     const ctx = canvas.getContext("2d");
-    const section = canvas.closest("section");
+    const section =
+      canvas.closest("[data-hero-particles-container]") || canvas.closest("section");
     if (!section) return undefined;
 
     const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");

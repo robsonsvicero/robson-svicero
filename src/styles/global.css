@@ -7176,19 +7176,6 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   display: grid;
   place-items: center;
   padding: 24px 16px;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  background: radial-gradient(120% 130% at 80% 0%, var(--accent-700), var(--navy-900));
-}
-
-.digital-card-page::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -3;
-  pointer-events: none;
-  background: radial-gradient(circle at 15% 90%, rgba(61, 111, 208, 0.45), transparent 48%);
 }
 
 .digital-card {
@@ -7198,10 +7185,12 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   border-radius: 34px;
   background:
     radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.18) 0, transparent 28%),
-    linear-gradient(180deg, #6f2cf3 0%, #5c23cf 58%, #4a159f 100%);
+    radial-gradient(circle at 15% 90%, rgba(61, 111, 208, 0.45), transparent 48%),
+    radial-gradient(120% 130% at 80% 0%, var(--accent-700), var(--navy-900));
   box-shadow: 0 28px 64px rgba(87, 44, 155, 0.28);
   position: relative;
   overflow: hidden;
+  isolation: isolate;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7245,14 +7234,14 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   z-index: 1;
 }
 
-.digital-card h1 {
+.digital-card-title {
   margin: 0;
   color: #ffffff;
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: 30px;
   line-height: 1.02;
   font-weight: 500;
-  letter-spacing: -0.05em;
+  letter-spacing: 0.05em;
   position: relative;
   z-index: 1;
 }
@@ -7271,7 +7260,7 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   max-width: 30ch;
   margin: 20px 0 20px;
   color: rgba(255, 255, 255, 0.84);
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.55;
   position: relative;
   z-index: 1;
@@ -7297,7 +7286,7 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   padding: 14px 18px;
   border-radius: var(--radius-pill);
   background: #ffffff;
-  color: #5f22d9;
+  color: var(--accent-500);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -13371,6 +13360,11 @@ h6,
   .is-printing-digital-card .digital-card,
 .is-printing-digital-card .digital-card * {
     visibility: visible !important;
+  }
+
+  .is-printing-digital-card .digital-card > .hero_orbits,
+  .is-printing-digital-card .digital-card > .hero_particles {
+    display: none !important;
   }
 
   .is-printing-digital-card .digital-card-page {

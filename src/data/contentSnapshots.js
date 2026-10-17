@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-17T14:10:23.121Z",
+  "generatedAt": "2026-10-17T14:26:03.313Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",

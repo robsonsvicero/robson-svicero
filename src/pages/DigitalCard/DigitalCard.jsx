@@ -88,8 +88,13 @@ export default function DigitalCard() {
       />
       <main>
         <section className="digital-card-page" aria-label="Cartão digital de Robson Svicero">
-          <article className="digital-card" ref={cardRef} aria-label="Cartao digital interativo">
-          <HeroParticles />
+          <article
+            className="digital-card"
+            data-hero-particles-container
+            ref={cardRef}
+            aria-label="Cartao digital interativo"
+          >
+            <HeroParticles />
             <img
               className="digital-card-avatar"
               src="/assets/images/Robson_Svicero_1x1.webp"
@@ -97,10 +102,10 @@ export default function DigitalCard() {
               width="640"
               height="800"
             />
-            <h1>Robson Svicero</h1>
+            <h1 className="digital-card-title">Robson Svicero</h1>
             <p className="digital-card-tagline">Desenvolvedor web | UX Designer</p>
             <p className="digital-card-copy">
-              Criação de site profissional para pequenas empresas que querem conquistar mais clientes.
+              Criação de site profissional para quem querem conquistar mais clientes.
             </p>
 
             <div className="digital-card-links">
