@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import SEO from "../../components/seo/SEO.jsx";
+import HeroParticles from "../../sections/Hero/HeroParticles.jsx";
 
 const links = [
   {
@@ -85,35 +86,35 @@ export default function DigitalCard() {
         path="/cartao"
         robots="noindex, follow"
       />
-      <main className="digital-card-page">
-        <article className="digital-card" ref={cardRef} aria-label="Cartao digital interativo">
-         
+      <main>
+        <section className="digital-card-page" aria-label="Cartão digital de Robson Svicero">
+          <HeroParticles />
+          <article className="digital-card" ref={cardRef} aria-label="Cartao digital interativo">
+            <img
+              className="digital-card-avatar"
+              src="/assets/images/Robson_Svicero_1x1.webp"
+              alt="Robson Svicero"
+              width="640"
+              height="800"
+            />
+            <h1>Robson Svicero</h1>
+            <p className="digital-card-tagline">Desenvolvedor web | UX Designer</p>
+            <p className="digital-card-copy">
+              Criação de site profissional para pequenas empresas que querem conquistar mais clientes.
+            </p>
 
-          <img
-            className="digital-card-avatar"
-            src="/assets/images/Robson_Svicero_1x1.webp"
-            alt="Robson Svicero"
-            width="640"
-            height="800"
-          />
-          <h1>Robson Svicero</h1>
-          <p className="digital-card-tagline">Desenvolvedor web | UX Designer</p>
-          <p className="digital-card-copy">
-            Criação de site profissional para pequenas empresas que querem conquistar mais clientes.
-          </p>
+            <div className="digital-card-links">
+              {links.map((link) => (
+                <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.id}>
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-          <div className="digital-card-links">
-            {links.map((link) => (
-              <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.id}>
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <p className="digital-card-footer">&copy; 2026 Robson Svicero</p>
-        </article>
+            <p className="digital-card-footer">&copy; 2026 Robson Svicero</p>
+          </article>
+        </section>
       </main>
     </>
   );
 }
-

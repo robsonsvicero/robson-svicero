@@ -7176,9 +7176,19 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   display: grid;
   place-items: center;
   padding: 24px 16px;
-  background:
-    radial-gradient(circle at 50% 12%, rgba(111, 44, 243, 0.09) 0, transparent 28%),
-    linear-gradient(180deg, #ffffff 0%, #f5f1eb 100%);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: radial-gradient(120% 130% at 80% 0%, var(--accent-700), var(--navy-900));
+}
+
+.digital-card-page::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  pointer-events: none;
+  background: radial-gradient(circle at 15% 90%, rgba(61, 111, 208, 0.45), transparent 48%);
 }
 
 .digital-card {
