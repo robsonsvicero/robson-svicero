@@ -88,8 +88,8 @@ export default function DigitalCard() {
       />
       <main>
         <section className="digital-card-page" aria-label="Cartão digital de Robson Svicero">
-          <HeroParticles />
           <article className="digital-card" ref={cardRef} aria-label="Cartao digital interativo">
+          <HeroParticles />
             <img
               className="digital-card-avatar"
               src="/assets/images/Robson_Svicero_1x1.webp"
