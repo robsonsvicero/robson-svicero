@@ -1,4 +1,4 @@
-﻿
+
 /* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
    TRAJECTORY DESIGN SYSTEM
    Fonte: Tosh A (Regular 400, Medium 500, Bold 700)
@@ -4226,12 +4226,13 @@ h6 {
 .latest-articles-grid .blog-card-image {
   height: auto;
   aspect-ratio: 2.06 / 1;
-  filter: none;
+  filter: grayscale(1);
+  transition: filter 300ms var(--ease-standard);
 }
 
 .latest-articles-grid .blog-card:hover .blog-card-image,
 .latest-articles-grid .blog-card:focus-visible .blog-card-image {
-  filter: none;
+  filter: grayscale(0);
 }
 
 .latest-articles-grid .blog-card-body {
@@ -11193,7 +11194,13 @@ h6,
 .blog-page .blog-grid .blog-card-image {
   height: auto;
   aspect-ratio: 2.06 / 1;
-  filter: none;
+  filter: grayscale(1);
+  transition: filter 300ms var(--ease-standard);
+}
+
+.blog-page .blog-grid .blog-card:hover .blog-card-image,
+.blog-page .blog-grid .blog-card:focus-visible .blog-card-image {
+  filter: grayscale(0);
 }
 
 .blog-page .blog-grid .blog-card-body {
@@ -11248,7 +11255,13 @@ h6,
 }
 
 .blog-page .blog-card-featured .blog-card-image {
-  filter: none;
+  filter: grayscale(1);
+  transition: filter 300ms var(--ease-standard);
+}
+
+.blog-page .blog-card-featured:hover .blog-card-image,
+.blog-page .blog-card-featured:focus-visible .blog-card-image {
+  filter: grayscale(0);
 }
 
 .blog-page .blog-card-featured .blog-card-body {
@@ -11298,7 +11311,8 @@ h6,
   height: 100%;
   aspect-ratio: auto;
   object-fit: cover;
-  filter: none;
+  filter: grayscale(1);
+  transition: filter 300ms var(--ease-standard);
 }
 
 .blog-page .blog-card-featured .blog-card-body {
