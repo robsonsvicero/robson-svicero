@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-17T19:45:22.485Z",
+  "generatedAt": "2026-10-18T22:14:35.222Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 13,
+      "viewsCount": 15,
       "readingTime": "10 minutos"
     },
     {
@@ -46,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
       "category": "Raio X",
       "publishedAt": "2026-09-25T11:55:00+00:00",
-      "viewsCount": 9,
+      "viewsCount": 10,
       "readingTime": "7 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 17,
+      "viewsCount": 18,
       "readingTime": "8 minutos"
     },
     {
@@ -94,7 +94,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 25,
+      "viewsCount": 26,
       "readingTime": "10 minutos"
     },
     {
@@ -214,7 +214,7 @@ export const contentSnapshots = {
       "excerpt": "Instagram atrai visitantes, mas é o site que transforma interesse em clientes. Descubra por que muitas empresas perdem vendas no destino do clique e como evitar esse erro.",
       "category": "Experiência Digital",
       "publishedAt": "2026-07-21T03:00:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "5 minutos"
     },
     {

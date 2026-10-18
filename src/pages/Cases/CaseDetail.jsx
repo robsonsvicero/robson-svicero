@@ -9,6 +9,7 @@ import CTA from "../../components/CTA/CTA.jsx";
 import { pageCtaContent } from "../../content/siteContent.js";
 import { useSupabaseItem } from "../../hooks/useSupabaseContent.js";
 import { mapProject } from "../../lib/contentMappers.js";
+import { stripHtml } from "../../utils/richText.js";
 import NotFound from "../NotFound/NotFound.jsx";
 
 export default function CaseDetail() {
@@ -100,7 +101,7 @@ export default function CaseDetail() {
                 </div>
                 <p className="eyebrow">Projeto</p>
                 <h1 id="case-title">{project.title}</h1>
-                <p className="lead">{project.description}</p>
+                <p className="lead">{stripHtml(project.description)}</p>
               </div>
 
               {project.image && (

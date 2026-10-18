@@ -11,6 +11,7 @@ import { pageCtaContent } from "../../content/siteContent.js";
 import { prefetchImages } from "../../utils/imagePrefetch.js";
 import { ArrowRight } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
+import { stripHtml } from "../../utils/richText.js";
 
 export default function Cases() {
   const reducedMotion = useReducedMotion();
@@ -89,7 +90,7 @@ function CaseCard({ project }) {
                   </div>
                   <div className="case-card-body">
                     {badges.length > 0 && <div className="case-card-badges">{badges.map((badge) => <span className="case-card-badge" key={badge}>{badge}</span>)}</div>}
-                    <div className="case-card-content"><h3>{project.title}</h3><p>{project.metaDescription || project.description}</p></div>
+                    <div className="case-card-content"><h3>{project.title}</h3><p>{stripHtml(project.metaDescription || project.description)}</p></div>
                   </div>
                   <div className="case-card-footer"><span>{project.niche || project.clientName || "Projeto digital"}</span><strong>Ver case <i><ArrowRight size={18} /></i></strong></div>
     </Card>
