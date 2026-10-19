@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Button, { TrajectoryArrow } from "../../ui/Button/Button.jsx";
 import { contactLinks, headerContent } from "../../../content/siteContent.js";
+import AnnouncementBar from "../AnnouncementBar/AnnouncementBar.jsx";
 
 function WhatsAppIcon() {
   return (
@@ -86,6 +87,7 @@ export default function Header() {
 
   return (
     <>
+      <AnnouncementBar />
       <header
         className={`navbar ${isOverDark ? "navbar--over-dark" : ""} ${isScrolled ? "is-scrolled" : ""}`.trim()}
         id="navbar"

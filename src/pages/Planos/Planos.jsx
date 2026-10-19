@@ -43,11 +43,12 @@ const plans = [
   {
     id: "institutional",
     name: "Site Institucional",
-    focus: "SITE INSTITUCIONAL",
+    focus: "SITE",
     tone: "Site completo com SEO local técnico para empresas de São Paulo que querem aparecer no Google.",
     price: "690",
     bullets: [
-      "5 a 10 páginas",
+      "One Page (página única)",
+      "Site Institucional (5 a 10 páginas)",
       "SEO local + schema",
       "Pronto em 15 à 20 dias",
       "Suporte 90 dias",
