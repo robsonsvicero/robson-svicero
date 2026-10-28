@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-19T01:53:36.026Z",
+  "generatedAt": "2026-10-28T20:46:21.625Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 15,
+      "viewsCount": 24,
       "readingTime": "10 minutos"
     },
     {
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Acessibilidade em UX vai além de cumprir requisitos: contraste, teclado, linguagem e estrutura podem melhorar a experiência e ampliar o alcance do produto.",
       "category": "UX Insights",
       "publishedAt": "2026-10-01T23:54:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 10,
       "readingTime": "7 minutos"
     },
     {
@@ -34,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 9,
+      "viewsCount": 18,
       "readingTime": "11 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 19,
       "readingTime": "8 minutos"
     },
     {
@@ -82,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-09T10:21:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 11,
       "readingTime": "10 minutos"
     },
     {
@@ -106,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Raio X",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 13,
+      "viewsCount": 14,
       "readingTime": "8 minutos"
     },
     {
@@ -118,7 +118,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda o que é SEO e por que ele é importante para pequenas empresas que querem aumentar a visibilidade e atrair clientes pelo Google.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-18T16:52:00+00:00",
-      "viewsCount": 6,
+      "viewsCount": 7,
       "readingTime": "9 minutos"
     },
     {
@@ -130,7 +130,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Raio X",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 45,
+      "viewsCount": 47,
       "readingTime": "8 minutos"
     },
     {
@@ -142,7 +142,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 23,
+      "viewsCount": 24,
       "readingTime": "7 minutos"
     },
     {
@@ -154,7 +154,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Raio X",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 29,
+      "viewsCount": 30,
       "readingTime": "7 minutos"
     },
     {
@@ -178,7 +178,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 12,
+      "viewsCount": 18,
       "readingTime": "8 minutos"
     },
     {
@@ -190,7 +190,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como a percepção de valor influencia a decisão de compra e descubra como comunicar melhor os benefícios da sua empresa para se destacar da concorrência.",
       "category": "Branding & Identidade Visual",
       "publishedAt": "2026-07-28T12:00:00+00:00",
-      "viewsCount": 16,
+      "viewsCount": 18,
       "readingTime": "7 minutos"
     },
     {
@@ -202,7 +202,7 @@ export const contentSnapshots = {
       "excerpt": "Seu site responde às dúvidas que impedem um cliente de comprar? Entenda como clareza, confiança e orientação reduzem abandonos e facilitam a decisão.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-23T03:05:00+00:00",
-      "viewsCount": 19,
+      "viewsCount": 20,
       "readingTime": "6 minutos"
     },
     {
@@ -214,7 +214,7 @@ export const contentSnapshots = {
       "excerpt": "Instagram atrai visitantes, mas é o site que transforma interesse em clientes. Descubra por que muitas empresas perdem vendas no destino do clique e como evitar esse erro.",
       "category": "Experiência Digital",
       "publishedAt": "2026-07-21T03:00:00+00:00",
-      "viewsCount": 21,
+      "viewsCount": 22,
       "readingTime": "5 minutos"
     },
     {
@@ -238,7 +238,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que um site de sucesso começa muito antes do layout. Entenda como estratégia, UX Design e branding criam experiências que geram resultados para empresas.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-09T03:00:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "4 minutos"
     }
   ],

@@ -10,6 +10,7 @@ import { absoluteUrl } from "../../utils/seo.js";
 import LatestArticles from "../../sections/LatestArticles/LatestArticles.jsx";
 import Process from "../../sections/Process/Process.jsx";
 import Projects from "../../sections/Projects/Projects.jsx";
+import Faq from "../../sections/Faq/Faq.jsx";
 
 const localBenefits = [
   {
@@ -29,6 +30,45 @@ const localBenefits = [
   },
 ];
 
+const localFaqContent = {
+  eyebrow: "Perguntas frequentes",
+  title: "Dúvidas sobre criação de sites em São Paulo",
+  lead:
+    "Entenda o processo, os prazos e o que considerar antes de contratar um site para sua empresa.",
+  questions: [
+    {
+      question: "Quanto custa criar um site em São Paulo?",
+      answer:
+        "O investimento varia conforme o objetivo, o número de páginas, os recursos de integração e a complexidade do conteúdo. Landing pages possuem escopo mais enxuto, enquanto sites institucionais e lojas virtuais exigem planejamento adicional. A proposta apresenta o investimento total antes do início.",
+    },
+    {
+      question: "Quanto tempo leva para publicar um site profissional?",
+      answer:
+        "O prazo depende do formato e da disponibilidade de aprovação dos textos, imagens e conteúdos da empresa. Após alinharmos o escopo, informo cronograma, entregas e marcos de aprovação antes do projeto começar.",
+    },
+    {
+      question: "Você atende empresas de todos os bairros de São Paulo?",
+      answer:
+        "Sim. O atendimento pode ser remoto, com reuniões e aprovações online, atendendo empresas de qualquer região da cidade e da grande São Paulo. Também é possível conversar presencialmente conforme a disponibilidade e o escopo.",
+    },
+    {
+      question: "O site será otimizado para pesquisas locais?",
+      answer:
+        "A estrutura inclui base técnica de SEO, títulos claros, conteúdo relevante, metadados, sitemap e dados estruturados. Para aumentar a presença local, o projeto pode considerar páginas de serviço, Google Business Profile e chamadas para contato ligadas à região.",
+    },
+    {
+      question: "Vocês fornecem domínio, hospedagem e conteúdo?",
+      answer:
+        "Posso orientar ou realizar a configuração de domínio e hospedagem. Textos, fotos e materiais existentes podem ser aproveitados; quando necessário, organizamos o conteúdo junto com você para preservar a identidade da empresa e comunicar a proposta com clareza.",
+    },
+    {
+      question: "Qual formato de site é mais adequado para minha empresa?",
+      answer:
+        "Landing pages são indicadas para campanhas e ofertas específicas. Sites institucionais servem para apresentar a empresa, serviços, diferenciais e canais de contato. A escolha considera seu público, processo comercial, prazo e objetivo de crescimento.",
+    },
+  ],
+};
+
 function createLocalPageSchema() {
   const pageUrl = absoluteUrl(routes.siteCreationSaoPaulo);
   const businessUrl = absoluteUrl("/");
@@ -42,6 +82,7 @@ function createLocalPageSchema() {
         name: "Robson Svicero",
         url: businessUrl,
         telephone: "+55 11 96493-2007",
+        email: "ola@robsonsvicero.com.br",
         areaServed: {
           "@type": "City",
           name: "São Paulo",
@@ -67,6 +108,47 @@ function createLocalPageSchema() {
         },
         url: pageUrl,
       },
+      {
+        "@type": "WebPage",
+        "@id": `${pageUrl}#webpage`,
+        url: pageUrl,
+        name: "Criação de Sites em São Paulo | Robson Svicero",
+        description:
+          "Site profissional para empresas de São Paulo com estratégia, design responsivo, SEO técnico e geração de contatos.",
+        isPartOf: {
+          "@id": `${businessUrl}#website`,
+        },
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": `${pageUrl}#breadcrumb`,
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Início",
+            item: businessUrl,
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Criação de sites em São Paulo",
+            item: pageUrl,
+          },
+        ],
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${pageUrl}#faq`,
+        mainEntity: localFaqContent.questions.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: item.answer,
+          },
+        })),
+      },
     ],
   };
 }
@@ -75,8 +157,8 @@ export default function CriacaoDeSitesSaoPaulo() {
   return (
     <>
       <SEO
-        title="Criação de Sites em São Paulo | Robson Svicero"
-        description="Criação de sites profissionais em São Paulo para empresas que querem transmitir confiança, aparecer melhor no Google e gerar mais contatos."
+        title="Criação de Sites em São Paulo | Orçamento e Projetos"
+        description="Criação de sites profissionais em São Paulo: estratégia, design responsivo, desenvolvimento e SEO técnico para gerar confiança e transformar visitantes em contatos."
         path={routes.siteCreationSaoPaulo}
         structuredData={createLocalPageSchema()}
       />
@@ -86,10 +168,10 @@ export default function CriacaoDeSitesSaoPaulo() {
             <div className="stack" style={{ gap: "var(--space-5)" }}>
               <p className="eyebrow">Criação de sites em São Paulo</p>
               <h1 id="sao-paulo-title">
-                Criação de sites em São Paulo para negócios que querem crescer com presença digital profissional
+                Criação de sites em São Paulo com estratégia para gerar confiança e contatos
               </h1>
               <p className="lead">
-                Desenvolvo sites para empresas de São Paulo que precisam aparecer melhor, transmitir confiança e receber mais contatos pelo WhatsApp.
+                Eu transformo sua presença digital em uma experiência clara, rápida e orientada a negócios: do posicionamento à publicação, seu site apresenta a empresa certa para o cliente certo.
               </p>
               <div className="hero-cta">
                 <Button href={contactLinks.whatsapp} target="_blank" rel="noreferrer noopener">
@@ -154,7 +236,7 @@ export default function CriacaoDeSitesSaoPaulo() {
             <SectionHeader
               label="Por que criar seu site em São Paulo"
               title="Uma presença digital preparada para o seu mercado"
-              subtitle="Seu site precisa explicar o valor do negócio, facilitar a decisão e criar um caminho simples até o contato."
+              subtitle="Sua empresa compete por atenção, confiança e espaço de resposta. Um site bem estruturado organiza sua oferta, apresenta provas relevantes e cria um caminho simples até o contato."
               id="local-benefits-title"
               align="center"
               className="local-benefits-header"
@@ -171,11 +253,51 @@ export default function CriacaoDeSitesSaoPaulo() {
           </div>
         </ScrollReveal>
 
+        <ScrollReveal as="section" className="section" aria-labelledby="local-site-formats-title">
+          <div className="container stack" style={{ gap: "var(--space-8)" }}>
+            <SectionHeader
+              label="Formato certo para o objetivo"
+              title="Escolha do site para cada momento do negócio"
+              subtitle="Antes de definir telas, definimos a função do projeto. Assim, recursos e estrutura ficam alinhados ao seu processo comercial."
+              id="local-site-formats-title"
+              align="center"
+            />
+
+            <div className="grid-3 local-benefits-grid">
+              <Card className="feature local-benefit-card">
+                <h3>Site institucional</h3>
+                <p>
+                  Apresenta serviços, diferenciais, experiência e canais de contato. É a estrutura indicada para negócios que precisam construir autoridade e facilitar a avaliação da empresa.
+                </p>
+              </Card>
+              <Card className="feature local-benefit-card">
+                <h3>Landing page</h3>
+                <p>
+                  Conduz visitantes de campanhas, anúncios ou propostas comerciais para uma única ação. Funciona bem quando a empresa precisa captar contatos para uma oferta específica.
+                </p>
+              </Card>
+              <Card className="feature local-benefit-card">
+                <h3>Site com busca orgânica</h3>
+                <p>
+                  Reúne páginas de serviços, conteúdo estratégico e base técnica de SEO para responder dúvidas do mercado e ampliar oportunidades de encontro com clientes.
+                </p>
+              </Card>
+            </div>
+          </div>
+        </ScrollReveal>
+
         <ScrollReveal>
           <Projects />
         </ScrollReveal>
         <ScrollReveal>
           <Process className="process-section--creation" />
+        </ScrollReveal>
+        <ScrollReveal>
+          <Faq
+            content={localFaqContent}
+            id="perguntas-sao-paulo"
+            titleId="sao-paulo-faq-title"
+          />
         </ScrollReveal>
         <ScrollReveal>
           <CTA className="surface-band"content={pageCtaContent.siteCreationSaoPaulo} titleId="sao-paulo-cta-title" />

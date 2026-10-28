@@ -132,8 +132,8 @@ export default function Planos() {
   return (
     <>
       <SEO
-        title="Planos de Criação de Sites com Manutenção"
-        description="Página de planos de criação de sites, manutenção e conteúdo mensal para diferentes níveis de necessidade."
+        title="Planos de Criação de Sites em São Paulo | Robson Svicero"
+        description="Conheça planos de criação de sites profissionais, landing pages e lojas virtuais em São Paulo. Atendimento direto, suporte e manutenção. Solicite seu orçamento."
         path={routes.prices}
         structuredData={createPlansSchema()}
       />
