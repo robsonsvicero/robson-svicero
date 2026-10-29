@@ -10183,6 +10183,14 @@ justify-content: space-between;
   gap: 0.85rem;
 }
 
+.testimonials-proof-header-label-only {
+  gap: 0;
+  align-self: start;
+  justify-self: start;
+  padding-top: 0;
+  transform: translateY(0);
+}
+
 .testimonials-proof > .section-header .section_heading {
   margin: 0;
   font-size: clamp(2rem, 2.55vw, 3rem);

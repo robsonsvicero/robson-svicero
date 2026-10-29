@@ -578,10 +578,9 @@ export default function Planos() {
               <div className="container stack testimonials-proof">
                 <SectionHeader
                   label={testimonialsContent.eyebrow}
-                  title={testimonialsContent.title}
-                  subtitle={testimonialsContent.lead}
                   id="plans-testimonials-title"
                   align="left"
+                  className="testimonials-proof-header-label-only"
                 />
                 <div className="testimonials-proof-grid">
                   {testimonialsContent.reviews.map((review) => (
