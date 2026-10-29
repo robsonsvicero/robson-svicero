@@ -8108,7 +8108,8 @@ p.meta {
 
 .planos-plan-tone {
   color: var(--muted);
-  margin: 6px 0 0;
+  font-style: italic;
+  padding-top: 16px;
 }
 
 .planos-plan-list {

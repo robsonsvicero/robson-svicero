@@ -53,13 +53,13 @@ const plans = [
   {
     id: "one-page",
     name: "Site One Page",
-    focus: "PÁGINA ÚNICA",
+    focus: "Site One Page",
     idealFor: "Quem precisa apresentar a empresa completa sem uma arquitetura extensa.",
     result: "Centralizar sua oferta, provas e contato em uma jornada objetiva.",
     tone: "Uma página estratégica para apresentar serviços, diferenciais e caminho de contato.",
     price: "690",
     priceNote: "Seções extras, animações e integrações podem alterar o valor.",
-    ctaLabel: "Quero um site One Page",
+    ctaLabel: "Quero um site one page",
     badge: null,
     timeline: "Pronto em 10 a 15 dias",
     bullets: [
@@ -110,20 +110,20 @@ const plans = [
 const maintenancePlans = [
   {
     name: "Essencial",
-    price: "129",
+    price: "109",
     description: "Site no ar, infraestrutura protegida e suporte técnico básico.",
     bullets: ["Hospedagem e domínio inclusos", "Até 1 pequena alteração por mês", "Resposta em até 3 dias úteis"],
   },
   {
     name: "Profissional",
-    price: "279",
+    price: "237",
     description: "Infraestrutura e rotina de atualização para empresas que precisam fazer mudanças com frequência.",
     bullets: ["Hospedagem e domínio inclusos", "Até 3 pequenas alterações por mês", "Resposta em até 2 dias úteis"],
     featured: true,
   },
   {
     name: "Avançado",
-    price: "449",
+    price: "380",
     description: "Acompanhamento técnico próximo, manutenção preventiva e verificações contínuas.",
     bullets: ["Hospedagem e domínio inclusos", "Até 5 pequenas alterações por mês", "SEO técnico básico e relatório"],
   },
@@ -164,9 +164,9 @@ const plansFaq = [
   },
 ];
 
-function getPlanWhatsAppUrl(planName) {
+function getPlanWhatsAppUrl(planFocus) {
   const message = encodeURIComponent(
-    `Olá! Quero o plano ${planName} para o meu projeto. Pode me explicar como funciona?`
+    `Olá! Quero o plano ${planFocus} para o meu projeto. Pode me explicar como funciona?`
   );
   return `https://wa.me/5511964932007?text=${message}`;
 }
@@ -461,7 +461,7 @@ export default function Planos() {
                         ))}
                       </ul>
                       <Button
-                        href={getPlanWhatsAppUrl(plan.name)}
+                        href={getPlanWhatsAppUrl(plan.focus)}
                         target="_blank"
                         rel="noreferrer noopener"
                         variant={plan.featured ? "primary" : "secondary"}
