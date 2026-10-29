@@ -17,6 +17,7 @@ export default function ScrollReveal({ as = "div", children, className, style, .
   return (
     <MotionElement
       ref={ref}
+      initial={false}
       className={className}
       style={{ ...style, opacity: reducedMotion ? 1 : opacity, y: reducedMotion ? 0 : y }}
       {...props}

@@ -10,6 +10,7 @@ const CANONICAL_PATHS = [
   "/",
   "/criacao-de-sites",
   "/criacao-de-sites-sao-paulo",
+  "/planos",
   "/precos",
   "/servicos/ux-design",
   "/servicos/landing-page",
@@ -55,6 +56,32 @@ function setCanonicalAndOgUrl(html, canonicalUrl) {
   return next;
 }
 
+function setPlansPrerenderMetadata(html) {
+  let next = html;
+  const title = "Planos de Criação de Sites em São Paulo | Robson Svicero";
+  const description = "Conheça planos de criação de sites profissionais, landing pages e lojas virtuais em São Paulo. Atendimento direto, suporte e manutenção.";
+
+  next = next.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+  next = next.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}" />`);
+  next = next.replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${title}" />`);
+  next = next.replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${description}" />`);
+
+  const prerenderedContent = `
+  <noscript>
+    <main>
+      <h1>Criação de sites profissionais em São Paulo para gerar contatos.</h1>
+      <p>Conheça os planos Landing Page, Site One Page, Site Institucional e E-commerce, com preço a partir de R$ 490 e prazos definidos.</p>
+      <h2>Planos de criação de sites</h2>
+      <p>Landing Page, Site One Page, Site Institucional e E-commerce com suporte e manutenção disponíveis.</p>
+    </main>
+  </noscript>`;
+
+  if (!next.includes("<noscript>")) {
+    next = next.replace(/<body[^>]*>/i, (match) => `${match}${prerenderedContent}`);
+  }
+  return next;
+}
+
 async function loadSnapshotProjectPaths() {
   try {
     const snapshotUrl = `${pathToFileURL(path.join(PROJECT_ROOT, "src", "data", "contentSnapshots.js")).href}?v=${Date.now()}`;
@@ -71,7 +98,8 @@ async function loadSnapshotProjectPaths() {
 
 async function writeRouteHtml(indexHtml, pathname, siteUrl) {
   const canonicalUrl = toAbsoluteUrl(pathname, siteUrl);
-  const routeHtml = setCanonicalAndOgUrl(indexHtml, canonicalUrl);
+  let routeHtml = setCanonicalAndOgUrl(indexHtml, canonicalUrl);
+  if (pathname === "/planos") routeHtml = setPlansPrerenderMetadata(routeHtml);
 
   if (pathname === "/") {
     await writeFile(INDEX_HTML_PATH, routeHtml, "utf-8");

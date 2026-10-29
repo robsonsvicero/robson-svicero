@@ -7801,6 +7801,109 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 
 /* â”€â”€â”€ PÃ¡gina de planos de criaÃ§Ã£o de sites â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 
+/* Planos: jornada comercial */
+.planos-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-4);
+}
+.planos-trust-grid > div {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr);
+  gap: var(--space-3);
+  align-items: center;
+  min-height: 88px;
+  padding: var(--space-4);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+}
+.planos-trust-grid svg {
+  width: 22px;
+  height: 22px;
+  color: var(--accent);
+}
+.planos-trust-grid span,
+.planos-trust-grid strong,
+.planos-trust-grid small { display: block; }
+.planos-trust-grid small {
+  margin-top: 4px;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.planos-plan-grid.planos-investment-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.planos-maintenance-grid.planos-investment-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.planos-plan-ideal,
+.planos-plan-result {
+  margin: 0;
+  line-height: 1.45;
+}
+
+p.planos-plan-ideal,
+p.planos-plan-result,
+p.planos-plan-tone,
+p.planos-investment-price-note,
+p.meta {
+  font-size: 14px;
+}
+
+.planos-plan-result {
+  padding-bottom: var(--space-2);
+  color: var(--fg-2, var(--muted));
+}
+.planos-process {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.planos-process li > .card { height: 100%; }
+.planos-process li > .card > span {
+  display: block;
+  margin-bottom: var(--space-3);
+  color: var(--accent);
+  font-size: var(--text-sm);
+  font-weight: 750;
+}
+.planos-comparison-scroll {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+}
+.planos-comparison {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+.planos-comparison th,
+.planos-comparison td {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--border-soft);
+  text-align: left;
+}
+.planos-comparison thead th { background: var(--surface-muted, var(--bg)); }
+.planos-comparison tbody tr:last-child th,
+.planos-comparison tbody tr:last-child td { border-bottom: 0; }
+.planos-evolution-card {
+  max-width: 760px;
+  margin-inline: auto;
+}
+@media (max-width: 1080px) {
+  .planos-process { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .planos-maintenance-grid.planos-investment-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .planos-trust-grid,
+  .planos-plan-grid.planos-investment-grid,
+  .planos-maintenance-grid.planos-investment-grid,
+  .planos-process { grid-template-columns: 1fr; }
+}
+
 .planos-page {
   background: var(--bg);
   color: var(--fg);
@@ -7897,7 +8000,7 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 
 .planos-hero-stats span {
   color: var(--muted);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.06em;
@@ -7947,7 +8050,7 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   border-radius: var(--radius-pill);
   background: color-mix(in oklab, var(--accent) 24%, var(--surface));
   color: var(--accent-hover);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: var(--text-xs);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -7957,14 +8060,14 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 .planos-page .planos-hero-ribbon span {
   background: var(--accent-50);
   color: var(--accent);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.65rem;
 }
 
 .planos-page .planos-hero-panel > .meta {
   margin: 0;
   color: var(--fg-2, var(--muted));
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.68rem;
   font-weight: 600;
   line-height: 1.7;
@@ -8068,11 +8171,8 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 }
 
 .planos-page .feature {
+  margin-top: 4rem;
   height: 100%;
-}
-
-.planos-page .feature h3 {
-  margin-bottom: 8px;
 }
 
 .planos-page .feature p:last-child {
@@ -8093,14 +8193,16 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 }
 
 .planos-investment-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   align-items: stretch;
   gap: var(--space-5);
 }
 
 .planos-investment-card {
   min-width: 0;
+  height: 100%;
   gap: var(--space-5);
+  justify-content: space-between;
   padding: var(--space-6);
   border: 1px solid var(--border-soft);
   border-radius: var(--radius-lg, 24px);
@@ -8128,7 +8230,26 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 3vw, 2.5rem);
   font-weight: 750;
-  line-height: 1.1;
+  line-height: 1.25;
+  overflow: visible;
+}
+
+.planos-investment-price-note {
+  min-height: 3em;
+  margin: 0;
+  color: var(--fg-2, var(--muted));
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.planos-plan-badge {
+  align-self: flex-start;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  background: var(--accent-600, #1265c4);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .planos-investment-price span {
@@ -8175,15 +8296,21 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 }
 
 /* Plan cards keep the supplied three-column composition with site typography and palette. */
-.planos-investment .planos-investment-grid {
+.planos-investment .planos-plan-grid.planos-investment-grid:not(.planos-maintenance-grid) {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+.planos-investment .planos-maintenance-grid.planos-investment-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .planos-investment .planos-investment-card {
   min-height: 346px;
+  height: 100%;
   gap: 1rem;
-  padding: 2rem;
+  justify-content: space-between;
+  padding: 2rem 1.5rem;
   border-radius: 16px;
 }
 
@@ -8206,6 +8333,8 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
   margin: 0.25rem 0 0;
   font-size: clamp(2rem, 2.6vw, 2.5rem);
   white-space: nowrap;
+  min-height: 3rem;
+  line-height: 1.25;
 }
 
 .planos-investment .planos-investment-price span {
@@ -11036,13 +11165,14 @@ h6,
 
 .local-benefits-grid {
   width: min(100%, 1216px);
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
   margin-inline: auto;
 }
 
 .local-benefit-card {
   min-height: 171px;
+  margin-top: 4rem;
   padding: 1.5rem;
   border: 1px solid #e0e7f0;
   border-radius: 12px;
@@ -11057,7 +11187,7 @@ h6,
 }
 
 .local-benefit-card h3 {
-  margin: 0 0 1rem;
+  margin: 0 0 0.75rem;
   color: var(--ink-900);
   font-size: 1.4rem;
   font-weight: 700;
@@ -11066,7 +11196,7 @@ h6,
 }
 
 .local-benefit-card p {
-  margin: 0;
+  margin: 0 0 1rem;
   color: #687385;
   font-size: 1rem;
   line-height: 1.5;
@@ -11904,7 +12034,7 @@ h6,
 }
 
 .testimonials-cta-section .section-label {
-  color: var(--accent-300);
+  color: var(--accent-600);
 }
 
 .testimonials-cta-section .section_heading,
@@ -12483,7 +12613,8 @@ h6,
 }
 
 @media (max-width: 900px) {
-  .planos-investment .planos-investment-grid {
+  .planos-investment .planos-plan-grid.planos-investment-grid:not(.planos-maintenance-grid),
+  .planos-investment .planos-maintenance-grid.planos-investment-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -12493,7 +12624,8 @@ h6,
 }
 
 @media (max-width: 640px) {
-  .planos-investment .planos-investment-grid {
+  .planos-investment .planos-plan-grid.planos-investment-grid:not(.planos-maintenance-grid),
+  .planos-investment .planos-maintenance-grid.planos-investment-grid {
     grid-template-columns: 1fr;
   }
 

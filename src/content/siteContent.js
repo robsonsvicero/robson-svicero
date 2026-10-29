@@ -609,7 +609,7 @@ export const footerContent = {
           { label: "Identidade Visual", to: routes.visualIdentityService },
         ],
       },
-      { label: "Preços", href: routes.prices },
+      { label: "Planos", href: routes.prices },
       { label: "Projetos", href: routes.cases },
       { label: "Blog", href: routes.blog },
     ],
