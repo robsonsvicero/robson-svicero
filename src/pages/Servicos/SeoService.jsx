@@ -388,14 +388,13 @@ export default function SeoService() {
         </ScrollReveal>
 
         <ScrollReveal as="section" className="section seo-roadmap-section" aria-labelledby="seo-roadmap-title">
-          <div className="container seo-roadmap-layout">
+          <div className="container stack" style={{ gap: "var(--space-10)" }}>
             <SectionHeader
               label="Roadmap"
               title="Os primeiros meses construem uma base confiável"
               subtitle="SEO leva meses para produzir sinais consistentes, especialmente quando concorrência, histórico do domínio e estrutura precisam ser considerados."
               id="seo-roadmap-title"
-              align="left"
-              style={{ marginBottom: 0 }}
+              align="center"
             />
             <ol className="seo-roadmap-list">
               {roadmap.map((item) => (

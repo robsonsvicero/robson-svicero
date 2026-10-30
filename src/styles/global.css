@@ -8758,6 +8758,7 @@ p.meta {
 
 .seo-roadmap-list {
   display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-4);
   margin: 0;
   padding: 0;
@@ -8766,10 +8767,12 @@ p.meta {
 }
 
 .seo-roadmap-list li {
-  padding: var(--space-5) var(--space-5) var(--space-5) var(--space-6);
-  border-left: 2px solid var(--accent);
-  border-radius: 0 0.75rem 0.75rem 0;
+  height: 100%;
+  padding: 2rem;
+  border: 1px solid var(--card-hairline-on-light, var(--border-soft));
+  border-radius: 20px;
   background: var(--surface);
+  box-shadow: 0 12px 28px rgba(9, 46, 104, 0.08);
 }
 
 .seo-roadmap-list span {
@@ -9074,6 +9077,10 @@ p.meta {
 
   .seo-hero-summary.card {
     width: 100%;
+  }
+
+  .seo-roadmap-list {
+    grid-template-columns: 1fr;
   }
 
   .seo-report-card dl div {
