@@ -8066,6 +8066,7 @@ p.meta {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  justify-content: space-between;
 }
 
 .planos-page .planos-hero-ribbon {
@@ -8081,20 +8082,20 @@ p.meta {
   min-height: 34px;
   padding: 0 12px;
   border-radius: var(--radius-pill);
-  background: color-mix(in oklab, var(--accent) 24%, var(--surface));
+  background: color-mix(in oklab, var(--accent) 5%, var(--surface));
   color: var(--accent-hover);
-  font-family: var(--font-body);
-  font-size: var(--text-xs);
-  letter-spacing: 0.04em;
+  font-family: var(--font-mono);
+  font-size: 0.7em;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
   white-space: nowrap;
 }
 
 .planos-page .planos-hero-ribbon span {
-  background: var(--accent-50);
+  background: color-mix(in oklab, var(--accent) 5%, var(--surface));
   color: var(--accent);
   font-family: var(--font-body);
-  font-size: 0.65rem;
+  font-size: 0.7rem;
 }
 
 .planos-page .planos-hero-panel>.meta {
