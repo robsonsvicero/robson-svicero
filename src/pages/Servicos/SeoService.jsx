@@ -289,15 +289,15 @@ export default function SeoService() {
               <div className="planos-hero-stats">
                 <div>
                   <strong><a href="#planos-seo">SEO STARTER</a></strong>
-                  <span>R$ 1.197/mês — constância, conteúdo e recomendações essenciais.</span>
+                  <span>R$ 899/mês — constância, conteúdo e recomendações essenciais.</span>
                 </div>
                 <div>
                   <strong><a href="#planos-seo">SEO LOCAL AVANÇADO</a></strong>
-                  <span>R$ 1.997/mês — mais conteúdo, on-page e estratégia regional.</span>
+                  <span>R$ 1.367/mês — mais conteúdo, on-page e estratégia regional.</span>
                 </div>
                 <div>
                   <strong><a href="#planos-seo">SEO ESCALA</a></strong>
-                  <span>R$ 3.497/mês — volume, auditoria técnica e relatório de conversão.</span>
+                  <span>R$ 2.097/mês — volume, auditoria técnica e relatório de conversão.</span>
                 </div>
               </div>
               <div className="planos-hero-ribbon">
