@@ -43,6 +43,7 @@ const UXDesign = lazy(() => import("../pages/Servicos/UXDesign.jsx"));
 const LandingPage = lazy(() => import("../pages/Servicos/LandingPage.jsx"));
 const IdentidadeVisual = lazy(() => import("../pages/Servicos/IdentidadeVisual.jsx"));
 const SeoService = lazy(() => import("../pages/Servicos/SeoService.jsx"));
+const RedesignService = lazy(() => import("../pages/Servicos/RedesignService.jsx"));
 const ExclusaoDados = lazy(() => import("../pages/ExclusaoDados/ExclusaoDados.jsx"));
 
 function ScrollToTop() {
@@ -106,6 +107,7 @@ export default function AppRoutes() {
           <Route path="/servicos/landing-page" element={<LandingPage />} />
           <Route path="/servicos/identidade-visual" element={<IdentidadeVisual />} />
           <Route path="/servicos/seo" element={<SeoService />} />
+          <Route path="/servicos/redesign" element={<RedesignService />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/cases/:slug" element={<CaseDetail />} />
           <Route path="/blog" element={<Blog />} />

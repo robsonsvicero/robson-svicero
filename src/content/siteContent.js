@@ -9,6 +9,7 @@ export const routes = {
   landingPageService: "/servicos/landing-page",
   visualIdentityService: "/servicos/identidade-visual",
   seoService: "/servicos/seo",
+  redesignService: "/servicos/redesign",
   gmnService: "/servicos/gestao-gmn",
   cases: "/cases",
   blog: "/blog",
@@ -47,6 +48,7 @@ export const headerContent = {
         { label: "Criação de sites em SP", to: routes.siteCreationSaoPaulo },
         { label: "Landing Page", to: routes.landingPageService },
         { label: "SEO", to: routes.seoService },
+        { label: "Redesign", to: routes.redesignService },
         { label: "UX Design", to: routes.uxDesignService },
         { label: "Identidade Visual", to: routes.visualIdentityService },
       ],
@@ -317,6 +319,46 @@ export const faqContent = {
   ],
 };
 
+export const seoFaqContent = {
+  eyebrow: "Perguntas frequentes",
+  title: "Principais dúvidas antes de contratar SEO",
+  lead: "Respostas diretas sobre prazo, entregas, cancelamento, resultados e responsabilidade técnica.",
+  questions: [
+    {
+      question: "Em quanto tempo vejo resultado?",
+      answer: "SEO costuma levar alguns meses. O prazo depende do histórico do domínio, da concorrência, do estado técnico do site e da frequência de execução. O relatório mostra evolução sem criar expectativas imediatas.",
+    },
+    {
+      question: "Existe contrato mínimo?",
+      answer: "Recomendamos de 3 a 6 meses para permitir diagnóstico, execução e análise. A renovação e o cancelamento seguem o que estiver formalizado na proposta.",
+    },
+    {
+      question: "Preciso aprovar os textos?",
+      answer: "Sim. Os textos e materiais passam por aprovação antes da publicação, dentro dos prazos combinados para evitar atrasos.",
+    },
+    {
+      question: "O que acontece se eu cancelar?",
+      answer: "As entregas até a data de encerramento permanecem válidas. Não há exclusão automática de conteúdo já publicado sem uma orientação de migração ou remoção acordada.",
+    },
+    {
+      question: "Vocês compram links?",
+      answer: "Não. Trabalhamos com conteúdo útil, relevância técnica e presença digital sustentável, dentro das diretrizes dos buscadores.",
+    },
+    {
+      question: "Qual a diferença entre o SEO do plano Site e o SEO mensal?",
+      answer: "O plano de site inclui a configuração técnica inicial de SEO local. O SEO mensal cuida da evolução recorrente: pesquisa, conteúdo, otimizações, estratégia local e relatórios.",
+    },
+    {
+      question: "Preciso ter o site feito por você?",
+      answer: "Não necessariamente. Antes de contratar, avaliamos a estrutura atual para confirmar o que pode ser aproveitado e o que exigirá ajustes.",
+    },
+    {
+      question: "Quem escreve os artigos e como é garantida a precisão técnica do meu nicho?",
+      answer: "Os textos são escritos com base em orientação, fontes aprovadas e validação do cliente. Informações reguladas ou altamente técnicas precisam ser confirmadas por um responsável da área.",
+    },
+  ],
+};
+
 export const homeFaqContent = {
   eyebrow: "Perguntas frequentes",
   title: "O que você precisa saber antes de criar seu site.",
@@ -511,6 +553,22 @@ export const pageCtaContent = {
       to: routes.services,
     },
   },
+  redesignService: {
+    eyebrow: "Próximo passo",
+    title: "Vamos descobrir o que no seu site vale manter e o que precisa mudar.",
+    lead:
+      "Conte o que não está funcionando e eu indico o caminho mais enxuto para o redesign, com escopo claro antes da implementação.",
+    bandClass: "landing-page-cta-light",
+    primaryAction: {
+      label: "Falar sobre redesign",
+      href: contactLinks.whatsapp,
+      newTab: true,
+    },
+    secondaryAction: {
+      label: "Ver serviços",
+      to: routes.services,
+    },
+  },
   landingPageService: {
     eyebrow: "Próximo passo",
     title: "Vamos transformar sua oferta em uma landing page que conduz à ação.",
@@ -605,6 +663,7 @@ export const footerContent = {
           { label: "Criação de sites em São Paulo", to: routes.siteCreationSaoPaulo },
           { label: "Landing Page", to: routes.landingPageService },
           { label: "SEO", to: routes.seoService },
+          { label: "Redesign", to: routes.redesignService },
           { label: "UX Design", to: routes.uxDesignService },
           { label: "Identidade Visual", to: routes.visualIdentityService },
         ],

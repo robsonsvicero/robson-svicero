@@ -15,6 +15,7 @@ const CANONICAL_PATHS = [
   "/servicos/ux-design",
   "/servicos/landing-page",
   "/servicos/seo",
+  "/servicos/redesign",
   "/servicos/identidade-visual",
   "/cases",
   "/sobre",
@@ -79,6 +80,29 @@ function setPlansPrerenderMetadata(html) {
   if (!next.includes("<noscript>")) {
     next = next.replace(/<body[^>]*>/i, (match) => `${match}${prerenderedContent}`);
   }
+
+  return next;
+}
+
+function setSeoPrerenderMetadata(html) {
+  let next = html;
+  const title = "SEO Mensal em São Paulo: planos de conteúdo e SEO local | Robson Svicero";
+  const description = "SEO mensal em São Paulo com artigos otimizados, on-page, estratégia local, publicações no Perfil da Empresa no Google e relatórios claros.";
+  next = next.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+  next = next.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}" />`);
+  next = next.replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${title}" />`);
+  next = next.replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${description}" />`);
+
+  const prerenderedContent = `
+  <noscript>
+    <main>
+      <h1>SEO mensal para empresas de São Paulo aparecerem no Google.</h1>
+      <p>Planos a partir de R$ 1.197 por mês com conteúdo otimizado, estratégia local, perfil da empresa e relatórios.</p>
+      <h2>Planos de SEO mensal</h2>
+      <p>SEO Starter, SEO Local Avançado e SEO Escala.</p>
+    </main>
+  </noscript>`;
+  if (!next.includes("<noscript>")) next = next.replace(/<body[^>]*>/i, (match) => `${match}${prerenderedContent}`);
   return next;
 }
 
@@ -100,6 +124,7 @@ async function writeRouteHtml(indexHtml, pathname, siteUrl) {
   const canonicalUrl = toAbsoluteUrl(pathname, siteUrl);
   let routeHtml = setCanonicalAndOgUrl(indexHtml, canonicalUrl);
   if (pathname === "/planos") routeHtml = setPlansPrerenderMetadata(routeHtml);
+  if (pathname === "/servicos/seo") routeHtml = setSeoPrerenderMetadata(routeHtml);
 
   if (pathname === "/") {
     await writeFile(INDEX_HTML_PATH, routeHtml, "utf-8");

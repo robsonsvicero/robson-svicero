@@ -6,6 +6,7 @@ export default function Faq({
   id = "faq",
   titleId = "sec-faq",
   className = "",
+  onQuestionToggle,
 }) {
   return (
     <Section
@@ -28,6 +29,9 @@ export default function Faq({
           <details
             className="faq-item"
             key={item.question}
+            onToggle={(event) => {
+              if (event.currentTarget.open) onQuestionToggle?.(item.question);
+            }}
             itemScope
             itemProp="mainEntity"
             itemType="https://schema.org/Question"

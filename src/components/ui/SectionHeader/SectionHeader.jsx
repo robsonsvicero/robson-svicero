@@ -32,7 +32,7 @@ export default function SectionHeader({
 }) {
   const alignClass = align === "left" ? "section-header--left" : "section-header--center";
   const darkClass = isDark ? "section-header--dark" : "";
-  const cleanLabelClass = cleanLabel || align === "center" ? "section-label--clean" : "";
+  const cleanLabelClass = cleanLabel ? "section-label--clean" : "";
 
   return (
     <ScrollReveal

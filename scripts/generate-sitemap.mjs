@@ -14,6 +14,7 @@ const STATIC_PAGES = [
   { path: "/servicos/ux-design", changefreq: "monthly", priority: "0.8" },
   { path: "/servicos/landing-page", changefreq: "monthly", priority: "0.8" },
   { path: "/servicos/seo", changefreq: "monthly", priority: "0.8" },
+  { path: "/servicos/redesign", changefreq: "monthly", priority: "0.8" },
   { path: "/servicos/identidade-visual", changefreq: "monthly", priority: "0.8" },
   { path: "/cases", changefreq: "monthly", priority: "0.9" },
   { path: "/sobre", changefreq: "monthly", priority: "0.7" },

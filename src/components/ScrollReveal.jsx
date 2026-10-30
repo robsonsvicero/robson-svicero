@@ -19,7 +19,7 @@ export default function ScrollReveal({ as = "div", children, className, style, .
       ref={ref}
       initial={false}
       className={className}
-      style={{ ...style, opacity: reducedMotion ? 1 : opacity, y: reducedMotion ? 0 : y }}
+      style={{ ...style, opacity: 1, y: reducedMotion ? 0 : y }}
       {...props}
     >
       {children}
