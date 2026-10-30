@@ -13443,6 +13443,21 @@ h6,
   background: var(--navy-900, #092e68);
 }
 
+
+
+.redesign-package-card--featured .redesign-package-list span,
+.redesign-package-card--featured p.redesign-package-tone {
+  color: #FFFFFF90;
+}
+
+.redesign-package-card--featured span.redesign-package-dot {
+  width: 5px;
+  height: 5px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: var(--accent-600);
+}
+
 .redesign-package-name {
   margin: 0;
   font-size: 1.35rem;
@@ -13456,7 +13471,8 @@ h6,
 }
 
 .redesign-package-card--featured .redesign-package-tone,
-.redesign-package-card--featured .redesign-package-price {
+.redesign-package-card--featured .redesign-package-price,
+.redesign-package-card--featured h3 {
   color: var(--white);
 }
 
