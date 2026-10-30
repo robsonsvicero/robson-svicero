@@ -479,7 +479,7 @@ export default function SeoService() {
 
         <ScrollReveal as="section" className="section seo-promises-section" aria-labelledby="seo-promises-title">
           <div className="container stack" style={{ gap: "var(--space-8)" }}>
-            <SectionHeader label="Compromisso" title="O que prometo — e o que não prometo" id="seo-promises-title" align="center" />
+            <SectionHeader label="Compromisso" title="O que prometo e o que não prometo" id="seo-promises-title" align="center" />
             <div className="seo-promises-grid">
               <article className="comparison-card comparison-card--custom seo-promises-card">
                 <h3 className="comparison-card-title"><BadgeCheck size={22} aria-hidden="true" /> Prometo</h3>
