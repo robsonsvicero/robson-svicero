@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-10-30T01:17:04.167Z",
+  "generatedAt": "2026-11-04T16:10:21.787Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/thumbnail-2026-11-04T15-45-09-217Z.webp",
+      "slug": "redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google",
+      "path": "/blog/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google",
+      "title": "Redesign de site: como o Menu Zona Norte aumentou sua visibilidade no Google",
+      "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
+      "category": "Websites Estratégicos",
+      "publishedAt": "2026-11-04T16:05:00+00:00",
+      "viewsCount": 2,
+      "readingTime": "12 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/image-2026-10-13T21-20-45-683Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/como-usar-ia-para-criar-interfaces-web-menos-genericas/thumbnail-2026-10-13T21-20-41-501Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 24,
+      "viewsCount": 29,
       "readingTime": "10 minutos"
     },
     {
@@ -34,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 19,
       "readingTime": "11 minutos"
     },
     {
@@ -70,7 +82,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 19,
+      "viewsCount": 23,
       "readingTime": "8 minutos"
     },
     {
@@ -94,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 26,
+      "viewsCount": 27,
       "readingTime": "10 minutos"
     },
     {
@@ -154,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Raio X",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 30,
+      "viewsCount": 31,
       "readingTime": "7 minutos"
     },
     {
@@ -166,7 +178,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 24,
+      "viewsCount": 25,
       "readingTime": "8 minutos"
     },
     {
@@ -226,20 +238,8 @@ export const contentSnapshots = {
       "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
       "category": "Método C.L.A.R.O.",
       "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 36,
+      "viewsCount": 38,
       "readingTime": "6 minutos"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/todo-site-comeca-como-uma-folha-em-branco/image-2026-07-09T13-53-37-249Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/todo-site-comeca-como-uma-folha-em-branco/thumbnail-2026-07-09T13-53-29-174Z.webp",
-      "slug": "todo-site-comeca-como-uma-folha-em-branco",
-      "path": "/blog/todo-site-comeca-como-uma-folha-em-branco",
-      "title": "Todo site começa como uma folha em branco.",
-      "excerpt": "Descubra por que um site de sucesso começa muito antes do layout. Entenda como estratégia, UX Design e branding criam experiências que geram resultados para empresas.",
-      "category": "Websites Estratégicos",
-      "publishedAt": "2026-07-09T03:00:00+00:00",
-      "viewsCount": 21,
-      "readingTime": "4 minutos"
     }
   ],
   "projects": [
