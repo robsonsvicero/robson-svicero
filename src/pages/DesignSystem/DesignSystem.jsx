@@ -420,7 +420,7 @@ export default function DesignSystem() {
                 <div className="featured-card">
                   <div className="featured-card_image-wrap">
                     <img
-                      src="/assets/images/Visual%20Showcase.png"
+                      src="/assets/images/hero_web_metodo.webp"
                       alt="Exemplo de projeto do portfólio"
                       loading="lazy"
                     />
