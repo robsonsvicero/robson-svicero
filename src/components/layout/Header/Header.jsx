@@ -87,7 +87,7 @@ export default function Header() {
 
   return (
     <>
-      <AnnouncementBar />
+      {/* <AnnouncementBar /> */}
       <header
         className={`navbar ${isOverDark ? "navbar--over-dark" : ""} ${isScrolled ? "is-scrolled" : ""}`.trim()}
         id="navbar"

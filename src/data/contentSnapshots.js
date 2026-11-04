@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-04T16:10:21.787Z",
+  "generatedAt": "2026-11-04T20:51:37.808Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 2,
+      "viewsCount": 7,
       "readingTime": "12 minutos"
     },
     {
