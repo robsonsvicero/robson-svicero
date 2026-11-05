@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-04T20:56:56.994Z",
+  "generatedAt": "2026-11-05T13:52:12.169Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 7,
+      "viewsCount": 11,
       "readingTime": "12 minutos"
     },
     {
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 29,
+      "viewsCount": 30,
       "readingTime": "10 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site sem conteúdo perde oportunidades no Google e como páginas relevantes ajudam sua empresa a responder buscas e gerar descoberta orgânica.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-09-23T20:58:00+00:00",
-      "viewsCount": 8,
+      "viewsCount": 9,
       "readingTime": "12 minutos"
     },
     {
