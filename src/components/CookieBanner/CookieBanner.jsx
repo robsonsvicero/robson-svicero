@@ -1,6 +1,6 @@
 import Button from "../ui/Button/Button.jsx";
 
-export default function CookieBanner({ onAccept }) {
+export default function CookieBanner({ onAccept, onReject }) {
   return (
     <div className="cookie-banner">
       <div className="cookie-content">
@@ -9,9 +9,14 @@ export default function CookieBanner({ onAccept }) {
           continuar navegando, você concorda com a nossa{" "}
           <a href="/privacidade">Política de Privacidade</a>.
         </p>
-        <Button variant="primary" size="sm" className="btn-cookie" onClick={onAccept}>
-          Entendi e Aceito
-        </Button>
+        <div className="cookie-actions">
+          <Button variant="secondary" size="sm" className="btn-cookie-reject" onClick={onReject}>
+            Recusar
+          </Button>
+          <Button variant="primary" size="sm" className="btn-cookie" onClick={onAccept}>
+            Aceitar
+          </Button>
+        </div>
       </div>
     </div>
   );

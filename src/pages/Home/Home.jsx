@@ -1,7 +1,5 @@
-import CookieBanner from "../../components/CookieBanner/CookieBanner.jsx";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
-import { useHomeInteractions } from "../../hooks/useHomeInteractions.js";
 import { absoluteUrl } from "../../utils/seo.js";
 import CredibilityBar from "../../sections/CredibilityBar/CredibilityBar.jsx";
 import Hero from "../../sections/Hero/Hero.jsx";
@@ -46,8 +44,6 @@ function createHomeSchema() {
 }
 
 export default function Home() {
-  const { showCookieBanner, acceptCookies } = useHomeInteractions();
-
   return (
     <>
       <SEO
@@ -64,7 +60,6 @@ export default function Home() {
         <LatestArticles />
         <HomeCta />
       </Layout>
-      {showCookieBanner && <CookieBanner onAccept={acceptCookies} />}
     </>
   );
 }

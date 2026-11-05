@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-05T13:57:50.606Z",
+  "generatedAt": "2026-11-05T14:17:11.399Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
@@ -166,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra por que transformar o WhatsApp no único vendedor da empresa pode reduzir conversões e sobrecarregar o atendimento. Veja a análise do Raio-X Digital #002.",
       "category": "Raio X",
       "publishedAt": "2026-08-06T20:16:00+00:00",
-      "viewsCount": 31,
+      "viewsCount": 32,
       "readingTime": "7 minutos"
     },
     {

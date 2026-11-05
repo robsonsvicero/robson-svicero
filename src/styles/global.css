@@ -10216,7 +10216,7 @@ p.meta {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: var(--surface-strong);
+  background-color: var(--light-50);
   color: var(--fg);
   padding: 16px;
   z-index: 9999;
@@ -10244,25 +10244,33 @@ p.meta {
 }
 
 .cookie-content a {
-  color: var(--fg);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .cookie-content a:hover {
-  color: var(--accent);
+  color: var(--accent-hover);
+}
+
+.cookie-actions {
+  display: flex;
+  flex: none;
+  gap: 12px;
+}
+
+.btn-cookie-reject {
+  white-space: nowrap;
 }
 
 .btn-cookie {
   white-space: nowrap;
   background-color: var(--accent);
-  color: var(--accent-on);
   border: 1px solid var(--accent);
 }
 
 .btn-cookie:hover {
   background-color: var(--accent-hover);
-  color: var(--accent-on);
   border-color: var(--accent-hover);
 }
 
