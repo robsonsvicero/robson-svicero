@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-05T13:52:12.169Z",
+  "generatedAt": "2026-11-05T13:57:50.606Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
