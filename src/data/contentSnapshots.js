@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-06T16:44:19.481Z",
+  "generatedAt": "2026-11-06T16:51:02.470Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",

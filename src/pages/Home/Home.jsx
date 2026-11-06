@@ -55,6 +55,14 @@ function createHomeSchema() {
         logo: absoluteUrl("/assets/images/logo_azul.svg"),
         email: "ola@robsonsvicero.com.br",
         telephone: "+55 11 96493-2007",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Rua Alberto Lohnhoff, 58",
+          addressLocality: "São Paulo",
+          addressRegion: "SP",
+          postalCode: "02443-010",
+          addressCountry: "BR",
+        },
         sameAs: [
           "https://www.instagram.com/robson.svicero",
           "https://www.linkedin.com/in/robsonsvicero/",
