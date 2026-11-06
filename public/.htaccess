@@ -4,6 +4,7 @@ Options -Indexes -MultiViews
 
 # Security headers (Hostinger / LiteSpeed / Apache mod_headers)
 <IfModule mod_headers.c>
+  Header always set Link '<https://robsonsvicero.com.br/llms.txt>; rel="alternate"; type="text/plain"; title="LLMs", <https://robsonsvicero.com.br/index.md>; rel="alternate"; type="text/markdown"'
   Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://formspree.io; script-src 'self' https://www.googletagmanager.com https://connect.facebook.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://rddufuzsjzschmuyadma.supabase.co wss://rddufuzsjzschmuyadma.supabase.co https://dhfqgwoliffegiemhjdl.supabase.co wss://dhfqgwoliffegiemhjdl.supabase.co https://formspree.io https://places.googleapis.com https://www.google-analytics.com https://analytics.google.com https://region1.google-analytics.com https://www.googletagmanager.com https://graph.facebook.com; frame-src https://calendar.google.com https://www.facebook.com https://web.facebook.com https://staticxx.facebook.com; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
   Header always set X-Content-Type-Options "nosniff"
@@ -50,6 +51,10 @@ RewriteRule ^ https://robsonsvicero.com.br%{REQUEST_URI} [R=301,L]
 # Rota do agendamento: evita que o servidor a associe a arquivos HTML legados.
 RewriteRule ^agendamento/?$ /index.html [END]
 
+# Markdown para agentes que solicitam uma representação textual.
+RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
+RewriteRule ^/?$ /index.md [END,T=text/markdown]
+
 # Redireciona /index.html → / APENAS para requisições diretas (não rewrites internos)
 # Sem este RewriteCond o Apache redirecionava /blog/slug → /index.html → / (3XX)
 RewriteCond %{THE_REQUEST} \s/index\.html[\s?]
@@ -64,8 +69,7 @@ RewriteRule ^servico-front-end\.html$ /servicos [R=301,L]
 RewriteRule ^servico-identidade-visual\.html$ /servicos [R=301,L]
 RewriteRule ^src/docs/Roberto\ Robson\ Svicero\ -\ Frontend\.pdf$ /sobre [R=301,L,NE]
 
-# SPA fallback: serve index.html para qualquer rota que não seja arquivo ou diretório real
-# [END] impede novas passagens de reescrita, eliminando os redirecionamentos 3XX das rotas de blog
+# Rotas desconhecidas recebem o documento 404 com status HTTP real.
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ /index.html [END]
+RewriteRule ^ /404.html [R=404,L]

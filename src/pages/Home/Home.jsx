@@ -47,6 +47,52 @@ function createHomeSchema() {
           "@id": `${homeUrl}#professional-service`,
         },
       },
+      {
+        "@type": "Organization",
+        "@id": `${homeUrl}#organization`,
+        name: "Robson Svicero",
+        url: homeUrl,
+        logo: absoluteUrl("/assets/images/logo_azul.svg"),
+        email: "ola@robsonsvicero.com.br",
+        telephone: "+55 11 96493-2007",
+        sameAs: [
+          "https://www.instagram.com/robson.svicero",
+          "https://www.linkedin.com/in/robsonsvicero/",
+          "https://github.com/robsonsvicero",
+          "https://www.behance.net/robsonsvicero",
+        ],
+      },
+      {
+        "@type": "Service",
+        "@id": `${homeUrl}#services`,
+        name: "Criação de sites profissionais",
+        serviceType: "Criação de sites, UX Design, landing pages e SEO",
+        provider: { "@id": `${homeUrl}#organization` },
+        areaServed: ["São Paulo", "Brasil"],
+        url: `${homeUrl}criacao-de-sites`,
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${homeUrl}#faq`,
+        mainEntity: [
+          {
+            "@type": "Question",
+            name: "Quais serviços de criação digital a Robson Svicero oferece?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Criação de sites profissionais, UX Design, landing pages, SEO, redesign e identidade visual.",
+            },
+          },
+          {
+            "@type": "Question",
+            name: "Como entrar em contato com Robson Svicero?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "Envie um e-mail para ola@robsonsvicero.com.br ou ligue para (11) 96493-2007.",
+            },
+          },
+        ],
+      },
     ],
   };
 }
