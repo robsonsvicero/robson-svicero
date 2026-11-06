@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-06T16:29:13.425Z",
+  "generatedAt": "2026-11-06T16:38:08.882Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 15,
+      "viewsCount": 17,
       "readingTime": "12 minutos"
     },
     {
