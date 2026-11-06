@@ -45,10 +45,66 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=SUSE:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <link rel="alternate" type="text/markdown" href="/index.md" title="Versão em Markdown da página inicial" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://robsonsvicero.com.br/#business",
+        "name": "Robson Svicero",
+        "url": "https://robsonsvicero.com.br/",
+        "image": "https://robsonsvicero.com.br/assets/images/og-image.webp",
+        "email": "ola@robsonsvicero.com.br",
+        "telephone": "+55 11 96493-2007",
+        "areaServed": ["São Paulo", "Brasil"],
+        "serviceType": ["Criação de sites profissionais", "UX Design", "Landing Pages", "SEO", "Redesign", "Identidade visual"],
+        "description": "Criação de sites profissionais em São Paulo com foco em SEO, performance, conversão e experiência do usuário.",
+        "sameAs": [
+          "https://www.instagram.com/robson.svicero",
+          "https://www.linkedin.com/in/robsonsvicero/",
+          "https://github.com/robsonsvicero",
+          "https://www.behance.net/robsonsvicero"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://robsonsvicero.com.br/#website",
+        "url": "https://robsonsvicero.com.br/",
+        "name": "Robson Svicero",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "https://robsonsvicero.com.br/#business" }
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <main>
+      <h1>Criação de sites profissionais em São Paulo.</h1>
+      <p>Robson Svicero cria sites profissionais, landing pages, experiências digitais, UX Design e SEO para empresas que precisam gerar confiança e contatos.</p>
+      <nav aria-label="Navegação principal">
+        <a href="/sobre">Sobre</a>
+        <a href="/criacao-de-sites">Criação de sites</a>
+        <a href="/planos">Planos</a>
+        <a href="/cases">Projetos</a>
+        <a href="/contato">Contato</a>
+        <a href="/blog">Blog</a>
+        <a href="/privacidade">Privacidade</a>
+      </nav>
+      <section>
+        <h2>Serviços digitais</h2>
+        <p><a href="/servicos/ux-design">UX Design</a>, <a href="/servicos/landing-page">Landing Page</a>, <a href="/servicos/seo">SEO</a>, <a href="/servicos/redesign">Redesign</a> e <a href="/servicos/identidade-visual">Identidade visual</a>.</p>
+      </section>
+      <address>
+        <a href="mailto:ola@robsonsvicero.com.br">ola@robsonsvicero.com.br</a>
+        <a href="tel:+5511964932007">(11) 96493-2007</a>
+      </address>
+    </main>
+  </div>
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

@@ -1,0 +1,12 @@
+{
+  "name": "Robson Svicero website agent tools",
+  "version": "1.0.0",
+  "description": "Tools and resources for finding Robson Svicero services, projects and contact information.",
+  "endpoint": "https://robsonsvicero.com.br/api",
+  "transport": "streamable-http",
+  "capabilities": {
+    "tools": true,
+    "resources": true,
+    "prompts": false
+  }
+}

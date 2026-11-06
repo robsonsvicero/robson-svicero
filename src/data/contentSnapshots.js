@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-06T02:53:05.151Z",
+  "generatedAt": "2026-11-06T16:29:13.425Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/thumbnail-2026-11-06T15-08-45-562Z.webp",
+      "slug": "landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local",
+      "path": "/blog/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local",
+      "title": "Landing page ou site profissional: qual é melhor para um negócio local?",
+      "excerpt": "Entenda as diferenças entre landing page e site profissional e descubra qual estrutura atende melhor às necessidades do seu negócio local.",
+      "category": "Experiência Digital",
+      "publishedAt": "2026-11-06T15:16:00+00:00",
+      "viewsCount": 3,
+      "readingTime": "6 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/thumbnail-2026-11-04T15-45-09-217Z.webp",
@@ -10,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 11,
+      "viewsCount": 15,
       "readingTime": "12 minutos"
     },
     {
@@ -46,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 19,
+      "viewsCount": 20,
       "readingTime": "11 minutos"
     },
     {
@@ -228,18 +240,6 @@ export const contentSnapshots = {
       "publishedAt": "2026-07-21T03:00:00+00:00",
       "viewsCount": 23,
       "readingTime": "5 minutos"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais/image-2026-07-16T00-20-16-853Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais/thumbnail-2026-07-16T00-19-58-997Z.webp",
-      "slug": "metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais",
-      "path": "/blog/metodo-c-l-a-r-o-como-diagnosticar-e-evoluir-presencas-digitais",
-      "title": "Método C.L.A.R.O.: como diagnosticar e evoluir presenças digitais",
-      "excerpt": "O Método C.L.A.R.O. é um framework estratégico para diagnosticar e evoluir presenças digitais. Por meio dos pilares Clareza, Legitimidade, Acessibilidade, Relevância e Orientação, o método avalia se um site reduz dúvidas, fortalece a confiança e facilita deci...",
-      "category": "Método C.L.A.R.O.",
-      "publishedAt": "2026-07-15T03:00:00+00:00",
-      "viewsCount": 38,
-      "readingTime": "6 minutos"
     }
   ],
   "projects": [

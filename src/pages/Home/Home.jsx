@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Layout from "../../components/layout/Layout/Layout.jsx";
 import SEO from "../../components/seo/SEO.jsx";
 import { absoluteUrl } from "../../utils/seo.js";
@@ -24,6 +25,13 @@ function createHomeSchema() {
         telephone: "+55 11 96493-2007",
         areaServed: ["São Paulo", "Brasil"],
         serviceType: "Criação de sites profissionais",
+        email: "ola@robsonsvicero.com.br",
+        sameAs: [
+          "https://www.instagram.com/robson.svicero",
+          "https://www.linkedin.com/in/robsonsvicero/",
+          "https://github.com/robsonsvicero",
+          "https://www.behance.net/robsonsvicero",
+        ],
         description:
           "Criação de sites profissionais com foco em SEO, performance, conversão e atendimento para empresas em São Paulo.",
       },
@@ -44,6 +52,24 @@ function createHomeSchema() {
 }
 
 export default function Home() {
+  useEffect(() => {
+    const modelContext = navigator.modelContext;
+    if (!modelContext?.registerTool) return undefined;
+
+    return modelContext.registerTool({
+      name: "get-site-services",
+      description: "Lista os serviços de criação de sites, UX, landing pages, SEO e identidade visual oferecidos por Robson Svicero.",
+      inputSchema: {
+        type: "object",
+        properties: {},
+        additionalProperties: false,
+      },
+      execute: async () => ({
+        content: [{ type: "text", text: "Criação de sites, UX Design, landing pages, SEO, redesign e identidade visual. Contato: ola@robsonsvicero.com.br." }],
+      }),
+    });
+  }, []);
+
   return (
     <>
       <SEO

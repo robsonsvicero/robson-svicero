@@ -9,11 +9,40 @@ import { createClient } from "@supabase/supabase-js";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const distPath = path.join(__dirname, "dist");
+const publicPath = path.join(__dirname, "public");
 const indexHtmlPath = path.join(distPath, "index.html");
 const app = express();
 const port = Number(process.env.PORT) || 8080;
 const rebuildSecret = process.env.HOSTINGER_REBUILD_SECRET || "";
 const execAsync = promisify(exec);
+const knownRoutes = new Set([
+  "/",
+  "/criacao-de-sites",
+  "/criacao-de-sites-sao-paulo",
+  "/planos",
+  "/precos",
+  "/servicos",
+  "/servicos/ux-design",
+  "/servicos/landing-page",
+  "/servicos/seo",
+  "/servicos/redesign",
+  "/servicos/identidade-visual",
+  "/cases",
+  "/blog",
+  "/sobre",
+  "/contato",
+  "/diagnostico-claro",
+  "/metodo-claro",
+  "/agendamentos",
+  "/agendamento",
+  "/obrigado",
+  "/cartao",
+  "/privacidade",
+  "/faq",
+  "/exclusao-dados",
+  "/admin/login",
+  "/admin",
+]);
 
 async function loadDotEnvFiles() {
   for (const fileName of [".env", ".env.local"]) {
@@ -169,7 +198,7 @@ app.get("/blog/:slug", async (req, res, next) => {
     if (error) throw error;
     if (!post) {
       res.set("Cache-Control", "no-store");
-      return res.sendFile(indexHtmlPath);
+      return res.status(404).sendFile(indexHtmlPath);
     }
 
     const indexHtml = await readFile(indexHtmlPath, "utf-8");
@@ -182,21 +211,65 @@ app.get("/blog/:slug", async (req, res, next) => {
   }
 });
 
+app.get("/", (req, res, next) => {
+  res.set(
+    "Link",
+    '<https://robsonsvicero.com.br/llms.txt>; rel="alternate"; type="text/plain"; title="LLMs", <https://robsonsvicero.com.br/index.md>; rel="alternate"; type="text/markdown"',
+  );
+
+  if (String(req.headers.accept || "").includes("text/markdown")) {
+    return res.type("text/markdown").sendFile(path.join(publicPath, "index.md"));
+  }
+
+  return next();
+});
+
+app.get("/llms.txt", (_req, res) => {
+  res.type("text/plain; charset=utf-8").sendFile(path.join(publicPath, "llms.txt"));
+});
+
+app.get("/.well-known/mcp/server-card.json", (_req, res) => {
+  res.type("application/json").sendFile(
+    path.join(publicPath, ".well-known", "mcp", "server-card.json"),
+    { dotfiles: "allow" },
+  );
+});
+
+app.get("/health", (_req, res) => {
+  res.status(200).json({ ok: true, status: "healthy" });
+});
+
 app.use(
   express.static(distPath, {
     index: "index.html",
     maxAge: "1h",
     etag: true,
     lastModified: true,
+    dotfiles: "allow",
   }),
 );
 
-app.get("/health", (_req, res) => {
-  res.status(200).json({ ok: true, status: "healthy" });
-});
+app.get("/{*splat}", (req, res) => {
+  const pathname = req.path.replace(/\/+$/, "") || "/";
+  const isKnownDynamicCase = pathname.startsWith("/cases/");
+  const isKnownDynamicBlog = pathname.startsWith("/blog/");
 
-app.get("/{*splat}", (_req, res) => {
-  res.sendFile(path.join(distPath, "index.html"));
+  if (
+    knownRoutes.has(pathname) ||
+    isKnownDynamicCase ||
+    pathname === "/r/" ||
+    pathname.startsWith("/r/")
+  ) {
+    res.sendFile(path.join(distPath, "index.html"));
+    return;
+  }
+
+  if (isKnownDynamicBlog && supabase) {
+    res.sendFile(path.join(distPath, "index.html"));
+    return;
+  }
+
+  res.status(404).sendFile(path.join(distPath, "index.html"));
 });
 
 app.listen(port, "0.0.0.0", () => {
