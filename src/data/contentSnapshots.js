@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-05T14:17:11.399Z",
+  "generatedAt": "2026-11-06T02:53:05.151Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/redesign-de-site-como-o-menu-zona-norte-aumentou-sua-visibilidade-no-google/image-2026-11-04T15-45-17-508Z.webp",
@@ -178,7 +178,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 25,
+      "viewsCount": 26,
       "readingTime": "8 minutos"
     },
     {
@@ -190,7 +190,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 19,
       "readingTime": "8 minutos"
     },
     {
@@ -226,7 +226,7 @@ export const contentSnapshots = {
       "excerpt": "Instagram atrai visitantes, mas é o site que transforma interesse em clientes. Descubra por que muitas empresas perdem vendas no destino do clique e como evitar esse erro.",
       "category": "Experiência Digital",
       "publishedAt": "2026-07-21T03:00:00+00:00",
-      "viewsCount": 22,
+      "viewsCount": 23,
       "readingTime": "5 minutos"
     },
     {

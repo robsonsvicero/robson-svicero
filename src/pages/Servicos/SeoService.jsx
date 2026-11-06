@@ -271,7 +271,7 @@ export default function SeoService() {
                   Ver planos de SEO
                 </Button>
                 <Button
-                  href={`${contactLinks.whatsapp}?text=${encodeURIComponent("Olá! Quero pedir um diagnóstico de SEO.")}`}
+                  href={`${contactLinks.whatsapp.split("?")[0]}?text=${encodeURIComponent("Olá! Quero pedir um diagnóstico de SEO.")}`}
                   variant="secondary"
                   target="_blank"
                   rel="noreferrer noopener"
@@ -529,7 +529,7 @@ export default function SeoService() {
           lead: "Solicite um diagnóstico e receba prioridades claras antes de escolher um plano mensal.",
           primaryAction: {
             label: "Pedir diagnóstico",
-            href: `${contactLinks.whatsapp}?text=${encodeURIComponent("Olá! Quero pedir um diagnóstico de SEO.")}`,
+            href: `${contactLinks.whatsapp.split("?")[0]}?text=${encodeURIComponent("Olá! Quero pedir um diagnóstico de SEO.")}`,
             newTab: true,
           },
         }} titleId="seo-service-cta-title" sectionClassName="seo-final-cta" />
