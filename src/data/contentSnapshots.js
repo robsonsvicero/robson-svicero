@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-06T16:51:02.470Z",
+  "generatedAt": "2026-11-06T20:59:10.985Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda as diferenças entre landing page e site profissional e descubra qual estrutura atende melhor às necessidades do seu negócio local.",
       "category": "Experiência Digital",
       "publishedAt": "2026-11-06T15:16:00+00:00",
-      "viewsCount": 3,
+      "viewsCount": 5,
       "readingTime": "6 minutos"
     },
     {
