@@ -141,7 +141,7 @@ export default function About() {
 
             <div className="about-story-text">
               <p>
-                O <strong>Robson Svicero Estúdio de Design</strong> cria sites profissionais que unem estratégia, design e experiência do usuário. Cada projeto é desenvolvido para apresentar sua marca com clareza, transmitir confiança e ajudar seu negócio a alcançar seus objetivos.
+                O <strong>Robson Svicero Agência de Sites</strong> cria sites profissionais que unem estratégia, design e experiência do usuário. Cada projeto é desenvolvido para apresentar sua marca com clareza, transmitir confiança e ajudar seu negócio a alcançar seus objetivos.
               </p>
               <p>
                 Minha trajetória na área começou em <strong>2013</strong>, com a criação de sites em HTML e CSS. Desde então, trabalhei como designer e webdesigner e ampliei minha atuação para UX, identidade visual e SEO — conhecimentos que hoje contribuem para criar sites mais completos, intuitivos e bem preparados para o ambiente digital.

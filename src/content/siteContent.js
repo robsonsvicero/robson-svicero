@@ -620,7 +620,7 @@ export const pageCtaContent = {
 };
 
 export const footerContent = {
-  copyright: "Robson Svicero - Estúdio de Design",
+  copyright: "Robson Svicero - Agência de Sites",
   description:
     "Estratégia, design e tecnologia para transformar sua presença digital em oportunidades de negócio.",
   socials: [
