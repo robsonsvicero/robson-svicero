@@ -118,11 +118,11 @@ export default function Footer() {
           <div className="footer_brand">
             <Link to="/" className="footer_logo" aria-label="Robson Svicero — Início" title="Robson Svicero">
               <img
-                src="/assets/logo_branco.svg"
+                src="/assets/images/logo_branco.svg"
                 alt="Robson Svicero"
                 className="footer_logo-img"
-                width="200"
-                height="30"
+                width="150"
+                height="62"
               />
             </Link>
             <p className="footer_tagline">{footerContent.description}</p>

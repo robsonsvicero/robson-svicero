@@ -105,8 +105,8 @@ export default function Header() {
               src={isOverDark || isScrolled ? logo.src : "/assets/images/logo_azul.svg"}
               alt="Robson Svicero"
               className="navbar_logo-img"
-              width="200"
-              height="30"
+              width="150"
+              height="62"
             />
           </NavLink>
 

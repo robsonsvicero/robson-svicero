@@ -606,7 +606,7 @@ h4 em {
 }
 
 .navbar_logo-img {
-  height: 40px;
+  height: 62px;
   width: auto;
   max-width: 300px;
   display: block;
@@ -1618,7 +1618,7 @@ h4 em {
 }
 
 .footer_logo-img {
-  height: 32px;
+  height:80px;
   width: auto;
   max-width: 220px;
   display: block;
@@ -7838,7 +7838,7 @@ body:has(.hero-editorial) .whatsapp-float-wrapper {
 }
 
 .planos-plan-grid.planos-investment-grid {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .planos-maintenance-grid.planos-investment-grid {
@@ -7881,6 +7881,58 @@ p.meta {
   color: var(--accent);
   font-size: var(--text-sm);
   font-weight: 750;
+}
+
+.planos-payment-wrap {
+  max-width: 1120px;
+}
+
+.planos-payment-header {
+  margin-bottom: var(--space-2);
+}
+
+.planos-payment-header .section-label {
+  color: var(--accent);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.planos-payment-header .section_heading {
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+}
+
+.planos-payment-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.planos-payment-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 200px;
+  padding: var(--space-6) var(--space-5);
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-lg);
+}
+
+.planos-payment-card h3 {
+  margin: 0 0 var(--space-4);
+  font-size: clamp(1.1rem, 1vw + 0.75rem, 1.5rem);
+  line-height: 1.2;
+  color: var(--fg);
+}
+
+.planos-payment-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.96rem;
 }
 
 .planos-comparison-scroll {
@@ -8067,6 +8119,13 @@ p.meta {
   gap: 0.75rem;
 }
 
+.plan-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
 .planos-hero-ribbon span,
 .planos-plan-badge {
   display: inline-flex;
@@ -8102,7 +8161,7 @@ p.meta {
 
 .planos-plan-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-6);
 }
 
@@ -8256,7 +8315,6 @@ p.meta {
   margin: auto 0 0;
   color: var(--fg);
   font-family: var(--font-heading);
-  font-size: clamp(2rem, 3vw, 2.5rem);
   font-weight: 750;
   line-height: 1.25;
   overflow: visible;
@@ -8271,7 +8329,7 @@ p.meta {
 }
 
 .planos-plan-badge {
-  align-self: flex-start;
+  align-self: flex-end;
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
   background: var(--accent-600, #1265c4);
@@ -8325,7 +8383,7 @@ p.meta {
 
 /* Plan cards keep the supplied three-column composition with site typography and palette. */
 .planos-investment .planos-plan-grid.planos-investment-grid:not(.planos-maintenance-grid) {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -8360,7 +8418,7 @@ p.meta {
   justify-content: flex-end;
   gap: 0.5rem;
   margin: 0.25rem 0 0;
-  font-size: clamp(2rem, 2.6vw, 2.5rem);
+  font-size: clamp(2rem, 2.6vw, 3rem);
   white-space: nowrap;
   min-height: 3rem;
   line-height: 1.25;

@@ -39,7 +39,7 @@ const plans = [
     idealFor: "Quem vai rodar anúncios ou divulgar uma oferta específica.",
     result: "Receber contatos direto no WhatsApp.",
     tone: "Página única para campanha em São Paulo, Google Ads ou tráfego direto. Foco em conversão.",
-    price: "490",
+    price: "349",
     priceNote: "O investimento pode variar por integrações e produção de conteúdo.",
     ctaLabel: "Quero uma landing page",
     badge: null,
@@ -50,40 +50,40 @@ const plans = [
       "Hospedagem 12 meses",
     ],
   },
-  {
-    id: "one-page",
-    name: "Site One Page",
-    focus: "Site One Page",
-    idealFor: "Quem precisa apresentar a empresa completa sem uma arquitetura extensa.",
-    result: "Centralizar sua oferta, provas e contato em uma jornada objetiva.",
-    tone: "Uma página estratégica para apresentar serviços, diferenciais e caminho de contato.",
-    price: "690",
-    priceNote: "Seções extras, animações e integrações podem alterar o valor.",
-    ctaLabel: "Quero um site one page",
-    badge: null,
-    timeline: "Pronto em 10 a 15 dias",
-    bullets: [
-      "Estrutura completa em uma página",
-      "SEO local técnico",
-      "Suporte de 90 dias",
-    ],
-  },
+  // {
+  //   id: "one-page",
+  //   name: "Site One Page",
+  //   focus: "Site One Page",
+  //   idealFor: "Quem precisa apresentar a empresa completa sem uma arquitetura extensa.",
+  //   result: "Centralizar sua oferta, provas e contato em uma jornada objetiva.",
+  //   tone: "Uma página estratégica para apresentar serviços, diferenciais e caminho de contato.",
+  //   price: "690",
+  //   priceNote: "Seções extras, animações e integrações podem alterar o valor.",
+  //   ctaLabel: "Quero um site one page",
+  //   badge: null,
+  //   timeline: "Pronto em 10 a 15 dias",
+  //   bullets: [
+  //     "Estrutura completa em uma página",
+  //     "SEO local técnico",
+  //     "Suporte de 90 dias",
+  //   ],
+  // },
   {
     id: "institutional",
-    name: "MAIS ESCOLHIDO",
-    focus: "Site Institucional",
-    idealFor: "Prestadores de serviço, clínicas e empresas que querem ser encontradas.",
+    name: "MAIS PEDIDO",
+    focus: "Site + Google Meu Negócio",
+    idealFor: "Negócios que querem aparecer no Google e atrair mais clientes",
     result: "Ser encontrado por quem busca seu serviço na região.",
     tone: "Estrutura completa para apresentar a empresa, seus serviços e diferenciais com autoridade.",
-    price: "890",
+    price: "997",
     priceNote: "Até 5 páginas; cada página adicional custa R$ 75.",
     ctaLabel: "Quero um site institucional",
-    badge: "Mais escolhido",
+    badge: "Mais pedido",
     timeline: "Pronto em 15 a 20 dias",
     bullets: [
       "Até 5 páginas incluídas",
-      "SEO local + schema",
-      "Suporte de 90 dias",
+      "Base técnica de SEO + botão de contato",
+      "Suporte de 60 dias",
     ],
     featured: true,
   },
@@ -94,7 +94,7 @@ const plans = [
     idealFor: "Quem quer vender produtos ou serviços online todos os dias.",
     result: "Receber por Pix, boleto e cartão sem depender de marketplace.",
     tone: "Loja virtual com Pix, boleto e cartão para empresas de São Paulo venderem online.",
-    price: "1.997",
+    price: "1.990",
     priceNote: "O catálogo, integrações e formas de pagamento podem alterar o valor.",
     ctaLabel: "Quero vender online",
     badge: null,
@@ -112,20 +112,20 @@ const maintenancePlans = [
     name: "Essencial",
     price: "109",
     description: "Site no ar, infraestrutura protegida e suporte técnico básico.",
-    bullets: ["Hospedagem e domínio inclusos", "Até 1 pequena alteração por mês", "Resposta em até 3 dias úteis"],
+    bullets: ["Hospedagem e certificado de segurança (SSL)", "Até 5 pequenos ajustes por mês (texto, imagem, correção)", "Suporte pelo WhatsApp e por e-mail"],
   },
   {
     name: "Profissional",
     price: "237",
     description: "Infraestrutura e rotina de atualização para empresas que precisam fazer mudanças com frequência.",
-    bullets: ["Hospedagem e domínio inclusos", "Até 3 pequenas alterações por mês", "Resposta em até 2 dias úteis"],
+    bullets: ["Hospedagem e certificado de segurança (SSL)", "Um pacote pequeno de ajustes por mês (texto, imagem, correção)", "Suporte pelo WhatsApp e por e-mail"],
     featured: true,
   },
   {
     name: "Avançado",
     price: "380",
     description: "Acompanhamento técnico próximo, manutenção preventiva e verificações contínuas.",
-    bullets: ["Hospedagem e domínio inclusos", "Até 5 pequenas alterações por mês", "SEO técnico básico e relatório"],
+    bullets: ["Hospedagem e certificado de segurança (SSL)", "Um pacote pequeno de ajustes por mês (texto, imagem, correção)", "SEO técnico básico e relatório"],
   },
 ];
 
@@ -294,11 +294,11 @@ export default function Planos() {
         <div className="planos-page">
 
           <main>
-            <div className="container">
+            {/* <div className="container">
               <p className="meta" style={{ textAlign: "center" }}>
                 Landing page de campanha: R$ 297 — oferta pontual da Black Friday, válida somente para campanhas específicas.
               </p>
-            </div>
+            </div> */}
             <ScrollReveal as="section" className="section planos-hero" aria-labelledby="planos-title">
               <div className="container planos-hero-grid">
                 <div className="stack planos-hero-copy">
@@ -441,8 +441,10 @@ export default function Planos() {
                       role="listitem"
                     >
                       <div className="planos-investment-copy">
-                        <p className="eyebrow">{plan.focus}</p>
-                        {plan.badge && <span className="planos-plan-badge">{plan.badge}</span>}
+                        <div className="plan-badge">
+                          <p className="eyebrow">{plan.focus}</p>
+                          {plan.badge && <span className="planos-plan-badge">{plan.badge}</span>}
+                        </div>
                           <p className="planos-plan-ideal"><strong>Ideal para:</strong> {plan.idealFor}</p>
                           <p className="planos-plan-result"><strong>Resultado:</strong> {plan.result}</p>
                           <p className="planos-plan-tone">{plan.tone}</p>
@@ -559,7 +561,7 @@ export default function Planos() {
                       <tr><th>SEO local</th><td>Base técnica</td><td>Incluído</td><td>Incluído</td><td>Estrutura básica</td></tr>
                       <tr><th>E-commerce</th><td>—</td><td>—</td><td>—</td><td>Incluído</td></tr>
                       <tr><th>Prazo</th><td>7 a 10 dias</td><td>10 a 15 dias</td><td>15 a 20 dias</td><td>25 a 45 dias</td></tr>
-                      <tr><th>Suporte</th><td>90 dias</td><td>90 dias</td><td>90 dias</td><td>90 dias</td></tr>
+                      <tr><th>Suporte</th><td>60 dias</td><td>60 dias</td><td>60 dias</td><td>60 dias</td></tr>
                       <tr><th>Treinamento</th><td>—</td><td>—</td><td>Opcional</td><td>Incluído</td></tr>
                       <tr><th>Manutenção</th><td>Opcional</td><td>Opcional</td><td>Opcional</td><td>Opcional</td></tr>
                     </tbody>
@@ -571,6 +573,35 @@ export default function Planos() {
                   <p>Para ajustes de arquitetura, redesign, novas integrações, estratégia de conteúdo ou crescimento orgânico, definimos um escopo separado e o investimento antes da execução.</p>
                   <Button href={getPlanWhatsAppUrl("Redesign ou SEO")} target="_blank" rel="noreferrer noopener">Solicitar diagnóstico de evolução</Button>
                 </Card>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal as="section" className="section planos-payment-section" aria-labelledby="payment-title">
+              <div className="container stack planos-payment-wrap" style={{ gap: "var(--space-8)" }}>
+                <SectionHeader
+                  label="Pagamento"
+                  title="Como pagar."
+                  id="payment-title"
+                  align="center"
+                  className="planos-payment-header"
+                />
+
+                <div className="grid-3 planos-payment-grid" role="list">
+                  <Card className="planos-payment-card" role="listitem">
+                    <h3>Entrada à vista</h3>
+                    <p>Pix com 5% de desconto, ou cartão em até 10x pelo Mercado Pago, com os juros do parcelamento por sua conta.</p>
+                  </Card>
+
+                  <Card className="planos-payment-card" role="listitem">
+                    <h3>Entrada em etapas</h3>
+                    <p>Em projetos maiores: 40% no aceite, 30% na aprovação da versão de teste e 30% na entrega.</p>
+                  </Card>
+
+                  <Card className="planos-payment-card" role="listitem">
+                    <h3>Mensalidade</h3>
+                    <p>Cobrança recorrente no cartão ou no Pix, a partir da entrega.</p>
+                  </Card>
+                </div>
               </div>
             </ScrollReveal>
 

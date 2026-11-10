@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-06T20:59:10.985Z",
+  "generatedAt": "2026-11-10T19:39:08.256Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda as diferenças entre landing page e site profissional e descubra qual estrutura atende melhor às necessidades do seu negócio local.",
       "category": "Experiência Digital",
       "publishedAt": "2026-11-06T15:16:00+00:00",
-      "viewsCount": 5,
+      "viewsCount": 10,
       "readingTime": "6 minutos"
     },
     {
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 17,
+      "viewsCount": 23,
       "readingTime": "12 minutos"
     },
     {
@@ -34,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 30,
+      "viewsCount": 31,
       "readingTime": "10 minutos"
     },
     {
@@ -58,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "11 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
       "category": "Raio X",
       "publishedAt": "2026-09-25T11:55:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 11,
       "readingTime": "7 minutos"
     },
     {
@@ -202,7 +202,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 19,
+      "viewsCount": 20,
       "readingTime": "8 minutos"
     },
     {
@@ -238,7 +238,7 @@ export const contentSnapshots = {
       "excerpt": "Instagram atrai visitantes, mas é o site que transforma interesse em clientes. Descubra por que muitas empresas perdem vendas no destino do clique e como evitar esse erro.",
       "category": "Experiência Digital",
       "publishedAt": "2026-07-21T03:00:00+00:00",
-      "viewsCount": 23,
+      "viewsCount": 24,
       "readingTime": "5 minutos"
     }
   ],

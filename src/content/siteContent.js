@@ -32,7 +32,7 @@ export const contactLinks = {
 export const headerContent = {
   logo: {
     href: "#inicio",
-    src: "/assets/logo_branco.svg",
+    src: "/assets/images/logo_branco.svg",
     alt: "Robson Svicero - Criação de sites profissionais",
     width: 200,
     height: 30,
