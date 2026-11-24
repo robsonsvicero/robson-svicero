@@ -1,6 +1,18 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-24T13:24:05.470Z",
+  "generatedAt": "2026-11-24T20:01:30.558Z",
   "blogPosts": [
+    {
+      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google/image-2026-11-24T13-29-20-222Z.webp",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google/thumbnail-2026-11-24T13-29-15-645Z.webp",
+      "slug": "raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google",
+      "path": "/blog/raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google",
+      "title": "Raio-X Digital #007 — O negócio que atendia o bairro inteiro, mas não aparecia nas buscas do Google",
+      "excerpt": "Entenda como o SEO local ajuda pequenos negócios a aparecer no Google, alcançar clientes da região e transformar pesquisas em oportunidades comerciais.",
+      "category": "Raio X",
+      "publishedAt": "2026-11-24T13:34:00+00:00",
+      "viewsCount": 1,
+      "readingTime": "9 minutos"
+    },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",
       "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/thumbnail-2026-11-06T15-08-45-562Z.webp",
@@ -22,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 42,
+      "viewsCount": 43,
       "readingTime": "12 minutos"
     },
     {
@@ -130,7 +142,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Raio X",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 15,
+      "viewsCount": 16,
       "readingTime": "8 minutos"
     },
     {
@@ -190,7 +202,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 27,
+      "viewsCount": 28,
       "readingTime": "8 minutos"
     },
     {
@@ -228,18 +240,6 @@ export const contentSnapshots = {
       "publishedAt": "2026-07-23T03:05:00+00:00",
       "viewsCount": 21,
       "readingTime": "6 minutos"
-    },
-    {
-      "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes/image-2026-07-20T17-29-29-209Z.png",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes/thumbnail-2026-07-20T17-29-22-383Z.png",
-      "slug": "instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes",
-      "path": "/blog/instagram-lotado-site-vazio-o-erro-que-faz-muitas-empresas-perderem-clientes",
-      "title": "Instagram lotado, site vazio: o erro que faz muitas empresas perderem clientes",
-      "excerpt": "Instagram atrai visitantes, mas é o site que transforma interesse em clientes. Descubra por que muitas empresas perdem vendas no destino do clique e como evitar esse erro.",
-      "category": "Experiência Digital",
-      "publishedAt": "2026-07-21T03:00:00+00:00",
-      "viewsCount": 24,
-      "readingTime": "5 minutos"
     }
   ],
   "projects": [
@@ -259,7 +259,7 @@ export const contentSnapshots = {
     },
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/image-2026-09-23T17-33-13-383Z.webp",
-      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte-redesign/thumbnail-2026-10-15T17-32-05-407Z.jpg",
+      "thumbnail": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/projects/menu-zona-norte/thumbnail-2026-11-24T14-26-15-707Z.webp",
       "slug": "menu-zona-norte",
       "path": "/cases/menu-zona-norte",
       "title": "Menu Zona Norte",
