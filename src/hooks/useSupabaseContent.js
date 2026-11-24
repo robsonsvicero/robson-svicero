@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
-import { isSupabaseConfigured, supabase } from "../lib/supabaseClient.js";
+
+const isSupabaseConfigured = Boolean(
+  import.meta.env.VITE_SUPABASE_URL && import.meta.env.VITE_SUPABASE_ANON_KEY,
+);
 
 const listCache = new Map();
 const listRequests = new Map();
@@ -73,6 +76,7 @@ export function useSupabaseList({
   limit,
   publishedOnly = false,
   cache = true,
+  enabled = true,
 }) {
   const cacheKey = getListCacheKey({ table, orderBy, ascending, select, limit, publishedOnly });
   const cachedItems = cache ? listCache.get(cacheKey) || readPersistedList(cacheKey) : null;
@@ -82,10 +86,17 @@ export function useSupabaseList({
   }
 
   const [items, setItems] = useState(cachedItems || fallback);
-  const [isLoading, setIsLoading] = useState(Boolean(isSupabaseConfigured && !cachedItems));
+  const [isLoading, setIsLoading] = useState(Boolean(enabled && isSupabaseConfigured && !cachedItems));
 
   useEffect(() => {
     let isMounted = true;
+
+    if (!enabled) {
+      setIsLoading(false);
+      return () => {
+        isMounted = false;
+      };
+    }
 
     async function loadItems() {
       if (!isSupabaseConfigured) {
@@ -105,6 +116,12 @@ export function useSupabaseList({
       let request = listRequests.get(cacheKey);
 
       if (!request) {
+        const { supabase } = await import("../lib/supabaseClient.js");
+        if (!supabase) {
+          setIsLoading(false);
+          return;
+        }
+
         let query = supabase
           .from(table)
           .select(select)
@@ -147,7 +164,7 @@ export function useSupabaseList({
     return () => {
       isMounted = false;
     };
-  }, [ascending, cache, cacheKey, limit, mapper, orderBy, publishedOnly, select, table]);
+  }, [ascending, cache, cacheKey, enabled, limit, mapper, orderBy, publishedOnly, select, table]);
 
   return { items, isLoading };
 }
@@ -161,6 +178,12 @@ export function useSupabaseItem({ table, slug, fallback = null, mapper, publishe
 
     async function loadItem() {
       if (!isSupabaseConfigured) {
+        setIsLoading(false);
+        return;
+      }
+
+      const { supabase } = await import("../lib/supabaseClient.js");
+      if (!supabase) {
         setIsLoading(false);
         return;
       }

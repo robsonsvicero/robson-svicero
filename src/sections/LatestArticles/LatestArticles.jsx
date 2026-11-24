@@ -6,6 +6,7 @@ import Button from "../../components/ui/Button/Button.jsx";
 import Section from "../../components/ui/Section/Section.jsx";
 import { contentSnapshots } from "../../data/contentSnapshots.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
+import useNearViewport from "../../hooks/useNearViewport.js";
 import { mapBlogPost } from "../../lib/contentMappers.js";
 import { prefetchImages } from "../../utils/imagePrefetch.js";
 
@@ -44,6 +45,7 @@ export default function LatestArticles({
 }) {
   const reducedMotion = useReducedMotion();
   const queryLimit = excludeSlug ? limit + 1 : limit;
+  const [sectionRef, isNearViewport] = useNearViewport();
   const { items: blogPosts } = useSupabaseList({
     table: "blog_posts",
     fallback: contentSnapshots.blogPosts,
@@ -53,6 +55,7 @@ export default function LatestArticles({
     select: "slug,title,excerpt,seo_title,seo_description,image,thumbnail,author,category,published_at,views_count,reading_time,intro",
     publishedOnly: true,
     limit: queryLimit,
+    enabled: isNearViewport,
   });
 
   const latestPosts = blogPosts
@@ -70,6 +73,7 @@ export default function LatestArticles({
 
   return (
     <Section
+      sectionRef={sectionRef}
       className={`surface-band latest-articles ${className}`.trim()}
       aria-labelledby="sec-ultimos-artigos"
       containerClassName="container stack"

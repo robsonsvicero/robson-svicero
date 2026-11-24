@@ -132,7 +132,7 @@ const maintenancePlans = [
 const plansFaq = [
   {
     question: "Quanto custa manter o site depois do primeiro ano?",
-    answer: "Após o primeiro ano, o plano Essencial começa em R$ 129 por mês. Hospedagem, domínio padrão e o nível de suporte e alterações variam conforme o plano contratado.",
+    answer: "Após o primeiro ano, o plano Essencial começa em R$ 109 por mês. Hospedagem, domínio padrão e o nível de suporte e alterações variam conforme o plano contratado.",
   },
   {
     question: "Já tenho domínio ou site. Posso aproveitar?",

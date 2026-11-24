@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
 import Button from "../../ui/Button/Button.jsx";
 import { footerContent } from "../../../content/siteContent.js";
-import { isSupabaseConfigured, supabase } from "../../../lib/supabaseClient.js";
 
 /* ── Social icon SVGs ── */
 function TelegramIcon() {
@@ -74,7 +73,7 @@ export default function Footer() {
     event.preventDefault();
     if (isNewsletterSubmitting) return;
 
-    if (!isSupabaseConfigured) {
+    if (!import.meta.env.VITE_SUPABASE_URL || !import.meta.env.VITE_SUPABASE_ANON_KEY) {
       setNewsletterStatus("Cadastro indisponível no momento. Tente novamente mais tarde.");
       setNewsletterStatusType("error");
       return;
@@ -85,6 +84,7 @@ export default function Footer() {
     setNewsletterStatusType("");
 
     try {
+      const { supabase } = await import("../../../lib/supabaseClient.js");
       const { error } = await supabase.from("newsletter_subscribers").insert({
         first_name: newsletterForm.firstName.trim(),
         email: newsletterForm.email.trim().toLowerCase(),

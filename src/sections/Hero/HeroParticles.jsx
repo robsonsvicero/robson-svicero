@@ -54,9 +54,14 @@ export default function HeroParticles() {
 
     function resize() {
       const bounds = section.getBoundingClientRect();
-      width = Math.max(1, Math.round(bounds.width));
-      height = Math.max(1, Math.round(bounds.height));
+      const nextWidth = Math.max(1, Math.round(bounds.width));
+      const nextHeight = Math.max(1, Math.round(bounds.height));
       dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+
+      // Faça todas as leituras geométricas antes de alterar o canvas.
+      width = nextWidth;
+      height = nextHeight;
 
       canvas.width = width * dpr;
       canvas.height = height * dpr;
@@ -80,7 +85,6 @@ export default function HeroParticles() {
       }
 
       const ringCount = height < 480 ? 4 : 7;
-      const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
       const stepStart = 5.25 * rootFontSize;
       const stepInc = 10.5 * rootFontSize;
       const maxDist = Math.hypot(width / 2, originY);

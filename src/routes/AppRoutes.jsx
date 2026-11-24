@@ -1,19 +1,23 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
-import ReactGA from "react-ga4";
 import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton.jsx";
 import Home from "../pages/Home/Home.jsx";
 import useScrollToTop from "../hooks/useScrollToTop.js";
 
 const GA_MEASUREMENT_ID = "G-2CH2RN5QX0";
-let analyticsInitialized = false;
+let analyticsPromise;
 
 function ensureAnalyticsInitialized() {
-  if (analyticsInitialized || typeof window === "undefined") return;
-  ReactGA.initialize(GA_MEASUREMENT_ID, {
-    gaOptions: { send_page_view: false },
-  });
-  analyticsInitialized = true;
+  if (!analyticsPromise) {
+    analyticsPromise = import("react-ga4").then(({ default: ReactGA }) => {
+      ReactGA.initialize(GA_MEASUREMENT_ID, {
+        gaOptions: { send_page_view: false },
+      });
+      return ReactGA;
+    });
+  }
+
+  return analyticsPromise;
 }
 
 const AdminDashboard = lazy(() => import("../pages/Admin/AdminDashboard.jsx"));
@@ -73,19 +77,27 @@ function RouteAnalytics() {
   const lastTrackedPath = useRef("");
 
   useEffect(() => {
-    ensureAnalyticsInitialized();
-
     const page = `${location.pathname}${location.search}${location.hash}`;
+    let isCurrentPage = true;
 
-    // Evita pageview duplicado no StrictMode durante desenvolvimento.
-    if (lastTrackedPath.current === page) return;
-    lastTrackedPath.current = page;
+    ensureAnalyticsInitialized()
+      .then((ReactGA) => {
+        if (!isCurrentPage || lastTrackedPath.current === page) return;
+        lastTrackedPath.current = page;
 
-    ReactGA.send({
-      hitType: "pageview",
-      page,
-      title: document.title,
-    });
+        ReactGA.send({
+          hitType: "pageview",
+          page,
+          title: document.title,
+        });
+      })
+      .catch(() => {
+        // Analytics nao deve interromper a renderizacao do site se falhar.
+      });
+
+    return () => {
+      isCurrentPage = false;
+    };
   }, [location.hash, location.pathname, location.search]);
 
   return null;

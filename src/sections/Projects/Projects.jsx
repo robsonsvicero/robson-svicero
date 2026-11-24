@@ -9,6 +9,7 @@ import SectionHeader from "../../components/ui/SectionHeader/SectionHeader.jsx";
 import { contentSnapshots } from "../../data/contentSnapshots.js";
 import { projectsContent } from "../../content/siteContent.js";
 import { useSupabaseList } from "../../hooks/useSupabaseContent.js";
+import useNearViewport from "../../hooks/useNearViewport.js";
 import { getProjectBadges, mapProject } from "../../lib/contentMappers.js";
 import { prefetchImages } from "../../utils/imagePrefetch.js";
 
@@ -33,6 +34,7 @@ function ProjectScrollCard({ project }) {
 
 export default function Projects() {
   const reducedMotion = useReducedMotion();
+  const [sectionRef, isNearViewport] = useNearViewport();
   const { items: projects } = useSupabaseList({
     table: "projects",
     fallback: contentSnapshots.projects.slice(0, 3),
@@ -41,6 +43,7 @@ export default function Projects() {
     select: "slug,title,badge,niche,client_name,published_at,description,meta_description,seo_title,seo_description,image,thumbnail,alt,external_url",
     limit: 3,
     cache: false,
+    enabled: isNearViewport,
   });
 
   useEffect(() => {
@@ -52,6 +55,7 @@ export default function Projects() {
 
   return (
     <Section
+      sectionRef={sectionRef}
       className="surface-band projects-section"
       id="projetos"
       data-od-id="projetos"
