@@ -277,7 +277,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="footer_bottom">
           <div className="footer_copyright">
-            &copy; {new Date().getFullYear()} {footerContent.copyright}. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} {footerContent.copyright}. Todos os direitos reservados. CNPJ: 55.168.143/0001-07
           </div>
           <div className="footer_legal">
             {footerContent.bottomLinks.map((item) => (
