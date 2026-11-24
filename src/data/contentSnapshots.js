@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-24T20:01:30.558Z",
+  "generatedAt": "2026-11-24T20:48:37.984Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google/image-2026-11-24T13-29-20-222Z.webp",
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 23,
+      "viewsCount": 24,
       "readingTime": "11 minutos"
     },
     {
