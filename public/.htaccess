@@ -51,6 +51,10 @@ RewriteRule ^ https://robsonsvicero.com.br%{REQUEST_URI} [R=301,L]
 # Rota do agendamento: evita que o servidor a associe a arquivos HTML legados.
 RewriteRule ^agendamento/?$ /index.html [END]
 
+# O painel administrativo usa rotas do React Router e nao possui arquivos HTML
+# estaticos. Encaminha as entradas diretas para o app antes da regra de 404.
+RewriteRule ^admin(?:/login)?/?$ /index.html [END]
+
 # Markdown para agentes que solicitam uma representação textual.
 RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
 RewriteRule ^/?$ /index.md [END,T=text/markdown]
