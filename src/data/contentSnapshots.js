@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-24T20:48:37.984Z",
+  "generatedAt": "2026-11-24T21:28:55.623Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google/image-2026-11-24T13-29-20-222Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como o SEO local ajuda pequenos negócios a aparecer no Google, alcançar clientes da região e transformar pesquisas em oportunidades comerciais.",
       "category": "Raio X",
       "publishedAt": "2026-11-24T13:34:00+00:00",
-      "viewsCount": 1,
+      "viewsCount": 2,
       "readingTime": "9 minutos"
     },
     {

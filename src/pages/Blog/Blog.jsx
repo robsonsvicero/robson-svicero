@@ -110,7 +110,7 @@ export default function Blog() {
                           aria-pressed={selectedCategory === category}
                           onClick={() => {
                             setSelectedCategory(category);
-                            setVisibleCount(10);
+                            setVisibleCount(11);
                           }}
                         >
                           {category === "Todas" ? "Todas as categorias" : category}
