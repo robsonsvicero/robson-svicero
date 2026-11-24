@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-10T19:39:08.256Z",
+  "generatedAt": "2026-11-24T13:24:05.470Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/landing-page-ou-site-profissional-qual-e-melhor-para-um-negocio-local/image-2026-11-06T15-08-51-316Z.webp",
@@ -10,7 +10,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda as diferenças entre landing page e site profissional e descubra qual estrutura atende melhor às necessidades do seu negócio local.",
       "category": "Experiência Digital",
       "publishedAt": "2026-11-06T15:16:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 12,
       "readingTime": "6 minutos"
     },
     {
@@ -22,7 +22,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 23,
+      "viewsCount": 42,
       "readingTime": "12 minutos"
     },
     {
@@ -34,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 31,
+      "viewsCount": 36,
       "readingTime": "10 minutos"
     },
     {
@@ -46,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Acessibilidade em UX vai além de cumprir requisitos: contraste, teclado, linguagem e estrutura podem melhorar a experiência e ampliar o alcance do produto.",
       "category": "UX Insights",
       "publishedAt": "2026-10-01T23:54:00+00:00",
-      "viewsCount": 10,
+      "viewsCount": 11,
       "readingTime": "7 minutos"
     },
     {
@@ -58,7 +58,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda por que um site pensado primeiro para o celular melhora a navegação, transmite confiança e facilita o contato e as conversões.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-29T20:24:00+00:00",
-      "viewsCount": 21,
+      "viewsCount": 23,
       "readingTime": "11 minutos"
     },
     {
@@ -70,7 +70,7 @@ export const contentSnapshots = {
       "excerpt": "Seu Instagram pode parecer profissional, mas o que acontece quando o cliente pesquisa sua empresa no Google? Entenda o papel de um site próprio.",
       "category": "Raio X",
       "publishedAt": "2026-09-25T11:55:00+00:00",
-      "viewsCount": 11,
+      "viewsCount": 12,
       "readingTime": "7 minutos"
     },
     {
@@ -94,7 +94,7 @@ export const contentSnapshots = {
       "excerpt": "Sua empresa tem boas avaliações no Google, mas não as aproveita no site? Veja como integrar reputação, Google e presença digital para gerar confiança.",
       "category": "Raio X",
       "publishedAt": "2026-09-17T20:56:00+00:00",
-      "viewsCount": 23,
+      "viewsCount": 25,
       "readingTime": "8 minutos"
     },
     {
@@ -106,7 +106,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como um site pode ajudar negócios locais a serem encontrados e como integrar site, Instagram e Google em uma estratégia digital.",
       "category": "Experiência Digital",
       "publishedAt": "2026-09-09T10:21:00+00:00",
-      "viewsCount": 11,
+      "viewsCount": 12,
       "readingTime": "10 minutos"
     },
     {
@@ -118,7 +118,7 @@ export const contentSnapshots = {
       "excerpt": "Ter seguidores e visitas é importante, mas não é o objetivo final de uma empresa. Neste artigo, mostramos por que site e Instagram cumprem funções diferentes e como transformar atenção em oportunidades de negócio.",
       "category": "Experiência Digital",
       "publishedAt": "2026-08-25T20:29:00+00:00",
-      "viewsCount": 27,
+      "viewsCount": 28,
       "readingTime": "10 minutos"
     },
     {
@@ -130,7 +130,7 @@ export const contentSnapshots = {
       "excerpt": "Aparecer no Google não basta. Veja como uma clínica conquistava visibilidade, mas perdia confiança e oportunidades depois do clique.",
       "category": "Raio X",
       "publishedAt": "2026-08-21T00:16:00+00:00",
-      "viewsCount": 14,
+      "viewsCount": 15,
       "readingTime": "8 minutos"
     },
     {
@@ -154,7 +154,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Raio X",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 47,
+      "viewsCount": 48,
       "readingTime": "8 minutos"
     },
     {
@@ -166,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra quanto custa criar um site profissional em 2026, quais fatores influenciam o preço e como escolher a melhor solução para sua empresa.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-11T15:41:00+00:00",
-      "viewsCount": 24,
+      "viewsCount": 25,
       "readingTime": "7 minutos"
     },
     {
@@ -190,7 +190,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra os principais sinais de que sua empresa precisa de um novo site e veja como avaliar design, desempenho, conteúdo e geração de contatos.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-08-04T20:34:00+00:00",
-      "viewsCount": 26,
+      "viewsCount": 27,
       "readingTime": "8 minutos"
     },
     {
@@ -202,7 +202,7 @@ export const contentSnapshots = {
       "excerpt": "Uma análise real mostra como um site escondia seus principais diferenciais. Descubra como isso afeta a confiança, a conversão e as vendas.",
       "category": "Raio X",
       "publishedAt": "2026-07-29T03:00:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "8 minutos"
     },
     {
@@ -214,7 +214,7 @@ export const contentSnapshots = {
       "excerpt": "Entenda como a percepção de valor influencia a decisão de compra e descubra como comunicar melhor os benefícios da sua empresa para se destacar da concorrência.",
       "category": "Branding & Identidade Visual",
       "publishedAt": "2026-07-28T12:00:00+00:00",
-      "viewsCount": 18,
+      "viewsCount": 19,
       "readingTime": "7 minutos"
     },
     {
@@ -226,7 +226,7 @@ export const contentSnapshots = {
       "excerpt": "Seu site responde às dúvidas que impedem um cliente de comprar? Entenda como clareza, confiança e orientação reduzem abandonos e facilitam a decisão.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-07-23T03:05:00+00:00",
-      "viewsCount": 20,
+      "viewsCount": 21,
       "readingTime": "6 minutos"
     },
     {
