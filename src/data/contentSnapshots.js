@@ -1,5 +1,5 @@
 export const contentSnapshots = {
-  "generatedAt": "2026-11-24T21:28:55.623Z",
+  "generatedAt": "2026-11-25T23:47:59.775Z",
   "blogPosts": [
     {
       "image": "https://rddufuzsjzschmuyadma.supabase.co/storage/v1/object/public/site-media/posts/raio-x-digital-007-o-negocio-que-atendia-o-bairro-inteiro-mas-nao-aparecia-nas-buscas-do-google/image-2026-11-24T13-29-20-222Z.webp",
@@ -34,7 +34,7 @@ export const contentSnapshots = {
       "excerpt": "Veja como o redesign do Menu Zona Norte elevou cliques, impressões e visibilidade no Google com UX Design, desenvolvimento web e SEO.",
       "category": "Websites Estratégicos",
       "publishedAt": "2026-11-04T16:05:00+00:00",
-      "viewsCount": 43,
+      "viewsCount": 44,
       "readingTime": "12 minutos"
     },
     {
@@ -46,7 +46,7 @@ export const contentSnapshots = {
       "excerpt": "Descubra como orientar a inteligência artificial para criar interfaces web mais originais, consistentes e alinhadas à identidade da sua marca.",
       "category": "Experiência Digital",
       "publishedAt": "2026-10-13T21:32:00+00:00",
-      "viewsCount": 36,
+      "viewsCount": 37,
       "readingTime": "10 minutos"
     },
     {
@@ -166,7 +166,7 @@ export const contentSnapshots = {
       "excerpt": "Um site pode ser bonito e ainda assim perder clientes. Veja neste Raio-X Digital como a falta de comunicação transforma uma boa estética em abandono.",
       "category": "Raio X",
       "publishedAt": "2026-08-13T03:00:00+00:00",
-      "viewsCount": 48,
+      "viewsCount": 49,
       "readingTime": "8 minutos"
     },
     {

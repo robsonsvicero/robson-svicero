@@ -28,6 +28,29 @@ const CANONICAL_PATHS = [
   "/faq",
 ];
 
+const APP_INTERNAL_ROUTES = [
+  {
+    path: "/admin",
+    title: "Painel Administrativo | Robson Svicero",
+    robots: "noindex, nofollow",
+  },
+  {
+    path: "/admin/login",
+    title: "Login Administrativo | Robson Svicero",
+    robots: "noindex, nofollow",
+  },
+  {
+    path: "/agendamento",
+    title: "Agendamento | Robson Svicero",
+    robots: "noindex, nofollow",
+  },
+  {
+    path: "/exclusao-dados",
+    title: "Instruções para Exclusão de Dados | Robson Svicero",
+    robots: "noindex, nofollow",
+  },
+];
+
 function normalizePathname(pathname) {
   if (!pathname || pathname === "/") return "/";
   const withLeadingSlash = pathname.startsWith("/") ? pathname : `/${pathname}`;
@@ -138,6 +161,82 @@ async function writeRouteHtml(indexHtml, pathname, siteUrl) {
   await writeFile(outputPath, routeHtml, "utf-8");
 }
 
+async function writeAppRouteHtml(indexHtml, routeConfig, siteUrl) {
+  const { path: routePath, title, robots } = routeConfig;
+  const canonicalUrl = toAbsoluteUrl(routePath, siteUrl);
+  let routeHtml = setCanonicalAndOgUrl(indexHtml, canonicalUrl);
+
+  if (title) {
+    routeHtml = routeHtml.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+    routeHtml = routeHtml.replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${title}" />`);
+  }
+
+  if (robots) {
+    if (/<meta\s+name=["']robots["'][^>]*>/i.test(routeHtml)) {
+      routeHtml = routeHtml.replace(/<meta\s+name=["']robots["'][^>]*>/i, `<meta name="robots" content="${robots}" />`);
+    } else {
+      routeHtml = routeHtml.replace("</head>", `  <meta name="robots" content="${robots}" />\n</head>`);
+    }
+  }
+
+  // Substitui o fallback da home pelo placeholder limpo de carregamento da aplicação
+  routeHtml = routeHtml.replace(
+    /<div id="root">[\s\S]*?<\/div>\s*<\/body>/i,
+    '<div id="root">\n    <main style="min-height:70vh;display:flex;align-items:center;justify-content:center;color:#8FB2EC;"><p>Carregando...</p></main>\n  </div>\n</body>'
+  );
+
+  const outputDir = path.join(DIST_PATH, routePath.replace(/^\//, ""));
+  const outputPath = path.join(outputDir, "index.html");
+
+  await mkdir(outputDir, { recursive: true });
+  await writeFile(outputPath, routeHtml, "utf-8");
+}
+
+async function write404Html(indexHtml, siteUrl) {
+  const canonicalUrl = toAbsoluteUrl("/404", siteUrl);
+  let html404 = setCanonicalAndOgUrl(indexHtml, canonicalUrl);
+
+  const title = "Página não encontrada | Robson Svicero";
+  const description = "O endereço acessado não existe ou foi movido.";
+
+  html404 = html404.replace(/<title>[\s\S]*?<\/title>/i, `<title>${title}</title>`);
+  html404 = html404.replace(/<meta\s+property=["']og:title["'][^>]*>/i, `<meta property="og:title" content="${title}" />`);
+  html404 = html404.replace(/<meta\s+name=["']description["'][^>]*>/i, `<meta name="description" content="${description}" />`);
+  html404 = html404.replace(/<meta\s+property=["']og:description["'][^>]*>/i, `<meta property="og:description" content="${description}" />`);
+
+  if (/<meta\s+name=["']robots["'][^>]*>/i.test(html404)) {
+    html404 = html404.replace(/<meta\s+name=["']robots["'][^>]*>/i, '<meta name="robots" content="noindex, follow" />');
+  } else {
+    html404 = html404.replace("</head>", '  <meta name="robots" content="noindex, follow" />\n</head>');
+  }
+
+  const fallback404 = `<div id="root">
+    <main id="inicio" class="section">
+      <div class="container stack" style="gap: var(--space-6, 1.5rem); max-width: 760px; text-align: center; margin: 0 auto; padding: 5rem 1rem;">
+        <p class="eyebrow" style="color: var(--accent-300, #8FB2EC); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">404</p>
+        <h1 style="color: #fff; font-size: 2.5rem; margin: 0.5rem 0;">Página não encontrada</h1>
+        <p class="lead" style="color: var(--dark-100, #E7EAEE); font-size: 1.125rem; margin-bottom: 2rem;">O endereço acessado não existe ou foi movido.</p>
+        <div class="hero-cta" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/" class="btn btn--primary" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--accent-600, #0052CC); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">Voltar para home</a>
+          <a href="/#contato" class="btn btn--secondary" style="display: inline-block; padding: 0.75rem 1.5rem; background: transparent; border: 1px solid var(--accent-500, #3D6FD0); color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600;">Falar sobre um projeto</a>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>`;
+
+  html404 = html404.replace(/<div id="root">[\s\S]*?<\/div>\s*<\/body>/i, fallback404);
+
+  // Escreve dist/404.html (usado pelo Apache/LiteSpeed ErrorDocument e RewriteRule)
+  const dist404HtmlPath = path.join(DIST_PATH, "404.html");
+  await writeFile(dist404HtmlPath, html404, "utf-8");
+
+  // Escreve dist/404/index.html (para caso a URL /404 seja acessada diretamente)
+  const dir404 = path.join(DIST_PATH, "404");
+  await mkdir(dir404, { recursive: true });
+  await writeFile(path.join(dir404, "index.html"), html404, "utf-8");
+}
+
 async function run() {
   const siteUrl = (process.env.VITE_SITE_URL || "https://robsonsvicero.com.br").replace(/\/$/, "");
 
@@ -156,7 +255,15 @@ async function run() {
     await writeRouteHtml(indexHtml, pathname, siteUrl);
   }
 
-  console.log(`[static-html] HTML canonico gerado para ${allPaths.length} rota(s).`);
+  for (const appRoute of APP_INTERNAL_ROUTES) {
+    await writeAppRouteHtml(indexHtml, appRoute, siteUrl);
+  }
+
+  await write404Html(indexHtml, siteUrl);
+
+  console.log(
+    `[static-html] Gerado: ${allPaths.length} rotas canonicas, ${APP_INTERNAL_ROUTES.length} rotas de app (incluindo admin) e pagina 404 estilizada.`
+  );
 }
 
 run().catch((error) => {

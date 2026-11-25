@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef } from "react";
 import { BrowserRouter, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import WhatsAppButton from "../components/WhatsAppButton/WhatsAppButton.jsx";
+import EbookModal from "../components/EbookModal/EbookModal.jsx";
 import Home from "../pages/Home/Home.jsx";
 import useScrollToTop from "../hooks/useScrollToTop.js";
 
@@ -149,6 +150,7 @@ export default function AppRoutes() {
         </Routes>
       </Suspense>
       <GlobalWhatsAppButton />
+      <EbookModal />
     </BrowserRouter>
   );
 }

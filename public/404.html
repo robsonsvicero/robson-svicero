@@ -5,17 +5,186 @@
     <meta name="robots" content="noindex, follow">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Página não encontrada | Robson Svicero</title>
+    <meta name="description" content="O endereço acessado não existe ou foi movido.">
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="shortcut icon" href="/assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/apple-touch-icon.png" />
+    <link rel="preload" href="/fonts/suse-latin-MwQ5bhb078Wt2V9BPQ.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: "SUSE";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: swap;
+        src: url("/fonts/suse-latin-MwQ5bhb078Wt2V9BPQ.woff2") format("woff2");
+      }
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --navy-900: #071A45;
+        --dark-900: #0D1521;
+        --dark-100: #E7EAEE;
+        --accent-600: #0052CC;
+        --accent-500: #3D6FD0;
+        --accent-300: #8FB2EC;
+        --accent-glow: rgba(0, 82, 204, 0.18);
+      }
+      body {
+        font-family: "SUSE", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background-color: var(--navy-900);
+        color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      header {
+        padding: 1.5rem 2rem;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.125rem;
+        letter-spacing: -0.01em;
+      }
+      .brand img {
+        height: 28px;
+        width: auto;
+      }
+      main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 4rem 1.5rem;
+      }
+      .card {
+        max-width: 640px;
+        width: 100%;
+        text-align: center;
+        background: rgba(13, 21, 33, 0.65);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 1.25rem;
+        padding: 3.5rem 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(12px);
+      }
+      .eyebrow {
+        color: var(--accent-300);
+        font-size: 1.125rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 0.75rem;
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+      .lead {
+        font-size: 1.125rem;
+        color: var(--dark-100);
+        margin-bottom: 2.25rem;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .actions {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.875rem 1.75rem;
+        border-radius: 0.625rem;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: all 0.2s ease;
+      }
+      .btn-primary {
+        background-color: var(--accent-600);
+        color: #ffffff;
+        box-shadow: 0 4px 14px var(--accent-glow);
+      }
+      .btn-primary:hover {
+        background-color: var(--accent-500);
+        transform: translateY(-1px);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: #ffffff;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+      }
+      .btn-secondary:hover {
+        border-color: var(--accent-300);
+        color: var(--accent-300);
+        transform: translateY(-1px);
+      }
+      footer {
+        padding: 1.5rem 2rem;
+        text-align: center;
+        font-size: 0.875rem;
+        color: rgba(231, 234, 238, 0.6);
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      footer a {
+        color: var(--accent-300);
+        text-decoration: none;
+        margin: 0 0.5rem;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <a href="/" class="brand" aria-label="Ir para página inicial">
+        <img src="/assets/images/logo_branco.svg" alt="Robson Svicero" width="140" height="28" onerror="this.style.display='none'">
+        <span>Robson Svicero</span>
+      </a>
+    </header>
     <main>
-      <h1>Página não encontrada</h1>
-      <p>A página solicitada não existe.</p>
-      <nav aria-label="Navegação de recuperação">
-        <a href="/">Início</a>
-        <a href="/sobre">Sobre</a>
-        <a href="/contato">Contato</a>
-        <a href="/privacidade">Privacidade</a>
-      </nav>
+      <div class="card">
+        <p class="eyebrow">404</p>
+        <h1>Página não encontrada</h1>
+        <p class="lead">O endereço acessado não existe ou foi movido para outro local.</p>
+        <div class="actions">
+          <a href="/" class="btn btn-primary">Voltar para home</a>
+          <a href="/#contato" class="btn btn-secondary">Falar sobre um projeto</a>
+        </div>
+      </div>
     </main>
+    <footer>
+      <p>&copy; Robson Svicero. Todos os direitos reservados.
+        <a href="/">Início</a> &bull;
+        <a href="/sobre">Sobre</a> &bull;
+        <a href="/cases">Projetos</a> &bull;
+        <a href="/contato">Contato</a> &bull;
+        <a href="/privacidade">Privacidade</a>
+      </p>
+    </footer>
   </body>
 </html>

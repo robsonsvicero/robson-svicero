@@ -53,15 +53,18 @@ RewriteCond %{HTTP_HOST} ^www\.robsonsvicero\.com\.br$ [NC]
 RewriteRule ^ https://robsonsvicero.com.br%{REQUEST_URI} [R=301,L]
 
 # Rota do agendamento: evita que o servidor a associe a arquivos HTML legados.
-RewriteRule ^agendamento/?$ /index.html [END]
+RewriteRule ^agendamento(?:/.*)?$ /index.html [L]
 
-# O painel administrativo usa rotas do React Router e nao possui arquivos HTML
-# estaticos. Encaminha as entradas diretas para o app antes da regra de 404.
-RewriteRule ^admin(?:/login)?/?$ /index.html [END]
+# O painel administrativo usa rotas do React Router.
+# Encaminha qualquer rota iniciada por /admin diretamente para o app.
+RewriteRule ^admin(?:/.*)?$ /index.html [L]
+
+# Redirecionamento de links curtos (/r/:slug) para o SPA
+RewriteRule ^r(?:/.*)?$ /index.html [L]
 
 # Markdown para agentes que solicitam uma representação textual.
 RewriteCond %{HTTP_ACCEPT} text/markdown [NC]
-RewriteRule ^/?$ /index.md [END,T=text/markdown]
+RewriteRule ^/?$ /index.md [L,T=text/markdown]
 
 # Redireciona /index.html → / APENAS para requisições diretas (não rewrites internos)
 # Sem este RewriteCond o Apache redirecionava /blog/slug → /index.html → / (3XX)
@@ -78,6 +81,10 @@ RewriteRule ^servico-identidade-visual\.html$ /servicos [R=301,L]
 RewriteRule ^src/docs/Roberto\ Robson\ Svicero\ -\ Frontend\.pdf$ /sobre [R=301,L,NE]
 
 # Rotas desconhecidas recebem o documento 404 com status HTTP real.
+# Não aplica regra de 404 para rotas gerenciadas dinamicamente pelo SPA.
+RewriteCond %{REQUEST_URI} !^/admin
+RewriteCond %{REQUEST_URI} !^/agendamento
+RewriteCond %{REQUEST_URI} !^/r/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ /404.html [R=404,L]
